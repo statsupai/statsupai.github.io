@@ -1,0 +1,31 @@
+---
+title: "The Large-scale Neuroimaging-related Studies Directory"
+output: 
+  html_document
+---
+
+This is online resource that provides succinct overviews and direct access to pivotal neuroimaging research. Aimed at researchers, academics, and enthusiasts, the directory compiles key studies exploring brain structure, function, and neurological disease progression. It stands as a hub for fostering collaboration, enhancing data transparency, and promoting scientific advancements in the field of neuroimaging.
+
+
+| Name | Description | Website |
+|------|-------------|-|
+| Alzheimer's Disease Neuroimaging Initiative (ADNI) | A multisite, longitudinal study aimed at validating biomarkers for Alzheimer's disease (AD) clinical trials, tracking AD progression through clinical, imaging, genetic, and biospecimen markers across various stages from normal aging to dementia. | [ADNI](https://adni.loni.usc.edu/) |
+| Connectome Coordination Facility (CCF) | Houses and distributes public research data for a series of studies that focus on the connections within the human brain, known as Human Connectome Projects. | [CCF](https://www.humanconnectome.org/) |
+| Human Connectome Project (HCP) | Gathers data from 1,200 healthy young adults to create a comprehensive "network map" of the healthy human brain, exploring individual variability in brain circuits. | [HCP](https://www.humanconnectome.org/) |
+| UK Biobank (UKB) | A large-scale biomedical database and research resource containing de-identified genetic, lifestyle and health information, and biological samples from half a million UK participants. | [UKB](https://www.ukbiobank.ac.uk/) |
+| Adolescent Brain Cognitive Development Study (ABCD) | The largest long-term research project in the United States focusing on brain development and child health, inviting 11,880 children aged 9-10 to participate. | [ABCD](https://abcdstudy.org/) |
+| Enhancing NeuroImaging Genetics through Meta-Analysis (ENIGMA) | Brings together researchers in imaging genomics to understand brain structure, function, and disease, based on brain imaging and genetic data. | [ENIGMA](https://enigma.ini.usc.edu/) |
+| All of Us Research Program | A research program from the National Institutes of Health (NIH) aims to enroll one million or more people from across the U.S. to advance medical research. | [All of Us](https://allofus.nih.gov/) |
+| Osteoarthritis Initiative (OAI) | A multi-center, ten-year observational study involving men and women, aimed at providing resources to enhance the understanding of prevention and treatment of knee osteoarthritis. | [OAI](https://nda.nih.gov/oai) |
+| Philadelphia Neurodevelopmental Cohort (PNC) | Centers on exploring the interplay between brain, behavior, and genetics, involving over 9,500 individuals from the greater Philadelphia area. | [PNC](https://www.med.upenn.edu/bbl/philadelphianeurodevelopmentalcohort.html) |
+| Pediatric Imaging, Neurocognition, and Genetics (PING) | A large repository of standardized measurements of behavioral and imaging phenotypes accompanied by whole genome genotyping acquired from typically-developing children. | [PING](http://pingstudy.ucsd.edu/) |
+| National Lung Screening Trial (NLST) | A randomized multicenter study comparing low-dose helical computed tomography (CT) with chest radiography in the screening of older current and former heavy smokers for early detection of lung cancer. | [NLST](https://www.cancer.gov/types/lung/research/nlst) |
+| Image & Data Archive (IDA) | Offers tools for de-identification, integration, search, visualization, and sharing diverse neuroscience data. | [IDA](https://ida.loni.usc.edu/login.jsp) |
+| NIMH Data Archive (NDA) | Offers an infrastructure that makes available human subjects data from hundreds of research projects across various scientific domains. | [NDA](https://nda.nih.gov/) |
+| Brain Image Library (BIL) | A national public resource providing facilities for depositing, analyzing, sharing, and interacting with large brain image datasets. | [BIL](https://www.brainimagelibrary.org/) |
+| Prostate, Lung, Colorectal, and Ovarian Cancer Screening Trial (PLCO) | A randomized, controlled trial conducted to determine if specific screening exams reduce mortality from these cancers, enrolling approximately 155,000 participants. | [PLCO](https://cdas.cancer.gov/plco/) |
+| NeuroImaging Tools & Resources Collaboratory (NITRC) | A free web-based resource that offers comprehensive information on neuroinformatics software and data. | [NITRC](https://www.nitrc.org/projects/nitrc/) |
+| The Cancer Genome Atlas (TCGA) | A comprehensive effort to accelerate our understanding of the molecular basis of cancer through genome analysis technologies. | [TCGA](https://www.genome.gov/Funded-Programs-Projects/Cancer-Genome-Atlas) |
+| Brain Tumor Segmentation (BraTS) Challenge | Since 2012, BraTS has focused on the generation of a benchmarking environment and dataset for the delineation of adult brain gliomas. | [BraTS](https://www.med.upenn.edu/cbica/brats/) |
+
+
