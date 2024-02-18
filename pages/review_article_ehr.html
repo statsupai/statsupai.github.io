@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article Showcase</title>
+	<style>
+		body {
+        font-family: 'Georgia', serif; /* 更圆润的字体 */
+        color: #333; /* 设置文本颜色为深灰色 */
+        line-height: 1.6; /* 设置行间距 */
+		}
+		.article {
+			max-width: 1400px; /* 设置文章最大宽度为800px */
+			margin: 0 auto; /* 设置左右边距为自动，以使文章在页面中居中 */
+			background-color: #f6f6f6; /* 设置文章背景颜色为非常浅的灰色 */
+			margin-bottom: 20px;
+			padding: 20px; /* 添加一些内边距 */
+			border-radius: 5px; /* 添加圆角边框 */
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 添加轻微的阴影 */
+		}
+		.title a {
+			font-size: 24px; /* 增加标题字体大小 */
+			font-weight: bold;
+			text-decoration: none; /* 移除链接下划线 */
+			color: #0073e6; /* 设置链接颜色为Nature风格的蓝色 */
+		}
+		.title a:hover {
+			text-decoration: underline; /* 鼠标悬停时添加下划线 */
+		}
+		.author {
+			font-size: 16px;
+			color: #0056b3; /* 设置作者名的颜色为深蓝色 */
+		}
+		.abstract {
+		max-width: 1350px;
+		font-size: 16px;
+		color: #444;
+		overflow: hidden; /* 隐藏超出部分 */
+		text-overflow: ellipsis; /* 添加省略号 */
+		white-space: nowrap; /* 保持在一行 */
+		}
+		.header-image {
+        max-width: 3840px; /* 最大宽度为1400px */
+        width: 100%; /* 宽度为容器的100% */
+        height: auto; /* 高度自动调整以保持图片比例 */
+        display: block; /* 确保图片独占一行 */
+        margin: 0 auto 30px; /* 图片上下居中显示，下方留出20px的边距 */
+		｝
+		.link {
+			font-size: 14px;
+			display: block; /* 使它们成为块级元素 */
+			margin-top: 10px; /* 添加一点间隔 */
+		}
+		.more-text {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<!-- 在标题上方添加图片 -->
+    <!-- <img src="https://raw.githubusercontent.com/statsupai/statsupai.github.io/main/img/review_image.jpg" alt="Neuroimage Preprocessing" class="header-image"> -->
+
+    <!-- Article 1 -->
+	<div class="article">
+		<div class="title"><a href="https://www.jmir.org/2023/1/e45662/PDF">Generate Analysis-Ready Data for Real-world Evidence: Tutorial for Harnessing Electronic Health Records With Advanced Informatic Technologies</a></div>
+		<div class="author">Jue Hou, PhD; Rachel Zhao, BSc; Jessica Gronsbell, PhD; Yucong Lin, PhD; Clara-Lea Bonzel, MSc; Qingyi Zeng, BSc; Sinian Zhang; Brett K Beaulieu-Jones, PhD; Griffin M Weber, MD, PhD; Thomas Jemielita, PhD; Shuyan Sabrina Wan, PhD; Chuan Hong, PhD; Tianrun Cai, MD, PhD; Jun Wen, PhD; Vidul Ayakulangara Panickan, MSc; Kai-Li Liaw, PhD; Katherine Liao, MPH, MD; Tianxi Cai, ScD</div>
+		<div class="abstract">Although randomized controlled trials (RCTs) are the gold standard for establishing the efficacy and safety of a medical treatment, real-world evidence (RWE) generated from real-world data has been vital in postapproval monitoring and is being promoted for the regulatory process of experimental therapies. An emerging source of real-world data is electronic health records (EHRs), which contain detailed information on patient care in both structured (eg, diagnosis codes) and unstructured (eg, clinical notes and images) forms. Despite the granularity of the data available in EHRs, the critical variables required to reliably assess the relationship between a treatment and clinical outcome are challenging to extract. To address this fundamental challenge and accelerate the reliable use of EHRs for RWE, we introduce an integrated data curation and modeling pipeline consisting of 4 modules that leverage recent advances in natural language processing, computational phenotyping, and causal modeling techniques with noisy data. Module 1 consists of techniques for data harmonization. We use natural language processing to recognize clinical variables from RCT design documents and map the extracted variables to EHR features with description matching and knowledge networks. Module 2 then develops techniques for cohort construction using advanced phenotyping algorithms to both identify patients with diseases of interest and define the treatment arms. Module 3 introduces methods for variable curation, including a list of existing tools to extract baseline variables from different sources (eg, codified, free text, and medical imaging) and end points of various types (eg, death, binary, temporal, and numerical). Finally, module 4 presents validation and robust modeling methods, and we propose a strategy to create gold-standard labels for EHR variables of interest to validate data curation quality and perform subsequent causal modeling for RWE. In addition to the workflow proposed in our pipeline, we also develop a reporting guideline for RWE that covers the necessary information to facilitate transparent reporting and reproducibility of results. Moreover, our pipeline is highly data driven, enhancing study data with a rich variety of publicly available information and knowledge sources. We also showcase our pipeline and provide guidance on the deployment of relevant tools by revisiting the emulation of the Clinical Outcomes of Surgical Therapy Study Group Trial on laparoscopy-assisted colectomy versus open colectomy in patients with early-stage colon cancer. We also draw on existing literature on EHR emulation of RCTs together with our own studies with the Mass General Brigham EHR. <span class="more-text">(J Med Internet Res 2023;25:e45662)</span></div>
+		<a href="javascript:void(0);" class="link" onclick="toggleAbstract(this)">Read more</a>
+	</div>	
+	
+	<div class="article">
+		<div class="title"><a href="https://www.nature.com/articles/s41596-019-0227-6">High-throughput phenotyping with electronic medical record data using a common semi-supervised approach (PheCAP)</a></div>
+		<div class="author">Yichi Zhang, Tianrun Cai, Sheng Yu, Kelly Cho, Chuan Hong, Jiehuan Sun, Jie Huang, Yuk-Lam Ho, Ashwin N. Ananthakrishnan, Zongqi Xia, Stanley Y. Shaw, Vivian Gainer, Victor Castro, Nicholas Link, Jacqueline Honerlaw, Sicong Huang, David Gagnon, Elizabeth W. Karlson, Robert M. Plenge, Peter Szolovits, Guergana Savova, Susanne Churchill, Christopher O’Donnell, Shawn N. Murphy, …Katherine P. Liao</div>
+		<div class="abstract">Phenotypes are the foundation for clinical and genetic studies of disease risk and outcomes. The growth of biobanks linked to electronic medical record (EMR) data has both facilitated and increased the demand for efficient, accurate, and robust approaches for phenotyping millions of patients. Challenges to phenotyping with EMR data include variation in the accuracy of codes, as well as the high level of manual input required to identify features for the algorithm and to obtain gold standard labels. To address these challenges, we developed PheCAP, a high-throughput semi-supervised phenotyping pipeline. PheCAP begins with data from the EMR, including structured data and information extracted from the narrative notes using natural language processing (NLP). The standardized steps integrate automated procedures, which reduce the level of manual input, and machine learning approaches for algorithm training. PheCAP itself can be executed in 1–2 d if all data are available; however, the timing is largely dependent on the chart review stage, which typically requires at least 2 weeks. The final products of PheCAP include a phenotype algorithm, the probability of the phenotype for all patients, and a phenotype classification (yes or no). <span class="more-text">Nature Protocols volume 14, pages 3426–3444 (2019).</span></div>
+		<a href="javascript:void(0);" class="link" onclick="toggleAbstract(this)">Read more</a>
+	</div>	
+
+	<div class="article">
+		<div class="title"><a href="https://github.com/celehs?tab=repositories">Translational Data Science Center for a Learning Health System</a></div>
+		<div class="author"></div>
+		<div class="abstract">Analytical and predictive tools that leverage biomedical data to improve the efficiency and accuracy of healthcare delivery. <span class="more-text"></span></div>
+		<a href="javascript:void(0);" class="link" onclick="toggleAbstract(this)">Read more</a>
+	</div>	
+
+	<script>
+	function toggleAbstract(element) {
+		var abstract = element.previousElementSibling; // 获取摘要元素
+		if (abstract.style.display === "block" && abstract.style.whiteSpace === "normal") {
+			// 如果当前是展开状态，则收起
+			abstract.style.whiteSpace = "nowrap"; // 收起文本
+			abstract.style.overflow = "hidden"; // 隐藏文本溢出部分
+			abstract.style.textOverflow = "ellipsis"; // 添加省略号
+			element.textContent = "Read more"; // 更改链接文本为 'Read more'
+		} else {
+			// 如果当前是收起状态，则展开
+			abstract.style.display = "block"; // 确保摘要显示
+			abstract.style.whiteSpace = "normal"; // 展开全文
+			abstract.style.overflow = "visible"; // 显示全部文本
+			abstract.style.textOverflow = "clip"; // 移除省略号
+			element.textContent = "Read less"; // 更改链接文本为 'Read less'
+		}
+	}
+	</script>
+
+</body>
+</html>
