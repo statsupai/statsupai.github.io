@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article Showcase</title>
+	<style>
+		/* 添加一些基本的样式，类似Nature风格 */
+		body {
+        font-family: 'Georgia', serif; /* 更圆润的字体 */
+        color: #333; /* 设置文本颜色为深灰色 */
+        line-height: 1.6; /* 设置行间距 */
+		}
+		.article {
+			max-width: 1400px; /* 设置文章最大宽度为800px */
+			margin: 0 auto; /* 设置左右边距为自动，以使文章在页面中居中 */
+			background-color: #f6f6f6; /* 设置文章背景颜色为非常浅的灰色 */
+			margin-bottom: 20px;
+			padding: 20px; /* 添加一些内边距 */
+			border-radius: 5px; /* 添加圆角边框 */
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 添加轻微的阴影 */
+		}
+		.title a {
+			font-size: 24px; /* 增加标题字体大小 */
+			font-weight: bold;
+			text-decoration: none; /* 移除链接下划线 */
+			color: #0073e6; /* 设置链接颜色为Nature风格的蓝色 */
+		}
+		.title a:hover {
+			text-decoration: underline; /* 鼠标悬停时添加下划线 */
+		}
+		.author {
+			font-size: 16px;
+			color: #0056b3; /* 设置作者名的颜色为深蓝色 */
+		}
+		.abstract {
+		max-width: 1350px;
+		font-size: 16px;
+		color: #444;
+		overflow: hidden; /* 隐藏超出部分 */
+		text-overflow: ellipsis; /* 添加省略号 */
+		white-space: nowrap; /* 保持在一行 */
+		}
+		.header-image {
+        max-width: 3840px; /* 最大宽度为1400px */
+        width: 100%; /* 宽度为容器的100% */
+        height: auto; /* 高度自动调整以保持图片比例 */
+        display: block; /* 确保图片独占一行 */
+        margin: 0 auto 30px; /* 图片上下居中显示，下方留出20px的边距 */
+		｝
+		.link {
+			font-size: 14px;
+			display: block; /* 使它们成为块级元素 */
+			margin-top: 10px; /* 添加一点间隔 */
+		}
+		.more-text {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<!-- 在标题上方添加图片 -->
+    <img src="https://raw.githubusercontent.com/statsupai/statsupai.github.io/main/img/review_image.jpg" alt="Neuroimage Preprocessing" class="header-image">
+
+    <!-- Article 1 -->
+    <div class="article">
+        <div class="title"><a href="https://www.annualreviews.org/doi/abs/10.1146/annurev-biodatasci-020722-100353">Statistical Learning Methods for Neuroimaging Data Analysis with Applications</a></div>
+        <div class="author">Hongtu Zhu; Tengfei Li; Bingxin Zhao</div>
+        <div class="abstract">The aim of this review is to provide a comprehensive survey of statistical challenges in neuroimaging data analysis... <span class="more-text">from neuroimaging techniques to large-scale neuroimaging studies and statistical learning methods. We briefly review eight popular neuroimaging techniques and their potential applications in neuroscience research and clinical translation. We delineate four themes of neuroimaging data and review major image processing analysis methods for processing neuroimaging data at the individual level. We briefly review four large-scale neuroimaging-related studies and a consortium on imaging genomics and discuss four themes of neuroimaging data analysis at the population level. We review nine major population-based statistical analysis methods and their associated statistical challenges and present recent progress in statistical methodology to address these challenges.</span></div>
+        <a href="javascript:void(0);" class="link" onclick="toggleAbstract(this)">Read more</a>
+    </div>
+
+	<!-- Article 2 -->
+	<div class="article">
+		<div class="title"><a href="https://ieeexplore.ieee.org/document/6522524">Deformable Medical Image Registration: A Survey</a></div>
+		<div class="author">Aristeidis Sotiras; Christos Davatzikos; Nikos Paragios</div>
+		<div class="abstract">Deformable image registration is a fundamental task in medical image processing. Among its most important applications, one may cite: 1) multi-modality fusion, where information acquired by different imaging devices or protocols is fused to facilitate diagnosis and treatment planning; 2) longitudinal studies, where temporal structural or anatomical changes are investigated; and 3) population modeling and statistical atlases used to study normal anatomical variability. <span class="more-text">In this paper, we attempt to give an overview of deformable registration methods, putting emphasis on the most recent advances in the domain. Additional emphasis has been given to techniques applied to medical images. In order to study image registration methods in depth, their main components are identified and studied independently. The most recent techniques are presented in a systematic fashion. The contribution of this paper is to provide an extensive account of registration techniques in a systematic manner.</span></div>
+		<a href="javascript:void(0);" class="link" onclick="toggleAbstract(this)">Read more</a>
+	</div>
+
+	<!-- Article 3 -->
+	<div class="article">
+		<div class="title"><a href="https://ieeexplore.ieee.org/document/9363915">A Review of Deep Learning in Medical Imaging: Imaging Traits, Technology Trends, Case Studies With Progress Highlights, and Future Promises</a></div>
+		<div class="author">S. Kevin Zhou; Hayit Greenspan; Christos Davatzikos; James S. Duncan</div>
+		<div class="abstract">Since its renaissance, deep learning has been widely used in various medical imaging tasks and has achieved remarkable success in many medical imaging applications, thereby propelling us into the so-called artificial intelligence (AI) era. It is known that the success of AI is mostly attributed to the availability of big data with annotations for a single task and the advances in high performance computing. However, medical imaging presents unique challenges that confront deep learning approaches. <span class="more-text">In this survey paper, we first present traits of medical imaging, highlight both clinical needs and technical challenges in medical imaging, and describe how emerging trends in deep learning are addressing these issues. We cover the topics of network architecture, sparse and noisy labels, federating learning, interpretability, uncertainty quantification, etc. Then, we present several case studies that are commonly found in clinical practice, including digital pathology and chest, brain, cardiovascular, and abdominal imaging. Rather than presenting an exhaustive literature survey, we instead describe some prominent research highlights related to these case study applications. We conclude with a discussion and presentation of promising future directions.</span></div>
+		<a href="javascript:void(0);" class="link" onclick="toggleAbstract(this)">Read more</a>
+	</div>
+
+	<!-- Article 4 -->
+	<div class="article">
+		<div class="title"><a href="https://www.annualreviews.org/doi/10.1146/annurev-bioeng-071516-044442">Deep Learning in Medical Image Analysis</a></div>
+		<div class="author">Dinggang Shen; Guorong Wu; Heung-Il Suk</div>
+		<div class="abstract">This review covers computer-assisted analysis of images in the field of medical imaging. Recent advances in machine learning, especially with regard to deep learning, are helping to identify, classify, and quantify patterns in medical images. At the core of these advances is the ability to exploit hierarchical feature representations learned solely from data, instead of features designed by hand according to domain-specific knowledge. Deep learning is rapidly becoming the state of the art, leading to enhanced performance in various medical applications. <span class="more-text">We introduce the fundamentals of deep learning methods and review their successes in image registration, detection of anatomical and cellular structures, tissue segmentation, computer-aided disease diagnosis and prognosis, and so on. We conclude by discussing research issues and suggesting future directions for further improvement.</span></div>
+		<a href="javascript:void(0);" class="link" onclick="toggleAbstract(this)">Read more</a>
+	</div>
+
+	<!-- Article 5 -->
+	<div class="article">
+		<div class="title"><a href="https://ieeexplore.ieee.org/document/1203207">Super-resolution image reconstruction: a technical overview</a></div>
+		<div class="author">Sung Cheol Park; Min Kyu Park; Moon Gi Kang</div>
+		<div class="abstract">A new approach toward increasing spatial resolution is required to overcome the limitations of the sensors and optics manufacturing technology. One promising approach is to use signal processing techniques to obtain an high-resolution (HR) image (or sequence) from observed multiple low-resolution (LR) images. Such a resolution enhancement approach has been one of the most active research areas, and it is called super resolution (SR) (or HR) image reconstruction or simply resolution enhancement. <span class="more-text">In this article, we use the term "SR image reconstruction" to refer to a signal processing approach toward resolution enhancement because the term "super" in "super resolution" represents very well the characteristics of the technique overcoming the inherent resolution limitation of LR imaging systems. The major advantage of the signal processing approach is that it may cost less and the existing LR imaging systems can be still utilized. The SR image reconstruction is proved to be useful in many practical cases where multiple frames of the same scene can be obtained, including medical imaging, satellite imaging, and video applications. The goal of this article is to introduce the concept of SR algorithms to readers who are unfamiliar with this area and to provide a review for experts. To this purpose, we present the technical review of various existing SR methodologies which are often employed. Before presenting the review of existing SR algorithms, we first model the LR image acquisition process.</span></div>
+		<a href="javascript:void(0);" class="link" onclick="toggleAbstract(this)">Read more</a>
+	</div>
+
+	<!-- Article 6 -->
+	<div class="article">
+		<div class="title"><a href="https://www.sciencedirect.com/science/article/abs/pii/S1361841518308430">Generative adversarial network in medical imaging: A review</a></div>
+		<div class="author">Xin Yi; Ekta Walia; Paul Babyn</div>
+		<div class="abstract">Generative adversarial networks have gained a lot of attention in the computer vision community due to their capability of data generation without explicitly modelling the probability density function. The adversarial loss brought by the discriminator provides a clever way of incorporating unlabeled samples into training and imposing higher order consistency. This has proven to be useful in many cases, such as domain adaptation, data augmentation, and image-to-image translation. <span class="more-text">These properties have attracted researchers in the medical imaging community, and we have seen rapid adoption in many traditional and novel applications, such as image reconstruction, segmentation, detection, classification, and cross-modality synthesis. Based on our observations, this trend will continue and we therefore conducted a review of recent advances in medical imaging using the adversarial training scheme with the hope of benefiting researchers interested in this technique.</span></div>
+		<a href="javascript:void(0);" class="link" onclick="toggleAbstract(this)">Read more</a>
+	</div>
+	
+	<!-- Article 7 -->
+	<div class="article">
+		<div class="title"><a href="https://www.routledge.com/Handbook-of-Neuroimaging-Data-Analysis/Ombao-Lindquist-Thompson-Aston/p/book/9780367330699">Handbook of Neuroimaging Data Analysis</a></div>
+		<div class="author">Hernando Ombao; Martin Lindquist; Wesley Thompson; John Aston</div>
+		<div class="abstract">This book explores various state-of-the-art aspects behind the statistical analysis of neuroimaging data. It examines the development of novel statistical approaches to model brain data. Designed for researchers in statistics, biostatistics, computer science, cognitive science, computer engineering, biomedical engineering, applied mathematics, physics, and radiology, the book can also be used as a textbook for graduate-level courses in statistics and biostatistics or as a self-study reference <span class="more-text">for Ph.D. students in statistics, biostatistics, psychology, neuroscience, and computer science.</span></div>
+		<a href="javascript:void(0);" class="link" onclick="toggleAbstract(this)">Read more</a>
+	</div>
+
+	<!-- Article 8 -->
+	<div class="article">
+		<div class="title"><a href="https://onlinelibrary.wiley.com/doi/10.1002/cjs.11487">A review of statistical methods in imaging genetics</a></div>
+		<div class="author">Farouk S. Nathoo; Linglong Kong; Hongtu Zhu</div>
+		<div class="abstract">With the rapid growth of modern technology, many biomedical studies are being conducted to collect massive datasets with volumes of multi-modality imaging, genetic, neurocognitive and clinical information from increasingly large cohorts. Simultaneously extracting and integrating rich and diverse heterogeneous information in neuroimaging and/or genomics from these big datasets could transform our understanding of how genetic variants impact brain structure and function, cognitive function and brain-related disease risk <span class="more-text">across the lifespan. Such understanding is critical for diagnosis, prevention and treatment of numerous complex brain-related disorders (e.g., schizophrenia and Alzheimer's disease). However, the development of analytical methods for the joint analysis of both high-dimensional imaging phenotypes and high-dimensional genetic data, a big data squared (BD2) problem, presents major computational and theoretical challenges for existing analytical methods. Besides the high-dimensional nature of BD2, various neuroimaging measures often exhibit strong spatial smoothness and dependence and genetic markers may have a natural dependence structure arising from linkage disequilibrium. We review some recent developments of various statistical techniques for imaging genetics, including massive univariate and voxel-wise approaches, reduced rank regression, mixture models and group sparse multi-task regression. By doing so, we hope that this review may encourage others in the statistical community to enter into this new and exciting field of research.</span></div>
+		<a href="javascript:void(0);" class="link" onclick="toggleAbstract(this)">Read more</a>
+	</div>
+
+	<!-- Article 9 -->
+	<div class="article">
+		<div class="title"><a href="https://ieeexplore.ieee.org/document/8886705">Brain Imaging Genomics: Integrated Analysis and Machine Learning</a></div>
+		<div class="author">Li Shen; Paul M. Thompson</div>
+		<div class="abstract">Brain imaging genomics is an emerging data science field, where integrated analysis of brain imaging and genomics data, often combined with other biomarker, clinical, and environmental data, is performed to gain new insights into the phenotypic, genetic, and molecular characteristics of the brain as well as their impact on normal and disordered brain function and behavior. It has enormous potential to contribute significantly to biomedical discoveries in brain science. Given the increasingly important role of statistical and machine learning in biomedicine and rapidly growing <span class="more-text">literature in brain imaging genomics, we provide an up-to-date and comprehensive review of statistical and machine learning methods for brain imaging genomics, as well as a practical discussion on method selection for various biomedical applications.</span></div>
+		<a href="javascript:void(0);" class="link" onclick="toggleAbstract(this)">Read more</a>
+	</div>
+
+	<!-- Article 10 -->
+	<div class="article">
+		<div class="title"><a href="https://www.sciencedirect.com/science/article/pii/S0896627317311418">Statistical Challenges in “Big Data” Human Neuroimaging</a></div>
+		<div class="author">Stephen M. Smith; Thomas E. Nichols</div>
+		<div class="abstract">Smith and Nichols discuss “big data” human neuroimaging studies, with very large subject numbers and amounts of data. These studies provide great opportunities for making new discoveries about the brain but raise many new analytical challenges and interpretational risks <span class="more-text">.</span></div>
+		<a href="javascript:void(0);" class="link" onclick="toggleAbstract(this)">Read more</a>
+	</div>
+
+	<!-- Article 11 -->
+	<div class="article">
+		<div class="title"><a href="https://www.nature.com/articles/nn.4500">Best practices in data analysis and sharing in neuroimaging using MRI</a></div>
+		<div class="author">Thomas E Nichols; Samir Das; Simon B Eickhoff; Alan C Evans; Tristan Glatard</div>
+		<div class="abstract">Given concerns about the reproducibility of scientific findings, neuroimaging must define best practices for data analysis, results reporting, and algorithm and data sharing to promote transparency, reliability and collaboration. We describe insights from developing a set of recommendations on behalf of the Organization for Human Brain Mapping and identify barriers that impede these practices, including how the discipline must change to fully exploit the potential <span class="more-text">of the world's neuroimaging data.</span></div>
+		<a href="javascript:void(0);" class="link" onclick="toggleAbstract(this)">Read more</a>
+	</div>
+
+	<!-- Article 12 -->
+	<div class="article">
+		<div class="title"><a href="https://ieeexplore.ieee.org/document/9703109">AI-Based Reconstruction for Fast MRI—A Systematic Review and Meta-Analysis</a></div>
+		<div class="author">Yutong Chen; Carola-Bibiane Schönlieb; Pietro Liò; Tim Leiner</div>
+		<div class="abstract">Compressed sensing (CS) has been playing a key role in accelerating the magnetic resonance imaging (MRI) acquisition process. With the resurgence of artificial intelligence, deep neural networks and CS algorithms are being integrated to redefine the state of the art of fast MRI. The past several years have witnessed substantial growth in the complexity, diversity, and performance of deep-learning-based CS techniques that are dedicated to fast MRI. <span class="more-text">In this meta-analysis, we systematically review the deep-learning-based CS techniques for fast MRI, describe key model designs, highlight breakthroughs, and discuss promising directions. We have also introduced a comprehensive analysis framework and a classification system to assess the pivotal role of deep learning in CS-based acceleration for MRI.</span></div>
+		<a href="javascript:void(0);" class="link" onclick="toggleAbstract(this)">Read more</a>
+	</div>
+
+	<!-- Article 13 -->
+	<div class="article">
+		<div class="title"><a href="https://onlinelibrary.wiley.com/doi/10.1002/jmri.27188">Mapping Structural Connectivity Using Diffusion MRI: Challenges and Opportunities</a></div>
+		<div class="author">Chun-Hung Yeh; Derek K. Jones; Xiaoyun Liang; Maxime Descoteaux ; Alan Connelly</div>
+		<div class="abstract">Diffusion MRI-based tractography is the most commonly-used technique when inferring the structural brain connectome, i.e., the comprehensive map of the connections in the brain. The utility of graph theory—a powerful mathematical approach for modeling complex network systems—for analyzing tractography-based connectomes brings important opportunities to interrogate connectome data, providing novel insights into the connectivity patterns and topological characteristics <span class="more-text">of brain structural networks. When applying this framework, however, there are challenges, particularly regarding methodological and biological plausibility. This article describes the challenges surrounding quantitative tractography and potential solutions. In addition, challenges related to the calculation of global network metrics based on graph theory are discussed.Evidence Level: 5Technical Efficacy: Stage 1</span></div>
+		<a href="javascript:void(0);" class="link" onclick="toggleAbstract(this)">Read more</a>
+	</div>
+
+	<!-- Article 14 -->
+	<div class="article">
+		<div class="title"><a href="https://esmed.org/MRA/index.php/bme/article/view/1550">A review of Methods for Bias Correction in Medical Images</a></div>
+		<div class="author">Shuang Song; Yuanjie Zheng; Yunlong He</div>
+		<div class="abstract">Bias field in medical images is an undesirable artifact primarily arises from the improper image acquisition process or the specific properties of the imaged object. This artifact can be characterized by a smooth variation of intensities across the image and significantly degrade many medical image analysis techniques. Studies on bias correction have been investigated extensively over these years. <span class="more-text">In this paper, we proposed to category and analysis existing bias correction methods, provide a complete review article that enables comparative studies on bias correction in medical images.</span></div>
+		<a href="javascript:void(0);" class="link" onclick="toggleAbstract(this)">Read more</a>
+	</div>
+
+	<!-- Article 15 -->
+	<div class="article">
+		<div class="title"><a href="https://arxiv.org/abs/2204.11341">Deep Learning for Medical Image Registration: A Comprehensive Review</a></div>
+		<div class="author">Subrato Bharati; M. Rubaiyat Hossain Mondal; Prajoy Podder; V. B. Surya Prasath</div>
+		<div class="abstract">Image registration is a critical component in the applications of various medical image analyses. In recent years, there has been a tremendous surge in the development of deep learning (DL)-based medical image registration models. This paper provides a comprehensive review of medical image registration. Firstly, a discussion is provided for supervised registration categories, for example, fully supervised, dual supervised, and weakly supervised registration. Next, similarity-based as well as generative adversarial network (GAN)-based registration <span class="more-text">are presented as part of unsupervised registration. Deep iterative registration is then described with emphasis on deep similarity-based and reinforcement learning-based registration. Moreover, the application areas of medical image registration are reviewed. This review focuses on monomodal and multimodal registration and associated imaging, for instance, X-ray, CT scan, ultrasound, and MRI. The existing challenges are highlighted in this review, where it is shown that a major challenge is the absence of a training dataset with known transformations. Finally, a discussion is provided on the promising future research areas in the field of DL-based medical image registration.</span></div>
+		<a href="javascript:void(0);" class="link" onclick="toggleAbstract(this)">Read more</a>
+	</div>
+
+	<!-- Article 16 -->
+	<div class="article">
+		<div class="title"><a href="https://epubs.siam.org/doi/10.1137/040616024">A Review of Image Denoising Algorithms, with a New One</a></div>
+		<div class="author">A. Buades; B. Coll; J. M. Morel</div>
+		<div class="abstract">The search for efficient image denoising methods is still a valid challenge at the crossing of functional analysis and statistics. In spite of the sophistication of the recently proposed methods, most algorithms have not yet attained a desirable level of applicability. All show an outstanding performance when the image model corresponds to the algorithm assumptions but fail in general and create artifacts or remove image fine structures. The main focus of this paper is, first, to define a general mathematical and experimental methodology to compare and classify classical image denoising algorithms and, second, <span class="more-text">to propose a nonlocal means (NL-means) algorithm addressing the preservation of structure in a digital image. The mathematical analysis is based on the analysis of the "method noise," defined as the difference between a digital image and its denoised version. The NL-means algorithm is proven to be asymptotically optimal under a generic statistical image model. The denoising performance of all considered methods are compared in four ways; mathematical: asymptotic order of magnitude of the method noise under regularity assumptions; perceptual-mathematical: the algorithms artifacts and their explanation as a violation of the image model; quantitative experimental: by tables of L2 distances of the denoised version to the original image. The most powerful evaluation method seems, however, to be the visualization of the method noise on natural images. The more this method noise looks like a real white noise, the better the method.</span></div>
+		<a href="javascript:void(0);" class="link" onclick="toggleAbstract(this)">Read more</a>
+	</div>
+
+	<!-- Article 17 -->
+	<div class="article">
+		<div class="title"><a href="https://www.sciencedirect.com/science/article/abs/pii/S1361841521001080">A survey on active learning and human-in-the-loop deep learning for medical image analysis</a></div>
+		<div class="author">Samuel Budd; Emma C. Robinson; Bernhard Kainz</div>
+		<div class="abstract">Fully automatic deep learning has become the state-of-the-art technique for many tasks including image acquisition, analysis and interpretation, and for the extraction of clinically useful information for computer-aided detection, diagnosis, treatment planning, intervention and therapy. However, the unique challenges posed by medical image analysis suggest that retaining a human end-user in any deep learning enabled system will be beneficial. <span class="more-text">In this review we investigate the role that humans might play in the development and deployment of deep learning enabled diagnostic applications and focus on techniques that will retain a significant input from a human end user. Human-in-the-Loop computing is an area that we see as increasingly important in future research due to the safety-critical nature of working in the medical domain. We evaluate four key areas that we consider vital for deep learning in the clinical practice: (1) Active Learning to choose the best data to annotate for optimal model performance; (2) Interaction with model outputs - using iterative feedback to steer models to optima for a given prediction and offering meaningful ways to interpret and respond to predictions; (3) Practical considerations - developing full scale applications and the key considerations that need to be made before deployment; (4) Future Prospective and Unanswered Questions - knowledge gaps and related research fields that will benefit human-in-the-loop computing as they evolve. We offer our opinions on the most promising directions of research and how various aspects of each area might be unified towards common goals.</span></div>
+		<a href="javascript:void(0);" class="link" onclick="toggleAbstract(this)">Read more</a>
+	</div>
+
+	<!-- Article 18 -->
+	<div class="article">
+		<div class="title"><a href="https://www.sciencedirect.com/science/article/abs/pii/S1361841521002395">Deep reinforcement learning in medical imaging: A literature review</a></div>
+		<div class="author">S. Kevin Zhou; Hoang Ngan Le; Khoa Luu; Hien V Nguyen; Nicholas Ayache </div>
+		<div class="abstract">Deep reinforcement learning (DRL) augments the reinforcement learning framework, which learns a sequence of actions that maximizes the expected reward, with the representative power of deep neural networks. Recent works have demonstrated the great potential of DRL in medicine and healthcare. <span class="more-text">This paper presents a literature review of DRL in medical imaging. We start with a comprehensive tutorial of DRL, including the latest model-free and model-based algorithms. We then cover existing DRL applications for medical imaging, which are roughly divided into three main categories: (i) parametric medical image analysis tasks including landmark detection, object/lesion detection, registration, and view plane localization; (ii) solving optimization tasks including hyperparameter tuning, selecting augmentation strategies, and neural architecture search; and (iii) miscellaneous applications including surgical gesture segmentation, personalized mobile health intervention, and computational model personalization. The paper concludes with discussions of future perspectives.</span></div>
+		<a href="javascript:void(0);" class="link" onclick="toggleAbstract(this)">Read more</a>
+	</div>
+
+	<!-- Article 19 -->
+	<div class="article">
+		<div class="title"><a href="https://www.mdpi.com/2073-8994/12/10/1705">Deep Generative Adversarial Networks for Image-to-Image Translation: A Review</a></div>
+		<div class="author">Alotaibi, A</div>
+		<div class="abstract">Many image processing, computer graphics, and computer vision problems can be treated as image-to-image translation tasks. Such translation entails learning to map one visual representation of a given input to another representation. Image-to-image translation with generative adversarial networks (GANs) has been intensively studied and applied to various tasks, <span class="more-text">such as multimodal image-to-image translation, super-resolution translation, object transfiguration-related translation, etc. However, image-to-image translation techniques suffer from some problems, such as mode collapse, instability, and a lack of diversity. This article provides a comprehensive overview of image-to-image translation based on GAN algorithms and its variants. It also discusses and analyzes current state-of-the-art image-to-image translation techniques that are based on multimodal and multidomain representations. Finally, open issues and future research directions utilizing reinforcement learning and three-dimensional (3D) modal translation are summarized and discussed.</span></div>
+		<a href="javascript:void(0);" class="link" onclick="toggleAbstract(this)">Read more</a>
+	</div>
+
+	<!-- Article 20 -->
+	<div class="article">
+		<div class="title"><a href="https://academic.oup.com/bib/article/19/6/1236/3800524?login=false">Deep learning for healthcare: review, opportunities and challenges</a></div>
+		<div class="author">Riccardo Miotto; Fei Wang; Shuang Wang; Xiaoqian Jiang; Joel T Dudley</div>
+		<div class="abstract">Gaining knowledge and actionable insights from complex, high-dimensional and heterogeneous biomedical data remains a key challenge in transforming health care. Various types of data have been emerging in modern biomedical research, including electronic health records, imaging, -omics, sensor data and text, which are complex, heterogeneous, poorly annotated and generally unstructured. <span class="more-text">Traditional data mining and statistical learning approaches typically need to first perform feature engineering to obtain effective and more robust features from those data, and then build prediction or clustering models on top of them. There are lots of challenges on both steps in a scenario of complicated data and lacking of sufficient domain knowledge. The latest advances in deep learning technologies provide new effective paradigms to obtain end-to-end learning models from complex data. In this article, we review the recent literature on applying deep learning technologies to advance the health care domain. Based on the analyzed work, we suggest that deep learning approaches could be the vehicle for translating big biomedical data into improved human health. However, we also note limitations and needs for improved methods development and applications, especially in terms of ease-of-understanding for domain experts and citizen scientists. We discuss such challenges and suggest developing holistic and meaningful interpretable architectures to bridge deep learning models and human interpretability.</span></div>
+		<a href="javascript:void(0);" class="link" onclick="toggleAbstract(this)">Read more</a>
+	</div>
+
+	<!-- Article 21 -->
+	<div class="article">
+		<div class="title"><a href="https://arxiv.org/abs/2307.15615">A survey on deep learning in medical image registration: new technologies, uncertainty, evaluation metrics, and beyond</a></div>
+		<div class="author">Junyu Chen; Yihao Liu; Shuwen Wei; Zhangxing Bian; Shalini Subramanian</div>
+		<div class="abstract">Deep learning technologies have dramatically reshaped the field of medical image registration over the past decade. The initial developments, such as ResNet-based and U-Net-based networks, established the foundation for deep learning in image registration. <span class="more-text">Subsequent progress has been made in various aspects of deep learning-based registration, including similarity measures, deformation regularizations, and uncertainty estimation. These advancements have not only enriched the field of image registration but have also facilitated its application in a wide range of tasks, including atlas construction, multi-atlas segmentation, motion estimation, and 2D-3D registration. In this paper, we present a comprehensive overview of the most recent advancements in deep learning-based image registration. We begin with a concise introduction to the core concepts of deep learning-based image registration. Then, we delve into innovative network architectures, loss functions specific to registration, and methods for estimating registration uncertainty. Additionally, this paper explores appropriate evaluation metrics for assessing the performance of deep learning models in registration tasks. Finally, we highlight the practical applications of these novel techniques in medical imaging and discuss the future prospects of deep learning-based image registration.</span></div>
+		<a href="javascript:void(0);" class="link" onclick="toggleAbstract(this)">Read more</a>
+	</div>
+
+	<!-- Article 22 -->
+	<div class="article">
+		<div class="title"><a href="https://ieeexplore.ieee.org/document/9446143">U-Net and Its Variants for Medical Image Segmentation: A Review of Theory and Applications</a></div>
+		<div class="author">Nahian Siddique; Sidike Paheding; Colin P. Elkin; Vijay Devabhaktuni</div>
+		<div class="abstract">U-net is an image segmentation technique developed primarily for image segmentation tasks. These traits provide U-net with a high utility within the medical imaging community and have resulted in extensive adoption of U-net as the primary tool for segmentation tasks in medical imaging. The success of U-net is evident in its widespread use in nearly all major image modalities, <span class="more-text">from CT scans and MRI to X-rays and microscopy. Furthermore, while U-net is largely a segmentation tool, there have been instances of the use of U-net in other applications. Given that U-net's potential is still increasing, this narrative literature review examines the numerous developments and breakthroughs in the U-net architecture and provides observations on recent trends. We also discuss the many innovations that have advanced in deep learning and discuss how these tools facilitate U-net. In addition, we review the different image modalities and application areas that have been enhanced by U-net.</span></div>
+		<a href="javascript:void(0);" class="link" onclick="toggleAbstract(this)">Read more</a>
+	</div>
+
+	<!-- Article 23 -->
+	<div class="article">
+		<div class="title"><a href="https://www.sciencedirect.com/science/article/pii/S1053811923002719">Image harmonization: A review of statistical and deep learning methods for removing batch effects and evaluation metrics for effective harmonization</a></div>
+		<div class="author">Fengling Hu; Andrew A. Chen; Hannah Horng; Vishnu Bashyam</div>
+		<div class="abstract">Magnetic resonance imaging and computed tomography from multiple batches (e.g. sites, scanners, datasets, etc.) are increasingly used alongside complex downstream analyses to obtain new insights into the human brain. However, significant confounding due to batch-related technical variation, called batch effects, is present in this data; direct application of downstream analyses <span class="more-text">to the data may lead to biased results. Image harmonization methods seek to remove these batch effects and enable increased generalizability and reproducibility of downstream results. In this review, we describe and categorize current approaches in statistical and deep learning harmonization methods. We also describe current evaluation metrics used to assess harmonization methods and provide a standardized framework to evaluate newly-proposed methods for effective harmonization and preservation of biological information. Finally, we provide recommendations to end-users to advocate for more effective use of current methods and to methodologists to direct future efforts and accelerate development of the field.</span></div>
+		<a href="javascript:void(0);" class="link" onclick="toggleAbstract(this)">Read more</a>
+	</div>
+
+	<!-- Article 24 -->
+	<div class="article">
+		<div class="title"><a href="https://www.nature.com/articles/s41592-021-01185-5">QSIPrep: an integrative platform for preprocessing and reconstructing diffusion MRI data</a></div>
+		<div class="author">Matthew Cieslak; Philip A. Cook; Xiaosong He; Fang-Cheng Yeh; Thijs Dhollander</div>
+		<div class="abstract">Diffusion-weighted magnetic resonance imaging (dMRI) is the primary method for noninvasively studying the organization of white matter in the human brain. Here we introduce QSIPrep, an integrative software platform for the processing of diffusion images that is compatible with nearly all dMRI sampling schemes. <span class="more-text">Drawing on a diverse set of software suites to capitalize on their complementary strengths, QSIPrep facilitates the implementation of best practices for processing of diffusion images.</span></div>
+		<a href="javascript:void(0);" class="link" onclick="toggleAbstract(this)">Read more</a>
+	</div>
+
+	<!-- Article 25 -->
+	<div class="article">
+		<div class="title"><a href="https://www.nature.com/articles/s41592-018-0235-4">fMRIPrep: a robust preprocessing pipeline for functional MRI</a></div>
+		<div class="author">Oscar Esteban; Christopher J. Markiewicz; Ross W. Blair; Craig A. Moodie</div>
+		<div class="abstract">Preprocessing of functional magnetic resonance imaging (fMRI) involves numerous steps to clean and standardize the data before statistical analysis. Generally, researchers create ad hoc preprocessing workflows for each dataset, building upon a large inventory of available tools. The complexity of these workflows has snowballed with rapid advances in acquisition and processing. <span class="more-text">We introduce fMRIPrep, an analysis-agnostic tool that addresses the challenge of robust and reproducible preprocessing for fMRI data. fMRIPrep automatically adapts a best-in-breed workflow to the idiosyncrasies of virtually any dataset, ensuring high-quality preprocessing without manual intervention. By introducing visual assessment checkpoints into an iterative integration framework for software testing, we show that fMRIPrep robustly produces high-quality results on a diverse fMRI data collection. Additionally, fMRIPrep introduces less uncontrolled spatial smoothness than observed with commonly used preprocessing tools. fMRIPrep equips neuroscientists with an easy-to-use and transparent preprocessing workflow, which can help ensure the validity of inference and the interpretability of results.</span></div>
+		<a href="javascript:void(0);" class="link" onclick="toggleAbstract(this)">Read more</a>
+	</div>
+
+
+	<script>
+	function toggleAbstract(element) {
+		var abstract = element.previousElementSibling; // 获取摘要元素
+		if (abstract.style.display === "none" || abstract.style.whiteSpace === "nowrap") {
+			abstract.style.display = "block";
+			abstract.style.whiteSpace = "normal"; // 展开全文
+			element.textContent = "Read less"; // 更改链接文本
+		} else {
+			abstract.style.display = "block";
+			abstract.style.whiteSpace = "nowrap"; // 收起文本
+			element.textContent = "Read more"; // 更改链接文本
+		}
+	}
+	</script>
+
+</body>
+</html>
