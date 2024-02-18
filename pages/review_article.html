@@ -265,14 +265,19 @@
 	<script>
 	function toggleAbstract(element) {
 		var abstract = element.previousElementSibling; // 获取摘要元素
-		if (abstract.style.display === "none" || abstract.style.whiteSpace === "nowrap") {
-			abstract.style.display = "block";
-			abstract.style.whiteSpace = "normal"; // 展开全文
-			element.textContent = "Read less"; // 更改链接文本
-		} else {
-			abstract.style.display = "block";
+		if (abstract.style.display === "block" && abstract.style.whiteSpace === "normal") {
+			// 如果当前是展开状态，则收起
 			abstract.style.whiteSpace = "nowrap"; // 收起文本
-			element.textContent = "Read more"; // 更改链接文本
+			abstract.style.overflow = "hidden"; // 隐藏文本溢出部分
+			abstract.style.textOverflow = "ellipsis"; // 添加省略号
+			element.textContent = "Read more"; // 更改链接文本为 'Read more'
+		} else {
+			// 如果当前是收起状态，则展开
+			abstract.style.display = "block"; // 确保摘要显示
+			abstract.style.whiteSpace = "normal"; // 展开全文
+			abstract.style.overflow = "visible"; // 显示全部文本
+			abstract.style.textOverflow = "clip"; // 移除省略号
+			element.textContent = "Read less"; // 更改链接文本为 'Read less'
 		}
 	}
 	</script>
