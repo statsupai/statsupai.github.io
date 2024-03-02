@@ -25,6 +25,14 @@
             display: block; /* 使图片成为块级元素 */
             margin: 0 auto; /* 水平居中 */
         }
+        .fixed-counter {
+            position: fixed; /* 固定定位，使元素不随页面滚动 */
+            left: 0; /* 距离页面左边界的距离 */
+            bottom: 0; /* 距离页面底部边界的距离 */
+            background-color: transparent; /* 可以根据需要设置背景颜色 */
+            z-index: 1000; /* 确保计数器显示在其他元素之上 */
+        }
+
         .interview {
         margin: 20px;
         background-color: rgba(255, 255, 255, 0.7); /* 白色背景，70%不透明度（即30%透明度） */
@@ -109,10 +117,10 @@
     <p>The Article Link:</p><a href="https://www.cell.com/cell/fulltext/S0092-8674(24)00064-3" target="_blank">Pan-cancer proteogenomics characterization of tumor immunity</a>
     </div>
 
-    <div id="sfclnp7ljs4s9lg5c5kmcde77njx33251j5"></div>
+    <div id="sfclnp7ljs4s9lg5c5kmcde77njx33251j5" class="fixed-counter"></div>
     <script type="text/javascript" src="https://counter11.optistats.ovh/private/counter.js?c=lnp7ljs4s9lg5c5kmcde77njx33251j5&down=async" async></script>
     <noscript><a href="https://www.freecounterstat.com" title="website counter"><img src="https://counter11.optistats.ovh/private/freecounterstat.php?c=lnp7ljs4s9lg5c5kmcde77njx33251j5" border="0" title="website counter" alt="website counter"></a></noscript>
-    <!-- 其他网页内容 -->
+
 
     <div class="interview">
         <p class="question">Q1: Regarding the research background and significance, does this work discover new knowledge or solve existing problems within the field? Please elaborate in detail.</p>
