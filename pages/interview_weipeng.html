@@ -70,6 +70,35 @@
             opacity: 0.4; /* 设置透明度为40% */
             z-index: -1; /* 确保背景图不会覆盖其他内容 */
         }
+        .article-link {
+            background-color: #f4f4f4; /* 背景色 */
+            padding: 10px; /* 内边距 */
+            border-radius: 8px; /* 边角圆滑 */
+            text-align: center; /* 文本居中 */
+            margin: 20px 0; /* 上下外边距 */
+        }
+    
+        .article-link p {
+            margin: 0; /* 移除默认边距 */
+            color: #003366; /* 文本颜色 */
+            font-weight: bold; /* 字体加粗 */
+        }
+    
+        .article-link a {
+            display: inline-block; /* 可以设置宽度和高度 */
+            background-color: #007bff; /* 链接背景色 */
+            color: white; /* 链接文字颜色 */
+            padding: 10px 20px; /* 链接内边距 */
+            border-radius: 5px; /* 链接边角圆滑 */
+            text-decoration: none; /* 去掉下划线 */
+            font-size: 18px; /* 字体大小 */
+            margin-top: 10px; /* 与段落之间的距离 */
+            transition: background-color 0.3s; /* 过渡动画 */
+        }
+    
+        .article-link a:hover {
+            background-color: #0056b3; /* 鼠标悬停时的背景色 */
+        }
 
     </style>
 
@@ -77,8 +106,7 @@
 <body>
     <img class="header-image" src="https://raw.githubusercontent.com/statsupai/statsupai.github.io/main/img/interview_periwang.jpg" alt="Interview Image">
     <div class="article-link">
-    <p>Read more about the article:</p>
-    <a href="https://www.cell.com/cell/fulltext/S0092-8674(24)00064-3" target="_blank">Pan-cancer proteogenomics characterization of tumor immunity</a>
+    <p>The Article Link:</p><a href="https://www.cell.com/cell/fulltext/S0092-8674(24)00064-3" target="_blank">Pan-cancer proteogenomics characterization of tumor immunity</a>
     </div>
 
     <div class="interview">
