@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>采访页面</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif; /* 类似BBC的字体 */
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            line-height: 1.6; /* 增加行距 */
+        }
+        .header-image {
+            width: 97%;
+            height: auto;
+            display: block; /* 使图片成为块级元素 */
+            margin: 0 auto; /* 水平居中 */
+        }
+        .interview {
+        margin: 20px;
+        background-color: rgba(255, 255, 255, 0.7); /* 白色背景，70%不透明度（即30%透明度） */
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .question {
+            color: #003366; /* 深蓝色 */
+            font-weight: bold;
+            margin-bottom: 10px; /* 增加问题和答案之间的空间 */
+            font-size: larger;
+            /*text-decoration: underline; /* 添加下划线 */*/
+        }
+        .answer {
+                font-size: larger; /* 或你设置的具体大小 */
+            border-bottom: 1px solid #ccc; /* 添加浅灰色边框 */
+            padding-bottom: 15px; /* 在边框下方添加一些空间 */
+            /*margin-bottom: 20px; /* 在下一个问题之前添加更多空间 */*/
+            margin-bottom: 20px; /* 增加答案间的空间 */
+            color: #264653;
+        }
+        .question::before {
+            content: ''; /* 伪元素需要的，但不直接显示文字 */
+            display: inline-block; /* 使伪元素像文本一样流动 */
+            width: 40px; /* 图标的宽度 */
+            height: 40px; /* 图标的高度 */
+            background-image: url('inter2.png'); /* 替换为你的图标的路径 */
+            background-size: contain; /* 使背景图标适应元素尺寸 */
+            margin-right: 10px; /* 在图标和文本之间添加一些空间 */
+            vertical-align: middle; /* 确保图标和文本垂直对齐 */
+        }
+
+        .background-image {
+            position: fixed; /* 或absolute，取决于你的需求 */
+            right: 0;
+            bottom: 0;
+            width: 800px; /* 根据你的背景图尺寸调整 */
+            height: 300px; /* 根据你的背景图尺寸调整 */
+            background-image: url('12.jpg'); /* 替换为你的图片名称 */
+            background-size: cover;
+            opacity: 0.4; /* 设置透明度为40% */
+            z-index: -1; /* 确保背景图不会覆盖其他内容 */
+        }
+
+    </style>
+
+</head>
+<body>
+    <img class="header-image" src="/Users/apple/Downloads/interview_periwang.jpg" alt="Interview Image">
+
+    <div class="interview">
+        <p class="question">Q1: Regarding the research background and significance, does this work discover new knowledge or solve existing problems within the field? Please elaborate in detail.</p>
+        <p class="answer"><strong>A1</strong>: This work discover new knowledge. 
+        In our paper “Pan-Cancer Proteogenomics Characterization of Tumor Immunity” (Cell, 2024, Feb, PMID: 38359819), we integrated DNA, RNA, and proteomics data from more than 1,000 tumors across 10 different cancers to reveal the complex interplay of immune cells in tumors. The data came from the Clinical Proteomic Tumor Analysis Consortium (CPTAC), a program under the National Cancer Institute. 
+        This work aimed to improve our understanding of the mechanisms underlying the functional impairment of immune response in tumors. By closely examining genes and proteins in the tumor tissues, we discovered various patterns in immune activation and suppression and unraveled diverse immune subtypes.
+        </p>
+
+        <p class="question">Q2: How did the reviewers evaluate (praise) it?</p>
+        <p class="answer"><strong>A2</strong>: The reviewers described the study “current, highly impactful and well developed” with “<strong>technical rigor in its methodology and data analysis</strong>”, and suggesting that “the key findings advance our understanding of the immune landscape in various cancers and provide potential targets for therapeutic interventions”.</p>
+
+        <p class="question">Q3: If this achievement has potential applications, what are some specific applications it might have in a few years?</p>
+        <p class="answer"><strong>A3</strong>: The findings from the paper can help clinicians to identify patient groups more responsive to immunotherapy. Revealing the specific pathways and cellular switches for each subtype can also spark new and creative ways to develop treatments.</p>
+
+        <p class="question">Q4: Can you recount the specific steps or stages from setting the research topic to the successful completion of the research?</p>
+        <p class="answer"><strong>A4</strong>: I have been leading a data analysis center for NCI Clinical Proteomics Tumor Analysis Consortium (CPTAC) in the past 8 years. The CPTAC consortium has generated a big collection of large scale deep proteogenomics data sets up to date. This valuable resource enable us to have the opportunity to, for the first time, to use large scale (with >1000 tumor samples) proteogenomic analyses to understand the immune landscape across 10 cancer types. Especially, the pan-cancer phosphoproteomics data enables us to comprehensively characterize the kinase activities relating to different immune activation/evasion patterns in tumor samples, which was not tackled in the previous genomics studies. 
+
+        In this study, comprehensive data preprocessing (QC & harmonization), sophisticated statistical modeling and rigorous inference are the key to reveal “real” relevant biological signal from the data sea. The consortium members (multiple teams from different institution) have worked together for almost more than a year to assemble, QC, and harmonize the data sets from different CPTAC cancer studies. And to address the challenges in the data analysis, we also developed/enhanced multiple data analysis pipelines while performing the data analysis.   
+
+        Another important component for the success of the study is that we are able to worked very closely with pathologists and clinicians to interpret the results and obtain additional experiment evidence to validate the data analysis results. It’s truly a team work of researchers from different disciplines. 
+        </p>
+
+        <p class="question">Q5: Were there any memorable events during the research? You can tell a story about anything related to people, events, or objects.</p>
+        <p class="answer"><strong>A5</strong>: Unforgettable moments unfolded when unexpected and significant findings emerged from the study. Out of the seven identified subtypes, five encompassed tumors from 10 distinct cancer types, suggesting shared immune responses across these tumors. Additionally, we noted similar kinase activation patterns across different cancers within the same immune subtype. This implies the potential applicability of specific immunotherapy treatments to a broad spectrum of cancer types.  
+                                          
+        Another surprising finding is that, in one subtype (CD8-IFNG+), despite high activity in the IFNG pathway, there was a surprising observation of low immune cell infiltration. This is unexpected, as an active IFNG pathway is typically associated with a robust immune response. Alternative treatment will be needed for this group of patients compared to those from CD8+IFNG+.
+        </p>
+
+        <p class="question">Q6: Is there a follow-up plan based on this research? If so, please elaborate.</p>
+        <p class="answer"><strong>A6</strong>: We are seeking opportunities to validate our findings through the analysis of cellular level proteomic/transcriptomic data from cutting-edge single-cell platforms. Furthermore, we intend to leverage the insights garnered from this paper in other clinical studies focused on immunotherapy treatment. This effort aims to streamline the development of biomarker panels for treatment responses and identify enhanced treatment strategies. To exemplify, in collaboration with other CPTAC scientists, I am actively involved in a proteogenomic study aimed at unraveling the intricate molecular mechanisms that underlie responses to immune checkpoint treatments in melanoma patients.</p>
+
+        <p class="question">Q7: Without a doubt, AI is one of the hot topics of 2023, requiring extensive data support in its development. What assistance can biostatistics offer to the development of AI?</p>
+        <p class="answer"><strong>A7</strong>: I don’t think our work relating to “AI” --- which, in my opinion, involves “self-learning” at real time. But this is definitely a work of BIG data. I believe statisticians play a pivotal role at the forefront, leveraging data to enhance our understanding across a myriad of fields. </p>
+
+        <p class="question">Q8: Besides the above questions, is there anything else about this achievement that you would like to add? If so, please add it below.</p>
+        <p class="answer"><strong>A8</strong>: One challenge in cancer research is the extensive sample heterogeneity, both within and across different cancers. With the CPTAC Pan Cancer cohort (>1000), we were more powered to reveal unique subtypes not detected in individual cancer studies. Nevertheless, we may not exhaustively identify every potential immune subtype present in these tumors. Also, tumors may exhibit a spectrum of immune infiltration that defies easy categorization into discrete subtypes.</p>
+
+        <!-- 添加更多问题和答案 -->
+
+    </div>
+<div class="background-image"></div>
+</body>
+</html>
