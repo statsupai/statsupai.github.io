@@ -1,0 +1,8 @@
+[1,"==> quarto preview index.qmd --to html --no-watch-inputs --no-browse\n\n"]
+[1,"\r\n\r\nprocessing file: index.qmd\r\n\r  |                                                          \r  |                                                    |   0%\r  |                                                          \r  |.................                                   |  33%                  \r  |                                                          \r  |...................................                 |  67% (unnamed-chunk-1)"]
+[1,"\r  |                                                          \r  |....................................................| 100%                  \r                                                                                                            \r\noutput file: index.knit.md\r\n\r\n"]
+[1,"pandoc \n  to: html\n  output-file: index.html\n  standalone: true\n  section-divs: true\n  html-math-method: mathjax\n  wrap: none\n  default-image-extension: png\n  css:\n    - styles.css\n  toc: true\n  \nmetadata\n  document-css: false\n  link-citations: true\n  date-format: long\n  lang: en\n  theme: cosmo\n  title: quarto_web\n  \n"]
+[1,"Output created: site\\index.html\n\n"]
+[1,"Preparing to preview\n"]
+[1,"\nWatching files for changes\nBrowse at http://localhost:6359/\n"]
+[1,"GET: /\n"]
