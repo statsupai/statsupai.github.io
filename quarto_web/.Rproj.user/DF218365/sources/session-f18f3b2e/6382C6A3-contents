@@ -1,0 +1,10 @@
+---
+title: Recent News
+listing:
+  filter-ui: true
+  categories: true
+  type: default
+  sort:
+  - "date desc"
+  - "title desc"
+---

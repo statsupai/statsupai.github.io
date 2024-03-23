@@ -1,0 +1,8 @@
+---
+listing:
+  type: default
+  feed: true
+  sort:
+  - "date"
+  - "title desc"
+---
