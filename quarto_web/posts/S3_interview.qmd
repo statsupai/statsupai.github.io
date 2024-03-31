@@ -189,7 +189,7 @@ date: "2024-04-01"
 
 </head>
 <body>
-    <img class="header-image" src="S3.jpg" alt="Interview Image">
+    <img class="header-image" src="figures/S3.jpg" alt="Interview Image">
 
     <div class="article-link">
     <p>The Article Link:</p><a href="https://www.nature.com/articles/s41587-023-01772-1" target="_blank">scDesign3 generates realistic in silico data for multimodal single-cell and spatial omics</a>
@@ -208,7 +208,7 @@ date: "2024-04-01"
         <p class="answer">An advantage of scDesign3 is that its probabilistic model unifies the generation and inference for single-cell and spatial omics data. The model’s interpretable parameters and likelihood enable scDesign3 to generate customized synthetic data and unsupervisedly assess the goodness-of-fit of cell latent states inferred by a computational method (Figure 1 Right). Hence, scDesign3 is not only a simulator that can generate realistic synthetic data but also a statistical model that can help interpret real experimental data. By inferring the parameters of the scDesign3 model, we can perform hypothesis testing tasks such as identifying the genes whose expression changes between cell types or along a cell trajectory, as well as comparing gene correlations between cell types.
  
         </p>
-        <img class="image" src="S3_3.png" alt="mage">
+        <img class="image" src="figures/S3_3.png" alt="mage">
 
         <p class="question">How did the reviewers evaluate (praise) it?</p>
         <p class="answer">The reviewers acknowledged the timeliness and significance of our work. Their quotes include
