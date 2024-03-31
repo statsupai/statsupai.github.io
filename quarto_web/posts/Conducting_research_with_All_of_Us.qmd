@@ -1,0 +1,17 @@
+---
+title: "Conducting research with All of Us"
+image: figures/all_of_us.jpg
+author:
+  - name: "Henry Ye"
+  - affiliation: "University of California, Irvine"
+categories:
+  - Videos
+date: "2024-02-25"
+---
+
+Introduction video is [here!](https://www.youtube.com/watch?v=fgWu-RxTGWk&list=PLHceB7Ek40_MHyQxMraQMOVJ5-04yW7Hs)
+
+```{=html}
+<iframe width="560" height="315" src="https://www.youtube.com/embed/fgWu-RxTGWk?si=guKNqwR59TXV36Qm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+```
+

@@ -1,0 +1,31 @@
+---
+title: "Journal of Data Science calls for contributions to a special issue on the same topic"
+image: figures/Meeting/DSCallSpeialIssue.jpg
+author:
+  - name: "Shan Gao"
+  - affiliation: "Yunnan University"
+categories:
+  - Opportunities
+date: "2024-02-05"
+---
+
+```{=html}
+		<div class="about">
+			<div class="row"> 
+				<div class="col-md-12">
+					<div class="about-logo">
+						<p>The Journal of Data Science (JDS) invites submissions for a special issue on “Statistical Aspects of Trustworthy Machine Learning.” This special issue aims to showcase the state-of-the-art advancements in statistical aspects of machine learning's interpretability, fairness, transparency, and robustness. We invite submissions addressing statistical solutions to trust challenges in diverse machine learning applications.(click <a href="figures/Meeting/DSCallSpeialIssue.pdf">here</a> for more info). </p>
+					</div>
+			</div>  
+			<br>
+		</div>
+                                        
+```
+
+
+
+
+
+
+
+

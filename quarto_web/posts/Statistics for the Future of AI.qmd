@@ -1,0 +1,59 @@
+---
+title: "Statistics for the Future of AI"
+image: figures/Meeting/meeting.jpg
+author:
+  - name: "Shan Gao"
+  - affiliation: "Yunnan University"
+categories:
+  - News
+date: "2024-02-07"
+---
+
+Dear Fellow Statisticians,
+
+The emergence of artificial intelligence (AI) has significantly transformed our society, highlighting the critical role of our discipline in AI's evolution. Our expertise in statistics is integral to developing robust designs, models, and algorithms that shape AI.
+
+We are excited to share with you
+
+```{=html}
+<p align="center"><iframe width="560" height="315" src="https://www.youtube.com/embed/kdx-k1R2AHA?si=FvuYs2MoWmG0sBv-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>> </p>
+                                        
+```
+
+
+The Youtube playlist from a recent research retreat workshop "Statistics for the Future of AI," an esteemed event sponsored by the Mohammed Bin Zayed University of Artificial Intelligence. This playlist features insightful keynote presentations from distinguished statisticians Hongtu Zhu, Xihong Lin, Tianxi Cai, and Susan Murphy. Their talks focus on the vital role of statistics and statisticians in advancing AI research, particularly in the realm of healthcare. Additionally, the playlist includes 14 lightning talks by other eminent statisticians who participated in the workshop. These discussions highlight the pressing challenges in AI and healthcare, emphasizing the need for innovative statistical solutions and the significant contributions statisticians can bring to this field. We encourage you to explore these presentations to gain a deeper understanding of the dynamic interplay between AI and healthcare and the central role of statistics in this evolving landscape. Your engagement and insights are invaluable as we strive to more seamlessly integrate statistics with AI. Let's continue to foster discussions about "Statistics Up AI" within our community and collectively and proactively advance our research paradigms to embrace the opportunities AI presents.
+
+
+Most videos are quite interesting, since we asked each speaker to focus on the following questions.
+
+[Prediction] - what would be the next stage for research in this field for the next 5-10 years?
+
+[Vision] What would be the most exciting and pivotal breakthrough that AI and Statistics could lead to that will change the practice?
+
+[Position] What is the most important open question that the research community is grappling with?
+
+[Position] How could an individual statistician get started to contribute? What could a team/department do collectively to accelerate progress?
+
+
+All speakers gave their honest opinions about the future of statistics in the AI era.
+
+It is very good for students and faculty members.
+
+
+Tian Zheng, Professor and Chair, Department of Statistics, Columbia University
+
+Hongtu Zhu, Professor, Department of Biostatistics, The University of North Carolina at Chapel Hill
+
+![](figures/Meeting/meeting.jpg)
+
+![](figures/Meeting/1.jpg){width=33%}
+![](figures/Meeting/2.jpg){width=32%}
+![](figures/Meeting/3.jpg){width=33%}
+
+![](figures/Meeting/4.jpg){width=33%}
+![](figures/Meeting/5.jpg){width=32%}
+![](figures/Meeting/6.jpg){width=33%}
+
+![](figures/Meeting/7.jpg){width=33%}
+![](figures/Meeting/8.jpg){width=32%}
+![](figures/Meeting/9.jpg){width=33%}

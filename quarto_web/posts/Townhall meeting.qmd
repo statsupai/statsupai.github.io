@@ -1,0 +1,24 @@
+---
+title: "Townhall meeting on the role of statisticians for the future of AI"
+image: figures/ASAtownhallflyerShort.png
+author:
+  - name: "Shan Gao"
+  - affiliation: "Yunnan University"
+categories:
+  - News
+date: "2024-02-07"
+---
+
+```{=html}
+		<div class="about">
+			<div class="row"> 
+				<div class="col-md-12">
+					<div class="about-logo">
+							<h5>Feb 7 4:30 pm EST (meeting <a href="figures/ASA Townhall The role of statistics  for the future of AI.pdf">slides</a>,  <a href="https://www.youtube.com/embed/WjepX2Rklpk?si=wH1Xn84_cdQUfKik">recording</a>)</h5>
+							<img width="400" height="500" src="figures/ASAtownhallflyer.png" alt="">
+				</div>
+			</div>  
+			<br>
+		</div>
+```
+

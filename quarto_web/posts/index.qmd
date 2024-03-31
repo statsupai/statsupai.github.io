@@ -1,4 +1,7 @@
 ---
+format: 
+  html:
+    page-layout: full
 listing:
   filter-ui: true
   categories: true

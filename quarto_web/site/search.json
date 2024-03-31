@@ -60,7 +60,7 @@
     "href": "posts/index.html",
     "title": "",
     "section": "",
-    "text": "Stats Up AI Pioneer Papers (Dr. Pei Wang)\n\n\n\n\n\n\n\nNews\n\n\n\n\n\n\n\n\n\n\n\nMar 1, 2024\n\n\nShan Gao\n\n\n\n\n\n\n  \n\n\n\n\nConducting research with UK biobank\n\n\n\n\n\n\n\nVideos\n\n\n\n\n\n\n\n\n\n\n\nFeb 28, 2024\n\n\nHenry Ye\n\n\n\n\n\n\nNo matching items"
+    "text": "Stats Up AI Pioneer Papers (Dr. Pei Wang)\n\n\n\n\n\n\n\nNews\n\n\n\n\n\n\n\n\n\n\n\nMar 1, 2024\n\n\nShan Gao\n\n\n\n\n\n\n  \n\n\n\n\nConducting research with UK biobank\n\n\n\n\n\n\n\nVideos\n\n\n\n\n\n\n\n\n\n\n\nFeb 28, 2024\n\n\nHenry Ye\n\n\n\n\n\n\n  \n\n\n\n\nCall proposal for JASA special issue on AI\n\n\n\n\n\n\n\nOpportunities\n\n\n\n\n\n\n\n\n\n\n\nFeb 28, 2024\n\n\nHenry Ye\n\n\n\n\n\n\n  \n\n\n\n\nConducting research with All of Us\n\n\n\n\n\n\n\nVideos\n\n\n\n\n\n\n\n\n\n\n\nFeb 25, 2024\n\n\nHenry Ye\n\n\n\n\n\n\n  \n\n\n\n\nTownhall meeting on the role of statisticians for the future of AI\n\n\n\n\n\n\n\nNews\n\n\n\n\n\n\n\n\n\n\n\nFeb 7, 2024\n\n\nShan Gao\n\n\n\n\n\n\n  \n\n\n\n\nStatistics for the Future of AI\n\n\n\n\n\n\n\nNews\n\n\n\n\n\n\n\n\n\n\n\nFeb 7, 2024\n\n\nShan Gao\n\n\n\n\n\n\n  \n\n\n\n\nStatistical Aspects of Trustworthy Machine Learning\n\n\n\n\n\n\n\nVideos\n\n\n\n\n\n\n\n\n\n\n\nFeb 5, 2024\n\n\nShan Gao\n\n\n\n\n\n\n  \n\n\n\n\nJournal of Data Science calls for contributions to a special issue on the same topic\n\n\n\n\n\n\n\nOpportunities\n\n\n\n\n\n\n\n\n\n\n\nFeb 5, 2024\n\n\nShan Gao\n\n\n\n\n\n\n  \n\n\n\n\nData and AI Intensive Research with Rigor and Reproducibility (DAIR³)\n\n\n\n\n\n\n\nVideos\n\n\n\n\n\n\n\n\n\n\n\nFeb 5, 2024\n\n\nShan Gao\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/interview_peiwang.html",
@@ -75,5 +75,96 @@
     "title": "Conducting research with UK biobank",
     "section": "",
     "text": "Conducting research with UK biobank"
+  },
+  {
+    "objectID": "posts/Conducting_research_with_All_of_Us.html",
+    "href": "posts/Conducting_research_with_All_of_Us.html",
+    "title": "Conducting research with All of Us",
+    "section": "",
+    "text": "Introduction video is here!"
+  },
+  {
+    "objectID": "posts/template.html",
+    "href": "posts/template.html",
+    "title": "Townhall meeting on the role of statisticians for the future of AI",
+    "section": "",
+    "text": "Feb 7 4:30 pm EST (meeting slides,  recording)"
+  },
+  {
+    "objectID": "posts/Townhall meeting.html",
+    "href": "posts/Townhall meeting.html",
+    "title": "Townhall meeting on the role of statisticians for the future of AI",
+    "section": "",
+    "text": "Feb 7 4:30 pm EST (meeting slides,  recording)"
+  },
+  {
+    "objectID": "posts/Statistics for the Future of AI.html",
+    "href": "posts/Statistics for the Future of AI.html",
+    "title": "Statistics for the Future of AI",
+    "section": "",
+    "text": "Dear Fellow Statisticians,\nThe emergence of artificial intelligence (AI) has significantly transformed our society, highlighting the critical role of our discipline in AI’s evolution. Our expertise in statistics is integral to developing robust designs, models, and algorithms that shape AI.\nWe are excited to share with you\n&gt; \n                                        \nThe Youtube playlist from a recent research retreat workshop “Statistics for the Future of AI,” an esteemed event sponsored by the Mohammed Bin Zayed University of Artificial Intelligence. This playlist features insightful keynote presentations from distinguished statisticians Hongtu Zhu, Xihong Lin, Tianxi Cai, and Susan Murphy. Their talks focus on the vital role of statistics and statisticians in advancing AI research, particularly in the realm of healthcare. Additionally, the playlist includes 14 lightning talks by other eminent statisticians who participated in the workshop. These discussions highlight the pressing challenges in AI and healthcare, emphasizing the need for innovative statistical solutions and the significant contributions statisticians can bring to this field. We encourage you to explore these presentations to gain a deeper understanding of the dynamic interplay between AI and healthcare and the central role of statistics in this evolving landscape. Your engagement and insights are invaluable as we strive to more seamlessly integrate statistics with AI. Let’s continue to foster discussions about “Statistics Up AI” within our community and collectively and proactively advance our research paradigms to embrace the opportunities AI presents.\nMost videos are quite interesting, since we asked each speaker to focus on the following questions.\n[Prediction] - what would be the next stage for research in this field for the next 5-10 years?\n[Vision] What would be the most exciting and pivotal breakthrough that AI and Statistics could lead to that will change the practice?\n[Position] What is the most important open question that the research community is grappling with?\n[Position] How could an individual statistician get started to contribute? What could a team/department do collectively to accelerate progress?\nAll speakers gave their honest opinions about the future of statistics in the AI era.\nIt is very good for students and faculty members.\nTian Zheng, Professor and Chair, Department of Statistics, Columbia University\nHongtu Zhu, Professor, Department of Biostatistics, The University of North Carolina at Chapel Hill"
+  },
+  {
+    "objectID": "posts/Statistics for the Future of AI - Copy.html",
+    "href": "posts/Statistics for the Future of AI - Copy.html",
+    "title": "Journal of Data Science calls for contributions to a special issue on the same topic",
+    "section": "",
+    "text": "The Journal of Data Science (JDS) invites submissions for a special issue on “Statistical Aspects of Trustworthy Machine Learning.” This special issue aims to showcase the state-of-the-art advancements in statistical aspects of machine learning's interpretability, fairness, transparency, and robustness. We invite submissions addressing statistical solutions to trust challenges in diverse machine learning applications.(click here for more info)."
+  },
+  {
+    "objectID": "posts/Statistics for the Future of AI - Copy (4).html",
+    "href": "posts/Statistics for the Future of AI - Copy (4).html",
+    "title": "Statistics for the Future of AI",
+    "section": "",
+    "text": "Dear Fellow Statisticians,\nThe emergence of artificial intelligence (AI) has significantly transformed our society, highlighting the critical role of our discipline in AI’s evolution. Our expertise in statistics is integral to developing robust designs, models, and algorithms that shape AI.\nWe are excited to share with you\n&gt; \n                                        \nThe Youtube playlist from a recent research retreat workshop “Statistics for the Future of AI,” an esteemed event sponsored by the Mohammed Bin Zayed University of Artificial Intelligence. This playlist features insightful keynote presentations from distinguished statisticians Hongtu Zhu, Xihong Lin, Tianxi Cai, and Susan Murphy. Their talks focus on the vital role of statistics and statisticians in advancing AI research, particularly in the realm of healthcare. Additionally, the playlist includes 14 lightning talks by other eminent statisticians who participated in the workshop. These discussions highlight the pressing challenges in AI and healthcare, emphasizing the need for innovative statistical solutions and the significant contributions statisticians can bring to this field. We encourage you to explore these presentations to gain a deeper understanding of the dynamic interplay between AI and healthcare and the central role of statistics in this evolving landscape. Your engagement and insights are invaluable as we strive to more seamlessly integrate statistics with AI. Let’s continue to foster discussions about “Statistics Up AI” within our community and collectively and proactively advance our research paradigms to embrace the opportunities AI presents.\nMost videos are quite interesting, since we asked each speaker to focus on the following questions.\n[Prediction] - what would be the next stage for research in this field for the next 5-10 years?\n[Vision] What would be the most exciting and pivotal breakthrough that AI and Statistics could lead to that will change the practice?\n[Position] What is the most important open question that the research community is grappling with?\n[Position] How could an individual statistician get started to contribute? What could a team/department do collectively to accelerate progress?\nAll speakers gave their honest opinions about the future of statistics in the AI era.\nIt is very good for students and faculty members.\nTian Zheng, Professor and Chair, Department of Statistics, Columbia University\nHongtu Zhu, Professor, Department of Biostatistics, The University of North Carolina at Chapel Hill"
+  },
+  {
+    "objectID": "posts/Statistics for the Future of AI - Copy (2).html",
+    "href": "posts/Statistics for the Future of AI - Copy (2).html",
+    "title": "Statistics for the Future of AI",
+    "section": "",
+    "text": "Dear Fellow Statisticians,\nThe emergence of artificial intelligence (AI) has significantly transformed our society, highlighting the critical role of our discipline in AI’s evolution. Our expertise in statistics is integral to developing robust designs, models, and algorithms that shape AI.\nWe are excited to share with you\n&gt; \n                                        \nThe Youtube playlist from a recent research retreat workshop “Statistics for the Future of AI,” an esteemed event sponsored by the Mohammed Bin Zayed University of Artificial Intelligence. This playlist features insightful keynote presentations from distinguished statisticians Hongtu Zhu, Xihong Lin, Tianxi Cai, and Susan Murphy. Their talks focus on the vital role of statistics and statisticians in advancing AI research, particularly in the realm of healthcare. Additionally, the playlist includes 14 lightning talks by other eminent statisticians who participated in the workshop. These discussions highlight the pressing challenges in AI and healthcare, emphasizing the need for innovative statistical solutions and the significant contributions statisticians can bring to this field. We encourage you to explore these presentations to gain a deeper understanding of the dynamic interplay between AI and healthcare and the central role of statistics in this evolving landscape. Your engagement and insights are invaluable as we strive to more seamlessly integrate statistics with AI. Let’s continue to foster discussions about “Statistics Up AI” within our community and collectively and proactively advance our research paradigms to embrace the opportunities AI presents.\nMost videos are quite interesting, since we asked each speaker to focus on the following questions.\n[Prediction] - what would be the next stage for research in this field for the next 5-10 years?\n[Vision] What would be the most exciting and pivotal breakthrough that AI and Statistics could lead to that will change the practice?\n[Position] What is the most important open question that the research community is grappling with?\n[Position] How could an individual statistician get started to contribute? What could a team/department do collectively to accelerate progress?\nAll speakers gave their honest opinions about the future of statistics in the AI era.\nIt is very good for students and faculty members.\nTian Zheng, Professor and Chair, Department of Statistics, Columbia University\nHongtu Zhu, Professor, Department of Biostatistics, The University of North Carolina at Chapel Hill"
+  },
+  {
+    "objectID": "posts/Statistics for the Future of AI - Copy (3).html",
+    "href": "posts/Statistics for the Future of AI - Copy (3).html",
+    "title": "Statistics for the Future of AI",
+    "section": "",
+    "text": "Dear Fellow Statisticians,\nThe emergence of artificial intelligence (AI) has significantly transformed our society, highlighting the critical role of our discipline in AI’s evolution. Our expertise in statistics is integral to developing robust designs, models, and algorithms that shape AI.\nWe are excited to share with you\n&gt; \n                                        \nThe Youtube playlist from a recent research retreat workshop “Statistics for the Future of AI,” an esteemed event sponsored by the Mohammed Bin Zayed University of Artificial Intelligence. This playlist features insightful keynote presentations from distinguished statisticians Hongtu Zhu, Xihong Lin, Tianxi Cai, and Susan Murphy. Their talks focus on the vital role of statistics and statisticians in advancing AI research, particularly in the realm of healthcare. Additionally, the playlist includes 14 lightning talks by other eminent statisticians who participated in the workshop. These discussions highlight the pressing challenges in AI and healthcare, emphasizing the need for innovative statistical solutions and the significant contributions statisticians can bring to this field. We encourage you to explore these presentations to gain a deeper understanding of the dynamic interplay between AI and healthcare and the central role of statistics in this evolving landscape. Your engagement and insights are invaluable as we strive to more seamlessly integrate statistics with AI. Let’s continue to foster discussions about “Statistics Up AI” within our community and collectively and proactively advance our research paradigms to embrace the opportunities AI presents.\nMost videos are quite interesting, since we asked each speaker to focus on the following questions.\n[Prediction] - what would be the next stage for research in this field for the next 5-10 years?\n[Vision] What would be the most exciting and pivotal breakthrough that AI and Statistics could lead to that will change the practice?\n[Position] What is the most important open question that the research community is grappling with?\n[Position] How could an individual statistician get started to contribute? What could a team/department do collectively to accelerate progress?\nAll speakers gave their honest opinions about the future of statistics in the AI era.\nIt is very good for students and faculty members.\nTian Zheng, Professor and Chair, Department of Statistics, Columbia University\nHongtu Zhu, Professor, Department of Biostatistics, The University of North Carolina at Chapel Hill"
+  },
+  {
+    "objectID": "posts/Journal of Data Science.html",
+    "href": "posts/Journal of Data Science.html",
+    "title": "Journal of Data Science calls for contributions to a special issue on the same topic",
+    "section": "",
+    "text": "The Journal of Data Science (JDS) invites submissions for a special issue on “Statistical Aspects of Trustworthy Machine Learning.” This special issue aims to showcase the state-of-the-art advancements in statistical aspects of machine learning's interpretability, fairness, transparency, and robustness. We invite submissions addressing statistical solutions to trust challenges in diverse machine learning applications.(click here for more info)."
+  },
+  {
+    "objectID": "posts/conducting_research_with_UK_biobank - Copy.html",
+    "href": "posts/conducting_research_with_UK_biobank - Copy.html",
+    "title": "Call proposal for JASA special issue on AI",
+    "section": "",
+    "text": "We are excited to announce a call for papers for a special issue dedicated to exploring the intersection of statistical theory, and methods and applications with core problems in Artificial Intelligence (AI). This issue aims to map the evolving landscape of innovative statistical research inspired and motivated by the rapid developments in AI, and to pioneer integrated statistical AI methods to advance scientific discovery and trustworthy AI (click here for more info)."
+  },
+  {
+    "objectID": "posts/Statistical Aspects of Trustworthy Machine Learning.html",
+    "href": "posts/Statistical Aspects of Trustworthy Machine Learning.html",
+    "title": "Statistical Aspects of Trustworthy Machine Learning",
+    "section": "",
+    "text": "Beginning on Sunday, February 11 and ending Friday February 16, 2024 \n                            A list of workshop videos are posted here!"
+  },
+  {
+    "objectID": "posts/Data and AI Intensive Research.html",
+    "href": "posts/Data and AI Intensive Research.html",
+    "title": "Data and AI Intensive Research with Rigor and Reproducibility (DAIR³)",
+    "section": "",
+    "text": "Applications now open for the 2024 cohort\n                            The Data and AI Intensive Research with Rigor and Reproducibility (DAIR3) program includes weeklong bootcamps in the summer that focus on ethical issues in biomedical data science; data management, representation, and sharing; rigorous analytical design; the design and reporting of AI models; generative AI; reproducible workflow; and assessing findings across studies. Additionally, the bootcamp also includes grant writing sessions and research collaboration discussions. (click here for more info)"
+  },
+  {
+    "objectID": "posts/Call proposal for JASA special issue on AI.html",
+    "href": "posts/Call proposal for JASA special issue on AI.html",
+    "title": "Call proposal for JASA special issue on AI",
+    "section": "",
+    "text": "We are excited to announce a call for papers for a special issue dedicated to exploring the intersection of statistical theory, and methods and applications with core problems in Artificial Intelligence (AI). This issue aims to map the evolving landscape of innovative statistical research inspired and motivated by the rapid developments in AI, and to pioneer integrated statistical AI methods to advance scientific discovery and trustworthy AI (click here for more info)."
   }
 ]

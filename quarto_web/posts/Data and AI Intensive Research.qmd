@@ -1,0 +1,24 @@
+---
+title: "Data and AI Intensive Research with Rigor and Reproducibility (DAIR³)"
+image: figures/dair3.png
+author:
+  - name: "Shan Gao"
+  - affiliation: "Yunnan University"
+categories:
+  - Videos
+date: "2024-02-05"
+---
+
+```{=html}
+		<div class="about">
+			<div class="row"> 
+				<div class="col-md-12">
+					<div class="about-logo">
+							<h5><a href="https://midas.umich.edu/dair-3/?utm_source=ADSA&utm_campaign=347bc3cbf4-EMAIL_CAMPAIGN_2022_10_04_06_04_COPY_01&utm_medium=email&utm_term=0_5401c7226a-347bc3cbf4-453691784">Applications now open for the 2024 cohort</a></h5>
+							<p>The Data and AI Intensive Research with Rigor and Reproducibility (DAIR3) program includes weeklong bootcamps in the summer that focus on ethical issues in biomedical data science; data management, representation, and sharing; rigorous analytical design; the design and reporting of AI models; generative AI; reproducible workflow; and assessing findings across studies. Additionally, the bootcamp also includes grant writing sessions and research collaboration discussions. (click <a href="https://midas.umich.edu/dair-3/?utm_source=ADSA&utm_campaign=347bc3cbf4-EMAIL_CAMPAIGN_2022_10_04_06_04_COPY_01&utm_medium=email&utm_term=0_5401c7226a-347bc3cbf4-453691784">here</a> for more info)</p>
+				</div>
+			</div>  
+			<br>
+		</div>
+```
+

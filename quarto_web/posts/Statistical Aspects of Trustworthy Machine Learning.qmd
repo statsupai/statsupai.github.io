@@ -1,0 +1,24 @@
+---
+title: "Statistical Aspects of Trustworthy Machine Learning"
+image: figures/logo.png
+author:
+  - name: "Shan Gao"
+  - affiliation: "Yunnan University"
+categories:
+  - Videos
+date: "2024-02-05"
+---
+
+```{=html}
+		<div class="about">
+			<div class="row"> 
+				<div class="col-md-12">
+					<div class="about-logo">
+							<h5>Beginning on Sunday, February 11 and ending Friday February 16, 2024 </h5>
+							<p>A list of workshop videos are posted <a href="http://www.birs.ca/events/2024/5-day-workshops/24w5284/videos">here</a>!</p>
+				</div>
+			</div>  
+			<br>
+		</div>
+```
+
