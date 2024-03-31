@@ -17,14 +17,14 @@ date: "2024-04-01"
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unveiling Immunity Across Cancers: An Interview with Dr. Pei Wang on Her Groundbreaking Research</title>
+    <title>Bridging Cells and Space: The Journey of scDesign3 Exploration</title>
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://statsupai.com/pages/interview_weipeng.html">
-    <meta property="og:title" content="Unveiling Immunity Across Cancers">
-    <meta property="og:description" content="An Interview with Dr. Pei Wang on Her Groundbreaking Research">
-    <meta property="og:image" content="peiwang_interview.jpg">
+    <meta property="og:url" content="https://statsupai.com/pages/S3_interview.html">
+    <meta property="og:title" content="Bridging Cells and Space">
+    <meta property="og:description" content="The Journey of scDesign3 Exploration">
+    <meta property="og:image" content="S3.jpg">
     <style>
         body {
             font-family: 'Roboto', sans-serif; 
