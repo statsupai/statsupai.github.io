@@ -1,0 +1,272 @@
+---
+title: "Stats Up AI Pioneer Papers (Dr. )"
+image: figures/S3.jpg
+author:
+  - name: "Shan Gao"
+  - affiliation: "Yunnan University"
+categories:
+  - News
+date: "2024-04-01"
+---
+
+```{=html}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unveiling Immunity Across Cancers: An Interview with Dr. Pei Wang on Her Groundbreaking Research</title>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://statsupai.com/pages/interview_weipeng.html">
+    <meta property="og:title" content="Unveiling Immunity Across Cancers">
+    <meta property="og:description" content="An Interview with Dr. Pei Wang on Her Groundbreaking Research">
+    <meta property="og:image" content="peiwang_interview.jpg">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif; 
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            line-height: 1.6; /* 增加行距 */
+        }
+        .large-text {
+            font-size: larger; /* 或你想要的任何大小 */
+        }
+
+        .interviewee-introduction {
+            display: flex;
+            align-items: center;
+            background-color: #f8f8f8; /* 轻灰色背景 */
+            border-radius: 8px; /* 边角圆润 */
+            padding: 20px;
+            margin-bottom: 20px; /* 和问答部分保持一定距离 */
+        }
+
+        .interviewee-photo {
+            width: 150px; /* 根据需要调整 */
+            height: 150px; /* 根据需要调整 */
+            border-radius: 50%; /* 创建圆形图片 */
+            object-fit: cover; /* 确保图片内容适应尺寸 */
+            margin-right: 20px;
+        }
+
+        .interviewee-details h2 {
+            margin-top: 0;
+            color: #003366; /* 深蓝色，你可以根据网站主题更改 */
+        }
+
+        .interviewee-details p {
+            color: #333; /* 深灰色文本 */
+            line-height: 1.6; /* 增加行距 */
+        }
+        .edit-info {
+            color: #808080; /* 设置为灰色字体 */
+            font-size: 15px; /* 设置字体大小，根据需要调整 */
+            text-align: right; /* 右对齐文本 */
+            padding: 20px 0; /* 在内容上下添加一些空间 */
+            margin-top: 20px; /* 与问答内容保持一定距离 */
+            border-top: 1px solid #ccc; /* 如果需要，可以添加一条分隔线 */
+        }
+
+        .header-image {
+            width: 97%;
+            height: auto;
+            display: block; /* 使图片成为块级元素 */
+            margin: 0 auto; /* 水平居中 */
+        }
+        .fixed-counter {
+            position: fixed; /* 固定定位，使元素不随页面滚动 */
+            left: 0; /* 距离页面左边界的距离 */
+            bottom: 0; /* 距离页面底部边界的距离 */
+            background-color: transparent; /* 可以根据需要设置背景颜色 */
+            z-index: 1000; /* 确保计数器显示在其他元素之上 */
+        }
+
+        .interview {
+        margin: 20px;
+        background-color: rgba(255, 255, 255, 0.7); /* 白色背景，70%不透明度（即30%透明度） */
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 标题和子标题 */
+        h1, h2 {
+            font-weight: bold;
+            color: #003366; /* 深蓝色 */
+            margin-bottom: 20px;
+        }
+
+        /* 问题样式 */
+        .question {
+            color: #003366; /* 深蓝色 */
+            font-weight: bold;
+            margin-bottom: 10px; /* 问题与回答之间的空间 */
+            font-size: larger; /* 突出问题 */
+        }
+        .image {
+            display: block; /* 使图像成为块级元素 */
+            max-width: 60%; /* 设置图像的最大宽度为60%以确保响应式 */
+            height: auto; /* 设置图像的高度自动调整以保持图片比例 */
+            margin: 10px auto; /* 上下边距为20px，左右自动，实现水平居中 */
+            border: 5px solid #808080; /* 添加蓝色的边框，宽度为5px */
+            border-radius: 8px; /* 如果您想要圆角边框，可以添加这个属性 */
+        }
+
+        .answer {
+            background-color: #f8f8f8; /* 轻微的背景色增加对比 */
+            padding: 15px; /* 内边距增加可读性 */
+            border-left: 4px solid #003366; /* 左侧边框作为视觉提示 */
+            margin-bottom: 20px; /* 增加回答间的空间 */
+            color: #264653; /* 适中的文字颜色 */
+            font-size: medium; /* 适合阅读的字号 */
+            line-height: 1.6; /* 行间距增加可读性 */
+            border-radius: 4px; /* 轻微的圆角 */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* 轻微的阴影增加层次感 */
+        }
+
+
+        /* 链接/按钮样式 */
+        .article-link a {
+            background-color: #003366;
+            padding: 12px 25px;
+            border-radius: 5px;
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+
+        .article-link a:hover {
+            background-color: #0056b3;
+        }
+
+        .background-image {
+            position: fixed; /* 或absolute，取决于你的需求 */
+            right: 0;
+            bottom: 0;
+            width: 800px; /* 根据你的背景图尺寸调整 */
+            height: 300px; /* 根据你的背景图尺寸调整 */
+            background-image: url('12.jpg'); /* 替换为你的图片名称 */
+            background-size: cover;
+            opacity: 0.4; /* 设置透明度为40% */
+            z-index: -1; /* 确保背景图不会覆盖其他内容 */
+        }
+        .article-link {
+            background-color: #f4f4f4; /* 背景色 */
+            padding: 10px; /* 内边距 */
+            border-radius: 8px; /* 边角圆滑 */
+            text-align: center; /* 文本居中 */
+            margin: 20px 0; /* 上下外边距 */
+        }
+    
+        .article-link p {
+            margin: 0; /* 移除默认边距 */
+            color: #003366; /* 文本颜色 */
+            font-weight: bold; /* 字体加粗 */
+        }
+    
+        .article-link a {
+            display: inline-block; /* 可以设置宽度和高度 */
+            background-color: #003366; /* 链接背景色 */
+            color: white; /* 链接文字颜色 */
+            padding: 10px 20px; /* 链接内边距 */
+            border-radius: 5px; /* 链接边角圆滑 */
+            text-decoration: none; /* 去掉下划线 */
+            font-size: 18px; /* 字体大小 */
+            margin-top: 10px; /* 与段落之间的距离 */
+            transition: background-color 0.3s; /* 过渡动画 */
+        }
+    
+        .article-link a:hover {
+            background-color: #0056b3; /* 鼠标悬停时的背景色 */
+        }
+        
+
+    </style>
+
+</head>
+<body>
+    <img class="header-image" src="S3.jpg" alt="Interview Image">
+
+    <div class="article-link">
+    <p>The Article Link:</p><a href="https://www.nature.com/articles/s41587-023-01772-1" target="_blank">scDesign3 generates realistic in silico data for multimodal single-cell and spatial omics</a>
+    </div>
+
+<!--     <div id="sfclnp7ljs4s9lg5c5kmcde77njx33251j5"></div>
+    <script type="text/javascript" src="https://counter11.optistats.ovh/private/counter.js?c=lnp7ljs4s9lg5c5kmcde77njx33251j5&down=async" async></script>
+    <noscript><a href="https://www.freecounterstat.com" title="website counter"><img src="https://counter11.optistats.ovh/private/freecounterstat.php?c=lnp7ljs4s9lg5c5kmcde77njx33251j5" border="0" title="website counter" alt="website counter"></a></noscript>
+ -->
+    
+    <div class="interview">
+        <p class="question">Regarding the research background and significance, does this work discover new knowledge or solve existing problems within the field? Please elaborate in detail.</p>
+        <p class="answer">Our work aimed to provide a unified solution to the problems of method benchmarking and parameter inference in the single-cell and spatial omics field.
+        As breakthrough technologies, single-cell and spatial omics can unprecedentedly provide a multimodal view of the molecular biology phenomena (such as genome-wide gene expression and open chromatin regions) in individual cells. The excitement about these new technologies and the generated massive data has propelled a rapid development of computational methods, leading to thousands of computational methods being developed in less than a decade. As a result, the availability of numerous computational methods makes method benchmarking a pressing challenge. Fair benchmarking demands synthetic data that contain ground truths and mimic real data, thus calling for realistic simulators.</p>
+        <p class="answer">Motivated by the critical need for method benchmarking and other tasks (e.g., power analysis) requiring ground truths, my group has developed a series of mode-based single-cell simulators: scDesign (Li and Li, Bioinformatics 2019) and scDesign2 (Sun et al., Genome Biology 2021), with scDesign3 being the latest version. For each simulator, we propose a statistical model to be fitted to real data to describe a multi-variate distribution of cells; then we simulate synthetic cells by sampling from the fitted distribution. For example, for gene expression data, genes are the variables in the multi-variate distribution; for chromatin accessibility data, genomic regions are the variables. The advance of our simulators was based on the improvement of our proposed model. From scDesign to scDesign2, we added the consideration of variable correlations to make the model fit better to real data; as a result, the synthetic data become more realistic. From scDesign2 to the latest scDesign3, the most comprehensive simulator to our knowledge at the time of publication, we enlarged the model to account for comprehensive scenarios, including various cell latent states (discrete cell types or continuous cell trajectories), omics types, spatial locations, and experimental designs (Figure 1 Left).</p>
+        <p class="answer">An advantage of scDesign3 is that its probabilistic model unifies the generation and inference for single-cell and spatial omics data. The model’s interpretable parameters and likelihood enable scDesign3 to generate customized synthetic data and unsupervisedly assess the goodness-of-fit of cell latent states inferred by a computational method (Figure 1 Right). Hence, scDesign3 is not only a simulator that can generate realistic synthetic data but also a statistical model that can help interpret real experimental data. By inferring the parameters of the scDesign3 model, we can perform hypothesis testing tasks such as identifying the genes whose expression changes between cell types or along a cell trajectory, as well as comparing gene correlations between cell types.
+ 
+        </p>
+        <img class="image" src="S3_3.png" alt="mage">
+
+        <p class="question">How did the reviewers evaluate (praise) it?</p>
+        <p class="answer">The reviewers acknowledged the timeliness and significance of our work. Their quotes include
+        “Overall, this simulator is timely and invaluable for benchmarking computational methods and interpreting single-cell and spatial omics data.”
+        “The current manuscript scDesign3 proposed a substantial extension from the author’s previous work and addressed some of the key concerns with many current simulation studies; in particular, the capturing of the correlation structure between genes. This manuscript has two key components. The first is the focus on the creation of a generalizable simulation framework and the second component illustrates how the scDesign3 can be applied in three different modelling settings, (i) parameter estimation and inference, (ii) model selection, and (iii) perturbation).”
+        </p>
+
+
+        <p class="question">If this achievement has potential applications, what are some specific applications it might have in a few years?</p>
+        <p class="answer">I think realistic synthetic data generation holds promise for critical applications in the single-cell and spatial omics field. First, I have been advocating the inclusion of synthetic negative control data to help users discern spurious discoveries made from a complex analysis pipeline. Such discoveries often arise from artifacts generated by the pipeline due to the “double-dipping” issue, which leads to the confirmatory bias. Second, synthetic data can potentially help alleviate the data imbalance issue, which can negatively affect tasks such as data integration and supervised learning. Third, synthetic data with added perturbations can be used for evaluating the stability of computational results. Given the increasing complexity of data analysis pipelines, involving many user-specified heuristic thresholds across multiple steps, it is essential to ensure the robustness of computational results.</p>
+
+        <p class="question">Can you recount the specific steps or stages from setting the research topic to the successful completion of the research?</p>
+        <p class="answer">I will answer this question based on the way we generally conduct research. Before setting a research topic, we always think about three aspects: significance and novelty, validation approaches, and target user base. Given the competitive nature and widespread interest in single-cell and spatial omics, a comprehensive literature review is the cornerstone to justify the novelty and significance of the research topic. Equally important is the deliberation on how to validate the efficacy of our proposed method, whether through computational analysis or experimental verification. We must assess the availability of resources for validation and identify potential collaborators if such resources are lacking. Moreover, we must consider the prospective end-users of our method: will our method be useful for biologists who generate single-cell and spatial omics data, or will it only be interesting to method developers like ourselves? Importantly, how can we persuade biologists, who typically rely on visualization and empirical data, of the utility of our method? In general, I think answering these questions is essential to advocate a computational method to the biomedical scientists. 
+        </p>
+
+        <p class="question">Were there any memorable events during the research? You can tell a story about anything related to people, events, or objects.</p>
+        <p class="answer">An interesting story is about the term “real data,” used by statisticians in almost every methodology paper. As the scDesign projects were all about “synthetic data,” a term juxtaposed with “real data,” I initially used the term “real data” when introducing our scDesign work to biologists. Surprisingly, some biologists did not understand the concept of "real data," asking questions such as "What defines real data?" and "Is there such a thing as fake data?" This confusion stemmed from the presumption that all data were generated from experiments and hence qualify as real. Aligned with this confusion, many biologists cannot appreciate the utility of simulation, considering simulation as purely a decoration of a computational method because simulation always works. I think realizing and recognizing these differences in mindsets (e.g., abstract thinking vs. empirical thinking) is an essential first step in fostering collaborations with biomedical scientists.
+        </p>
+
+        <p class="question">Is there a follow-up plan based on this research? If so, please elaborate.</p>
+        <p class="answer">We plan to develop an interactive software package for real-data-based synthetic data generation and applications. We will make the package compatible with the state-of-the-art single-cell analysis pipelines Seurat in R and Scanpy in Python. By providing users with the capability to generate customized synthetic data, we hope our software will enable users to benchmark computational methods on their specific datasets, leading to more rigorous and trustworthy discoveries.</p>
+
+        <p class="question">Without a doubt, AI is one of the hot topics of 2023, requiring extensive data support in its development. What assistance can biostatistics offer to the development of AI?</p>
+        <p class="answer">I view AI as a technology advance, similar to the advent of computers in the previous century. Statistics transitioned from its pre-computer era, where mathematical methods were the sole tools, to the computer era, where statistical analyses leveraged computing power to tackle previously impossible missions. Regardless of the tool—from mathematics to computers—the core of statistics, how to infer hidden truths from observed data, remains a timeless pursuit. Therefore, I am optimistic that the ongoing development of AI will pave the way for unprecedented advancements in statistical methodologies. I envision a synergy between the feature extraction capabilities of AI and the inferential toolkits of statistics, which can together propel data-driven scientific discovery. </p>
+
+        <p class="question">Besides the above questions, is there anything else about this achievement that you would like to add? If so, please add it below.</p>
+
+        <p class="answer">I believe statisticians can play a pivotal role in elucidating the impact of proper versus improper use of statistics on scientific discoveries. Demonstrating the impact on concrete examples could significantly enhance the perceived value and influence of statistics within the scientific community.</p>
+        </p>
+        <!-- 添加更多问题和答案 -->
+
+    </div>
+    <div class="edit-info">
+        Edited by: Shan Gao<br>
+        Proofread by: Hongtu Zhu
+    </div>
+<div class="background-image"></div>
+<!-- Default Statcounter code for Interview_peiwang
+https://statsupai.com/pages/interview_weipeng.html -->
+<div style="display: flex; align-items: center; color: #8E8E8E; font-size: 13px; font-family: Arial, sans-serif;">Page Views: <div class="statcounter" style="margin-left: 10px;"> <!-- Add this line for styling -->
+<!-- Default Statcounter code for Interview_peiwang1
+https://statsupai.com/pages/interview_weipeng.html -->
+<script type="text/javascript">
+var sc_project=12973370; 
+var sc_invisible=0; 
+var sc_security="a715d5f2"; 
+var scJsHost = "https://";
+document.write("<sc"+"ript type='text/javascript' src='" +
+scJsHost+
+"statcounter.com/counter/counter.js'></"+"script>");
+</script>
+<noscript><div class="statcounter"><a title="Web Analytics"
+href="https://statcounter.com/" target="_blank"><img
+class="statcounter"
+src="https://c.statcounter.com/12973370/0/a715d5f2/0/"
+alt="Web Analytics"
+referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+<!-- End of Statcounter Code -->
+</body>
+</html>
+```
