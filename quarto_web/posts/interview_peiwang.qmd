@@ -91,27 +91,19 @@ date: "2024-03-01"
         .question {
             color: #003366; /* 深蓝色 */
             font-weight: bold;
-            margin-bottom: 10px; /* 增加问题和答案之间的空间 */
-            font-size: larger;
-            /*text-decoration: underline; /* 添加下划线 */*/
+            margin-bottom: 10px; /* 问题与回答之间的空间 */
+            font-size: larger; /* 突出问题 */
         }
         .answer {
-                font-size: larger; /* 或你设置的具体大小 */
-            border-bottom: 1px solid #ccc; /* 添加浅灰色边框 */
-            padding-bottom: 15px; /* 在边框下方添加一些空间 */
-            /*margin-bottom: 20px; /* 在下一个问题之前添加更多空间 */*/
-            margin-bottom: 20px; /* 增加答案间的空间 */
-            color: #264653;
-        }
-        .question::before {
-            content: ''; /* 伪元素需要的，但不直接显示文字 */
-            display: inline-block; /* 使伪元素像文本一样流动 */
-            width: 40px; /* 图标的宽度 */
-            height: 40px; /* 图标的高度 */
-            background-image: url('question2.pic.png'); /* 替换为你的图标的路径 */
-            background-size: contain; /* 使背景图标适应元素尺寸 */
-            margin-right: 10px; /* 在图标和文本之间添加一些空间 */
-            vertical-align: middle; /* 确保图标和文本垂直对齐 */
+            background-color: #f8f8f8; /* 轻微的背景色增加对比 */
+            padding: 15px; /* 内边距增加可读性 */
+            border-left: 4px solid #003366; /* 左侧边框作为视觉提示 */
+            margin-bottom: 20px; /* 增加回答间的空间 */
+            color: #264653; /* 适中的文字颜色 */
+            font-size: medium; /* 适合阅读的字号 */
+            line-height: 1.6; /* 行间距增加可读性 */
+            border-radius: 4px; /* 轻微的圆角 */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* 轻微的阴影增加层次感 */
         }
 
         .background-image {
