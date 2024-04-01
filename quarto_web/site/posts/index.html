@@ -71,7 +71,8 @@ ul.task-list li input[type="checkbox"] {
 
     const options = {
       valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
+      page: 5,
+    pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
       searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
     };
 
@@ -105,7 +106,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(9)</span></div><div class="category" data-category="News">News <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Opportunities">Opportunities <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Videos">Videos <span class="quarto-category-count">(4)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(10)</span></div><div class="category" data-category="Events">Events <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Interviews">Interviews <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Opportunities">Opportunities <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Resources">Resources <span class="quarto-category-count">(4)</span></div><div class="category" data-category="Videos">Videos <span class="quarto-category-count">(4)</span></div></div></div>
 <!-- main -->
 <main class="content column-page-left" id="quarto-document-content">
 
@@ -117,13 +118,67 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="listing-actions-group">
+   <div class="input-group input-group-sm quarto-listing-sort">
+     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
+     <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+       <option value="" disabled="" selected="" hidden="">Order By</option>
+       <option value="index" data-direction="asc">Default</option>
+         <option value="listing-title" data-direction="asc">
+          Title
+        </option>
+         <option value="listing-date-sort" data-direction="asc">
+          Date - Oldest
+        </option>
+         <option value="listing-date-sort" data-direction="desc">
+          Date - Newest
+        </option>
+         <option value="listing-author" data-direction="asc">
+          Author
+        </option>
+     </select>
+  </div>
     <div class="input-group input-group-sm quarto-listing-filter">
       <span class="input-group-text"><i class="bi bi-search"></i></span>
       <input type="text" class="search form-control" placeholder="Filter">
     </div>
 </div>
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="News" data-listing-date-sort="1709269200000" data-listing-file-modified-sort="1711848500787" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="17">
+<div class="quarto-post image-right" data-index="0" data-categories="Interviews" data-listing-date-sort="1711944000000" data-listing-file-modified-sort="1711936659083" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="19">
+<div class="thumbnail">
+<p><a href="../posts/S3_interview.html"> <img src="../posts/figures/S3.jpg" class="thumbnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="../posts/S3_interview.html">
+<h3 class="no-anchor listing-title">
+Stats Up AI Pioneer Papers (Dr.&nbsp;Jingyi Jessica Li)
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Interviews'); return false;">
+Interviews
+</div>
+</div>
+<a href="../posts/S3_interview.html">
+<div class="listing-description">
+The Article Link:
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="../posts/S3_interview.html">
+<div class="listing-date">
+Apr 1, 2024
+</div>
+<div class="listing-author">
+Shan Gao
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="Events,Interviews" data-listing-date-sort="1709269200000" data-listing-file-modified-sort="1711937018972" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="17">
 <div class="thumbnail">
 <p><a href="../posts/interview_peiwang.html"> <img src="../posts/figures/peiwang_interview.jpg" class="thumbnail-image"> </a></p>
 </div>
@@ -137,8 +192,11 @@ Stats Up AI Pioneer Papers (Dr.&nbsp;Pei Wang)
 </div>
 </a>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('News'); return false;">
-News
+<div class="listing-category" onclick="window.quartoListingCategory('Events'); return false;">
+Events
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Interviews'); return false;">
+Interviews
 </div>
 </div>
 <a href="../posts/interview_peiwang.html">
@@ -158,7 +216,7 @@ Shan Gao
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="Videos" data-listing-date-sort="1709096400000" data-listing-file-modified-sort="1711848500772" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="quarto-post image-right" data-index="2" data-categories="Videos,Resources" data-listing-date-sort="1709096400000" data-listing-file-modified-sort="1711936768266" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
 <div class="thumbnail">
 <p><a href="../posts/conducting_research_with_UK_biobank.html"> <img src="../posts/figures/biobank.jpeg" class="thumbnail-image"> </a></p>
 </div>
@@ -174,6 +232,9 @@ Conducting research with UK biobank
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('Videos'); return false;">
 Videos
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Resources'); return false;">
+Resources
 </div>
 </div>
 <a href="../posts/conducting_research_with_UK_biobank.html">
@@ -193,7 +254,7 @@ Henry Ye
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="Opportunities" data-listing-date-sort="1709096400000" data-listing-file-modified-sort="1711852535950" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="quarto-post image-right" data-index="3" data-categories="Opportunities" data-listing-date-sort="1709096400000" data-listing-file-modified-sort="1711936724459" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
 <div class="thumbnail">
 <p><a href="../posts/Call proposal for JASA special issue on AI.html"> <img src="../posts/figures/jasa.jpg" class="thumbnail-image"> </a></p>
 </div>
@@ -228,7 +289,7 @@ Henry Ye
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="Videos" data-listing-date-sort="1708837200000" data-listing-file-modified-sort="1711849017404" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="quarto-post image-right" data-index="4" data-categories="Videos,Resources" data-listing-date-sort="1708837200000" data-listing-file-modified-sort="1711936752547" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
 <div class="thumbnail">
 <p><a href="../posts/Conducting_research_with_All_of_Us.html"> <img src="../posts/figures/all_of_us.jpg" class="thumbnail-image"> </a></p>
 </div>
@@ -244,6 +305,9 @@ Conducting research with All of Us
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('Videos'); return false;">
 Videos
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Resources'); return false;">
+Resources
 </div>
 </div>
 <a href="../posts/Conducting_research_with_All_of_Us.html">
@@ -263,9 +327,9 @@ Henry Ye
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="4" data-categories="News" data-listing-date-sort="1707282000000" data-listing-file-modified-sort="1711852653046" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="quarto-post image-right" data-index="5" data-categories="Events,Videos" data-listing-date-sort="1707282000000" data-listing-file-modified-sort="1711936949299" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
 <div class="thumbnail">
-<p><a href="../posts/Townhall meeting.html"> <img src="../posts/figures/ASAtownhallflyerShort.png" class="thumbnail-image"> </a></p>
+<p><a href="../posts/Townhall meeting.html"> <img data-src="../posts/figures/ASAtownhallflyerShort.png" class="thumbnail-image"> </a></p>
 </div>
 <div class="body">
 <a href="../posts/Townhall meeting.html">
@@ -277,8 +341,11 @@ Townhall meeting on the role of statisticians for the future of AI
 </div>
 </a>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('News'); return false;">
-News
+<div class="listing-category" onclick="window.quartoListingCategory('Events'); return false;">
+Events
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Videos'); return false;">
+Videos
 </div>
 </div>
 <a href="../posts/Townhall meeting.html">
@@ -298,9 +365,9 @@ Shan Gao
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="5" data-categories="News" data-listing-date-sort="1707282000000" data-listing-file-modified-sort="1711851148318" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
+<div class="quarto-post image-right" data-index="6" data-categories="Events,Videos,Resources" data-listing-date-sort="1707282000000" data-listing-file-modified-sort="1711936919332" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
 <div class="thumbnail">
-<p><a href="../posts/Statistics for the Future of AI.html"> <img src="../posts/figures/Meeting/meeting.jpg" class="thumbnail-image"> </a></p>
+<p><a href="../posts/Statistics for the Future of AI.html"> <img data-src="../posts/figures/Meeting/meeting.jpg" class="thumbnail-image"> </a></p>
 </div>
 <div class="body">
 <a href="../posts/Statistics for the Future of AI.html">
@@ -312,8 +379,14 @@ Statistics for the Future of AI
 </div>
 </a>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('News'); return false;">
-News
+<div class="listing-category" onclick="window.quartoListingCategory('Events'); return false;">
+Events
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Videos'); return false;">
+Videos
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Resources'); return false;">
+Resources
 </div>
 </div>
 <a href="../posts/Statistics for the Future of AI.html">
@@ -333,9 +406,9 @@ Shan Gao
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="6" data-categories="Videos" data-listing-date-sort="1707109200000" data-listing-file-modified-sort="1711852691015" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="quarto-post image-right" data-index="7" data-categories="Resources" data-listing-date-sort="1707109200000" data-listing-file-modified-sort="1711936867275" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
 <div class="thumbnail">
-<p><a href="../posts/Statistical Aspects of Trustworthy Machine Learning.html"> <img src="../posts/figures/logo.png" class="thumbnail-image"> </a></p>
+<p><a href="../posts/Statistical Aspects of Trustworthy Machine Learning.html"> <img data-src="../posts/figures/logo.png" class="thumbnail-image"> </a></p>
 </div>
 <div class="body">
 <a href="../posts/Statistical Aspects of Trustworthy Machine Learning.html">
@@ -347,8 +420,8 @@ Statistical Aspects of Trustworthy Machine Learning
 </div>
 </a>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Videos'); return false;">
-Videos
+<div class="listing-category" onclick="window.quartoListingCategory('Resources'); return false;">
+Resources
 </div>
 </div>
 <a href="../posts/Statistical Aspects of Trustworthy Machine Learning.html">
@@ -368,9 +441,9 @@ Shan Gao
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="7" data-categories="Opportunities" data-listing-date-sort="1707109200000" data-listing-file-modified-sort="1711851523845" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="quarto-post image-right" data-index="8" data-categories="Opportunities" data-listing-date-sort="1707109200000" data-listing-file-modified-sort="1711851523845" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
 <div class="thumbnail">
-<p><a href="../posts/Journal of Data Science.html"> <img src="../posts/figures/Meeting/DSCallSpeialIssue.jpg" class="thumbnail-image"> </a></p>
+<p><a href="../posts/Journal of Data Science.html"> <img data-src="../posts/figures/Meeting/DSCallSpeialIssue.jpg" class="thumbnail-image"> </a></p>
 </div>
 <div class="body">
 <a href="../posts/Journal of Data Science.html">
@@ -403,9 +476,9 @@ Shan Gao
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="8" data-categories="Videos" data-listing-date-sort="1707109200000" data-listing-file-modified-sort="1711852698768" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="quarto-post image-right" data-index="9" data-categories="Opportunities" data-listing-date-sort="1707109200000" data-listing-file-modified-sort="1711936806043" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
 <div class="thumbnail">
-<p><a href="../posts/Data and AI Intensive Research.html"> <img src="../posts/figures/dair3.png" class="thumbnail-image"> </a></p>
+<p><a href="../posts/Data and AI Intensive Research.html"> <img data-src="../posts/figures/dair3.png" class="thumbnail-image"> </a></p>
 </div>
 <div class="body">
 <a href="../posts/Data and AI Intensive Research.html">
@@ -417,8 +490,8 @@ Data and AI Intensive Research with Rigor and Reproducibility (DAIR³)
 </div>
 </a>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Videos'); return false;">
-Videos
+<div class="listing-category" onclick="window.quartoListingCategory('Opportunities'); return false;">
+Opportunities
 </div>
 </div>
 <a href="../posts/Data and AI Intensive Research.html">
@@ -442,6 +515,9 @@ Shan Gao
 <div class="listing-no-matching d-none">
 No matching items
 </div>
+<nav id="listing-pagination" class="listing-pagination" aria-label="Page Navigation">
+  <ul class="pagination"></ul>
+</nav>
 </div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {

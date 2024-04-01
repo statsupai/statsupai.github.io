@@ -1,11 +1,11 @@
 ---
-title: "Stats Up AI Pioneer Papers (Dr. )"
+title: "Stats Up AI Pioneer Papers (Dr. Jingyi Jessica Li)"
 image: figures/S3.jpg
 author:
   - name: "Shan Gao"
   - affiliation: "Yunnan University"
 categories:
-  - News
+  - Interviews
 date: "2024-04-01"
 ---
 

@@ -6,6 +6,7 @@ author:
   - affiliation: "University of California, Irvine"
 categories:
   - Videos
+  - Resources
 date: "2024-02-28"
 ---
 

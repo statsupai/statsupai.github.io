@@ -5,7 +5,7 @@ author:
   - name: "Shan Gao"
   - affiliation: "Yunnan University"
 categories:
-  - Videos
+  - Resources
 date: "2024-02-05"
 ---
 

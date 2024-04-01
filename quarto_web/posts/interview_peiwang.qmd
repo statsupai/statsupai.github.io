@@ -5,7 +5,8 @@ author:
   - name: "Shan Gao"
   - affiliation: "Yunnan University"
 categories:
-  - News
+  - Events
+  - Interviews
 date: "2024-03-01"
 ---
 
