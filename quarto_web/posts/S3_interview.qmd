@@ -190,6 +190,13 @@ date: "2024-04-01"
 </head>
 <body>
     <img class="header-image" src="figures/S3.jpg" alt="Interview Image">
+    <div class="interviewee-introduction">
+    <img src="Dr. Jingyi Jessica Li.jpg" alt="Interviewee Name" class="interviewee-photo">
+    <div class="interviewee-details">
+        <h2>Dr. Jingyi Jessica Li</h2>
+        <p>Dr. Jingyi Jessica Li, Professor of Statistics and Data Science (also affiliated with Biostatistics, Computational Medicine, and Human Genetics), leads a research group titled the Junction of Statistics and Biology at UCLA. With Ph.D. from UC Berkeley and B.S. from Tsinghua University, Dr. Li focuses on developing interpretable statistical methods for biomedical data. Her research delves into quantifying the central dogma, extracting hidden information from transcriptomics data, and ensuring statistical rigor in data analysis by employing synthetic negative controls. Recipient of multiple awards including the NSF CAREER Ward, Sloan Research Fellowship, ISCB Overton Prize, and COPSS Emerging Leaders Award, her contributions have gained recognition in the fields of computational biology and statistics.           </p>
+        </div>
+    </div>
 
     <div class="article-link">
     <p>The Article Link:</p><a href="https://www.nature.com/articles/s41587-023-01772-1" target="_blank">scDesign3 generates realistic in silico data for multimodal single-cell and spatial omics</a>
