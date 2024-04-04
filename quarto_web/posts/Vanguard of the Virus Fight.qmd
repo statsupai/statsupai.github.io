@@ -1,0 +1,285 @@
+---
+title: "Vanguard of the Virus Fight: Unveiling the lmpact of Updated Vaccines and Antivirals on Omicron Subvariants"
+image: figures/xiaofengwang_p1.jpg
+author:
+  - name: "Shan Gao"
+  - affiliation: "Yunnan University"
+categories:
+  - Interviews
+date: "2024-04-04"
+---
+
+```{=html}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanguard of the Virus Fight: Unveiling the Impact of Updated Vaccines and Antivirals on Omicron Subvariants</title>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://statsupai.com/pages/interview3.html">
+    <meta property="og:title" content="Vanguard of the Virus Fight">
+    <meta property="og:description" content="Unveiling the Impact of Updated Vaccines and Antivirals on Omicron Subvariants">
+    <meta property="og:image" content="figures/interview3_head.jpg">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif; 
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            line-height: 1.6; /* 增加行距 */
+        }
+        .large-text {
+            font-size: larger; /* 或你想要的任何大小 */
+        }
+
+        .interviewee-introduction {
+            display: flex;
+            align-items: center;
+            background-color: #f8f8f8; /* 轻灰色背景 */
+            border-radius: 8px; /* 边角圆润 */
+            padding: 20px;
+            margin-bottom: 20px; /* 和问答部分保持一定距离 */
+        }
+
+        .interviewee-photo {
+            width: 150px; /* 根据需要调整 */
+            height: 150px; /* 根据需要调整 */
+            border-radius: 50%; /* 创建圆形图片 */
+            object-fit: cover; /* 确保图片内容适应尺寸 */
+            margin-right: 20px;
+        }
+
+        .interviewee-details h2 {
+            margin-top: 0;
+            color: #7469B6; /* 深蓝色，你可以根据网站主题更改 */
+        }
+
+        .interviewee-details p {
+            color: #333; /* 深灰色文本 */
+            line-height: 1.6; /* 增加行距 */
+        }
+        .edit-info {
+            color: #808080; /* 设置为灰色字体 */
+            font-size: 15px; /* 设置字体大小，根据需要调整 */
+            text-align: right; /* 右对齐文本 */
+            padding: 20px 0; /* 在内容上下添加一些空间 */
+            margin-top: 20px; /* 与问答内容保持一定距离 */
+            border-top: 1px solid #ccc; /* 如果需要，可以添加一条分隔线 */
+        }
+
+        .header-image {
+            width: 97%;
+            height: auto;
+            display: block; /* 使图片成为块级元素 */
+            margin: 0 auto; /* 水平居中 */
+        }
+        .fixed-counter {
+            position: fixed; /* 固定定位，使元素不随页面滚动 */
+            left: 0; /* 距离页面左边界的距离 */
+            bottom: 0; /* 距离页面底部边界的距离 */
+            background-color: transparent; /* 可以根据需要设置背景颜色 */
+            z-index: 1000; /* 确保计数器显示在其他元素之上 */
+        }
+
+        .interview {
+        margin: 20px;
+        background-color: rgba(255, 255, 255, 0.7); /* 白色背景，70%不透明度（即30%透明度） */
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 标题和子标题 */
+        h1, h2 {
+            font-weight: bold;
+            color: #7469B6; /* 深蓝色 */
+            margin-bottom: 20px;
+        }
+
+        /* 问题样式 */
+        .question {
+            color: #7469B6; /* 深蓝色 */
+            font-weight: bold;
+            margin-bottom: 10px; /* 问题与回答之间的空间 */
+            font-size: larger; /* 突出问题 */
+        }
+        .image {
+            display: block; /* 使图像成为块级元素 */
+            max-width: 60%; /* 设置图像的最大宽度为60%以确保响应式 */
+            height: auto; /* 设置图像的高度自动调整以保持图片比例 */
+            margin: 10px auto; /* 上下边距为20px，左右自动，实现水平居中 */
+            border: 5px solid #808080; /* 添加蓝色的边框，宽度为5px */
+            border-radius: 8px; /* 如果您想要圆角边框，可以添加这个属性 */
+        }
+
+        .answer {
+            background-color: #f8f8f8; /* 轻微的背景色增加对比 */
+            padding: 15px; /* 内边距增加可读性 */
+            border-left: 4px solid #7469B6; /* 左侧边框作为视觉提示 */
+            margin-bottom: 20px; /* 增加回答间的空间 */
+            color: #264653; /* 适中的文字颜色 */
+            font-size: medium; /* 适合阅读的字号 */
+            line-height: 1.6; /* 行间距增加可读性 */
+            border-radius: 4px; /* 轻微的圆角 */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* 轻微的阴影增加层次感 */
+        }
+        ul.custom-list {
+        padding-left: 20px; /* 调整以适应项目符号和首行缩进 */
+        }
+        ul.custom-list li {
+            text-indent: 2em; /* 首行缩进 */
+            margin-left: -2em; /* 调整项目符号位置 */
+        }
+
+        .background-image {
+            position: fixed; /* 或absolute，取决于你的需求 */
+            right: 0;
+            bottom: 0;
+            width: 800px; /* 根据你的背景图尺寸调整 */
+            height: 300px; /* 根据你的背景图尺寸调整 */
+            background-image: url('12.jpg'); /* 替换为你的图片名称 */
+            background-size: cover;
+            opacity: 0.4; /* 设置透明度为40% */
+            z-index: -1; /* 确保背景图不会覆盖其他内容 */
+        }
+        .article-link {
+            background-color: #f4f4f4; /* 背景色 */
+            padding: 10px; /* 内边距 */
+            border-radius: 8px; /* 边角圆滑 */
+            text-align: center; /* 文本居中 */
+            margin: 20px 0; /* 上下外边距 */
+        }
+    
+        .article-link p {
+            margin: 0; /* 移除默认边距 */
+            color: #003366; /* 文本颜色 */
+            font-weight: bold; /* 字体加粗 */
+        }
+    
+        .article-link a {
+            display: inline-block; /* 可以设置宽度和高度 */
+            background-color: #86469C; /* 链接背景色 */
+            color: white; /* 链接文字颜色 */
+            padding: 10px 20px; /* 链接内边距 */
+            border-radius: 5px; /* 链接边角圆滑 */
+            text-decoration: none; /* 去掉下划线 */
+            font-size: 18px; /* 字体大小 */
+            margin-top: 10px; /* 与段落之间的距离 */
+            transition: background-color 0.3s; /* 过渡动画 */
+        }
+    
+        .article-link a:hover {
+            background-color: #7469B6; /* 鼠标悬停时的背景色 */
+        }
+        
+
+    </style>
+
+</head>
+<body>
+    <img class="header-image" src="figures/interview3_head.jpg" alt="Interview Image">
+
+    <div class="article-link">
+    <p>The Article Link:</p><a href="https://www.thelancet.com/journals/laninf/article/PIIS1473-3099(24)00150-6/fulltext" target="_blank">sEffectiveness of XBB.1.5 vaccines and antiviral drugs against severe outcomes of omicron infection in the USA</a>
+    </div>
+
+    <div class="interviewee-introduction">
+    <img src="figures/xiaofengwang_p1.jpg" alt="Interviewee Name" class="interviewee-photo">
+    <div class="interviewee-details">
+        <h2>Dr. Danyu Lin</h2>
+        <p>Danyu Lin, Ph.D., is the Dennis Gillings Distinguished Professor of Biostatistics at the University of North Carolina at Chapel Hill. Dr. Lin has published 300 papers, with 44,000 citations and an h-index of 97 (https://scholar.google.com/citations?user=SG22hu0AAAAJ&hl=en). He was recognized as a Best Mathematics Scientist (National Ranking: 95; World Ranking: 172) by Research.com. The statistical methods he developed have been used in thousands of scientific studies. His publications on COVID-19 vaccines and treatments (5 in New England Journal of Medicine, 3 in JAMA journals, and 2 in Lancet journals —all as first and corresponding author) have been viewed 1 million times, cited by the CDC, FDA, EMA, and WHO, and reported by The New York Times, The Washington Post, and NBC News. Dr. Lin is an elected fellow of ASA and IMS, a recipient of Mortimer Spiegelman Award from American Public Health Association, and a recipient of George W. Snedecor Award from COPSS.</p>
+        </div>
+    </div>
+
+    <div class="interviewee-introduction">
+    <img src="figures/inter3_2.jpg" alt="Interviewee Name" class="interviewee-photo">
+    <div class="interviewee-details">
+        <h2>Dr. Xiaofeng Wang</h2>
+        <p>Xiaofeng Wang, Ph.D., is a Full Staff Member in the Department of Quantitative Health Sciences at Cleveland Clinic, and a Professor of Medicine at Cleveland Clinic Lerner College of Medicine of Case Western Reserve University. Dr. Wang has authored over 200 journal papers in the statistical and medical literature, as well as a number of book chapters and proceeding papers. He is an Elected Fellow of the American Statistical Association (ASA) and an Elected Member of the International Statistical Institute (ISI). His expertise lies in translational research, where he applies statistical methods to real-world problems, informing evidence-based practice, and driving meaningful impact in patient care and public health. His research interests include quantitative image analysis, real-world data analytics, and clinical machine learning models.</p>
+        </div>
+    </div>
+
+<!--     <div id="sfclnp7ljs4s9lg5c5kmcde77njx33251j5"></div>
+    <script type="text/javascript" src="https://counter11.optistats.ovh/private/counter.js?c=lnp7ljs4s9lg5c5kmcde77njx33251j5&down=async" async></script>
+    <noscript><a href="https://www.freecounterstat.com" title="website counter"><img src="https://counter11.optistats.ovh/private/freecounterstat.php?c=lnp7ljs4s9lg5c5kmcde77njx33251j5" border="0" title="website counter" alt="website counter"></a></noscript>
+ -->
+    
+    <div class="interview">
+        <p class="question">Regarding the research background and significance, does this work discover new knowledge or solve existing problems within the field? Please elaborate in detail.</p>
+        <p class="answer">The US Food and Drug Administration (FDA) authorized the use of the updated mRNA vaccines by Moderna and Pfizer-BioNTech on September 11, 2023 and the use of the updated adjuvanted vaccine by Novavax on October 3, 2023, “to provide better protection against serious consequences of COVID-19, including hospitalization and death”, without providing any clinical evidence. The updated vaccines contain a monovalent component of the Omicron XBB.1.5 subvariant. By the time these vaccines were deployed, XBB.1.5 subvariant was no longer prevalent. The effectiveness of the updated vaccines against currently circulating subvariants was unknown.</p>
+        <p class="answer">Meanwhile, the American College of Physicians has recommended ritonavir-boosted nirmatrelvir (Paxlovid) and molnupiravir, without ranking, for outpatient treatment of symptomatic COVID-19 patients at high risk of progressing to severe disease, whereas the National Institutes of Health Guidelines prefers nirmatrelvir. It would be helpful for physicians and patients to know which recommendation should be followed. In addition, it would be important to determine whether the decision to take antiviral drugs should depend on whether or not the patient had received an updated vaccine.</p>
+        <p class="answer">Against these backdrops, our paper provided much-needed clinical data from a large cohort study on the effectiveness of the three updated XBB.1.5 vaccines and the two oral antiviral drugs, as well as their interactions, against admission to hospital and death from currently circulating Omicron subvariants.1 We showed that both XBB.1.5 vaccines and antiviral drugs reduced the risk of serious consequences of infection with currently circulating Omicron subvariants. The effectiveness of updated XBB.1.5 vaccines was similar among patients aged ≥65 years and those aged < 65 years, but the risks of hospitalization and death were much higher in the older age group. The effectiveness was higher in immunocompromised patients, who are at elevated risk of disease progression, than immunocompetent patients. In addition, the effects of molnupiravir and Paxlovid on disease progression were similar. Finally, the effectiveness of antiviral drugs was similar between recipients and non-recipients of the updated XBB.1.5 vaccines.
+ 
+        </p>
+
+
+        <p class="question">How did the reviewers evaluate (praise) it?</p>
+        <p class="answer">The reviewers praised the timely and important nature of our work, as well as the clarity of our presentation:
+        “This is a timely report and answers important questions on the effectiveness of the XBB.1.5 boosters.” 
+        “This concise, clearly written paper investigates the protective effect among PCR confirmed SARS-CoV-2 cases of XBB.1.5 vaccination, and separately of antiviral drug treatment with nirmatrelvir or molnupiravir, against progression of COVID-19 disease to hospitalization and death.”
+        “The paper is timely and addresses an important topic.”
+        The Editor-in-Chief wrote to us: “These are Important data, so I’m happy we get to publish them.”
+
+        </p>
+
+
+        <p class="question">If this achievement has potential applications, what are some specific applications it might have in a few years?</p>
+        <p class="answer">Our work has important implications for the prevention and intervention strategies against COVID-19. Specifically, updated XBB.1.5 vaccines should be considered by all individuals, especially those who are aged 65 years or older or are immunocompromised, and either molnupiravir or Paxlovid can be prescribed to patients with COVID-19 who are at high risk of progressing to severe disease, regardless of their XBB.1.5 vaccination status.</p>
+
+        <p class="question">Can you recount the specific steps or stages from setting the research topic to the successful completion of the research?</p>
+        <p class="answer">We recognized the importance of the research topic before the updated XBB.1.5 vaccines were authorized by the FDA. However, we had to wait for the updated vaccines to be deployed for several months to analyze the data, because we needed a large number of vaccine recipients and sufficient follow-up in order to obtain stable and precise estimates of the effects of updated vaccines on hospitalization and death. On the other hand, we wanted to publish our work as soon as possible, so as to maximize its impact.  Thus, there was a delicate balance in the timing of this research. 
+        </p>
+
+        <p class="question">Were there any memorable events during the research? You can tell a story about anything related to people, events, or objects.</p>
+        <p class="answer">This paper was published extremely fast, especially compared to a statistical publication. We submitted our paper on February 1, and the Editor-in-Chief sent the paper out to external reviewers on the same day. We received the initial decision on February 19 and were given 2 weeks to revise the manuscript. We submitted our revised manuscript in one week, and it was accepted in a few hours. We received the galley proof two days later. The paper was published a week later, on March 4.
+        </p>
+
+        <p class="question">Is there a follow-up plan based on this research? If so, please elaborate.</p>
+        <p class="answer">This study evaluated the effectiveness of updated vaccines and antiviral drugs against progression from infection to severe disease (hospitalization and death). We plan to evaluate the effectiveness of updated vaccines against infection, as well as the effectiveness of vaccination and (outpatient) antiviral treatment on long-COVID.</p>
+
+        <p class="question">Without a doubt, AI is one of the hot topics of 2023, requiring extensive data support in its development. What assistance can biostatistics offer to the development of AI?</p>
+        <p class="answer">Biostatistics offers indispensable support to the development of AI by providing rigorous analytical frameworks necessary to generate actionable insights from data, particularly in the context of electronic health records. Data quality is the key to the development of clinical AI models. Rigorous biostatistical methods should be employed to collect and process data.</p>
+
+        <p class="question">Besides the above questions, is there anything else about this achievement that you would like to add? If so, please add it below.</p>
+
+        <p class="answer">Statisticians should be more involved in translational research, which allows statisticians to directly address practical challenges and solve real-world problems faced by practitioners. By developing and applying statistical methods to various scientific settings, statisticians can directly advance scientific knowledge.</p>
+        </p>
+        <!-- 添加更多问题和答案 -->
+
+    </div>
+    <div class="edit-info">
+        Edited by: Shan Gao<br>
+        Proofread by: Hongtu Zhu
+    </div>
+<div class="background-image"></div>
+<!-- Default Statcounter code for Interview_peiwang
+https://statsupai.com/pages/interview_weipeng.html -->
+<div style="display: flex; align-items: center; color: #8E8E8E; font-size: 13px; font-family: Arial, sans-serif;">Page Views: <div class="statcounter" style="margin-left: 10px;"> <!-- Add this line for styling -->
+<!-- Default Statcounter code for interview3
+https://statsupai.com/quarto_web/site/posts/interview3.html
+-->
+<script type="text/javascript">
+var sc_project=12985241; 
+var sc_invisible=0; 
+var sc_security="728de5a5"; 
+var scJsHost = "https://";
+document.write("<sc"+"ript type='text/javascript' src='" +
+scJsHost+
+"statcounter.com/counter/counter.js'></"+"script>");
+</script>
+<noscript><div class="statcounter"><a title="Web Analytics"
+href="https://statcounter.com/" target="_blank"><img
+class="statcounter"
+src="https://c.statcounter.com/12985241/0/728de5a5/0/"
+alt="Web Analytics"
+referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+<!-- End of Statcounter Code -->
+</body>
+</html>
+
+```
