@@ -1,6 +1,6 @@
 ---
 title: "Vanguard of the Virus Fight: Unveiling the lmpact of Updated Vaccines and Antivirals on Omicron Subvariants"
-image: figures/xiaofengwang_p1.jpg
+image: figures/interview3_head.jpg
 author:
   - name: "Shan Gao"
   - affiliation: "Yunnan University"
