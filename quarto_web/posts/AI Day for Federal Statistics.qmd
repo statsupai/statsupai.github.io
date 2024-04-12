@@ -1,0 +1,27 @@
+---
+title: "AI Day for Federal Statistics: CNSTAT Public Event"
+image: figures/news.webp
+author:
+  - name: "Bangyao Zhao"
+  - affiliation: "University of Michigan"
+categories:
+  - Opportunities
+  - Events
+date: "2024-04-12"
+---
+
+Join the essential dialogue on AI's impact on federal statistics during the **AI Day for Federal Statistics**. This event, taking place on May 2, 2024, at the National Academy of Sciences Building in Washington DC, promises explorative discussions on AI applications, challenges, and practical tools for enhancing federal operations.
+
+Federal agencies will showcase their AI experiences through poster sessions, addressing methodological approaches, privacy concerns, and lessons learned.
+
+Don't miss this opportunity to contribute to the future of federal statistical methods informed by AI.
+
+[Learn more and register for the event.](https://www.nationalacademies.org/event/42319_05-2024_ai-day-for-federal-statistics-cnstat-public-event)
+
+**Event Details:**
+Date: May 2, 2024  
+Time: 10:00AM - 5:30PM ET  
+Location: National Academy of Sciences Building, Washington DC  
+Contact: [Madeleine Goedicke](mailto:mgoedicke@nas.edu)
+
+
