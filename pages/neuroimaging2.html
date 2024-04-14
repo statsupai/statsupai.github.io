@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Large-scale Medical Imaging Related Studies Directory</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+    body {
+        font-family: 'Roboto', sans-serif; /* Use Roboto font as the default */
+        background: #e8eff1;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+    }
+    .container {
+        width: 100%;
+        max-width: 1200px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background: #ffffff;
+        margin: 20px;
+        border-radius: 8px;
+    }
+    .title {
+        font-size: 28px;
+        font-weight: bold;
+        color: #2c3e50;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        letter-spacing: 1.2px;
+    }
+    p {
+        font-size: 18px;
+        line-height: 1.8;
+        color: #595d63;
+        margin-bottom: 20px;
+        font-style: italic;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    th, td {
+        padding: 20px; /* Existing padding */
+        text-align: left;
+        border-bottom: 1px solid #ccc;
+        font-size: 16px; /* Existing font size */
+        letter-spacing: 1px; /* Increases spacing between characters */
+        line-height: 1.5; /* Increases spacing between lines */
+    }
+    th {
+        background-color: #607d8b; /* Neutral blue-grey header */
+        color: white;
+    }
+    tr:nth-child(even) {
+        background-color: #f8f8f8;
+    }
+    tr:hover {
+        background-color: #f1f1f1;
+    }
+    a {
+        color: #2980b9; /* Links remain blue for visibility */
+        text-decoration: none;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+    .dataTables_wrapper .dataTables_filter {
+        text-align: right;
+        margin-top: 20px; /* Additional spacing specifically for the search box */
+    }
+    .dataTables_wrapper .dataTables_filter input {
+        margin-left: 0.5em;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 5px;
+    }
+</style>
+<!-- DataTables CSS and JS -->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <h1 class="title toc-ignore">The Large-scale Medical Imaging Related Studies Directory</h1>
+
+    <p>This is an online resource that provides succinct overviews and direct
+    access to pivotal neuroimaging research. Aimed at researchers,
+    academics, and enthusiasts, the directory compiles key studies exploring
+    brain structure, function, and neurological disease progression. It
+    stands as a hub for fostering collaboration, enhancing data
+    transparency, and promoting scientific advancements in the field of
+    neuroimaging.</p>
+
+    <table id="researchTable">
+        <thead>
+            <tr class="header">
+                <th>Name</th>
+                <th>Description</th>
+                <th>Website</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Repeat your rows here as before -->
+            <tr class="odd">
+                <td>Alzheimer’s Disease Neuroimaging Initiative (ADNI)</td>
+                <td>A multisite, longitudinal study aimed at validating biomarkers for Alzheimer’s disease (AD) clinical trials, tracking AD progression through clinical, imaging, genetic, and biospecimen markers across various stages from normal aging to dementia.</td>
+                <td><a href="https://adni.loni.usc.edu/">ADNI</a></td>
+            </tr>
+            <tr class="even">
+            <td>Connectome Coordination Facility (CCF)</td>
+            <td>Houses and distributes public research data for a series of studies
+            that focus on the connections within the human brain, known as Human
+            Connectome Projects.</td>
+            <td><a href="https://www.humanconnectome.org/">CCF</a></td>
+            </tr>
+            <tr class="odd">
+            <td>Human Connectome Project (HCP)</td>
+            <td>Gathers data from 1,200 healthy young adults to create a
+            comprehensive “network map” of the healthy human brain, exploring
+            individual variability in brain circuits.</td>
+            <td><a href="https://www.humanconnectome.org/">HCP</a></td>
+            </tr>
+            <tr class="even">
+            <td>UK Biobank (UKB)</td>
+            <td>A large-scale biomedical database and research resource containing
+            de-identified genetic, lifestyle and health information, and biological
+            samples from half a million UK participants.</td>
+            <td><a href="https://www.ukbiobank.ac.uk/">UKB</a></td>
+            </tr>
+            <tr class="odd">
+            <td>Adolescent Brain Cognitive Development Study (ABCD)</td>
+            <td>The largest long-term research project in the United States focusing
+            on brain development and child health, inviting 11,880 children aged
+            9-10 to participate.</td>
+            <td><a href="https://abcdstudy.org/">ABCD</a></td>
+            </tr>
+            <tr class="even">
+            <td>Enhancing NeuroImaging Genetics through Meta-Analysis (ENIGMA)</td>
+            <td>Brings together researchers in imaging genomics to understand brain
+            structure, function, and disease, based on brain imaging and genetic
+            data.</td>
+            <td><a href="https://enigma.ini.usc.edu/">ENIGMA</a></td>
+            </tr>
+            <tr class="odd">
+            <td>All of Us Research Program</td>
+            <td>A research program from the National Institutes of Health (NIH) aims
+            to enroll one million or more people from across the U.S. to advance
+            medical research.</td>
+            <td><a href="https://allofus.nih.gov/">All of Us</a></td>
+            </tr>
+            <tr class="even">
+            <td>Osteoarthritis Initiative (OAI)</td>
+            <td>A multi-center, ten-year observational study involving men and
+            women, aimed at providing resources to enhance the understanding of
+            prevention and treatment of knee osteoarthritis.</td>
+            <td><a href="https://nda.nih.gov/oai">OAI</a></td>
+            </tr>
+            <tr class="odd">
+            <td>Philadelphia Neurodevelopmental Cohort (PNC)</td>
+            <td>Centers on exploring the interplay between brain, behavior, and
+            genetics, involving over 9,500 individuals from the greater Philadelphia
+            area.</td>
+            <td><a href="https://www.med.upenn.edu/bbl/philadelphianeurodevelopmentalcohort.html">PNC</a></td>
+            </tr>
+            <tr class="even">
+            <td>Pediatric Imaging, Neurocognition, and Genetics (PING)</td>
+            <td>A large repository of standardized measurements of behavioral and
+            imaging phenotypes accompanied by whole genome genotyping acquired from
+            typically-developing children.</td>
+            <td><a href="http://pingstudy.ucsd.edu/">PING</a></td>
+            </tr>
+            <tr class="odd">
+            <td>National Lung Screening Trial (NLST)</td>
+            <td>A randomized multicenter study comparing low-dose helical computed
+            tomography (CT) with chest radiography in the screening of older current
+            and former heavy smokers for early detection of lung cancer.</td>
+            <td><a href="https://www.cancer.gov/types/lung/research/nlst">NLST</a></td>
+            </tr>
+            <tr class="even">
+            <td>Image &amp; Data Archive (IDA)</td>
+            <td>Offers tools for de-identification, integration, search,
+            visualization, and sharing diverse neuroscience data.</td>
+            <td><a href="https://ida.loni.usc.edu/login.jsp">IDA</a></td>
+            </tr>
+            <tr class="odd">
+            <td>NIMH Data Archive (NDA)</td>
+            <td>Offers an infrastructure that makes available human subjects data
+            from hundreds of research projects across various scientific
+            domains.</td>
+            <td><a href="https://nda.nih.gov/">NDA</a></td>
+            </tr>
+            <tr class="even">
+            <td>Brain Image Library (BIL)</td>
+            <td>A national public resource providing facilities for depositing,
+            analyzing, sharing, and interacting with large brain image
+            datasets.</td>
+            <td><a href="https://www.brainimagelibrary.org/">BIL</a></td>
+            </tr>
+            <tr class="odd">
+            <td>Prostate, Lung, Colorectal, and Ovarian Cancer Screening Trial
+            (PLCO)</td>
+            <td>A randomized, controlled trial conducted to determine if specific
+            screening exams reduce mortality from these cancers, enrolling
+            approximately 155,000 participants.</td>
+            <td><a href="https://cdas.cancer.gov/plco/">PLCO</a></td>
+            </tr>
+            <tr class="even">
+            <td>NeuroImaging Tools &amp; Resources Collaboratory (NITRC)</td>
+            <td>A free web-based resource that offers comprehensive information on
+            neuroinformatics software and data.</td>
+            <td><a href="https://www.nitrc.org/projects/nitrc/">NITRC</a></td>
+            </tr>
+            <tr class="odd">
+            <td>The Cancer Genome Atlas (TCGA)</td>
+            <td>A comprehensive effort to accelerate our understanding of the
+            molecular basis of cancer through genome analysis technologies.</td>
+            <td><a href="https://www.genome.gov/Funded-Programs-Projects/Cancer-Genome-Atlas">TCGA</a></td>
+            </tr>
+            <tr class="even">
+            <td>Brain Tumor Segmentation (BraTS) Challenge</td>
+            <td>Since 2012, BraTS has focused on the generation of a benchmarking
+            environment and dataset for the delineation of adult brain gliomas.</td>
+            <td><a href="https://www.med.upenn.edu/cbica/brats/">BraTS</a></td>
+            </tr>
+
+            <tr class="odd">
+            <td>Neuroscience Multi-Omic Data Archive (NeMO)</td>
+            <td>A data repository specifically focused on the storage and dissemination of omic data generated from the BRAIN Initiative, SCORCH consortium and other brain research projects.</td>
+            <td><a href="https://nemoarchive.org/">NeMO</a></td>
+            </tr>
+
+            <tr class="even">
+            <td>Data Archive for the Brain Initiative (DABI)</td>
+            <td>A shared repository for invasive neurophysiology data from the NIH Brain Research Through Advancing Innovative Neurotechnologies (BRAIN) Initiative.</td>
+            <td><a href="https://dabi.loni.usc.edu/">DABI</a></td>
+            </tr>
+
+            <tr class="odd">
+            <td>OpenNeuro</td>
+            <td>A free and open platform for validating and sharing BIDS-compliant MRI, PET, MEG, EEG, and iEEG data.</td>
+            <td><a href="https://openneuro.org/">OpenNeuro</a></td>
+            </tr>
+
+            <tr class="even">
+            <td>OpenNeuroPet</td>
+            <td>A collaborative database initiative aimed at standardizing PET imaging data acquisition, documentation, analysis, and archiving to enhance data sharing and facilitate research replication.</td>
+            <td><a href="https://openneuropet.github.io/">OpenNeuroPet</a></td>
+            </tr>
+
+            <tr class="odd">
+            <td>Block and Object Storage Service & Database(BossDB)</td>
+            <td>A volumetric database for 3D and 4D neuroscience data, focused on Electron Microscopy and X-ray Micro/Nano Tomography.</td>
+            <td><a href="https://bossdb.org/">BossDB</a></td>
+            </tr>
+
+            <tr class="even">
+            <td>Distributed Archives for Neurophysiology DataIntegration (DANDI)</td>
+            <td>A platform for publishing, sharing, and processing neurophysiology data. </td>
+            <td><a href="https://www.dandiarchive.org/">DANDI</a></td>
+            </tr>
+
+            <tr class="odd">
+            <td>Neuroelectromagnetic Data Archive and ToolsResource (NEMAR)</td>
+            <td>An open access data, tools, and compute resource for finding, assessing and processing human NeuroElectroMagnetic data (EEG, MEG, iEEG) shared by its authors thru OpenNeuro.org.</td>
+            <td><a href="https://nemar.org/">NEMAR</a></td>
+            </tr>
+            <!-- Additional rows go here -->
+        </tbody>
+    </table>
+</div>
+
+<!-- <script>
+$(document).ready( function () {
+    $('#researchTable').DataTable({
+        "pagingType": "full_numbers",
+        "info": false,
+        "lengthChange": false
+    });
+} );
+</script> -->
+<script>
+$(document).ready( function () {
+    $('#researchTable').DataTable({
+        "pagingType": "full_numbers",
+        "info": false,
+        "lengthChange": false,
+        "pageLength": 15  // This sets the default number of rows per page
+    });
+});
+</script>
+
+</body>
+</html>
