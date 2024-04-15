@@ -333,7 +333,13 @@ display: inline-block;
 	margin:0;
 	padding:0;
 }
+.custom-link-color {
+    color: #008080; /* 用你喜欢的颜色替换这个颜色代码 */
+}
 
+.custom-link-color:hover {
+    color: #2F4F4F; /* 鼠标悬停时的颜色，也可以自定义 */
+}
 /*  Sliders
 ==================================== */
 /* --- flexslider --- */
