@@ -589,13 +589,13 @@ section.callaction {
 ==================================== */
 
 #inner-headline{
-	background: #14A085;
+	background: #008B8B;
 	position:relative;
 	margin:0;
 	padding:0;
 	color:#fefefe;
 	/* margin: 15px; */
-	border-top: 10px solid #11967C;
+	border-top: 10px solid 	#2F4F4F;
 }
 
 
@@ -1018,7 +1018,7 @@ ul.link-list li{
 	list-style:none;
 }
 footer{
-background: #14A085;
+background: #008B8B;
 }
 footer ul.link-list li a{
 	color: #FFFFFF;
@@ -1373,7 +1373,7 @@ ul.social-network li {
 	padding:0;
 	padding-top:30px;
 	margin:20px 0 0 0;
-	background: #14A085;
+	background: #2F4F4F;
 }
 
 #sub-footer p{
