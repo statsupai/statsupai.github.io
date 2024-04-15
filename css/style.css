@@ -67,6 +67,7 @@ img.img-polaroid {
  
 header .navbar {
     margin-bottom: 0;
+    width: 100%; 
 }
 
 .navbar-default {
@@ -74,15 +75,30 @@ header .navbar {
 }
 
 .navbar-brand {
+	min-height: 62px;
     color: #222;
-	text-transform: uppercase;
+    text-transform: uppercase;
     font-size: 24px;
     font-weight: 700;
     line-height: 1em;
-	letter-spacing: -1px;
+    letter-spacing: -1px;
     margin-top: 13px;
-    padding: 0 0 0 15px;
+    padding: 0 0 0 5px;
+    display: flex;
+    align-items: center;
 }
+.navbar-brand img {
+    max-height: 80px; /* 最大高度 */
+    width: auto;  /* 宽度自适应 */
+}
+
+/*
+
+.navbar-brand img {
+    height: 80px;  自定义高度 
+    width: auto; /* 自动调整宽度以保持图像比例 */
+/*}*/
+
 .navbar-default .navbar-brand{
 color: #61B331;
 }
@@ -836,8 +852,8 @@ ul.portfolio-categ li a{
 	color: #14A085;
 }
 ul.portfolio-categ li.active{
-border: 1px solid #D7D8D6;
-background-color: #EAEAEA;
+border: 1px solid #D7D8D6;
+background-color: #EAEAEA;
 }
 ul.portfolio-categ li.active a:hover, ul.portfolio-categ li a:hover,ul.portfolio-categ li a:focus,ul.portfolio-categ li a:active {
 	text-decoration:none;
