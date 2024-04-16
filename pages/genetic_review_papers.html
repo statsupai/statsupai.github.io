@@ -50,6 +50,18 @@
         .bold {
             font-weight: bold;
         }
+        .pagination {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .page-button {
+            margin: 0 5px;
+            cursor: pointer;
+        }
+        .disabled {
+            color: grey;
+            cursor: not-allowed;
+        }
     </style>
 </head>
 <body>
@@ -69,12 +81,19 @@
             <!-- Zotero items will be added here -->
         </tbody>
     </table>
+    <div class="pagination">
+        <span id="current-page">1</span> / <span id="total-pages">1</span>
+        <button id="prev-page" class="page-button disabled">Previous</button>
+        <button id="next-page" class="page-button disabled">Next</button>
+    </div>
 
     <script type="text/javascript">
     const apiKey = 'qsheeavQ163JkXS3DxE9KQYU';
     const groupID = '5407414';
     const collectionID = 'IN44WNCJ';
     const url = `https://api.zotero.org/groups/${groupID}/collections/${collectionID}/items?key=${apiKey}&sort=date&direction=desc`;
+    let currentPage = 1;
+    const recordsPerPage = 15;
 
     function renderCell(cell, content, isLink = false, isBold = false) {
         if (isLink && content) {
@@ -94,16 +113,13 @@
         }
     }
 
-    fetch(url)
-      .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
-      .then(data => {
+    function updateTable(data) {
         const tableBody = document.querySelector('#zotero-items tbody');
-        data.forEach(item => {
+        tableBody.innerHTML = '';
+        let startIndex = (currentPage - 1) * recordsPerPage;
+        let endIndex = startIndex + recordsPerPage;
+        let paginatedItems = data.slice(startIndex, endIndex);
+        paginatedItems.forEach(item => {
           if (item.data.itemType !== 'attachment') {
             const row = tableBody.insertRow();
             const cellTitle = row.insertCell();
@@ -113,24 +129,59 @@
             const cellDOI = row.insertCell();
             const cellArchive = row.insertCell();
 
-            renderCell(cellTitle, item.data.title, false, true); // Set title bold
+            renderCell(cellTitle, item.data.title, false, true);
             const firstAuthor = item.data.creators && item.data.creators[0] ? item.data.creators[0].lastName + (item.data.creators[0].firstName ? ', ' + item.data.creators[0].firstName : '') : '—';
             renderCell(cellAuthor, firstAuthor);
             renderCell(cellJournal, item.data.publicationTitle);
             renderCell(cellLink, item.data.url, true);
             renderCell(cellDOI, item.data.DOI);
-            renderCell(cellArchive, item.data.archiveLocation); // Assume archiveLocation is the field name
+            renderCell(cellArchive, item.data.archiveLocation);
           }
         });
-      })
-      .catch(error => {
-        console.error('Error fetching data:', error);
-        const tableBody = document.querySelector('#zotero-items tbody');
-        const row = tableBody.insertRow();
-        const cellError = row.insertCell(0);
-        cellError.textContent = 'There was an error loading the Zotero items.';
-        cellError.colSpan = 6;
-      });
+    }
+
+    function updatePagination(totalRecords) {
+        const totalPages = Math.ceil(totalRecords / recordsPerPage);
+        document.getElementById('total-pages').textContent = totalPages;
+        document.getElementById('current-page').textContent = currentPage;
+        document.getElementById('prev-page').classList.toggle('disabled', currentPage === 1);
+        document.getElementById('next-page').classList.toggle('disabled', currentPage === totalPages);
+    }
+
+    document.getElementById('prev-page').addEventListener('click', () => {
+        if (currentPage > 1) {
+            currentPage--;
+            fetchAndRender();
+        }
+    });
+
+    document.getElementById('next-page').addEventListener('click', () => {
+        if (currentPage * recordsPerPage < totalItems) {
+            currentPage++;
+            fetchAndRender();
+        }
+    });
+
+    let totalItems = 0;
+    function fetchAndRender() {
+        fetch(url)
+          .then(response => response.json())
+          .then(data => {
+            totalItems = data.length;
+            updatePagination(totalItems);
+            updateTable(data);
+          })
+          .catch(error => {
+            console.error('Error fetching data:', error);
+            const tableBody = document.querySelector('#zotero-items tbody');
+            const row = tableBody.insertRow();
+            const cellError = row.insertCell(0);
+            cellError.textContent = 'There was an error loading the Zotero items.';
+            cellError.colSpan = 6;
+          });
+    }
+
+    fetchAndRender();
     </script>
 </body>
 </html>
