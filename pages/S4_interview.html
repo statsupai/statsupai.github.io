@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revolutionizing Cancer Risk Prediction: The LFSPRO Validation Journey and Its Impact on Clinical Practice</title>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://statsupai.com/pages/S4_interview.html">
+    <meta property="og:title" content="Revolutionizing Cancer Risk Prediction">
+    <meta property="og:description" content="The LFSPRO Validation Journey and Its Impact on Clinical Practice">
+    <meta property="og:image" content="interview4_wang.jpg">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif; 
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            line-height: 1.6; /* 增加行距 */
+        }
+        .large-text {
+            font-size: larger; /* 或你想要的任何大小 */
+        }
+
+        .interviewee-introduction {
+            display: flex;
+            align-items: center;
+            background-color: #f8f8f8; /* 轻灰色背景 */
+            border-radius: 8px; /* 边角圆润 */
+            padding: 20px;
+            margin-bottom: 20px; /* 和问答部分保持一定距离 */
+        }
+
+        .interviewee-photo {
+            width: 150px; /* 根据需要调整 */
+            height: 150px; /* 根据需要调整 */
+            border-radius: 50%; /* 创建圆形图片 */
+            object-fit: cover; /* 确保图片内容适应尺寸 */
+            margin-right: 20px;
+        }
+
+        .interviewee-details h2 {
+            margin-top: 0;
+            color: #082653; /* 深蓝色，你可以根据网站主题更改 */
+        }
+
+        .interviewee-details p {
+            color: #333; /* 深灰色文本 */
+            line-height: 1.6; /* 增加行距 */
+        }
+        .edit-info {
+            color: #808080; /* 设置为灰色字体 */
+            font-size: 15px; /* 设置字体大小，根据需要调整 */
+            text-align: right; /* 右对齐文本 */
+            padding: 20px 0; /* 在内容上下添加一些空间 */
+            margin-top: 20px; /* 与问答内容保持一定距离 */
+            border-top: 1px solid #ccc; /* 如果需要，可以添加一条分隔线 */
+        }
+
+        .header-image {
+            width: 97%;
+            height: auto;
+            display: block; /* 使图片成为块级元素 */
+            margin: 0 auto; /* 水平居中 */
+        }
+        .fixed-counter {
+            position: fixed; /* 固定定位，使元素不随页面滚动 */
+            left: 0; /* 距离页面左边界的距离 */
+            bottom: 0; /* 距离页面底部边界的距离 */
+            background-color: transparent; /* 可以根据需要设置背景颜色 */
+            z-index: 1000; /* 确保计数器显示在其他元素之上 */
+        }
+
+        .interview {
+        margin: 20px;
+        background-color: rgba(255, 255, 255, 0.7); /* 白色背景，70%不透明度（即30%透明度） */
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 标题和子标题 */
+        h1, h2 {
+            font-weight: bold;
+            color: #7469B6; /* 深蓝色 */
+            margin-bottom: 20px;
+        }
+
+        /* 问题样式 */
+        .question {
+            color: #213c64; /* 深蓝色 */
+            font-weight: bold;
+            margin-bottom: 10px; /* 问题与回答之间的空间 */
+            font-size: larger; /* 突出问题 */
+        }
+        .image {
+            display: block; /* 使图像成为块级元素 */
+            max-width: 60%; /* 设置图像的最大宽度为60%以确保响应式 */
+            height: auto; /* 设置图像的高度自动调整以保持图片比例 */
+            margin: 10px auto; /* 上下边距为20px，左右自动，实现水平居中 */
+            border: 5px solid #808080; /* 添加蓝色的边框，宽度为5px */
+            border-radius: 8px; /* 如果您想要圆角边框，可以添加这个属性 */
+        }
+
+        .answer {
+            background-color: #f8f8f8; /* 轻微的背景色增加对比 */
+            padding: 15px; /* 内边距增加可读性 */
+            border-left: 4px solid #213c64; /* 左侧边框作为视觉提示 */
+            margin-bottom: 20px; /* 增加回答间的空间 */
+            color: #264653; /* 适中的文字颜色 */
+            font-size: medium; /* 适合阅读的字号 */
+            line-height: 1.6; /* 行间距增加可读性 */
+            border-radius: 4px; /* 轻微的圆角 */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* 轻微的阴影增加层次感 */
+        }
+        ul.custom-list {
+        padding-left: 20px; /* 调整以适应项目符号和首行缩进 */
+        }
+        ul.custom-list li {
+            text-indent: 2em; /* 首行缩进 */
+            margin-left: -2em; /* 调整项目符号位置 */
+        }
+
+        .background-image {
+            position: fixed; /* 或absolute，取决于你的需求 */
+            right: 0;
+            bottom: 0;
+            width: 800px; /* 根据你的背景图尺寸调整 */
+            height: 300px; /* 根据你的背景图尺寸调整 */
+            background-image: url('12.jpg'); /* 替换为你的图片名称 */
+            background-size: cover;
+            opacity: 0.4; /* 设置透明度为40% */
+            z-index: -1; /* 确保背景图不会覆盖其他内容 */
+        }
+        .article-link {
+            background-color: #f4f4f4; /* 背景色 */
+            padding: 10px; /* 内边距 */
+            border-radius: 8px; /* 边角圆滑 */
+            text-align: center; /* 文本居中 */
+            margin: 20px 0; /* 上下外边距 */
+        }
+    
+        .article-link p {
+            margin: 0; /* 移除默认边距 */
+            color: #003366; /* 文本颜色 */
+            font-weight: bold; /* 字体加粗 */
+        }
+    
+        .article-link a {
+            display: inline-block; /* 可以设置宽度和高度 */
+            background-color: #213c64; /* 链接背景色 */
+            color: white; /* 链接文字颜色 */
+            padding: 10px 20px; /* 链接内边距 */
+            border-radius: 5px; /* 链接边角圆滑 */
+            text-decoration: none; /* 去掉下划线 */
+            font-size: 18px; /* 字体大小 */
+            margin-top: 10px; /* 与段落之间的距离 */
+            transition: background-color 0.3s; /* 过渡动画 */
+        }
+    
+        .article-link a:hover {
+            background-color: #082653; /* 鼠标悬停时的背景色 */
+        }
+        
+
+    </style>
+
+</head>
+<body>
+    <img class="header-image" src="interview4_wang.jpg" alt="Interview Image">
+
+    <div class="article-link">
+    <p>The Article Link:</p><a href="https://ascopubs.org/doi/10.1200/JCO.23.01926" target="_blank">sValidating Risk Prediction Models for Multiple Primaries and Competing Cancer Outcomes in Families With Li-Fraumeni Syndrome Using Clinically Ascertained Data</a>
+    </div>
+
+    <div class="interviewee-introduction">
+    <img src="wang.png" alt="Interviewee Name" class="interviewee-photo">
+    <div class="interviewee-details">
+        <h2>Dr. Wenyi Wang</h2>
+        <p>Dr. Wang is a Professor of Bioinformatics and Computational Biology and Biostatistics at the University of Texas MD Anderson Cancer Center. She received her PhD from Johns Hopkins University and performed postdoctoral training in statistical genomics and genome technology at UC Berkeley with Terry Speed and at Stanford with Ron Davis. Wenyi’s research includes significant contributions to statistical bioinformatics in cancer, including MuSE for subclonal mutation calling, DeMixT for transcriptome deconvolution, Famdenovo for de novo mutation identification, and more recently, a pan-cancer characterization of genetic intra-tumor heterogeneity in subclonal selection and in tumor cell transcriptional plasticity respectively. Her group is focused on the development and application of computational methods to study the evolution of the human genome as well as the cancer genome, and further develop risk prediction models to accelerate the translation of biological findings to clinical practice.</p>
+        </div>
+    </div>
+    <div class="interviewee-introduction">
+    <img src="Hoai Nam Nguyen.png" alt="Interviewee Name" class="interviewee-photo">
+    <div class="interviewee-details">
+        <h2>Dr. Hoai Nam Nguyen</h2>
+        <p>Hoai Nam Nguyen defended his PhD thesis in Statistics on “Characterization of cancer development and recurrence through mathematical and statistical modeling” under the supervision of Dr. Wenyi Wang, Dr Marek Kimmel, at Rice University on March,22,2024. </p>
+        </div>
+    </div>
+
+<!-- 
+    <div class="interviewee-introduction">
+    <img src="inter3_2.jpg" alt="Interviewee Name" class="interviewee-photo">
+    <div class="interviewee-details">
+        <h2>Dr. Xiaofeng Wang</h2>
+        <p>Xiaofeng Wang, Ph.D., is a Full Staff Member in the Department of Quantitative Health Sciences at Cleveland Clinic, and a Professor of Medicine at Cleveland Clinic Lerner College of Medicine of Case Western Reserve University. Dr. Wang has authored over 200 journal papers in the statistical and medical literature, as well as a number of book chapters and proceeding papers. He is an Elected Fellow of the American Statistical Association (ASA) and an Elected Member of the International Statistical Institute (ISI). His expertise lies in translational research, where he applies statistical methods to real-world problems, informing evidence-based practice, and driving meaningful impact in patient care and public health. His research interests include quantitative image analysis, real-world data analytics, and clinical machine learning models</p>
+        </div>
+    </div> -->
+
+<!--     <div id="sfclnp7ljs4s9lg5c5kmcde77njx33251j5"></div>
+    <script type="text/javascript" src="https://counter11.optistats.ovh/private/counter.js?c=lnp7ljs4s9lg5c5kmcde77njx33251j5&down=async" async></script>
+    <noscript><a href="https://www.freecounterstat.com" title="website counter"><img src="https://counter11.optistats.ovh/private/freecounterstat.php?c=lnp7ljs4s9lg5c5kmcde77njx33251j5" border="0" title="website counter" alt="website counter"></a></noscript>
+ -->
+    
+    <div class="interview">
+        <p class="question">Regarding the research background and significance, does this work discover new knowledge or solve existing problems within the field? Please elaborate in detail.</p>
+        <p class="answer">Our work, which was recently published in the Journal of Clinical Oncology (JCO), contributes to the resolution of an existing problem within the field: there is a plethora of risk predictions models that have been developed for hereditary cancer syndrome, but the fact remains that very few of them are being utilized in real clinical settings. We believe that a major obstacle is to convince healthcare providers (e.g., clinicians, genetic counselors) to use these data-driven approaches. Our software suite, LFSPRO, consists of two risk prediction models to characterize cancer risks in families with Li-Fraumeni syndrome (LFS). In order to overcome the mentioned hurdle, we conducted a validation study of LFSPRO on a patient cohort that was collected as part of the Clinical Cancer Genetics (CCG) program at MD Anderson Cancer Center (MDACC). Unlike most other cohorts, which are meticulously collected for research purposes, our unique patient cohort closely resembles what genetic counselors observe in their counseling sessions, where data collection only takes up 30 minutes of time. Our validation results were indeed lower compared to the previous validation studies on research cohorts, but still at a reasonable level. Due to the nature of our validation dataset, these results provided strong indication that LFSPRO had the potential to assist decision making in clinics. In a bigger picture, our paper shows that model performance can deteriorate on less well-behaved datasets, hence highlighting the importance of clinical validation studies in bridging the gap between methodology research labs and clinics. (Also see <a href="https://www.mdanderson.org/newsroom/strategies-overcome-treatment-resistance-targets-ovarian-BRAF-mutated-cancers-novel-risk-prediction-tool-hereditary-cancers.h00-159696756.html" target="_blank" rel="noopener noreferrer">MDA news</a>)</p>
+
+
+        <p class="question">How did the reviewers evaluate (praise) it?</p>
+        <p class="answer">Our manuscript was evaluated by both clinical and statistical reviewers. It was also read by the editors during the peer review process. In general, they recognized the significance and uniqueness of our study, as well as the efforts that we made to help families with hereditary cancer syndromes via a statistically sound approach. 
+        Associate editor Robert G. Maki MD/PhD/FACP/FASCO from MSKCC wrote the relevance of our work: A novel model helps better predict risk of cancer development in patients with Li-Fraumeni syndrome. These types of models, along with primary cancer screening, will hopefully improve the care for patients with familial cancer syndromes.
+        Quotes from the anonymous reviewers:
+        “The validation of a risk prediction model for LFS that can be used clinically would change clinical practice for the better, I applaud the authors for their work in this field.”
+        “The strengths of this work include its potential to provide useful modeling despite the ongoing problem of missing information in a single clinical genetic counseling session.”
+
+        </p>
+
+
+        <p class="question">If this achievement has potential applications, what are some specific applications it might have in a few years?</p>
+        <p class="answer">Our goal is to disseminate the risk prediction models we developed to clinics to assist decision making. Currently, we are experimenting them with a small group of genetic counselors at MDACC, and performing a concordance study to evaluate how LFSPRO performs relative to the more established clinical criteria (e.g., Chompret criteria) in predicting deleterious germline TP53 mutations, prospectively. More specifically, our publication is based on a retrospectively collected patient cohorts from the clinic. We are currently writing up new findings from a prospectively collected patient cohort seen by genetic counselors over the past two years at MD Anderson. As these results remain positive, our clinical collaborator has engaged a patient population to contemplate on a randomized clinical trial on LFSPRO, which should represent the last step before its full integration into clinics. We have actually received requests from several clinics in the US to use LFSPRO right away.</p>
+
+        <p class="question">Can you recount the specific steps or stages from setting the research topic to the successful completion of the research?</p>
+        <p class="answer">Given the raw dataset, we preprocessed it to obtain a reformatted dataset that was ready for LFSPRO. This stage involved frequent communication between us and our clinical collaborators to understand the data in more details and to clarify ambiguity. 
+        </p>
+        <p class="answer">In a typical counseling session, which is about an hour in length, the genetic counselor spends the first 20-30 minutes to collect family history of the counselee before performing a comprehensive risk assessment. As such, the collected information only represents a snapshot of the family history, with a lot of family members having missing ages at last contact or missing ages at cancer diagnoses. Unlike research-based datasets, there are usually no time and resources to obtain more complete information. Thus, an important part of our validation study was to agree on a way to handle this issue of missing information.
+        </p>
+        <p class="answer">Since the goal of our study was to expedite the clinical utility of LFSPRO, we also wanted our validation study design to closely resemble real clinical settings. For example, since the National Comprehensive Cancer Network (NCCN) guidelines recommend testing for all close relatives of a positively tested individual, we strongly emphasized the models’ utility to accurately predict TP53 mutations when no genotype information is available within the family. When selecting statistical measures of model performance, we decided to comprehensively evaluate the models in both discrimination and calibration, since both of them are important in clinical decision making.
+        </p>
+        <p class="answer">Finally, we spent a lot of time writing up the manuscript. Even though all the analyses had been done, it was challenging to highlight the results in the best possible way. We, for example, constructed a figure to visually describe how the data collection process is different for research protocol-based and clinical counseling-based cohorts. This figure received positive comments from one of the clinical reviewers during the peer-review process. We then further computed key summary statistics to emphasize the differences between the two types of patient cohorts. We believe that these changes helped deliver the key points to the reviewers at JCO, who are not familiar with the statistical modeling or the technical language. Again, the clinical expertise of our collaborators was really helpful during this final stage.
+        </p>
+
+        <p class="question">Were there any memorable events during the research? You can tell a story about anything related to people, events, or objects.</p>
+        <p class="answer"><strong>Nam</strong>: Due to the clinical nature of our study, we closely worked with our clinical collaborators at MDACC at all stages during the research process. I started working on this project when I was still a junior PhD student in Statistics at Rice University. Coming from a technical background with a bachelor degree in Math and little collaboration experience, I soon realized that statisticians and clinicians had very different communication styles. In particular, I had difficulty communicating effectively with our collaborators and conveying my research ideas and results in the manuscript in a way that was approachable to the reviewers. Nevertheless, I recognized that I would need to adapt to this new setting in order to expedite the productivity of our research group as a whole. We went back and forth a lot, especially during the manuscript stage, to find a way that best emphasized the clinical utility of our risk prediction models. With the help of my PhD advisor Wenyi Wang, I am grateful that I managed to overcome this hurdle and push the project to the finish line. 
+        </p>
+        <p class="answer"><strong>Wenyi</strong>: When I received this dataset from a newly formed collaboration with Dr. Banu Arun, co-director of the Clinical Cancer Genetics program at MD Anderson, I was still feeling sad about losing my 10-year long collaborator Dr. Louise Strong (to retirement), who is considered “the mother of LFS” and spent 40 years collecting/updating meticulous data from families with LFS. We published many modeling and cancer research papers together. But she had to retire. I also did not like the significant amount of missing data in this new dataset, as a statistician data snob. But somehow, in the process of this study, through meeting with Banu’s GC team every week, a lightbulb went off. I realized that this dataset is much more closer to reality and we will have to show LFSPRO works in this data setting to change many clinicians and GCs’ mindset: mathematical models may work with perfect data, but clinical criteria consisting of simple sentences are still better for the clinical decision-making. This mindset has prevented the field of risk prediction modeling from moving forward.
+        </p>
+
+        <p class="question">Is there a follow-up plan based on this research? If so, please elaborate.</p>
+        <p class="answer">We are conducting a prospective concordance study on LFSPRO to further evaluate its clinical utility in predicting deleterious germline TP53 mutations. We hope to achieve better results than the Chompret criteria, which are recommended in the National Comprehensive Cancer Network (NCCN) guidelines. If the results support our models, it will be another major step towards our end goal.</p>
+        <p class="answer">We are also developing a joint statistical framework that estimates cancer-specific age-at-onset penetrances beyond the first primary cancer, thus having the potential to assist risk assessment for cancer survivors. This model can achieve prediction objectives that the current models in LFSPRO cannot. Our manuscript has recently been submitted to a statistical journal. We plan to integrate this new model to LFSPRO to have a complete software suite for risk predictions in families with Li-Fraumeni syndrome. In order to validate the clinical utility of the joint model, we will perform an extensive validation study on multiple patient cohorts from different cancer institutes across the United States and from Germany. This ensures that the model is robust to variations between datasets (e.g., data quality, ascertainment criteria). </p>
+
+        <p class="question">Without a doubt, AI is one of the hot topics of 2023, requiring extensive data support in its development. What assistance can biostatistics offer to the development of AI?</p>
+        <p class="answer">AI offers a wide range of machine learning methods to automate the analysis of complex datasets in healthcare and biomedical science (e.g., medical imaging data were manually examined by radiologists). However, there are still a lot of data types that are more relevant to traditional statistical methods (e.g., time-to-event patient data), and we see no reasons that their significance will diminish in a foreseeable future. Analyses of these different data types are not necessarily separate, since there have been hybrid models that attempt to combine them to achieve better prediction results. This represents a collaboration opportunity between biostatisticians and AI developers. In addition, bridging the gap between AI research labs and clinics is highly challenging since most of these AI models are black boxes (i.e., we do not understand how the output is computed). Extensive validation studies are, therefore, even more relevant to ensure that the models can perform well in all real-world settings. Biostatisticians, with their expertise in clinical trials and study design, can help expedite this process.  </p>
+
+        <p class="question">Besides the above questions, is there anything else about this achievement that you would like to add? If so, please add it below.</p>
+
+        <p class="answer">We would like to thank the patients for contributing their data to our studies. The LFS community is a very special one that is dear to my heart. Every two years, the LFS association (<a href="https://www.lfsassociation.org/" target="_blank" rel="noopener noreferrer">https://www.lfsassociation.org/</a>) holds a 2-day conference that brings clinicians, biologists (computational and experimental) and patients together. My team has been attending this conference over the past 10 years. Talking with these patients and their family members has been an extremely humbling and motivating experience. Although my laboratory research primarily focuses on tumor heterogeneity and evolution, I always find joy in spending time on this completely separately line of research. 
+        </p>
+
+        <!-- 添加更多问题和答案 -->
+
+    </div>
+    <div class="edit-info">
+        Edited by: Shan Gao<br>
+        Proofread by: Hongtu Zhu
+    </div>
+<div class="background-image"></div>
+<!-- Default Statcounter code for Interview_peiwang
+https://statsupai.com/pages/interview_weipeng.html -->
+<div style="display: flex; align-items: center; color: #8E8E8E; font-size: 13px; font-family: Arial, sans-serif;">Page Views: <div class="statcounter" style="margin-left: 10px;"> <!-- Add this line for styling -->
+<!-- Default Statcounter code for Interview_peiwang1
+https://statsupai.com/pages/interview_weipeng.html -->
+<script type="text/javascript">
+var sc_project=12973370; 
+var sc_invisible=0; 
+var sc_security="a715d5f2"; 
+var scJsHost = "https://";
+document.write("<sc"+"ript type='text/javascript' src='" +
+scJsHost+
+"statcounter.com/counter/counter.js'></"+"script>");
+</script>
+<noscript><div class="statcounter"><a title="Web Analytics"
+href="https://statcounter.com/" target="_blank"><img
+class="statcounter"
+src="https://c.statcounter.com/12973370/0/a715d5f2/0/"
+alt="Web Analytics"
+referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+<!-- End of Statcounter Code -->
+</body>
+</html>
