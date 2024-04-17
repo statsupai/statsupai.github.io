@@ -757,6 +757,9 @@ form#commentform textarea {
 #thumbs {
 	margin: 0;
 	padding: 0;	
+	display: flex;
+  	flex-wrap: wrap;
+  	justify-content: flex-start; /* 保证内容从左边开始排列 */
 }
 
 #thumbs li {
