@@ -1,6 +1,6 @@
 ---
 title: "Statistics and AI - A Fireside Conversation"
-image: figures/S3.jpg
+image: figures/fireside1.jpg
 author:
   - name: "Shan Gao"
   - affiliation: "Yunnan University"
