@@ -91,10 +91,14 @@
     const apiKey = 'qsheeavQ163JkXS3DxE9KQYU';
     const groupID = '5407414';
     const collectionID = 'IN44WNCJ';
-    const limit = 100;
-    const url = `https://api.zotero.org/groups/${groupID}/collections/${collectionID}/items?key=${apiKey}&sort=date&direction=desc`;
+    const limit = 20; // Adjust as necessary
+    let start = 0;
     let currentPage = 1;
-    const recordsPerPage = 15;
+    let totalItems = 0;
+
+    function updateURL() {
+        return `https://api.zotero.org/groups/${groupID}/collections/${collectionID}/items?key=${apiKey}&sort=date&direction=desc&limit=${limit}&start=${start}`;
+    }
 
     function renderCell(cell, content, isLink = false, isBold = false) {
         if (isLink && content) {
@@ -117,69 +121,68 @@
     function updateTable(data) {
         const tableBody = document.querySelector('#zotero-items tbody');
         tableBody.innerHTML = '';
-        let startIndex = (currentPage - 1) * recordsPerPage;
-        let endIndex = startIndex + recordsPerPage;
-        let paginatedItems = data.slice(startIndex, endIndex);
-        paginatedItems.forEach(item => {
-          if (item.data.itemType !== 'attachment') {
-            const row = tableBody.insertRow();
-            const cellTitle = row.insertCell();
-            const cellAuthor = row.insertCell();
-            const cellJournal = row.insertCell();
-            const cellLink = row.insertCell();
-            const cellDOI = row.insertCell();
-            const cellArchive = row.insertCell();
+        data.forEach(item => {
+            if (item.data.itemType !== 'attachment') {
+                const row = tableBody.insertRow();
+                const cellTitle = row.insertCell();
+                const cellAuthor = row.insertCell();
+                const cellJournal = row.insertCell();
+                const cellLink = row.insertCell();
+                const cellDOI = row.insertCell();
+                const cellArchive = row.insertCell();
 
-            renderCell(cellTitle, item.data.title, false, true);
-            const firstAuthor = item.data.creators && item.data.creators[0] ? item.data.creators[0].lastName + (item.data.creators[0].firstName ? ', ' + item.data.creators[0].firstName : '') : '—';
-            renderCell(cellAuthor, firstAuthor);
-            renderCell(cellJournal, item.data.publicationTitle);
-            renderCell(cellLink, item.data.url, true);
-            renderCell(cellDOI, item.data.DOI);
-            renderCell(cellArchive, item.data.archiveLocation);
-          }
+                renderCell(cellTitle, item.data.title, false, true);
+                const firstAuthor = item.data.creators && item.data.creators[0] ? item.data.creators[0].lastName + (item.data.creators[0].firstName ? ', ' + item.data.creators[0].firstName : '') : '—';
+                renderCell(cellAuthor, firstAuthor);
+                renderCell(cellJournal, item.data.publicationTitle);
+                renderCell(cellLink, item.data.url, true);
+                renderCell(cellDOI, item.data.DOI);
+                renderCell(cellArchive, item.data.archiveLocation);
+            }
         });
     }
 
     function updatePagination(totalRecords) {
-        const totalPages = Math.ceil(totalRecords / recordsPerPage);
+        const totalPages = Math.ceil(totalRecords / limit);
         document.getElementById('total-pages').textContent = totalPages;
         document.getElementById('current-page').textContent = currentPage;
         document.getElementById('prev-page').classList.toggle('disabled', currentPage === 1);
-        document.getElementById('next-page').classList.toggle('disabled', currentPage === totalPages);
+        document.getElementById('next-page').classList.toggle('disabled', currentPage >= totalPages);
     }
 
     document.getElementById('prev-page').addEventListener('click', () => {
         if (currentPage > 1) {
             currentPage--;
+            start -= limit;
             fetchAndRender();
         }
     });
 
     document.getElementById('next-page').addEventListener('click', () => {
-        if (currentPage * recordsPerPage < totalItems) {
+        if (currentPage < Math.ceil(totalItems / limit)) {
             currentPage++;
+            start += limit;
             fetchAndRender();
         }
     });
 
-    let totalItems = 0;
     function fetchAndRender() {
-        fetch(url)
-          .then(response => response.json())
-          .then(data => {
-            totalItems = data.length;
-            updatePagination(totalItems);
-            updateTable(data);
-          })
-          .catch(error => {
-            console.error('Error fetching data:', error);
-            const tableBody = document.querySelector('#zotero-items tbody');
-            const row = tableBody.insertRow();
-            const cellError = row.insertCell(0);
-            cellError.textContent = 'There was an error loading the Zotero items.';
-            cellError.colSpan = 6;
-          });
+        fetch(updateURL())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                totalItems = parseInt(response.headers.get('Total-Results')); // Adjust this header field based on actual API response
+                return response.json();
+            })
+            .then(data => {
+                updatePagination(totalItems);
+                updateTable(data);
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+                alert('Failed to fetch data. Check the console for more details.');
+            });
     }
 
     fetchAndRender();
