@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cancer Review Papers (TCGA)</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #eaeaea;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        table {
+            width: 90%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        a {
+            color: #0645ad;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .no-content {
+            color: #999;
+        }
+        .bold {
+            font-weight: bold;
+        }
+        .pagination {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .page-button {
+            margin: 0 5px;
+            cursor: pointer;
+        }
+        .disabled {
+            color: grey;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cancer Review Papers (TCGA)</h1>
+    <table id="zotero-items">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>First Author</th>
+                <th>Journal</th>
+                <th>Link</th>
+                <th>DOI</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Zotero items will be added here -->
+        </tbody>
+    </table>
+    <div class="pagination">
+        <span id="current-page">1</span> / <span id="total-pages">1</span>
+        <button id="prev-page" class="page-button disabled">Previous</button>
+        <button id="next-page" class="page-button disabled">Next</button>
+    </div>
+
+    <script type="text/javascript">
+    const apiKey = 'qsheeavQ163JkXS3DxE9KQYU';
+    const groupID = '5407414';
+    const collectionID = 'QH5SVF2G';
+    const limit = 20; // Adjust as necessary
+    let start = 0;
+    let currentPage = 1;
+    let totalItems = 0;
+
+    function updateURL() {
+        return `https://api.zotero.org/groups/${groupID}/collections/${collectionID}/items?key=${apiKey}&sort=date&direction=desc&limit=${limit}&start=${start}`;
+    }
+
+    function renderCell(cell, content, isLink = false, isBold = false) {
+        if (isLink && content) {
+            const link = document.createElement('a');
+            link.href = content;
+            link.textContent = 'URL';
+            link.target = '_blank';
+            cell.appendChild(link);
+        } else {
+            cell.textContent = content || '—';
+            if (isBold) {
+                cell.classList.add('bold');
+            }
+        }
+        if (content === undefined || content === '') {
+            cell.classList.add('no-content');
+        }
+    }
+
+    function updateTable(data) {
+        const tableBody = document.querySelector('#zotero-items tbody');
+        tableBody.innerHTML = '';
+        data.forEach(item => {
+            if (item.data.itemType !== 'attachment') {
+                const row = tableBody.insertRow();
+                const cellTitle = row.insertCell();
+                const cellAuthor = row.insertCell();
+                const cellJournal = row.insertCell();
+                const cellLink = row.insertCell();
+                const cellDOI = row.insertCell();
+                const cellArchive = row.insertCell();
+
+                renderCell(cellTitle, item.data.title, false, true);
+                const firstAuthor = item.data.creators && item.data.creators[0] ? item.data.creators[0].lastName + (item.data.creators[0].firstName ? ', ' + item.data.creators[0].firstName : '') : '—';
+                renderCell(cellAuthor, firstAuthor);
+                renderCell(cellJournal, item.data.publicationTitle);
+                renderCell(cellLink, item.data.url, true);
+                renderCell(cellDOI, item.data.DOI);
+                renderCell(cellArchive, item.data.archiveLocation);
+            }
+        });
+    }
+
+    function updatePagination(totalRecords) {
+        const totalPages = Math.ceil(totalRecords / limit);
+        document.getElementById('total-pages').textContent = totalPages;
+        document.getElementById('current-page').textContent = currentPage;
+        document.getElementById('prev-page').classList.toggle('disabled', currentPage === 1);
+        document.getElementById('next-page').classList.toggle('disabled', currentPage >= totalPages);
+    }
+
+    document.getElementById('prev-page').addEventListener('click', () => {
+        if (currentPage > 1) {
+            currentPage--;
+            start -= limit;
+            fetchAndRender();
+        }
+    });
+
+    document.getElementById('next-page').addEventListener('click', () => {
+        if (currentPage < Math.ceil(totalItems / limit)) {
+            currentPage++;
+            start += limit;
+            fetchAndRender();
+        }
+    });
+
+    function fetchAndRender() {
+        fetch(updateURL())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                totalItems = parseInt(response.headers.get('Total-Results')); // Adjust this header field based on actual API response
+                return response.json();
+            })
+            .then(data => {
+                updatePagination(totalItems);
+                updateTable(data);
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+                alert('Failed to fetch data. Check the console for more details.');
+            });
+    }
+
+    fetchAndRender();
+    </script>
+</body>
+</html>
