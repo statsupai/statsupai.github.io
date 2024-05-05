@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>quarto_web</title>
+<title>index</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,21 +23,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-listing/list.min.js"></script>
+<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -65,47 +67,709 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
 
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
 
-<link rel="stylesheet" href="styles.css">
+    const options = {
+      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      page: 5,
+    pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body>
 
 <div id="quarto-search-results"></div>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    </div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(15)</span></div><div class="category" data-category="Events">Events <span class="quarto-category-count">(6)</span></div><div class="category" data-category="Interviews">Interviews <span class="quarto-category-count">(4)</span></div><div class="category" data-category="Opportunities">Opportunities <span class="quarto-category-count">(5)</span></div><div class="category" data-category="Resources">Resources <span class="quarto-category-count">(4)</span></div><div class="category" data-category="Videos">Videos <span class="quarto-category-count">(4)</span></div></div></div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">quarto_web</h1>
+
+
+
+
+
+
+
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="listing-actions-group">
+   <div class="input-group input-group-sm quarto-listing-sort">
+     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
+     <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+       <option value="" disabled="" selected="" hidden="">Order By</option>
+       <option value="index" data-direction="asc">Default</option>
+         <option value="listing-title" data-direction="asc">
+          Title
+        </option>
+         <option value="listing-date-sort" data-direction="asc">
+          Date - Oldest
+        </option>
+         <option value="listing-date-sort" data-direction="desc">
+          Date - Newest
+        </option>
+         <option value="listing-author" data-direction="asc">
+          Author
+        </option>
+     </select>
+  </div>
+    <div class="input-group input-group-sm quarto-listing-filter">
+      <span class="input-group-text"><i class="bi bi-search"></i></span>
+      <input type="text" class="search form-control" placeholder="Filter">
+    </div>
+</div>
+
+<div class="quarto-post image-right" data-index="1" data-categories="Interviews" data-listing-date-sort="1713196800000" data-listing-file-modified-sort="1713408591000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="24" data-listing-word-count-sort="4722">
+<div class="thumbnail">
+<p><a href="https://statsupai.org/pages/S5_interview.html" class="no-external"></a></p><a href="https://statsupai.org/pages/S5_interview.html" class="no-external">
+<p><img src="../posts/figures/s5.jpg" class="thumbnail-image"></p>
+</a><p><a href="https://statsupai.org/pages/S5_interview.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="https://statsupai.org/pages/S5_interview.html" target="_parent">Stats Up AI Pioneer Papers (Dr. Mingyao Li & Dr. David Zhang)</a>
+</h3>
+<div class="listing-subtitle">
+<a href="https://statsupai.org/pages/S5_interview.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Interviews'); return false;">
+Interviews
+</div>
+</div>
+<div class="listing-description">
+<a href="https://statsupai.org/pages/S5_interview.html" class="no-external">Selected as Nature Methods’ 2020 Method of the Year, Spatial Transcriptomics (ST) has revolutionized our understanding of how tissues are spatially organized and how cells communicate with each other. Despite the availability of many ST platforms, none of them offer a comprehensive solution. An ideal ST platform for biological discovery should provide single-cell resolution, encompass the entire transcriptome, cover a large tissue area, and be cost-effective......</a>
+</div>
+</div>
+<div class="metadata">
+<a href="https://statsupai.org/pages/S5_interview.html" class="no-external">
+<div class="listing-date">
+May 5, 2024
+</div>
+<div class="listing-author">
+Shan Gao
+</div>
+</a>
+</div>
 </div>
 
 
 
-<div class="quarto-title-meta">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="Events" data-listing-date-sort="1713283200000" data-listing-file-modified-sort="1713449937224" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="29" data-listing-word-count-sort="5746">
+<div class="thumbnail">
+<p><a href="https://statsupai.org/pages/fireside/firesidenews.html" class="no-external"></a></p><a href="https://statsupai.org/pages/fireside/firesidenews.html" class="no-external">
+<p><img src="../posts/figures/fireside1.jpg" class="thumbnail-image"></p>
+</a><p><a href="https://statsupai.org/pages/fireside/firesidenews.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="https://statsupai.org/pages/fireside/firesidenews.html" target="_parent">Statistics and AI - A Fireside Conversation</a>
+</h3>
+<div class="listing-subtitle">
+<a href="https://statsupai.org/pages/fireside/firesidenews.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Events'); return false;">
+Events
+</div>
+</div>
+<div class="listing-description">
+<a href="https://statsupai.org/pages/fireside/firesidenews.html" class="no-external">Recent fast developments in AI have led to excitement across the entire research community. Statistics is no exception. Many statisticians are feeling both excited and…</a>
+</div>
+</div>
+<div class="metadata">
+<a href="https://statsupai.org/pages/fireside/firesidenews.html" class="no-external">
+<div class="listing-date">
+Apr 17, 2024
+</div>
+<div class="listing-author">
+Shan Gao
+</div>
+</a>
+</div>
+</div>
 
-    
-  
-    
-  </div>
-  
+
+<div class="quarto-post image-right" data-index="1" data-categories="Interviews" data-listing-date-sort="1713196800000" data-listing-file-modified-sort="1713408591000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="24" data-listing-word-count-sort="4722">
+<div class="thumbnail">
+<p><a href="../posts/Revolutionizing Cancer Risk Prediction.html" class="no-external"></a></p><a href="../posts/Revolutionizing Cancer Risk Prediction.html" class="no-external">
+<p><img src="../posts/figures/interview4_wang.jpg" class="thumbnail-image"></p>
+</a><p><a href="../posts/Revolutionizing Cancer Risk Prediction.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../posts/Revolutionizing Cancer Risk Prediction.html" target="_parent">Revolutionizing Cancer Risk Prediction: The LFSPRO Validation Journey and its lmpact on Clinical Practice</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../posts/Revolutionizing Cancer Risk Prediction.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Interviews'); return false;">
+Interviews
+</div>
+</div>
+<div class="listing-description">
+<a href="../posts/Revolutionizing Cancer Risk Prediction.html" class="no-external">The Article Link:</a>
+</div>
+</div>
+<div class="metadata">
+<a href="../posts/Revolutionizing Cancer Risk Prediction.html" class="no-external">
+<div class="listing-date">
+Apr 16, 2024
+</div>
+<div class="listing-author">
+Shan Gao
+</div>
+</a>
+</div>
+</div>
+
+<div class="quarto-post image-right" data-index="2" data-categories="Opportunities,Events" data-listing-date-sort="1712851200000" data-listing-file-modified-sort="1713408591000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="110">
+<div class="thumbnail">
+<p><a href="../posts/Advancing Health Research.html" class="no-external"></a></p><a href="../posts/Advancing Health Research.html" class="no-external">
+<p><img src="../posts/figures/nih_multimodal_ai.png" class="thumbnail-image"></p>
+</a><p><a href="../posts/Advancing Health Research.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../posts/Advancing Health Research.html" class="no-external">Advancing Health Research through Ethical, Multimodal AI</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../posts/Advancing Health Research.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Opportunities'); return false;">
+Opportunities
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Events'); return false;">
+Events
+</div>
+</div>
+<div class="listing-description">
+<a href="../posts/Advancing Health Research.html" class="no-external">The NIH Office of Data Science Strategy (ODSS) launches the <strong>Advancing Health Research through Ethical, Multimodal AI Initiative</strong>, a call for applications to foster ethically…</a>
+</div>
+</div>
+<div class="metadata">
+<a href="../posts/Advancing Health Research.html" class="no-external">
+<div class="listing-date">
+Apr 12, 2024
+</div>
+<div class="listing-author">
+Bangyao Zhao
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="3" data-categories="Opportunities,Events" data-listing-date-sort="1712851200000" data-listing-file-modified-sort="1713408591000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="110">
+<div class="thumbnail">
+<p><a href="../posts/AI Day for Federal Statistics.html" class="no-external"></a></p><a href="../posts/AI Day for Federal Statistics.html" class="no-external">
+<p><img src="../posts/figures/news.webp" class="thumbnail-image"></p>
+</a><p><a href="../posts/AI Day for Federal Statistics.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../posts/AI Day for Federal Statistics.html" class="no-external">AI Day for Federal Statistics: CNSTAT Public Event</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../posts/AI Day for Federal Statistics.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Opportunities'); return false;">
+Opportunities
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Events'); return false;">
+Events
+</div>
+</div>
+<div class="listing-description">
+<a href="../posts/AI Day for Federal Statistics.html" class="no-external">Join the essential dialogue on AI’s impact on federal statistics during the <strong>AI Day for Federal Statistics</strong>. This event, taking place on May 2, 2024, at the National Academy…</a>
+</div>
+</div>
+<div class="metadata">
+<a href="../posts/AI Day for Federal Statistics.html" class="no-external">
+<div class="listing-date">
+Apr 12, 2024
+</div>
+<div class="listing-author">
+Bangyao Zhao
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="4" data-categories="Interviews" data-listing-date-sort="1712160000000" data-listing-file-modified-sort="1713408591000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="19" data-listing-word-count-sort="3651">
+<div class="thumbnail">
+<p><a href="../posts/Vanguard of the Virus Fight.html" class="no-external"></a></p><a href="../posts/Vanguard of the Virus Fight.html" class="no-external">
+<p><img src="../posts/figures/interview3_head.jpg" class="thumbnail-image"></p>
+</a><p><a href="../posts/Vanguard of the Virus Fight.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../posts/Vanguard of the Virus Fight.html" class="no-external">Vanguard of the Virus Fight: Unveiling the lmpact of Updated Vaccines and Antivirals on Omicron Subvariants</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../posts/Vanguard of the Virus Fight.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Interviews'); return false;">
+Interviews
+</div>
+</div>
+<div class="listing-description">
+<a href="../posts/Vanguard of the Virus Fight.html" class="no-external">The Article Link:</a>
+</div>
+</div>
+<div class="metadata">
+<a href="../posts/Vanguard of the Virus Fight.html" class="no-external">
+<div class="listing-date">
+Apr 4, 2024
+</div>
+<div class="listing-author">
+Shan Gao
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="5" data-categories="Interviews" data-listing-date-sort="1711900800000" data-listing-file-modified-sort="1713408591000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="20" data-listing-word-count-sort="3895">
+<div class="thumbnail">
+<p><a href="../posts/S3_interview.html" class="no-external"></a></p><a href="../posts/S3_interview.html" class="no-external">
+<p><img data-src="../posts/figures/S3.jpg" class="thumbnail-image"></p>
+</a><p><a href="../posts/S3_interview.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../posts/S3_interview.html" class="no-external">Stats Up AI Pioneer Papers (Dr.&nbsp;Jingyi Jessica Li)</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../posts/S3_interview.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Interviews'); return false;">
+Interviews
+</div>
+</div>
+<div class="listing-description">
+<a href="../posts/S3_interview.html" class="no-external">Dr. Jingyi Jessica Li, Professor of Statistics and Data Science (also affiliated with Biostatistics, Computational Medicine, and Human Genetics), leads a research group…</a>
+</div>
+</div>
+<div class="metadata">
+<a href="../posts/S3_interview.html" class="no-external">
+<div class="listing-date">
+Apr 1, 2024
+</div>
+<div class="listing-author">
+Shan Gao
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="6" data-categories="Events,Interviews" data-listing-date-sort="1709222400000" data-listing-file-modified-sort="1713408591000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="17" data-listing-word-count-sort="3274">
+<div class="thumbnail">
+<p><a href="../posts/interview_peiwang.html" class="no-external"></a></p><a href="../posts/interview_peiwang.html" class="no-external">
+<p><img data-src="../posts/figures/peiwang_interview.jpg" class="thumbnail-image"></p>
+</a><p><a href="../posts/interview_peiwang.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../posts/interview_peiwang.html" class="no-external">Stats Up AI Pioneer Papers (Dr.&nbsp;Pei Wang)</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../posts/interview_peiwang.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Events'); return false;">
+Events
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Interviews'); return false;">
+Interviews
+</div>
+</div>
+<div class="listing-description">
+<a href="../posts/interview_peiwang.html" class="no-external">Dr. Pei Wang is a Professor of Genetic and Genomic Sciences at Icahn School of Medicine at Mount Sinai, New York. She obtained her B.S. in Mathematics from Peking…</a>
+</div>
+</div>
+<div class="metadata">
+<a href="../posts/interview_peiwang.html" class="no-external">
+<div class="listing-date">
+Mar 1, 2024
+</div>
+<div class="listing-author">
+Shan Gao
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="7" data-categories="Videos,Resources" data-listing-date-sort="1709049600000" data-listing-file-modified-sort="1713408591000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="23">
+<div class="thumbnail">
+<p><a href="../posts/conducting_research_with_UK_biobank.html" class="no-external"></a></p><a href="../posts/conducting_research_with_UK_biobank.html" class="no-external">
+<p><img data-src="../posts/figures/biobank.jpeg" class="thumbnail-image"></p>
+</a><p><a href="../posts/conducting_research_with_UK_biobank.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../posts/conducting_research_with_UK_biobank.html" class="no-external">Conducting research with UK biobank</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../posts/conducting_research_with_UK_biobank.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Videos'); return false;">
+Videos
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Resources'); return false;">
+Resources
+</div>
+</div>
+<div class="listing-description">
+<a href="../posts/conducting_research_with_UK_biobank.html" class="no-external">
+            <div class="row"> 
+                <div class="col-md-12">
+                    <div class="about-logo">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/53lFjPiWAyQ?si=A_9FxEw-c2rku36p" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>                 
+                    </div>
+            </div>  
+            <br>
+        </div>
 
 
-</header>
+
+</a>
+</div>
+</div>
+<div class="metadata">
+<a href="../posts/conducting_research_with_UK_biobank.html" class="no-external">
+<div class="listing-date">
+Feb 28, 2024
+</div>
+<div class="listing-author">
+Henry Ye
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="8" data-categories="Opportunities" data-listing-date-sort="1709049600000" data-listing-file-modified-sort="1713408591000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="93">
+<div class="thumbnail">
+<p><a href="../posts/Call proposal for JASA special issue on AI.html" class="no-external"></a></p><a href="../posts/Call proposal for JASA special issue on AI.html" class="no-external">
+<p><img data-src="../posts/figures/jasa.jpg" class="thumbnail-image"></p>
+</a><p><a href="../posts/Call proposal for JASA special issue on AI.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../posts/Call proposal for JASA special issue on AI.html" class="no-external">Call proposal for JASA special issue on AI</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../posts/Call proposal for JASA special issue on AI.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Opportunities'); return false;">
+Opportunities
+</div>
+</div>
+<div class="listing-description">
+<a href="../posts/Call proposal for JASA special issue on AI.html" class="no-external">We are excited to announce a call for papers for a special issue dedicated to exploring the intersection of statistical theory, and methods and applications with core…</a>
+</div>
+</div>
+<div class="metadata">
+<a href="../posts/Call proposal for JASA special issue on AI.html" class="no-external">
+<div class="listing-date">
+Feb 28, 2024
+</div>
+<div class="listing-author">
+Henry Ye
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="9" data-categories="Videos,Resources" data-listing-date-sort="1708790400000" data-listing-file-modified-sort="1713408591000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="19">
+<div class="thumbnail">
+<p><a href="../posts/Conducting_research_with_All_of_Us.html" class="no-external"></a></p><a href="../posts/Conducting_research_with_All_of_Us.html" class="no-external">
+<p><img data-src="../posts/figures/all_of_us.jpg" class="thumbnail-image"></p>
+</a><p><a href="../posts/Conducting_research_with_All_of_Us.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../posts/Conducting_research_with_All_of_Us.html" class="no-external">Conducting research with All of Us</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../posts/Conducting_research_with_All_of_Us.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Videos'); return false;">
+Videos
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Resources'); return false;">
+Resources
+</div>
+</div>
+<div class="listing-description">
+<a href="../posts/Conducting_research_with_All_of_Us.html" class="no-external">Introduction video is here!</a>
+</div>
+</div>
+<div class="metadata">
+<a href="../posts/Conducting_research_with_All_of_Us.html" class="no-external">
+<div class="listing-date">
+Feb 25, 2024
+</div>
+<div class="listing-author">
+Henry Ye
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="10" data-categories="Events,Videos" data-listing-date-sort="1707235200000" data-listing-file-modified-sort="1713408591000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="33">
+<div class="thumbnail">
+<p><a href="../posts/Townhall meeting.html" class="no-external"></a></p><a href="../posts/Townhall meeting.html" class="no-external">
+<p><img data-src="../posts/figures/ASAtownhallflyerShort.png" class="thumbnail-image"></p>
+</a><p><a href="../posts/Townhall meeting.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../posts/Townhall meeting.html" class="no-external">Townhall meeting on the role of statisticians for the future of AI</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../posts/Townhall meeting.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Events'); return false;">
+Events
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Videos'); return false;">
+Videos
+</div>
+</div>
+<div class="listing-description">
+<a href="../posts/Townhall meeting.html" class="no-external">
+            <div class="row"> 
+                <div class="col-md-12">
+                    <div class="about-logo">
+                            
+                            
+                </div>
+            </div>  
+            <br>
+        </div>
 
 
 
-
-
-</main> <!-- /main -->
+</a>
+</div>
+</div>
+<div class="metadata">
+<a href="../posts/Townhall meeting.html" class="no-external">
+<div class="listing-date">
+Feb 7, 2024
+</div>
+<div class="listing-author">
+Shan Gao
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="11" data-categories="Events,Videos,Resources" data-listing-date-sort="1707235200000" data-listing-file-modified-sort="1713408591000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="412">
+<div class="thumbnail">
+<p><a href="../posts/Statistics for the Future of AI.html" class="no-external"></a></p><a href="../posts/Statistics for the Future of AI.html" class="no-external">
+<p><img data-src="../posts/figures/Meeting/meeting.jpg" class="thumbnail-image"></p>
+</a><p><a href="../posts/Statistics for the Future of AI.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../posts/Statistics for the Future of AI.html" class="no-external">Statistics for the Future of AI</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../posts/Statistics for the Future of AI.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Events'); return false;">
+Events
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Videos'); return false;">
+Videos
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Resources'); return false;">
+Resources
+</div>
+</div>
+<div class="listing-description">
+<a href="../posts/Statistics for the Future of AI.html" class="no-external">Dear Fellow Statisticians,</a>
+</div>
+</div>
+<div class="metadata">
+<a href="../posts/Statistics for the Future of AI.html" class="no-external">
+<div class="listing-date">
+Feb 7, 2024
+</div>
+<div class="listing-author">
+Shan Gao
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="12" data-categories="Resources" data-listing-date-sort="1707062400000" data-listing-file-modified-sort="1713408591000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="27">
+<div class="thumbnail">
+<p><a href="../posts/Statistical Aspects of Trustworthy Machine Learning.html" class="no-external"></a></p><a href="../posts/Statistical Aspects of Trustworthy Machine Learning.html" class="no-external">
+<p><img data-src="../posts/figures/logo.png" class="thumbnail-image"></p>
+</a><p><a href="../posts/Statistical Aspects of Trustworthy Machine Learning.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../posts/Statistical Aspects of Trustworthy Machine Learning.html" class="no-external">Statistical Aspects of Trustworthy Machine Learning</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../posts/Statistical Aspects of Trustworthy Machine Learning.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Resources'); return false;">
+Resources
+</div>
+</div>
+<div class="listing-description">
+<a href="../posts/Statistical Aspects of Trustworthy Machine Learning.html" class="no-external">A list of workshop videos are posted here!</a>
+</div>
+</div>
+<div class="metadata">
+<a href="../posts/Statistical Aspects of Trustworthy Machine Learning.html" class="no-external">
+<div class="listing-date">
+Feb 5, 2024
+</div>
+<div class="listing-author">
+Shan Gao
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="13" data-categories="Opportunities" data-listing-date-sort="1707062400000" data-listing-file-modified-sort="1713408591000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="106">
+<div class="thumbnail">
+<p><a href="../posts/Journal of Data Science.html" class="no-external"></a></p><a href="../posts/Journal of Data Science.html" class="no-external">
+<p><img data-src="../posts/figures/Meeting/DSCallSpeialIssue.jpg" class="thumbnail-image"></p>
+</a><p><a href="../posts/Journal of Data Science.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../posts/Journal of Data Science.html" class="no-external">Journal of Data Science calls for contributions to a special issue on the same topic</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../posts/Journal of Data Science.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Opportunities'); return false;">
+Opportunities
+</div>
+</div>
+<div class="listing-description">
+<a href="../posts/Journal of Data Science.html" class="no-external">The Journal of Data Science (JDS) invites submissions for a special issue on “Statistical Aspects of Trustworthy Machine Learning.” This special issue aims to showcase the…</a>
+</div>
+</div>
+<div class="metadata">
+<a href="../posts/Journal of Data Science.html" class="no-external">
+<div class="listing-date">
+Feb 5, 2024
+</div>
+<div class="listing-author">
+Shan Gao
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="14" data-categories="Opportunities" data-listing-date-sort="1707062400000" data-listing-file-modified-sort="1713408591000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="83">
+<div class="thumbnail">
+<p><a href="../posts/Data and AI Intensive Research.html" class="no-external"></a></p><a href="../posts/Data and AI Intensive Research.html" class="no-external">
+<p><img data-src="../posts/figures/dair3.png" class="thumbnail-image"></p>
+</a><p><a href="../posts/Data and AI Intensive Research.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../posts/Data and AI Intensive Research.html" class="no-external">Data and AI Intensive Research with Rigor and Reproducibility (DAIR³)</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../posts/Data and AI Intensive Research.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Opportunities'); return false;">
+Opportunities
+</div>
+</div>
+<div class="listing-description">
+<a href="../posts/Data and AI Intensive Research.html" class="no-external">The Data and AI Intensive Research with Rigor and Reproducibility (DAIR3) program includes weeklong bootcamps in the summer that focus on ethical issues in biomedical data…</a>
+</div>
+</div>
+<div class="metadata">
+<a href="../posts/Data and AI Intensive Research.html" class="no-external">
+<div class="listing-date">
+Feb 5, 2024
+</div>
+<div class="listing-author">
+Shan Gao
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+<nav id="listing-pagination" class="listing-pagination" aria-label="Page Navigation">
+  <ul class="pagination"></ul>
+</nav>
+</div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
