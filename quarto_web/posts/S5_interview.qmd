@@ -1,0 +1,284 @@
+---
+title: "Stats Up AI Pioneer Papers (Dr. Mingyao Li & Dr. David Zhang)"
+image: figures/s5.jpg
+author:
+  - name: "Shan Gao"
+  - affiliation: "Yunnan University"
+categories:
+  - Interviews
+date: "2024-05-05"
+---
+
+```{=html}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iStar in Focus: Enhancing Spatial Transcriptomics with High-Resolution Histology for Precise Molecular Mapping</title>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://statsupai.com/pages/S5_interview.html">
+    <meta property="og:title" content="iStar in Focus">
+    <meta property="og:description" content="Enhancing Spatial Transcriptomics with High-Resolution Histology for Precise Molecular Mapping">
+    <meta property="og:image" content="figures/s5.jpg">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif; 
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            line-height: 1.6; /* 增加行距 */
+        }
+        .large-text {
+            font-size: larger; /* 或你想要的任何大小 */
+        }
+
+        .interviewee-introduction {
+            display: flex;
+            align-items: center;
+            background-color: #f8f8f8; /* 轻灰色背景 */
+            border-radius: 8px; /* 边角圆润 */
+            padding: 20px;
+            margin-bottom: 20px; /* 和问答部分保持一定距离 */
+        }
+
+        .interviewee-photo {
+            width: 150px; /* 根据需要调整 */
+            height: 150px; /* 根据需要调整 */
+            border-radius: 50%; /* 创建圆形图片 */
+            object-fit: cover; /* 确保图片内容适应尺寸 */
+            margin-right: 20px;
+        }
+
+        .interviewee-details h2 {
+            margin-top: 0;
+            color: #082653; /* 深蓝色，你可以根据网站主题更改 */
+        }
+
+        .interviewee-details p {
+            color: #333; /* 深灰色文本 */
+            line-height: 1.6; /* 增加行距 */
+        }
+        .edit-info {
+            color: #808080; /* 设置为灰色字体 */
+            font-size: 15px; /* 设置字体大小，根据需要调整 */
+            text-align: right; /* 右对齐文本 */
+            padding: 20px 0; /* 在内容上下添加一些空间 */
+            margin-top: 20px; /* 与问答内容保持一定距离 */
+            border-top: 1px solid #ccc; /* 如果需要，可以添加一条分隔线 */
+        }
+
+        .header-image {
+            width: 97%;
+            height: auto;
+            display: block; /* 使图片成为块级元素 */
+            margin: 0 auto; /* 水平居中 */
+        }
+        .fixed-counter {
+            position: fixed; /* 固定定位，使元素不随页面滚动 */
+            left: 0; /* 距离页面左边界的距离 */
+            bottom: 0; /* 距离页面底部边界的距离 */
+            background-color: transparent; /* 可以根据需要设置背景颜色 */
+            z-index: 1000; /* 确保计数器显示在其他元素之上 */
+        }
+
+        .interview {
+        margin: 20px;
+        background-color: rgba(255, 255, 255, 0.7); /* 白色背景，70%不透明度（即30%透明度） */
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 标题和子标题 */
+        h1, h2 {
+            font-weight: bold;
+            color: #7469B6; /* 深蓝色 */
+            margin-bottom: 20px;
+        }
+
+        /* 问题样式 */
+        .question {
+            color: #213c64; /* 深蓝色 */
+            font-weight: bold;
+            margin-bottom: 10px; /* 问题与回答之间的空间 */
+            font-size: larger; /* 突出问题 */
+        }
+        .image {
+            display: block; /* 使图像成为块级元素 */
+            max-width: 60%; /* 设置图像的最大宽度为60%以确保响应式 */
+            height: auto; /* 设置图像的高度自动调整以保持图片比例 */
+            margin: 10px auto; /* 上下边距为20px，左右自动，实现水平居中 */
+            border: 5px solid #808080; /* 添加蓝色的边框，宽度为5px */
+            border-radius: 8px; /* 如果您想要圆角边框，可以添加这个属性 */
+        }
+
+        .answer {
+            background-color: #f8f8f8; /* 轻微的背景色增加对比 */
+            padding: 15px; /* 内边距增加可读性 */
+            border-left: 4px solid #213c64; /* 左侧边框作为视觉提示 */
+            margin-bottom: 20px; /* 增加回答间的空间 */
+            color: #264653; /* 适中的文字颜色 */
+            font-size: medium; /* 适合阅读的字号 */
+            line-height: 1.6; /* 行间距增加可读性 */
+            border-radius: 4px; /* 轻微的圆角 */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* 轻微的阴影增加层次感 */
+        }
+        ul.custom-list {
+        padding-left: 20px; /* 调整以适应项目符号和首行缩进 */
+        }
+        ul.custom-list li {
+            text-indent: 2em; /* 首行缩进 */
+            margin-left: -2em; /* 调整项目符号位置 */
+        }
+
+        .background-image {
+            position: fixed; /* 或absolute，取决于你的需求 */
+            right: 0;
+            bottom: 0;
+            width: 800px; /* 根据你的背景图尺寸调整 */
+            height: 300px; /* 根据你的背景图尺寸调整 */
+            background-image: url('12.jpg'); /* 替换为你的图片名称 */
+            background-size: cover;
+            opacity: 0.4; /* 设置透明度为40% */
+            z-index: -1; /* 确保背景图不会覆盖其他内容 */
+        }
+        .article-link {
+            background-color: #f4f4f4; /* 背景色 */
+            padding: 10px; /* 内边距 */
+            border-radius: 8px; /* 边角圆滑 */
+            text-align: center; /* 文本居中 */
+            margin: 20px 0; /* 上下外边距 */
+        }
+    
+        .article-link p {
+            margin: 0; /* 移除默认边距 */
+            color: #003366; /* 文本颜色 */
+            font-weight: bold; /* 字体加粗 */
+        }
+    
+        .article-link a {
+            display: inline-block; /* 可以设置宽度和高度 */
+            background-color: #213c64; /* 链接背景色 */
+            color: white; /* 链接文字颜色 */
+            padding: 10px 20px; /* 链接内边距 */
+            border-radius: 5px; /* 链接边角圆滑 */
+            text-decoration: none; /* 去掉下划线 */
+            font-size: 18px; /* 字体大小 */
+            margin-top: 10px; /* 与段落之间的距离 */
+            transition: background-color 0.3s; /* 过渡动画 */
+        }
+    
+        .article-link a:hover {
+            background-color: #082653; /* 鼠标悬停时的背景色 */
+        }
+        
+
+    </style>
+
+</head>
+<body>
+    <img class="header-image" src="figures/s5.jpg" alt="Interview Image">
+
+    <div class="article-link">
+    <p>The Article Link:</p><a href="https://www.nature.com/articles/s41587-023-02019-9" target="_blank">Inferring super-resolution tissue architecture by integrating spatial transcriptomics with histology</a>
+    </div>
+
+    <div class="interviewee-introduction">
+    <img src="figures/mingyaoli.jpg" alt="Interviewee Name" class="interviewee-photo">
+    <div class="interviewee-details">
+        <h2>Dr. Mingyao Li</h2>
+        <p>Dr. Mingyao Li is a Professor of Biostatistics and Digital Pathology at the University of Pennsylvania Perelman School of Medicine. She received her PhD in Biostatistics from the University of Michigan in 2005. She was trained as a statistical geneticist, but since joining the faculty at UPenn in 2006, she has gradually transitioned her research from traditional statistical genetics to statistical genomics, and more recently to molecular imaging and digital pathology. The primary goal of her research is to develop computational tools to tackle genetics and genomics related problems using modern machine learning and AI techniques. She is particularly interested in translational research that has a direct impact on human health.</p>
+        </div>
+    </div>
+    <div class="interviewee-introduction">
+    <img src="figures/Davidzhang.jpg" alt="Interviewee Name" class="interviewee-photo">
+    <div class="interviewee-details">
+        <h2>Dr. David Zhang</h2>
+        <p>Dr. Daiwei (David) Zhang received his PhD in Biostatistics and Scientific Computing from the University of Michigan in 2021. His doctoral research centered on developing statistical and machine learning methods for analyzing genetics and imaging data. Since joining Mingyao Li’s lab as a postdoc researcher in October 2021, David has focused on creating AI tools for the integrative analysis of spatial omics and pathology imaging data. In August 2024, he will join the Departments of Biostatistics and Genetics at UNC Chapel Hill as a tenure track assistant professor, where his lab will focus on developing AI tools to address challenges in digital medicine. </p>
+        </div>
+    </div>
+
+<!-- 
+    <div class="interviewee-introduction">
+    <img src="inter3_2.jpg" alt="Interviewee Name" class="interviewee-photo">
+    <div class="interviewee-details">
+        <h2>Dr. Xiaofeng Wang</h2>
+        <p>Xiaofeng Wang, Ph.D., is a Full Staff Member in the Department of Quantitative Health Sciences at Cleveland Clinic, and a Professor of Medicine at Cleveland Clinic Lerner College of Medicine of Case Western Reserve University. Dr. Wang has authored over 200 journal papers in the statistical and medical literature, as well as a number of book chapters and proceeding papers. He is an Elected Fellow of the American Statistical Association (ASA) and an Elected Member of the International Statistical Institute (ISI). His expertise lies in translational research, where he applies statistical methods to real-world problems, informing evidence-based practice, and driving meaningful impact in patient care and public health. His research interests include quantitative image analysis, real-world data analytics, and clinical machine learning models</p>
+        </div>
+    </div> -->
+
+<!--     <div id="sfclnp7ljs4s9lg5c5kmcde77njx33251j5"></div>
+    <script type="text/javascript" src="https://counter11.optistats.ovh/private/counter.js?c=lnp7ljs4s9lg5c5kmcde77njx33251j5&down=async" async></script>
+    <noscript><a href="https://www.freecounterstat.com" title="website counter"><img src="https://counter11.optistats.ovh/private/freecounterstat.php?c=lnp7ljs4s9lg5c5kmcde77njx33251j5" border="0" title="website counter" alt="website counter"></a></noscript>
+ -->
+    
+    <div class="interview">
+        <p class="question">Regarding the research background and significance, does this work discover new knowledge or solve existing problems within the field? Please elaborate in detail.</p>
+        <p class="answer">Selected as Nature Methods’ 2020 Method of the Year, Spatial Transcriptomics (ST) has revolutionized our understanding of how tissues are spatially organized and how cells communicate with each other. Despite the availability of many ST platforms, none of them offer a comprehensive solution. An ideal ST platform for biological discovery should provide single-cell resolution, encompass the entire transcriptome, cover a large tissue area, and be cost-effective. However, producing such ST data with existing platforms is difficult. To address this challenge, we developed iStar (Inferring Super-Resolution Tissue Architecture), <a href="https://www.nature.com/articles/s41587-023-02019-9" target="_blank" rel="noopener noreferrer">https://www.nature.com/articles/s41587-023-02019-9</a>, an AI tool designed to produce such ideal ST data by leveraging high-resolution information provided by histology images. iStar utilizes an image feature extraction process that mimics a pathologist’s examination of histology images, enabling the virtual prediction of gene expression with near single-cell resolution. The results from iStar offer both detailed views of individual cells and a broader perspective on the full spectrum of gene activity. This tool exemplifies how AI-enabled digital pathology can enhance the analysis of spatial transcriptomics data.
+
+        <p class="question">How did the reviewers evaluate (praise) it?</p>
+        <p class="answer">This paper underwent the smoothest peer-review process that I have ever experienced. Even in the initial round of review, one reviewer commented, “The method demonstrated a significant and meaningful advancement for the field. I will recommend accepting with revision as a brief communication in Nature Biotechnology.” Following our first revision, which clarified some of the technical details, the paper was accepted in principle.
+
+        </p>
+
+
+        <p class="question">If this achievement has potential applications, what are some specific applications it might have in a few years?</p>
+        <p class="answer">The pathology imaging technique provides both highly detailed views of individual cells and a broader look of the full spectrum of how people’s genes operate, which would allow doctors and researchers to see cancer cells that might otherwise have been virtually invisible. As such, iStar can be used to determine whether safe margins are achieved through cancer surgeries and automatically provide annotation for microscopic images, paving the way for molecular disease diagnosis at that level. In addition, iStar can be utilized to automatically detect critical anti-tumor immune formations called “tertiary lymphoid structures,” whose presence correlates with a patient’s likely survival and favorable response to immunotherapy, which is often given for cancer and requires high precision in patient selection. This means that iStar could be a powerful tool for determining which patients would benefit most from immunotherapy.</p>
+
+        <p class="question">Can you recount the specific steps or stages from setting the research topic to the successful completion of the research?</p>
+        <p class="answer">This project started in October 2021, when David joined my lab as a postdoc. Initially, our goal was to predict spot-level gene expression in histology images for samples lacking gene expression data. Despite facing many challenges and early setbacks, David’s persistence led to innovative approaches for extracting information from the histology images. After many attempts, we landed on a hierarchical vision transformer approach for image processing, that computationally mimics how a pathologist examines a histology image in clinic.  As I will detail in my answer to the next question, we discovered that this approach effectively extracts features from histology images, and promted us to shift our focus. Rather than focusing on out-of-subject gene expresson prediction, we focused on enhancing the spatial resolution of gene expression in the 10x Visium platform, the most popular platform for ST. By October 2022, we had developed a prototype of the algorithm. The subsequent phase of the project involved identifying biologically and clinically relevant questions that could be explored using our predicted super-resolution gene expression. We engaged with many collaborators, including pathologists, cancer biologists, nepherologits, and neurologists, to review the results and provide biological interpretations. These collaborative efforts significantly enhanced the project’s impact. Without those interesting case studies, this paper wouldn’t have appeared in Nature Biotechnology.
+        </p>
+
+        <p class="question">Were there any memorable events during the research? You can tell a story about anything related to people, events, or objects.</p>
+        <p class="answer">A particularly memorable event occurred during a meeting in July 2022 when David presented a tissue segmentation result that utilized hierarchically extracted histology image features. Upon seeing that result, I immediately realized the potential of these features to predict gene expression. Since the features were extracted at the super-pixel level, approximately equivalent to the size of a single cell, it became apprarent that we could use these features to learn the relationship between histology and gene expression. This relationship would allow us to predict near single-cell level gene expression not only within directly measured spots but also in tissue gaps lacking spot coverage. 
+        </p>
+        
+
+        <p class="question">Is there a follow-up plan based on this research? If so, please elaborate.</p>
+        <p class="answer">iStar’s capabilities can be expanded in many different ways. Currently, we are exploring the use of ST data with single-cell resolution to train models that predict gene expression. We are also investigaging the potential for predicting gene expression in large-sized tissues that exceed the capture area of standard ST platforms. Another exciting direction is the reconstruction of 3D tissue volumes for gene expression analysis. Our ultimate goal is to enable virtual ST on tissue samples from biobanks. If successful, this would facilitate the development of diagnostic and prognostic models for diseases, generate spatial molecular tissue references, and enhance disease diagnostis, treatment recommendation, and personalized medicine.</p>
+
+        <p class="question">Without a doubt, AI is one of the hot topics of 2023, requiring extensive data support in its development. What assistance can biostatistics offer to the development of AI?</p>
+        <p class="answer">Both David and I received our PhDs in Biostatistics from the University of Michigan. During our PhD studies, we worked on imaging and genetics problems, which trained our computing skills—critical for our transition into AI research. Biostatisticians, especially those with strong computing abilities and experience in handling large datasets, can perform as well as those trained in computer science. The statistical training we received, coupled with our domain knowledge, is invalable for identifying the most pertinent biomedical problems to address using AI approaches.</p>
+
+        <p class="question">Besides the above questions, is there anything else about this achievement that you would like to add? If so, please add it below.</p>
+
+        <p class="answer">Domain knowledge is crucial in biomedical research. The impact of a paper largely depends on the significance of the question it addresses. Although the techniques employed are important, their importane is secondary to that of the scientific question. Often, the emphasis is mistakenly placed on the technical aspects of research, which may limit its relevance primarily to statisticians. To engage a broader audience, it is essential to communicate in the language of domain experts and to identify the most pressing questions. Acquiring domain knowledge requires years of experience. We are fortunate to work at the Penn School of Medicine, a hub for collaborative and translational research that shapes our research approach and deepens our domain knowledge.
+        </p>
+
+        <!-- 添加更多问题和答案 -->
+
+    </div>
+    <div class="edit-info">
+        Edited by: Shan Gao<br>
+        Proofread by: Hongtu Zhu
+    </div>
+<div class="background-image"></div>
+<!-- Default Statcounter code for Interview_peiwang
+https://statsupai.com/pages/interview_weipeng.html -->
+<div style="display: flex; align-items: center; color: #8E8E8E; font-size: 13px; font-family: Arial, sans-serif;">Page Views: <div class="statcounter" style="margin-left: 10px;"> <!-- Add this line for styling -->
+<!-- Default Statcounter code for s5
+https://statsupai.org/pages/S5_interview.html -->
+<script type="text/javascript">
+var sc_project=12995948; 
+var sc_invisible=0; 
+var sc_security="d589c5ef"; 
+var scJsHost = "https://";
+document.write("<sc"+"ript type='text/javascript' src='" +
+scJsHost+
+"statcounter.com/counter/counter.js'></"+"script>");
+</script>
+<noscript><div class="statcounter"><a title="Web Analytics"
+href="https://statcounter.com/" target="_blank"><img
+class="statcounter"
+src="https://c.statcounter.com/12995948/0/d589c5ef/0/"
+alt="Web Analytics"
+referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+<!-- End of Statcounter Code -->
+</body>
+</html>
+```
