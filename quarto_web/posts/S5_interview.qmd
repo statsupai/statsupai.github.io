@@ -1,5 +1,5 @@
 ---
-title: "Stats Up AI Pioneer Papers (Dr. Mingyao Li & Dr. David Zhang)"
+title: "iStar in Focus: Enhancing Spatial Transcriptomics with High-Resolution Histology for Precise Molecular Mapping"
 image: figures/s5.jpg
 author:
   - name: "Shan Gao"
@@ -50,7 +50,7 @@ date: "2024-05-05"
             width: 150px; /* 根据需要调整 */
             height: 150px; /* 根据需要调整 */
             border-radius: 50%; /* 创建圆形图片 */
-            object-fit: cover; /* 确保图片内容适应尺寸 */
+            object-fit: cover; 
             margin-right: 20px;
         }
 
