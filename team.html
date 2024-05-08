@@ -200,20 +200,7 @@
 	<a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
 <!-- javascript
     ================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-document.getElementById('prev-button').addEventListener('click', function() {
-    document.querySelector('.team-carousel').scrollBy({
-        left: -220, // Adjust the scroll amount based on card width
-        behavior: 'smooth'
-    });
-});
 
-document.getElementById('next-button').addEventListener('click', function() {
-    document.querySelector('.team-carousel').scrollBy({
-        left: 220, // Adjust the scroll amount based on card width
-        behavior: 'smooth'
-    });
-});
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const carousel = document.querySelector('.team-carousel');
