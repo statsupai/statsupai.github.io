@@ -1881,3 +1881,172 @@ padding:50px 0
     padding-top: 20px; /* Adds space between the image and the title */
 }
 
+#team .team-carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory; /* Ensures smooth snapping */
+    padding: 20px 0;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on touch devices */
+}
+
+#team .member-card {
+    flex: 0 0 auto; /* Prevents cards from stretching */
+    width: 240px; /* Adjust width as needed */
+    margin-right: 15px; /* Space between cards */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    background: #fff; /* Card background */
+    scroll-snap-align: start; /* Aligns cards at the start of the scroll container */
+}
+
+#team .member-photo {
+    width: 120px; /* Adjust size as needed */
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    object-fit: cover;
+}
+
+/* Optional: hide scrollbar to make it look cleaner */
+#team .team-carousel::-webkit-scrollbar {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    #team .member-card {
+        width: 80%; /* Larger cards on smaller screens */
+    }
+}
+/* Carousel wrapper to hold buttons */
+#team .carousel-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.3);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+#prev-button {
+    left: -15px;
+}
+
+#next-button {
+    right: -15px;
+}
+#team .team-carousel {
+    display: flex;
+    overflow-x: auto;  /* 启用水平滚动 */
+    white-space: nowrap;  /* 防止元素折行 */
+    padding: 20px 0;
+    -webkit-overflow-scrolling: touch;  /* 触摸设备上的滚动惯性 */
+    scrollbar-width: none;  /* Firefox */
+}
+
+#team .team-carousel::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari, Opera */
+}
+
+#team .member-card {
+    display: inline-block;
+    width: 300px;  /* 卡片宽度 */
+    margin-right: 20px;  /* 卡片间隔 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+    vertical-align: top;
+}
+
+#team .member-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    object-fit: cover;
+}
+.progress-bar {
+    width: 100%; /* 进度条容器宽度为100% */
+    height: 10px; /* 进度条高度 */
+    background-color: #ddd; /* 进度条背景色 */
+    border-radius: 5px; /* 圆角 */
+    margin-top: 10px; /* 与上方内容的间隔 */
+}
+
+.progress {
+    height: 100%; /* 进度块高度与容器相同 */
+    background-color: #4CAF50; /* 进度块颜色 */
+    width: 0%; /* 初始宽度为0 */
+    border-radius: 5px; /* 圆角 */
+}
+
+
+
+.team-card {
+    background: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.team-card h2 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.team-list {
+    list-style: none; /* 去掉列表前的符号 */
+    padding: 0; /* 去掉默认的内边距 */
+}
+
+.team-list li {
+    margin-bottom: 10px; /* 增加列表项之间的间距 */
+    padding: 10px; /* 增加内部空间感 */
+    border-bottom: 1px solid #ccc; /* 添加底部边界线 */
+    font-size: 16px; /* 增大字体大小 */
+}
+
+.team-list li:last-child {
+    border-bottom: none; /* 最后一个列表项不显示边界线 */
+}
+
+.team-list a {
+    color: #0066CC; /* 设置链接颜色 */
+    text-decoration: none; /* 去掉下划线 */
+}
+
+.team-list a:hover {
+    text-decoration: underline; /* 鼠标悬停时下划线效果 */
+}
+/* 添加到你的CSS文件或 <style> 标签中 */
+section {
+    margin-top: 30px; /* 在每个section的顶部添加30px的外边距 */
+    margin-bottom: 30px; /* 在每个section的底部添加30px的外边距 */
+}
+
+/* 你也可以只针对特定的section进行样式定制，例如： */
+#team-info, #content {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+
+
+
+
+
