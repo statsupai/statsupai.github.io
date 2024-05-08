@@ -60,18 +60,96 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">
-				<h2 class="pageTitle">Stearing committee members</h2>
+				<h2 class="pageTitle">Stearing Committee Members</h2>
 			</div>
 		</div>
 	</div>
 	</section>
+    <section id="content">
+        <div class="container">
+            <img src="img/Meeting/meeting.jpg" alt="Meeting Image">
+        </div>
+    </section>
+    <section id="team-info">
+        <div class="container">
+            <div class="team-card">
+                <h2>Technical Team Members</h2>
+                <ul class="team-list">
+                    <li><strong>Hanwen Ye</strong>, Ph.D. Candidate - University of California, Irvine</li>
+                    <li><strong>Annie Qu</strong>, Professor - University of California, Irvine</li>
+                    <li><strong>Bangyao Zhao</strong>, Ph.D. Candidate - University of Michigan</li>
+                    <li><strong>Jian Kang</strong>, Professor - University of Michigan</li>
+                    <li><strong>Shan Gao</strong>, Ph.D. Candidate - Yunnan University</li>
+                    <li><strong>Hongtu Zhu</strong>, Professor - University of North Carolina at Chapel Hill</li>
+                    <li><strong>Xiaoqian Liu</strong>, Postdoctoral Fellow - University of Texas MD Anderson Cancer Center</li>
+                    <li><strong>Wenyi Wang</strong>, Professor - University of Texas MD Anderson Cancer Center</li>
+                    <li><strong>Kevin Chen</strong>, High School Student - DeBakey High School</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-	<section id="content">
-		<div class="container">
-			<img src="img/Meeting/meeting.jpg" alt="Meeting Image">
-		</div>
+
+	<section id="team">
+	    <div class="container">
+	        <div class="team-carousel">
+	            <div class="member-card">
+	                <img src="img/avatar.png" alt="Team Member 1" class="member-photo">
+	                <h3>Annie Qu</h3>
+	                <p class="member-email">Professor</p>
+	                <p class="member-affiliation">University of California, Irvine</p>
+	            </div>
+	            <div class="member-card">
+	                <img src="img/avatar.png" alt="Team Member 2" class="member-photo">
+	                <h3>Hanwen Ye</h3>
+	                <p class="member-email">Ph.D. Candidate</p>
+	                <p class="member-affiliation">University of California, Irvine</p>
+	            </div>
+	            <div class="member-card">
+	                <img src="img/avatar.png" alt="Team Member 3" class="member-photo">
+	                <h3>Bangyao Zhao</h3>
+	                <p class="member-email">Ph.D. Candidate</p>
+	                <p class="member-affiliation">University of Michigan</p>
+	            </div>
+	            <div class="member-card">
+	                <img src="img/avatar.png" alt="Team Member 4" class="member-photo">
+	                <h3>Jian Kang</h3>
+	                <p class="member-email">Professor</p>
+	                <p class="member-affiliation">University of Michigan</p>
+	            </div>
+	            <div class="member-card">
+	                <img src="img/avatar.png" alt="Team Member 5" class="member-photo">
+	                <h3>Shan Gao</h3>
+	                <p class="member-email">Ph.D. Candidate</p>
+	                <p class="member-affiliation">Yunnan University</p>
+	            </div>
+	            <div class="member-card">
+	                <img src="img/avatar.png" alt="Team Member 6" class="member-photo">
+	                <h3>Hongtu Zhu</h3>
+	                <p class="member-email">Professor</p>
+	                <p class="member-affiliation">University of North Carolina at Chapel Hill</p>
+	            </div>
+	            <div class="member-card">
+	                <img src="img/avatar.png" alt="Team Member 7" class="member-photo">
+	                <h3>Xiaoqian Liu</h3>
+	                <p class="member-email">Postdoctoral Fellow</p>
+	                <p class="member-affiliation">MD Anderson Cancer Center</p>
+	            </div>
+	            <div class="member-card">
+	                <img src="img/avatar.png" alt="Team Member 8" class="member-photo">
+	                <h3>Wenyi Wang</h3>
+	                <p class="member-email">Professor</p>
+	                <p class="member-affiliation">MD Anderson Cancer Center</p>
+	            </div>
+	            <div class="member-card">
+	                <img src="img/avatar.png" alt="Team Member 9" class="member-photo">
+	                <h3>Kevin Chen</h3>
+	                <p class="member-email">High School Student</p>
+	                <p class="member-affiliation">DeBakey High School</p>
+	            </div>
+	        </div>
+	    </div>
 	</section>
-
 		
 	<footer>
 		<div class="container">
@@ -123,6 +201,48 @@
 <!-- javascript
     ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
+document.getElementById('prev-button').addEventListener('click', function() {
+    document.querySelector('.team-carousel').scrollBy({
+        left: -220, // Adjust the scroll amount based on card width
+        behavior: 'smooth'
+    });
+});
+
+document.getElementById('next-button').addEventListener('click', function() {
+    document.querySelector('.team-carousel').scrollBy({
+        left: 220, // Adjust the scroll amount based on card width
+        behavior: 'smooth'
+    });
+});
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const carousel = document.querySelector('.team-carousel');
+    let scrollInterval;
+
+    function startAutoScroll() {
+        const cardWidth = carousel.querySelector('.member-card').offsetWidth + 15; // 包括间隙
+
+        scrollInterval = setInterval(() => {
+            carousel.scrollBy({ left: cardWidth, behavior: 'smooth' });
+
+            if (carousel.scrollWidth - carousel.scrollLeft <= cardWidth) {
+                carousel.scrollTo({ left: 0, behavior: 'smooth' });
+            }
+        }, 1500);
+    }
+
+    startAutoScroll();
+
+    carousel.addEventListener('mouseover', () => clearInterval(scrollInterval));
+    carousel.addEventListener('mouseout', startAutoScroll);
+});
+
+</script>
+
+
+
+
+
 <script src="js/jquery.js"></script>
 <script src="js/jquery.easing.1.3.js"></script>
 <script src="js/bootstrap.min.js"></script>
@@ -134,5 +254,9 @@
 <script src="js/animate.js"></script>
 <script src="js/custom.js"></script>
 <script src="js/validate.js"></script>
+
+<script src="static/js/jquery.min.js"></script>
+<!-- aos animatin -->
+
 </body>
 </html>
