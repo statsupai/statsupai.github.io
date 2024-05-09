@@ -2045,8 +2045,55 @@ section {
     margin-bottom: 40px;
 }
 
+.scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+    background-color: #ccc; /* 灰色背景 */
+    color: #333; /* 深灰色图标 */
+    border: none;
+    cursor: pointer;
+    width: 40px; /* 控制宽度 */
+    height: 40px; /* 控制高度 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px; /* 圆角 */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* 添加阴影 */
+}
+
+.left-btn {
+    left: 10px; /* 略微向内移动，避免贴边 */
+}
+
+.right-btn {
+    right: 10px; /* 略微向内移动，避免贴边 */
+}
+.member-card {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin: 10px;
+        border-radius: 5px;
+        transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+
+.member-card a {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+    }
 
 
+.member-card:hover {
+    box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+    transform: scale(1.05);  /* 放大卡片 */
+    border-color: #AFD3CB;  /* 蓝色边框 */
+}
 
-
+.member-card:active {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transform: scale(0.98);  /* 稍微缩小 */
+    border-color: #0056b3;  /* 深蓝色边框 */
+}
 
