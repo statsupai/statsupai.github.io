@@ -1,5 +1,5 @@
 ---
-title: "Stats Up AI Pioneer Papers (Dr. Jingyi Jessica Li)"
+title: "Bridging Cells and Space: The Journey of scDesign3 Exploration"
 image: figures/S3.jpg
 author:
   - name: "Shan Gao"

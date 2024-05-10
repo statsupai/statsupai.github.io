@@ -1,0 +1,15 @@
+---
+title: "NSF-led National AI Research Resource Pilot awards first round access to 35 projects in partnership with DOE"
+image: figures/NAIRR_1stAllocationAnnouncement_WebAnnouncement_Graphic.jpg.webp
+author:
+  - name: "Bangyao Zhao"
+  - affiliation: "University of Michigan"
+categories:
+  - Events
+date: "2024-05-10"
+---
+
+The U.S. National Science Foundation (NSF) in partnership with the Department of Energy (DOE) has announced the first awards to 35 projects through the National Artificial Intelligence Research Resource (NAIRR) Pilot. These awards grant computing time on advanced systems to support AI research initiatives, including deepfake detection, AI safety, medical diagnoses, and more. This marks a significant step in responsible AI research and broadening access to AI tools nationwide. Further details and applications for future resources are available on the NAIRR Pilot portal.
+
+To learn more about the NSF-led National AI Research Resource Pilot, visit the [official announcement](https://new.nsf.gov/news/nsf-led-national-ai-research-resource-pilot-awards?sf188287017=1).
+
