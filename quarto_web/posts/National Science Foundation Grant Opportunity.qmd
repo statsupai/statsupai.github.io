@@ -1,0 +1,29 @@
+---
+title: "National Science Foundation Grant Opportunity: Mathematical Foundations of Artificial Intelligence"
+image: figures/news.webp
+author:
+  - name: "Bangyao Zhao"
+  - affiliation: "University of Michigan"
+categories:
+  - Opportunities
+date: "2024-05-16"
+---
+
+The Grants.gov notice summarizes a funding opportunity with the number 24-569, titled "Mathematical Foundations of Artificial Intelligence," offered by the National Science Foundation (NSF). It is a discretionary grant within the science, technology, and research and development funding category, with an absence of cost sharing or matching requirements.
+
+Key points about the funding opportunity include:
+
+- Funding Instrument Type: Grant
+- Applicable CFDA Numbers: 47.041, 47.049, 47.070, 47.075
+- Posting Date: May 02, 2024
+- Application Closing Date: October 10, 2024
+- Archive Date: November 08, 2026
+- Estimated Total Program Funding: $8,500,000
+- Award Ceiling: $1,500,000
+- Award Floor: $500,000
+
+Eligibility for application is limited to non-profit, non-academic organizations, and institutions of higher education (IHEs) in the United States. Principal Investigators (PIs) must hold a tenured or tenure-track position or a full-time research or teaching position at a U.S.-based institution eligible to submit proposals. There are also exceptions for family or medical leave.
+
+The grant program aims to support research that explores the mathematical and theoretical foundations of Artificial Intelligence. The goal is to gain a clearer understanding of AI capabilities, limitations, and future potential. Research should address fundamental questions and seek to develop new, mathematically-grounded principles for the design and analysis of AI systems. Interdisciplinary collaboration across various fields such as mathematics, statistics, computer sciences, engineering, and social and behavioral sciences is encouraged to enable progress in AI that is sustainable, socially responsible, and trustworthy.
+
+For additional information and details on how to apply, interested parties are directed to refer to NSF Publication 24-569 and contact [tsgovsupport@nsf.gov](tsgovsupport@nsf.gov) for support.

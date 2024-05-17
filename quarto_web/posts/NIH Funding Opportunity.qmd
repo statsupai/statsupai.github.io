@@ -1,0 +1,84 @@
+---
+title: "NIH Funding Opportunity for ML/AI Tools in Genomic Translational Research (MAGen)"
+image: figures/news.webp
+author:
+  - name: "Bangyao Zhao"
+  - affiliation: "University of Michigan"
+categories:
+  - Opportunities
+date: "2024-05-16"
+---
+
+## Part 1: Overview Information
+
+- **Participating Organizations**: National Institutes of Health (NIH), National Human Genome Research Institute (NHGRI), National Institute on Aging (NIA), Office of Data Science Strategy (ODSS)
+ 
+- **Funding Opportunity Title**: Machine Learning/Artificial Intelligence (ML/AI) Tools to Advance Genomic Translational Research - Development Sites (MAGen) (UG3/UH3 Phase without Clinical Trials)
+
+- **Announcement Type**: New
+
+- **Funding Opportunity Number (FON)**: `RFA-HG-24-004`
+
+- **Companion Funding Opportunity**: `RFA-HG-24-005`, UG3/UH3 Coordinating Center (CC)
+
+- **CFDA Numbers**: `93.172`, `93.310`, `93.866`
+
+### Purpose
+
+The funding aims to develop ML/AI tools to enhance predictions for individuals with pathogenic genetic variants, focusing on integrating ethical, legal, and social implications (ELSI) within these developments. The establishment of the MAGen Research Consortium is a major goal.
+
+### Key Dates
+
+- **Posted Date**: `May 10, 2024`
+- **Open Date**: `June 26, 2024`
+- **Letter of Intent Due Date**: `June 26, 2024`
+- **Application Due Date**: `July 26, 2024`, by 5:00 PM local time
+- **Expiration Date**: `July 29, 2024`
+
+## Part 2: Full Text of Announcement
+
+### Section I: Background and Objectives
+
+Describing the background, the need for tools to enhance genomic and non-genomic data analysis in predicting diseases.
+
+### Section II: Award Information
+
+$4.8 million is committed to fund 2-4 awards, each with a limit of $1.6 million per year for a duration of five years.
+
+### Section III: Eligibility Information
+
+Includes a range of US institutions, both academic and profit-oriented.
+
+## MAGen Project's Goals & Activities
+
+1. Develop ML/AI tools integrated with an ELSI framework for genomic research.
+2. Select and focus on at least 4 candidate genes with pathogenic variants.
+3. Lead development and cross-validation of tools for specific genes.
+4. Address ELSI issues related to ML/AI in genomic medicine applications.
+
+## Participation and Roles
+
+PD/PIs are to lead the project responsibly, while NIH will have a significant role in steering the committee and other activities.
+
+## Review Criteria
+
+Applications will be reviewed based on Significance, Investigators, Innovation, Approach, and Environment, with additional considerations for compliance and protection of human subjects.
+
+Applications proposing new primary data generation or without an ELSI plan will be deemed non-responsive.
+
+## Data Sharing
+
+Compliance with NIH data sharing policies is mandatory.
+
+## Section VII: Agency Contacts
+
+Lists contacts for scientific, financial, and submission-related inquiries.
+
+## Section VIII: Other Information
+
+Notes that recent policy notices might affect applications and provides necessary links to regulations.
+
+### Authority
+
+The funding is made under sections `301` and `405` of the Public Health Service Act.
+
