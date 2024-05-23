@@ -1,0 +1,49 @@
+---
+title: "Statistics in the Age of AI: a Town Hall with an Expert Panel Accepted for JSM Program"
+image: figures/jsm2024.png
+author:
+  - name: "Bangyao Zhao"
+  - affiliation: "University of Michigan"
+categories:
+  - Events
+date: "2024-05-23"
+---
+
+# Late Breaking Session Announcement
+
+We are thrilled to share that our session proposal titled **"Statistics in the Age of AI: a Town Hall with an Expert Panel"** has been officially accepted for inclusion in the Joint Statistical Meetings (JSM) program.
+
+## Session Details
+
+- **Scheduled Time:** Monday, 2:00 – 3:50 p.m.
+- **Session Status:** Accepted
+
+## Abstract Confirmation
+
+Could all proposers confirm if the provided abstract is the finalized version for the program? Should there be any revisions, please furnish the updated abstract at your earliest opportunity.
+
+## Session Abstract
+
+This panel aims to stimulate an open discussion among JSM attendees on the evolving role of statistics in the rapidly advancing field of artificial intelligence. It features a distinguished panel of statisticians who will share their experience, observation and thinking on how statistical research, statistics departments and statisticians are being empowered, challenged and potentially reshaped by AI research. The session will also have an open Q&A and discussion session where both the panelists and sessions participants share their views on some of the hardest questions faced by the statistical community about research impacts, funding and resources, talent pipeline, ethical considerations, and the future of statistical research.
+
+## Panelists
+
+The discussion will be enriched by contributions from the following experts:
+
+- Xihong Lin
+- Eric Xing
+- Dan Nettleton
+- Bhramar Mukherjee
+- Abel Rodriguez
+- David Donoho
+
+## Moderators
+
+Guiding our conversation will be:
+
+- Tian Zheng
+- Hongtu Zhu
+
+Please verify the content of the abstract and provide a confirmation or update accordingly. Your prompt response will ensure that our program accurately reflects your session's vision and scope.
+
+We eagerly anticipate a session that promises to be highly insightful and engaging.
