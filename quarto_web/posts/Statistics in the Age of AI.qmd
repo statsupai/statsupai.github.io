@@ -30,12 +30,13 @@ This panel aims to stimulate an open discussion among JSM attendees on the evolv
 
 The discussion will be enriched by contributions from the following experts:
 
-- Xihong Lin
-- Eric Xing
-- Dan Nettleton
-- Bhramar Mukherjee
-- Abel Rodriguez
 - David Donoho
+- Xihong Lin
+- Bhramar Mukherjee
+- Dan Nettleton
+- Rebecca Nugent
+- Abel Rodriguez
+- Eric Xing
 
 ## Moderators
 
@@ -43,7 +44,5 @@ Guiding our conversation will be:
 
 - Tian Zheng
 - Hongtu Zhu
-
-Please verify the content of the abstract and provide a confirmation or update accordingly. Your prompt response will ensure that our program accurately reflects your session's vision and scope.
 
 We eagerly anticipate a session that promises to be highly insightful and engaging.
