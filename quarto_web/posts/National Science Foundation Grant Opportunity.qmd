@@ -1,6 +1,6 @@
 ---
-title: "National Science Foundation Grant Opportunity: Mathematical Foundations of Artificial Intelligence"
-image: figures/news.webp
+title: "NSF Grant Opportunity: Mathematical Foundations of Artificial Intelligence"
+image: figures/nsf.svg
 author:
   - name: "Bangyao Zhao"
   - affiliation: "University of Michigan"

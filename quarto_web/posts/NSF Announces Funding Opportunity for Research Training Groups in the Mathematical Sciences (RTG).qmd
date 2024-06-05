@@ -1,6 +1,6 @@
 ---
 title: "NSF Announces Funding Opportunity for Research Training Groups in the Mathematical Sciences (RTG)"
-image: figures/logo.png
+image: figures/nsf.svg
 author:
   - name: "Bangyao Zhao"
   - affiliation: "University of Michigan"

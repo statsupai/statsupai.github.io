@@ -1,6 +1,6 @@
 ---
 title: "NSF-led National AI Research Resource Pilot awards first round access to 35 projects in partnership with DOE"
-image: figures/NAIRR_1stAllocationAnnouncement_WebAnnouncement_Graphic.jpg.webp
+image: figures/nsf.svg
 author:
   - name: "Bangyao Zhao"
   - affiliation: "University of Michigan"
