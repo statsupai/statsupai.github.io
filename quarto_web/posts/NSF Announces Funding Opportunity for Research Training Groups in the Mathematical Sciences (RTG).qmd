@@ -1,0 +1,52 @@
+---
+title: "NSF Announces Funding Opportunity for Research Training Groups in the Mathematical Sciences (RTG)"
+image: figures/logo.png
+author:
+  - name: "Bangyao Zhao"
+  - affiliation: "University of Michigan"
+categories:
+  - Opportunities
+date: "2024-06-05"
+---
+
+The National Science Foundation (NSF) has released a solicitation for the Research Training 
+Groups in the Mathematical Sciences (RTG) program, a key initiative aimed at bolstering the 
+United States' scientific competitiveness by fostering the next generation of mathematical 
+sciences professionals. The RTG program encourages US institutions to establish innovative 
+research training environments for both graduate and undergraduate students, with an optional 
+inclusion of postdoctoral researchers.
+
+## Highlights of the RTG Program for 2024-2025:
+
+- Proposals are invited across all fields within mathematical sciences, particularly those 
+  integrating research with emerging areas like Artificial Intelligence, Biotechnology, Quantum 
+  Computing, and Cybersecurity.
+- Projects are expected to enhance research training and focus on sustained professional 
+  development within the mathematical sciences community.
+
+## Proposal Submission and Award Information:
+
+- Full Proposal Deadline: August 13, 2024
+- Estimated number of awards: 3 to 10 
+- Anticipated funding amount: $400,000 to $600,000 per year, with a total of $12 million 
+  available.
+
+## Eligibility Criteria:
+
+- Proposals may be submitted by US-based academic institutions granting doctoral degrees in the 
+  mathematical sciences.
+- There are no principal investigator (PI) restrictions. However, commitment is taken into 
+  account, as an individual cannot serve as PI or co-PI on more than one RTG proposal or award 
+  simultaneously.
+- Participants, including trainees, must be US citizens, nationals, or permanent residents.
+
+## Application Instructions:
+
+- Proposals must adhere to the NSF Proposal & Award Policies & Procedures Guide (PAPPG).
+- Both new and renewal proposals must follow the updated submission guidelines, which reflect 
+  changes including optional inclusion of undergraduates and postdocs, new funding alignments, and 
+  the latest NSF strategic plan priorities.
+
+This solicitation emphasizes the interdisciplinary nature of advanced research training and promotes 
+a broad and inclusive approach to education in the mathematical sciences. For more detailed 
+information and application specifics, visit the [NSF program solicitation page](https://new.nsf.gov/funding/opportunities/research-training-groups-mathematical-sciences-rtg/nsf24-570/solicitation).
