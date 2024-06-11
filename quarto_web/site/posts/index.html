@@ -112,6 +112,15 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+<!-- Place JavaScript at the end of the document to ensure elements have been loaded -->
+<script>
+document.addEventListener("DOMContentLoaded", function(event) {
+  var links = document.querySelectorAll('.quarto-post.image-right .body a');
+  links.forEach(function(link) {
+    link.setAttribute('target', '_parent');
+  });
+});
+</script>
 
 
 
