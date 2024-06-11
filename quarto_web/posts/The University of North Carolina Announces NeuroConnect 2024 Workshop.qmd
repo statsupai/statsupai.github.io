@@ -1,0 +1,29 @@
+---
+title: "The University of North Carolina Announces NeuroConnect 2024 Workshop"
+image: figures/news.webp
+author:
+  - name: "Bangyao Zhao"
+  - affiliation: "University of Michigan"
+categories:
+  - Events
+date: "2024-06-10"
+---
+
+# The University of North Carolina Announces NeuroConnect 2024 Workshop
+
+The University of North Carolina at Chapel Hill will be hosting its celebrated **NeuroConnect 2024** workshop on **August 8-9, 2024**. Set within the scenic Chetola Resort near Blowing Rock, the workshop, a part of UNC’s Education Program of Intelligence and Connectomics (EPIC), is set to bring together a diverse group of brain connectome researchers, including established faculty mentors, junior researchers, and students.
+
+The event will focus on recent developments in the construct of brain connectomes and their statistical analysis, providing a unique opportunity for participants to engage in comprehensive discussions and benefit from practical sessions to advance their research skills.
+
+In addition to fostering academic growth, the workshop offers an idyllic retreat nestled in the Blue Ridge Mountains, allowing attendees to immerse themselves in nature and partake in a spectrum of leisure activities combined with relaxing hospitality.
+
+Thanks to a NIH grant, financial aid for travel expenses is available for a selective number of students and junior researchers. This initiative is specifically designed to facilitate the involvement of promising new minds in crucial scientific dialogues.
+
+Keynote speakers at the workshop include renowned experts such as **Paul M. Thompson, PhD**, **Kamil Ugurbil, PhD**, and **John Gilmore, M.D.** They will join a roster of distinguished speakers from various prestigious institutions such as Yale University, University of Washington, University of Pennsylvania, and several others from the University of North Carolina itself.
+
+Applications are encouraged promptly as space is limited, ensuring valuable exchange and networking opportunities for all attendees.
+
+The EPIC team at the University of North Carolina at Chapel Hill is eagerly looking forward to creating an enriching environment conducive to the advancement of brain network research.
+
+For more information and to apply, individuals interested in participating in this engaging workshop can find the details on the [EPIC workshop page](https://www.unc-epic.org/workshop).
+
