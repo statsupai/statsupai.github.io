@@ -1,0 +1,281 @@
+---
+title: "MaxFuse: Unleashing the Full Potential of Single Cell and Spatial Genomics Integration"
+image: figures/S7_1.jpg
+author:
+  - name: "Shan Gao"
+  - affiliation: "Yunnan University"
+categories:
+  - Interviews
+date: "2024-06-19"
+---
+
+```{=html}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaxFuse: Unleashing the Full Potential of Single Cell and Spatial Genomics Integration</title>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://statsupai.org/pages/S7_interview.html">
+    <meta property="og:title" content="MaxFuse">
+    <meta property="og:description" content="MaxFuse: Unleashing the Full Potential of Single Cell and Spatial Genomics Integration">
+    <meta property="og:image" content="figures/S7_1.jpg">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif; 
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            line-height: 1.6; /* 增加行距 */
+        }
+        .large-text {
+            font-size: larger; /* 或你想要的任何大小 */
+        }
+
+        .interviewee-introduction {
+            display: flex;
+            align-items: center;
+            background-color: #f8f8f8; /* 轻灰色背景 */
+            border-radius: 8px; /* 边角圆润 */
+            padding: 20px;
+            margin-bottom: 20px; /* 和问答部分保持一定距离 */
+        }
+
+        .interviewee-photo {
+            width: 150px; /* 根据需要调整 */
+            height: 150px; /* 根据需要调整 */
+            border-radius: 50%; /* 创建圆形图片 */
+            object-fit: cover; /* 确保图片内容适应尺寸 */
+            margin-right: 20px;
+        }
+
+        .interviewee-details h2 {
+            margin-top: 0;
+            color: #082653; /* 深蓝色，你可以根据网站主题更改 */
+        }
+
+        .interviewee-details p {
+            color: #333; /* 深灰色文本 */
+            line-height: 1.6; /* 增加行距 */
+        }
+        .edit-info {
+            color: #808080; /* 设置为灰色字体 */
+            font-size: 15px; /* 设置字体大小，根据需要调整 */
+            text-align: right; /* 右对齐文本 */
+            padding: 20px 0; /* 在内容上下添加一些空间 */
+            margin-top: 20px; /* 与问答内容保持一定距离 */
+            border-top: 1px solid #ccc; /* 如果需要，可以添加一条分隔线 */
+        }
+
+        .header-image {
+            width: 97%;
+            height: auto;
+            display: block; /* 使图片成为块级元素 */
+            margin: 0 auto; /* 水平居中 */
+        }
+        .fixed-counter {
+            position: fixed; /* 固定定位，使元素不随页面滚动 */
+            left: 0; /* 距离页面左边界的距离 */
+            bottom: 0; /* 距离页面底部边界的距离 */
+            background-color: transparent; /* 可以根据需要设置背景颜色 */
+            z-index: 1000; /* 确保计数器显示在其他元素之上 */
+        }
+
+        .interview {
+        margin: 20px;
+        background-color: rgba(255, 255, 255, 0.7); /* 白色背景，70%不透明度（即30%透明度） */
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 标题和子标题 */
+        h1, h2 {
+            font-weight: bold;
+            color: #7469B6; /* 深蓝色 */
+            margin-bottom: 20px;
+        }
+
+        /* 问题样式 */
+        .question {
+            color: #213c64; /* 深蓝色 */
+            font-weight: bold;
+            margin-bottom: 10px; /* 问题与回答之间的空间 */
+            font-size: larger; /* 突出问题 */
+        }
+        .image {
+            display: block; /* 使图像成为块级元素 */
+            max-width: 60%; /* 设置图像的最大宽度为60%以确保响应式 */
+            height: auto; /* 设置图像的高度自动调整以保持图片比例 */
+            margin: 10px auto; /* 上下边距为20px，左右自动，实现水平居中 */
+            border: 5px solid #808080; /* 添加蓝色的边框，宽度为5px */
+            border-radius: 8px; /* 如果您想要圆角边框，可以添加这个属性 */
+        }
+
+        .answer {
+            background-color: #f8f8f8; /* 轻微的背景色增加对比 */
+            padding: 15px; /* 内边距增加可读性 */
+            border-left: 4px solid #213c64; /* 左侧边框作为视觉提示 */
+            margin-bottom: 20px; /* 增加回答间的空间 */
+            color: #264653; /* 适中的文字颜色 */
+            font-size: medium; /* 适合阅读的字号 */
+            line-height: 1.6; /* 行间距增加可读性 */
+            border-radius: 4px; /* 轻微的圆角 */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* 轻微的阴影增加层次感 */
+        }
+        ul.custom-list {
+        padding-left: 20px; /* 调整以适应项目符号和首行缩进 */
+        }
+        ul.custom-list li {
+            text-indent: 2em; /* 首行缩进 */
+            margin-left: -2em; /* 调整项目符号位置 */
+        }
+
+        .background-image {
+            position: fixed; /* 或absolute，取决于你的需求 */
+            right: 0;
+            bottom: 0;
+            width: 800px; /* 根据你的背景图尺寸调整 */
+            height: 300px; /* 根据你的背景图尺寸调整 */
+            background-image: url('12.jpg'); /* 替换为你的图片名称 */
+            background-size: cover;
+            opacity: 0.4; /* 设置透明度为40% */
+            z-index: -1; /* 确保背景图不会覆盖其他内容 */
+        }
+        .article-link {
+            background-color: #f4f4f4; /* 背景色 */
+            padding: 10px; /* 内边距 */
+            border-radius: 8px; /* 边角圆滑 */
+            text-align: center; /* 文本居中 */
+            margin: 20px 0; /* 上下外边距 */
+        }
+    
+        .article-link p {
+            margin: 0; /* 移除默认边距 */
+            color: #003366; /* 文本颜色 */
+            font-weight: bold; /* 字体加粗 */
+        }
+    
+        .article-link a {
+            display: inline-block; /* 可以设置宽度和高度 */
+            background-color: #213c64; /* 链接背景色 */
+            color: white; /* 链接文字颜色 */
+            padding: 10px 20px; /* 链接内边距 */
+            border-radius: 5px; /* 链接边角圆滑 */
+            text-decoration: none; /* 去掉下划线 */
+            font-size: 18px; /* 字体大小 */
+            margin-top: 10px; /* 与段落之间的距离 */
+            transition: background-color 0.3s; /* 过渡动画 */
+        }
+    
+        .article-link a:hover {
+            background-color: #082653; /* 鼠标悬停时的背景色 */
+        }
+        
+
+    </style>
+
+</head>
+<body>
+    <img class="header-image" src="figures/S7_1.jpg" alt="Interview Image">
+
+    <div class="article-link">
+    <p>The Article Link:</p><a href="https://www.nature.com/articles/s41587-023-01935-0" target="_blank">Integration of spatial and single-cell data across modalities with weakly linked features</a>
+    </div>
+
+    <div class="interviewee-introduction">
+    <img src="figures/S7_bio1.png" alt="Interviewee Name" class="interviewee-photo">
+    <div class="interviewee-details">
+        <h2>Dr. Zongming Ma</h2>
+        <p>Dr. Ma is a Professor of Statistics and Data Science at Yale University. His current research interests include multi-modal data analysis, network data analysis, and statistical and machine learning methods in genomics and imaging.  
+
+        Dr. Ma obtained his PhD in Statistics from Stanford University in 2010 and joined the Department of Statistics and Data Science at the Wharton School of the University of Pennsylvania as a tenure-track assistant professor in the same year. After working at the University of Pennsylvania for thirteen years, he moved to Yale University in 2023. He is the recipient of an NSF CAREER award in 2014, a Sloan Research Fellowship in Mathematics in 2016, and an Institute of Mathematical Statistics Fellowship in 2023.
+        </p>
+        </div>
+    </div>
+    <div class="interviewee-introduction">
+    <img src="figures/S7_bio2.png" alt="Interviewee Name" class="interviewee-photo">
+    <div class="interviewee-details">
+        <h2>Dr. Nancy Ruonan Zhang</h2>
+        <p>Dr. Zhang is a Ge Li and Ning Zhao Professor of Statistics in The Wharton School at University of Pennsylvania.  Her research focuses primarily on the development of statistical methods and computational algorithms for the analysis of data from high-throughput biological experiments.  She has made contributions to copy number and structural variant detection, to the modeling and estimation of intra-tumor genetic heterogeneity, and to the modeling and analysis of single-cell and spatial genomic data.  In Statistics, she has made contributions to change-point analysis, variable selection, and model selection.  
+
+        Dr. Zhang obtained her Ph.D. in Statistics in 2005 from Stanford University.  After one year of postdoctoral training at University of California, Berkeley, she returned to the Department of Statistics at Stanford University as Assistant Professor in 2006.  She received the Sloan Fellowship in 2011, and formally moved to University of Pennsylvania with tenure in 2012.  She was awarded the Medallion Lectureship by the Institute of Mathematical Statistics in 2021.  Her work has been funded by grants from the NSF and NIH.  At Penn, she is a member of the Graduate Group in Genomics and Computational Biology, and currently serves as the Vice Dean of the Wharton Doctoral Program.
+        </p>
+        </div>
+    </div>
+
+    
+    <div class="interview">
+        <p class="question">Regarding the research background and significance, does this work discover new knowledge or solve existing problems within the field? Please elaborate in detail.</p>
+        <p class="answer">The work solves existing problems within the field. To introduce the work, we need to first say a little bit about what is single cell and spatial genomics.  The last decade brought about a complete paradigm shift in biology where genome-wide measurements can be made on single cells, across many cells in parallel. By “genome-wide”, we mean, for example, measuring the expression of tens of thousands of genes at once, for each of thousands to millions of cells at once.  Such technologies are called “single cell technologies”.   Even more exciting, the past couple of years have  brought about “spatial genomic technologies”, which can make such measurements for cells in situ.  “In situ” means “fixed in space”, so that we know not only the cell’s internal molecular stage but also its tissue neighborhood.  Since cells form tight-knit communities and “collaborate” and “compete” with other cells in its tissue niche, spatial genomic technologies provide really important information for understanding cell and tissue biology.</p>
+
+        <p class="answer">For such single cell and spatial data, a primary unsolved challenge is how to perform diagonal integration.  What is diagonal integration?   To thoroughly characterize a cell, we would like to measure the expression of all of its genes, as well as to quantify what proteins and metabolites it is making. We perhaps would also like to know the conformation of its chromatin (that is, which regions of its DNA are accessible, and which are “closed” and not available for transcription). Each of these modalities, on its own, provide valuable information but never the complete picture. Ideally, we would like to measure everything for each cell, but no technology is yet capable of that. Thus we are left with having to apply different technologies, each profiling a subset of the genes/modalities of interest.  Sometimes, for example, we have a spatial technology recording the tissue position of cells and their expression of a panel of proteins, and a single cell technology that does not provide the spatial coordinates but measures the full transcriptome.  In such cases, we would really like to have all three: spatial position, full transcriptome measurement, and protein measurement. The subsequent analysis challenge of “aligning” cells across technologies is often called diagonal integration.  Diagonal integration is extremely challenging when the data modalities are weakly linked, that is, when there are few or none shared features between data modalities.</p> 
+
+        <p class="answer">In this paper, we provide a new method, MaxFuse, which, through iterative co-embedding, data smoothing and cell matching, uses all information in each modality to achieve high quality integration even in extremely challenging scenarios.  MaxFuse is, to our knowledge, the only method that can reliably integrate single cell RNA sequencing data with spatial proteomic data, which is a commonly appearing study design in current tissue atlasing efforts.</p>
+
+        <p class="question">How did the reviewers evaluate (praise) it?</p>
+        <p class="answer">The reviewers immediately recognized the importance of this problem and the impact of the method, but they made us do more benchmarking and exploration of model parameters before letting us publish it. We believe that the reviewers were very interested in how this method can standardize the computational pipelines for analysis of spatial proteomic and transcriptomic data.
+        </p>
+
+
+        <p class="question">If this achievement has potential applications, what are some specific applications it might have in a few years?</p>
+        <p class="answer">As mentioned, single cell and spatial genome profiling technologies are now the bread-and-butter of biomedical research, but we are still at the early stages in realizing the potential of these technologies.  We believe MaxFuse can greatly increase the flexibility of study designs and allow for more comprehensive characterization of tissues through integration across data modalities. In addition, the design of the algorithm is modality agnostic, and so the method is very likely to continue to work for new modalities.</p>
+
+        <p class="question">Can you recount the specific steps or stages from setting the research topic to the successful completion of the research?</p>
+        <p class="answer">In applied problems, the initial step of defining the scope of the problem, and giving it a precise formulation, is always very important. We recognized that diagonal integration was an important unsolved problem, and the then existing methods being applied to this problem did not utilize anything except for the first moments of the shared features.  They did not work well except for cases where there are lots of overlapping features with strong correlation between modalities.  The correlation structures within each modality also contain valuable information about the geometry of the data, but were not used.  We wanted to use all of the information within each modality, not just the shared features, This, and other insights, such as the data denoising via graph smoothing, allows us to separate the signal from the noise. </p>
+
+        <p class="answer">The project was also boosted by a collaboration with Garry Nolan’s lab, especially an extremely capable graduate student Bokai Zhu in the driver’s seat. As an interesting fact, the two co-first authors Shuxiao Chen and Bokai have been close friends since college, and the collaboration was originally initiated by them. Bokai brought a lot of insights about the different spatial technologies, and selected data sets to illustrate the power of the approach.  Often, for scientific papers, the selection of data sets is just as important as the development of the method.  We identified data sets that can be used for benchmarking (aka has known truth of how cells should be aligned) and data sets that can be used to tell an interesting story. These are extremely important and took up most of our time working on the paper.</p>
+
+        <p class="question">Were there any memorable events during the research? You can tell a story about anything related to people, events, or objects.</p>
+        <p class="answer">It is always memorable when with your own method you are able to uncover something new in data. We applied MaxFuse to the analysis of CODEX tonsil data. CODEX is a spatial technology that only aligns a small panel of proteins. We aligned the cells in CODEX to cells from scRNAseq of the same tissue, which enabled the precise definition of expression patterns of any gene in space. We then checked to see how the genes were distributed within B cell germinal centers, and found patterns that were biologically meaningful and made sense. This was not possible with any previous method.
+        </p>
+        
+
+        <p class="question">Is there a follow-up plan based on this research? If so, please elaborate.</p>
+        <p class="answer">We tried many different ideas and have other backup ideas up our sleeve in case things fail.  But we didn’t really deviate significantly from our original planned course.</p>
+
+        <p class="question">Without a doubt, AI is one of the hot topics of 2023, requiring extensive data support in its development. What assistance can biostatistics offer to the development of AI?</p>
+        <p class="answer">Although AI is a big exciting direction, it is not the best solution to everything.  To the problem of diagonal integration, AI has been applied, and a few have worked ok. However, none so far worked on the challenging cases of weak linkage, which motivated MaxFuse. 
+
+        We showed in this paper that simpler but more thoughtful methods development can sometimes beat black box AI algorithms. As we have elaborated earlier, the statistical ideas of denoising, local smoothing, and canonical correlations have played important roles in MaxFuse.
+
+        Successful applications of AI require understanding of the problem domain, and a good grasp of the signal and noise structures of the data.  In this aspect, successful application of AI is no different from successful application of Statistics.  We believe that what ever question we are addressing, the key to successful methods development is working closely with field scientists to understand the scientific problem and the data.
+        </p>
+
+        <!-- 添加更多问题和答案 -->
+
+    </div>
+    <div class="edit-info">
+        Edited by: Shan Gao<br>
+        Proofread by: Hongtu Zhu
+    </div>
+<div class="background-image"></div>
+<!-- Default Statcounter code for Interview_peiwang
+https://statsupai.com/pages/interview_weipeng.html -->
+<div style="display: flex; align-items: center; color: #8E8E8E; font-size: 13px; font-family: Arial, sans-serif;">Page Views: <div class="statcounter" style="margin-left: 10px;"> <!-- Add this line for styling -->
+<!-- Default Statcounter code for Interview_peiwang1
+https://statsupai.com/pages/interview_weipeng.html -->
+<script type="text/javascript">
+var sc_project=12973370; 
+var sc_invisible=0; 
+var sc_security="a715d5f2"; 
+var scJsHost = "https://";
+document.write("<sc"+"ript type='text/javascript' src='" +
+scJsHost+
+"statcounter.com/counter/counter.js'></"+"script>");
+</script>
+<noscript><div class="statcounter"><a title="Web Analytics"
+href="https://statcounter.com/" target="_blank"><img
+class="statcounter"
+src="https://c.statcounter.com/12973370/0/a715d5f2/0/"
+alt="Web Analytics"
+referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+<!-- End of Statcounter Code -->
+</body>
+</html>
+```
