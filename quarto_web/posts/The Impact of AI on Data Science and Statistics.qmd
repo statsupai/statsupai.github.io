@@ -1,0 +1,24 @@
+---
+title: "The Impact of Artificial Intelligence (AI) on Data Science and Statistics"
+image: figures/INSR-thumbnail.jpg
+author:
+  - name: "Bangyao Zhao"
+  - affiliation: "University of Michigan"
+categories:
+  - Resources
+date: "2024-07-22"
+---
+
+Significant advances in data generation technologies and artificial intelligence have impacted and transformed the research and education landscape, offering unprecedented opportunities for further developments in many scientific fields.
+
+AI aims to create machines that replicate virtually human endeavors, such as identifying patterns from data and aiding in early disease diagnosis. We welcome discussion, as well as research papers, on the impact of AI technological advancements on Statistics and Data Science. We are interested in all types of contributions and in particular, contributions discussing the impact of AI technologies on quality data generation, synthetic data use, research, training, and the statistical sciences workforce. We are interested in an international perspective on these developments and their connection, contribution and interaction with Statistics and Data Science. It is hoped this can lead to novel foundational research questions and contribute to further development of the field.
+
+**Marianthi Markatou & Efstathia Bura**  
+Co-Editors-in-Chief, International Statistical Review
+
+Stay connected with us through various professional associations, societies, and educational webinars. For more information, visit our website.
+
+Read the full article [here](https://www.statisticsviews.com/the-impact-of-artificial-intelligence-ai-on-data-science-and-statistics-an-international-perspective/).
+
+
+**© 2024 John Wiley & Sons, Inc. All rights reserved.**
