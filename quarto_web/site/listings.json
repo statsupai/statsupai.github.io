@@ -9,6 +9,8 @@
   {
     "listing": "/posts/index.html",
     "items": [
+      "/posts/BIRS.html",
+      "/posts/News from Stat Journal.html",
       "/posts/Neuroimaging Researchers Protest UK Biobank's Data-Access Changes.html",
       "/posts/The Impact of AI on Data Science and Statistics.html",
       "/posts/S1_new.html",

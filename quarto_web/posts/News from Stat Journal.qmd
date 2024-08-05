@@ -1,0 +1,79 @@
+---
+title: "News from Stat Journal: New Editor-in-Chief and Calls for Papers"
+image: figures/Stat.png
+author:
+  - name: "Bangyao Zhao"
+  - affiliation: "University of Michigan"
+categories:
+  - Events
+date: "2024-08-05"
+---
+
+We are excited to announce updates from **Stat**, the journal dedicated to statistics and interdisciplinary research published by Wiley on behalf of the International Statistical Institute.
+
+### New Editor-in-Chief: Professor Dr. Holger Dette
+
+We would like to welcome **Professor Dr. Holger Dette** as the new Editor-in-Chief of **Stat**. Dr. Dette is a professor at the Institut und Fakultät für Mathematik at the Ruhr-Universität Bochum, Germany. His broad research interests include:
+
+- Design of experiments
+- Nonparametric statistics
+- Functional data analysis
+- Time series analysis
+- Change point problem analysis
+- Random matrices
+- Biostatistics
+
+Dr. Dette has been an integral part of **Stat** since its launch in 2012, serving as an Editor, and he has also contributed to other esteemed journals such as Metrika, Bernoulli, and the Journal of Statistical Planning and Inference. He is a Fellow of the American Statistical Association, a Fellow of the Institute of Mathematical Statistics, and an Elected Member of the International Statistical Institute.
+
+Dr. Dette succeeds **Hao Helen Zhang** as Editor-in-Chief. We extend our gratitude to Helen for her exceptional leadership and dedication to the journal over the past five years.
+
+### Call for Papers: Special Issue on Statistics for Large Language Models
+
+**Stat** invites submissions for a special issue focused on "Statistics for Large Language Models (LLMs) and Large Language Models for Statistics." LLMs have become a transformative advancement in AI, influencing research, education, and daily work. We welcome submissions on a wide array of topics, including but not limited to:
+
+1. Application of LLMs to statistical challenges such as text-based hypothesis testing, sentiment analysis, topic modeling, and text classification.
+2. Statistical perspectives on LLMs, including their development and evaluation.
+3. Probabilistic interpretations of LLMs and implications for inference and uncertainty quantification.
+4. Use of LLMs in scientific discoveries across fields like oceanography, environmental science, and biomedicine.
+5. Development of trustworthy LLMs with statistical methods ensuring privacy, fairness, transparency, interpretability, and robustness.
+6. Adapting statistics education to incorporate LLMs and generative AI.
+7. AI governance and transparency.
+
+#### Important Dates
+
+- **Submissions open:** 1 May 2024
+- **Submissions deadline:** 1 November 2024
+- **Expected acceptance deadline:** January 2025
+- **Expected publication:** March 2025
+
+**Guest Editors:**
+
+- **Weijie Su** (Lead Guest Editor), University of Pennsylvania, USA
+- **Linjun Zhang**, Rutgers University, USA
+- **David Banks**, Duke University, USA
+
+For submission guidelines, please refer to the [Author Guidelines](https://onlinelibrary.wiley.com/page/journal/20491573/homepage/forauthors.html) and submit your manuscripts via the [Research Exchange submission portal](https://wiley.atyponrex.com/journal/STAT).
+
+### Forthcoming Special Issues
+
+- **Equitable and Sustainable Models in Statistical and Data Science Consulting and Collaboration:** This special issue will explore models for consulting and collaboration in higher education, examining topics like funding models, institutional culture, equity, and skills development.
+
+- **Deep Learning from Statistical Perspectives:** A virtual special issue featuring literature reviews and recent advances in deep learning from various statistical perspectives.
+
+- **Statistical Consulting and Collaboration:** This issue highlights real-world experiences of consulting and collaborative statisticians, emphasizing the role of statistics in interdisciplinary collaborations.
+
+### Special Issue Highlights
+
+- **Symposium for Data Science and Statistics (SDSS 2020):** The first-ever peer-reviewed compilation of work presented at SDSS, covering topics such as computational statistics, data visualization, education, and machine learning.
+
+- **Statistical Research on Coronavirus Disease (COVID-19):** A virtual issue compiling new statistical models and research findings on COVID-19, offering insights into its transmission, diagnosis, mitigation strategies, and more.
+
+### Why Choose Stat?
+
+- **Speed:** A high-quality review process aims to reach a decision within 20 days of submission.
+- **Concision:** Maximum article length of 10 pages of text (excluding references).
+- **Support:** Inclusion of electronic support materials, including graphs, videos, software, and code.
+- **Scope:** Addresses all areas of statistics and interdisciplinary fields.
+- **Electronic Delivery:** Articles and innovative supplementary materials delivered electronically.
+
+For more information and to read the latest articles, visit the [Stat Journal Homepage](https://onlinelibrary.wiley.com/journal/20491573).
