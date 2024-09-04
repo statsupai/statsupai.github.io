@@ -1,6 +1,6 @@
 ---
 title: "NeuroConnect 2024: Advancing Brain Network Research Workshop"
-image: figures/news.webp
+image: figures/nih_logo.jpg
 author:
   - name: "Bangyao Zhao"
   - affiliation: "University of Michigan"
