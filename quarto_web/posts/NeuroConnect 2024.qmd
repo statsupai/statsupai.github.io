@@ -1,0 +1,100 @@
+---
+title: "NeuroConnect 2024: Advancing Brain Network Research Workshop"
+image: figures/news.webp
+author:
+  - name: "Bangyao Zhao"
+  - affiliation: "University of Michigan"
+categories:
+  - Events
+date: "2024-09-04"
+---
+
+The UNC Education Program of Intelligence and Connectomics (UNC-EPIC) hosted the **NeuroConnect 2024: Advancing Brain Network Research Workshop** from **August 8–9, 2024**. This event took place at the Chetola Resort and was part of the UNC-EPIC workshop series dedicated to strengthening collaboration between junior researchers and senior mentors, with a focus on brain connectome construction and statistical analysis. This workshop was supported by the NIH grant **R25DA058940**.
+
+```{=html}
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+
+  <div style="width: 32%; margin-bottom: 10px;">
+    <img src="figures/NeuroConnect2024/Picture1.jpg" alt="Picture 1" style="width: 100%;">
+  </div>
+
+  <div style="width: 32%; margin-bottom: 10px;">
+    <img src="figures/NeuroConnect2024/Picture2.jpg" alt="Picture 2" style="width: 100%;">
+  </div>
+
+  <div style="width: 32%; margin-bottom: 10px;">
+    <img src="figures/NeuroConnect2024/Picture3.jpg" alt="Picture 3" style="width: 100%;">
+  </div>
+
+  <div style="width: 32%; margin-bottom: 10px;">
+    <img src="figures/NeuroConnect2024/Picture4.jpg" alt="Picture 4" style="width: 100%;">
+  </div>
+
+  <div style="width: 32%; margin-bottom: 10px;">
+    <img src="figures/NeuroConnect2024/Picture5.jpg" alt="Picture 5" style="width: 100%;">
+  </div>
+
+  <div style="width: 32%; margin-bottom: 10px;">
+    <img src="figures/NeuroConnect2024/Picture6.jpg" alt="Picture 6" style="width: 100%;">
+  </div>
+
+</div>
+```
+
+
+### Organizers
+- Guorong Wu (University of North Carolina - Chapel Hill)
+- Zhengwu Zhang (University of North Carolina - Chapel Hill)
+- Hongtu Zhu (University of North Carolina - Chapel Hill)
+- Yuyu Zhang (University of North Carolina - Chapel Hill)
+
+### Participants
+The event was attended by a mix of senior researchers, young scholars, and students from 17 universities across the United States, demonstrating a strong dedication to the field. Participants included 3 renowned keynote speakers, 15 invited speakers who contributed their insights through engaging flash talks, two junior researchers presenting posters, and 19 students/postdocs.
+
+### Keynote Speakers
+- **Paul M. Thompson** (University of Southern California)  
+  *Title: A Guided Tour of AI in Neuroimaging*
+- **Kamil Ugurbil** (University of Minnesota)  
+  *Title: The Human Connectome Project and Beyond*
+- **John Gilmore** (University of North Carolina at Chapel Hill)  
+  *Title: Early Childhood Brain Development and Schizophrenia Risk*
+
+### Flash Talk Speakers
+- **Yuping Wang** (Tulane University)
+- **Yize Zhao** (Yale University)
+- **Eardi Lila** (University of Washington)
+- **Da Ma** (Wake Forest University)
+- **Pew-Thian Yap** (University of North Carolina at Chapel Hill)
+- **Paul J. Laurienti** (Wake Forest University)
+- **Patrick J. Smith** (University of North Carolina at Chapel Hill)
+- **William Consagra** (University of Southern California)
+- **Panpan Zhang** (Vanderbilt University)
+- **Tom Fletcher** (University of Virginia)
+- **Didong Li** (University of North Carolina at Chapel Hill)
+- **Tianlong Chen** (University of North Carolina at Chapel Hill)
+- **Liang Zhan** (University of Pittsburgh)
+- **Andinet Enquobahrie** (Kitware North Carolina)
+
+### Panelists
+- **Hongtu Zhu** (University of North Carolina at Chapel Hill)
+- **Zhengwu Zhang** (University of North Carolina at Chapel Hill)
+- **Guorong Wu** (University of North Carolina at Chapel Hill)
+
+### Workshop Description
+The workshop was structured into three distinct sessions, each beginning with a keynote speech delivered by a prominent speaker. These introductory presentations set the thematic tone for each session, providing insights and framing the discussions that followed.
+
+The first keynote speaker, **Dr. Paul M. Thompson**, highlighted the application of artificial intelligence and deep learning methods in neuroscience, radiology, and medicine, and discussed the use of convolutional neural networks, Vision Transformers, and other AI methods to process neuroimaging data. The second keynote speaker, **Dr. Kamil Ugurbil**, discussed the achievements of the Human Connectome Project in improving brain imaging technologies and methodologies, and the ongoing efforts to enhance magnetic resonance imaging with high magnetic fields to better understand brain circuits, from neurons to whole brain networks. The third keynote speaker, **Dr. John Gilmore**, described a long-term study initiated in 2003 at UNC to track brain development from infancy into adolescence, particularly focusing on children at high risk for schizophrenia. He shared insights into normal brain development, the timing of structural differences in the brain, and the links between brain structure, function, cognition, and psychopathology.
+
+After the keynote speeches, each session featured a series of flash talks. These brief, focused presentations allowed speakers to share innovative ideas and recent findings in a concise format, sparking interest and engagement among the participants.
+
+Following the flash talks, the sessions transitioned into small discussion panels. These panels were carefully organized to foster intimate exchanges and enable in-depth discussions on specific topics, allowing participants to delve deeper into the subject matter and engage directly with experts and peers in a collaborative setting. For example, both panelists **Dr. Hongtu Zhu** and **Dr. Zhengwu Zhang** brought up the topic of **Interdisciplinary Collaboration in Research**. **Dr. Paul J. Laurienti** emphasized the importance of communication in interdisciplinary collaborations, stating that while one may not have extensive expertise in every topic, being able to engage in meaningful conversations with collaborators is crucial. He highlighted the significance of explaining one's work in layman's terms to those outside one's field, underscoring the value of individuals who can bridge diverse disciplines and make complex ideas accessible and understandable to others.
+
+The discussion also covered the topic of **long-term career planning**, asking panelists to reflect on their early career intentions and subsequent paths. It focused on whether they had initial long-term goals, how their careers have developed, and what advice they could offer to others still defining their career objectives. **Dr. William Consagra** shared that it is crucial to find at least one trustworthy senior mentor who can provide guidance and support throughout one's career. Meanwhile, **Dr. Pew-Thian Yap** advised junior researchers not to limit themselves locally; instead, they should engage with leaders in their field and participate in conferences, as students often focus too narrowly on specific tasks without recognizing the broader importance of the problems they are solving.
+
+In addition to the academic sessions, attendees enjoyed a blend of recreational activities like kayaking and fitness sessions, which created a relaxed environment conducive to networking and casual conversations. The event also featured group meals, providing valuable opportunities for attendees to connect and interact in a friendly setting. These leisure activities and shared dining experiences complemented the intellectual rigor of the sessions, fostering both professional connections and personal relaxation.
+
+### Feedback and Conclusion
+The workshop concluded on a high note, with received evaluations unanimously expressing attendees' intentions to return next year, underscoring the event's success. Participants particularly enjoyed the diverse program, which included keynote talks, flash talks, and panel discussions. PhD student **Hyuna Cho** mentioned, "Lectures from prominent professors with diverse backgrounds (e.g., ML, neuroscience, statistics ...) were the best, and meals were super good." A flash talk speaker, **Dr. Tom Fletcher**, added, "There was an excellent group of invited speakers and students involved, and it was great to have research discussions with everyone during the breaks and meals." This feedback illustrates the enriching experiences our attendees had, particularly valuing the educational content and the opportunities for engaging discussions.
+
+### Videos, Slides, and Images from the Workshop
+Videos and slides from the workshop sessions are available for viewing and download on the [**UNC-EPIC Workshop Video Page**](https://www.youtube.com/playlist?list=PL6rcSoHQ8t-PQwqOu3nGksTcrJeRjWwo_). Images from the workshop are available on the [**UNC-EPIC website**](https://www.unc-epic.org/). For more information about the workshop, please check the [**workshop page**](https://www.unc-epic.org/workshop).
