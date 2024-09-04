@@ -1,0 +1,23 @@
+---
+title: "Challenges in Neuroimaging Data Analysis Workshop"
+image: figures/imsi.png
+author:
+  - name: "Bangyao Zhao"
+  - affiliation: "University of Michigan"
+categories:
+  - Events
+date: "2024-09-03"
+---
+
+## Event Recap
+
+The **Challenges in Neuroimaging Data Analysis** workshop, hosted by the Institute for Mathematical and Statistical Innovation (IMSI), took place from **August 26–30, 2024**. The event brought together leading researchers in neuroimaging and data analysis to discuss the mathematical and statistical challenges associated with large-scale neuroimaging datasets.
+
+### Key Highlights:
+- **Plenary Talks**: Thought-provoking plenary sessions were delivered by experts such as **Markus Axer** from the Research Centre Jülich, and **Hanchuan Peng** from the Institute for Brain and Intelligence, exploring brain connectivity and high-resolution imaging.
+- **Sessions on Cutting-Edge Techniques**: The workshop featured sessions on topics like **deep learning for brain connectome analysis**, **dynamic brain networks**, and **causal inference in neuroimaging**.
+- **Poster Session**: Early-career researchers had the opportunity to present their work in a poster session, with topics ranging from **functional brain connectivity** to **neuroimaging genetics**.
+
+The workshop served as a platform to address the rapidly growing need for advanced statistical techniques in neuroimaging, essential for the continued progress in understanding brain disorders and developing new treatments.
+
+For more details about the event, including a detailed schedule and speaker list, visit the [official event page](https://www.imsi.institute/activities/challenges-in-neuroimaging-data-analysis/).
