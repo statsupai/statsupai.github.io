@@ -1,0 +1,51 @@
+---
+title: "Statistical, Computational, Translational, and Ethical Challenges in Biobank Data Analysis"
+image: figures/banff.png
+author:
+  - name: "Bangyao Zhao"
+  - affiliation: "University of Michigan"
+categories:
+  - Events
+  - Videos
+date: "2024-08-05"
+---
+
+The [Banff International Research Station](http://www.birs.ca) (BIRS) hosted the **Statistical, Computational, Translational, and Ethical Challenges in Biobank Data Analysis** workshop from **July 21 - 26, 2024**. This event took place in Banff and was part of the BIRS series of workshops dedicated to advancing mathematical and interdisciplinary research.
+
+### Organizers
+
+- **Hongyu Zhao** (Yale University)
+- **Lorin Crawford** (Microsoft Research)
+- **Alicia Martin** (Massachusetts General Hospital & Broad Institute)
+- **Lei Sun** (University of Toronto)
+- **Celia Greenwood** (Lady Davis Institute for Medical Research)
+
+### Workshop Description
+
+In recent years, biobanks have been established at various levels—national, regional, and local—with some hosting data from hundreds of thousands of participants. These biobanks collect rich information, including:
+
+- Electronic health records
+- Diverse types of -omics data
+- Imaging data
+- Wearable device data
+- Behavioral and lifestyle information
+
+Biobanks have already led to numerous scientific discoveries and offer valuable information for improving patient care and public health. However, they also present significant computational, statistical, informatics, and ethical challenges. 
+
+The objective of this workshop was to convene international leaders from mathematical, statistical, computational, biological, and medical disciplines in a collaborative atmosphere. The goal was to address the challenges inherent in biobank studies and promote innovative solutions.
+
+### Videos from the Workshop
+
+Videos from the workshop sessions are available for viewing and download on the [BIRS Workshop Video Page](http://www.birs.ca/events/2024/5-day-workshops/24w5292/videos).
+
+### About BIRS
+
+The Banff International Research Station for Mathematical Innovation and Discovery (BIRS) is a collaborative Canada-US-Mexico initiative that fosters creative interaction and the exchange of ideas, knowledge, and methods across the Mathematical Sciences and related disciplines. BIRS is located at The Banff Centre in Alberta and is supported by:
+
+- Canada’s Natural Science and Engineering Research Council (NSERC)
+- The U.S. National Science Foundation (NSF)
+- Alberta’s Advanced Education and Technology
+- Mexico’s Consejo Nacional de Ciencia y Tecnología (CONACYT)
+
+For more details, visit the [official event page](http://www.birs.ca/events/2024/5-day-workshops/24w5292).
+

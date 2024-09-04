@@ -1,0 +1,29 @@
+---
+title: "Neuroimaging Researchers Protest UK Biobank's Data-Access Changes"
+image: figures/biobank.jpeg
+author:
+  - name: "Bangyao Zhao"
+  - affiliation: "University of Michigan"
+categories:
+  - Events
+date: "2024-07-31"
+---
+
+More than 100 neuroimaging researchers have signed a statement protesting the UK Biobank's recent policy shift to a cloud-only data access model, which they argue significantly increases costs and limits technical capabilities for imaging research.
+
+## Details
+
+The researchers contend that the cloud platform is technically inadequate and too costly, especially when compared to the capabilities of institutional computing networks, where costs are up to ten times lower. The group has requested an exemption for all researchers dealing with bulk imaging data until the platform can meet their needs.
+
+Despite a detailed 12-page letter sent to the UK Biobank leadership on July 11, the response—received a week later—was dismissive of the concerns raised, sticking only to reiterating existing policies.
+
+## Reactions
+
+Key figures in the protest, such as Alan Evans from McGill University and Franco Pestilli from the University of Texas, have highlighted the non-responsive nature of the UK Biobank's leadership to the community's concerns. Meanwhile, UK Biobank's deputy CEO, Mark Effingham, asserts that the institution is open to discussions and is planning meetings to address the concerns.
+
+The protest underscores a broader issue in the scientific community regarding data accessibility and the potential risks of unilateral policy changes that may affect the feasibility of ongoing and future research collaborations.
+
+## Source
+
+Read more about this issue at [The Transmitter](https://www.thetransmitter.org/community/neuroimaging-researchers-pen-statement-protesting-uk-biobank-data-access-changes/).
+

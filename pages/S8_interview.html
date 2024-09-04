@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SynSurr: Empowering Genome-Wide Association Studies by Overcoming the Challenges of Missing Phenotype Data</title>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://statsupai.org/pages/S8_interview.html">
+    <meta property="og:title" content="SynSurr">
+    <meta property="og:description" content="Empowering Genome-Wide Association Studies by Overcoming the Challenges of Missing Phenotype Data">
+    <meta property="og:image" content="S8_1.jpg">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif; 
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            line-height: 1.6; /* 增加行距 */
+        }
+        .large-text {
+            font-size: larger; /* 或你想要的任何大小 */
+        }
+
+        .interviewee-introduction {
+            display: flex;
+            align-items: center;
+            background-color: #f8f8f8; /* 轻灰色背景 */
+            border-radius: 8px; /* 边角圆润 */
+            padding: 20px;
+            margin-bottom: 20px; /* 和问答部分保持一定距离 */
+        }
+
+        .interviewee-photo {
+            width: 150px; /* 根据需要调整 */
+            height: 150px; /* 根据需要调整 */
+            border-radius: 50%; /* 创建圆形图片 */
+            object-fit: cover; /* 确保图片内容适应尺寸 */
+            margin-right: 20px;
+        }
+
+        .interviewee-details h2 {
+            margin-top: 0;
+            color: #082653; /* 深蓝色，你可以根据网站主题更改 */
+        }
+
+        .interviewee-details p {
+            color: #333; /* 深灰色文本 */
+            line-height: 1.6; /* 增加行距 */
+        }
+        .edit-info {
+            color: #808080; /* 设置为灰色字体 */
+            font-size: 15px; /* 设置字体大小，根据需要调整 */
+            text-align: right; /* 右对齐文本 */
+            padding: 20px 0; /* 在内容上下添加一些空间 */
+            margin-top: 20px; /* 与问答内容保持一定距离 */
+            border-top: 1px solid #ccc; /* 如果需要，可以添加一条分隔线 */
+        }
+
+        .header-image {
+            width: 97%;
+            height: auto;
+            display: block; /* 使图片成为块级元素 */
+            margin: 0 auto; /* 水平居中 */
+        }
+        .fixed-counter {
+            position: fixed; /* 固定定位，使元素不随页面滚动 */
+            left: 0; /* 距离页面左边界的距离 */
+            bottom: 0; /* 距离页面底部边界的距离 */
+            background-color: transparent; /* 可以根据需要设置背景颜色 */
+            z-index: 1000; /* 确保计数器显示在其他元素之上 */
+        }
+
+        .interview {
+        margin: 20px;
+        background-color: rgba(255, 255, 255, 0.7); /* 白色背景，70%不透明度（即30%透明度） */
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 标题和子标题 */
+        h1, h2 {
+            font-weight: bold;
+            color: #7469B6; /* 深蓝色 */
+            margin-bottom: 20px;
+        }
+
+        /* 问题样式 */
+        .question {
+            color: #213c64; /* 深蓝色 */
+            font-weight: bold;
+            margin-bottom: 10px; /* 问题与回答之间的空间 */
+            font-size: larger; /* 突出问题 */
+        }
+        .image {
+            display: block; /* 使图像成为块级元素 */
+            max-width: 60%; /* 设置图像的最大宽度为60%以确保响应式 */
+            height: auto; /* 设置图像的高度自动调整以保持图片比例 */
+            margin: 10px auto; /* 上下边距为20px，左右自动，实现水平居中 */
+            border: 5px solid #808080; /* 添加蓝色的边框，宽度为5px */
+            border-radius: 8px; /* 如果您想要圆角边框，可以添加这个属性 */
+        }
+
+        .answer {
+            background-color: #f8f8f8; /* 轻微的背景色增加对比 */
+            padding: 15px; /* 内边距增加可读性 */
+            border-left: 4px solid #213c64; /* 左侧边框作为视觉提示 */
+            margin-bottom: 20px; /* 增加回答间的空间 */
+            color: #264653; /* 适中的文字颜色 */
+            font-size: medium; /* 适合阅读的字号 */
+            line-height: 1.6; /* 行间距增加可读性 */
+            border-radius: 4px; /* 轻微的圆角 */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* 轻微的阴影增加层次感 */
+        }
+        ul.custom-list {
+        padding-left: 20px; /* 调整以适应项目符号和首行缩进 */
+        }
+        ul.custom-list li {
+            text-indent: 2em; /* 首行缩进 */
+            margin-left: -2em; /* 调整项目符号位置 */
+        }
+
+        .background-image {
+            position: fixed; /* 或absolute，取决于你的需求 */
+            right: 0;
+            bottom: 0;
+            width: 800px; /* 根据你的背景图尺寸调整 */
+            height: 300px; /* 根据你的背景图尺寸调整 */
+            background-image: url('12.jpg'); /* 替换为你的图片名称 */
+            background-size: cover;
+            opacity: 0.4; /* 设置透明度为40% */
+            z-index: -1; /* 确保背景图不会覆盖其他内容 */
+        }
+        .article-link {
+            background-color: #f4f4f4; /* 背景色 */
+            padding: 10px; /* 内边距 */
+            border-radius: 8px; /* 边角圆滑 */
+            text-align: center; /* 文本居中 */
+            margin: 20px 0; /* 上下外边距 */
+        }
+    
+        .article-link p {
+            margin: 0; /* 移除默认边距 */
+            color: #003366; /* 文本颜色 */
+            font-weight: bold; /* 字体加粗 */
+        }
+    
+        .article-link a {
+            display: inline-block; /* 可以设置宽度和高度 */
+            background-color: #213c64; /* 链接背景色 */
+            color: white; /* 链接文字颜色 */
+            padding: 10px 20px; /* 链接内边距 */
+            border-radius: 5px; /* 链接边角圆滑 */
+            text-decoration: none; /* 去掉下划线 */
+            font-size: 18px; /* 字体大小 */
+            margin-top: 10px; /* 与段落之间的距离 */
+            transition: background-color 0.3s; /* 过渡动画 */
+        }
+    
+        .article-link a:hover {
+            background-color: #082653; /* 鼠标悬停时的背景色 */
+        }
+        
+
+    </style>
+
+</head>
+<body>
+    <img class="header-image" src="S8_1.jpg" alt="Interview Image">
+
+    <div class="article-link">
+    <p>The Article Link:</p><a href="https://www.nature.com/articles/s41588-024-01793-9" target="_blank">Synthetic surrogates improve power for genome-wide association studies of partially missing phenotypes in population biobanks</a>
+    </div>
+
+    <div class="interviewee-introduction">
+    <img src="McCaw.jpg" alt="Interviewee Name" class="interviewee-photo">
+    <div class="interviewee-details">
+        <h2>Dr. Zachary McCaw</h2>
+        <p>Dr. McCaw is a Staff Machine Learning Scientist at Insitro. His research focuses on combining statistics with machine learning to improve genetic discovery and precision medicine. Previously, he completed his Ph.D. in Biostatistics with Professor Xihong Lin at Harvard.   
+        </p>
+        </div>
+    </div>
+
+    <div class="interviewee-introduction">
+    <img src="Jianhui_Gao.jpg" alt="Interviewee Name" class="interviewee-photo">
+    <div class="interviewee-details">
+        <h2>Jianhui Gao, MSc.</h2>
+        <p>Mr. Gao is currently a PhD candidate in the Department of Statistical Sciences at the University of Toronto, under the supervision of Professors Jessica Gronsbell and Lei Sun. His thesis focuses on developing semi-supervised methods for analyzing various sources of health data, including electronic health records and genetic data.
+        </p>
+        </div>
+    </div>
+
+    <div class="interviewee-introduction">
+    <img src="Xihong_Lin.jpg" alt="Interviewee Name" class="interviewee-photo">
+    <div class="interviewee-details">
+        <h2>Dr. Xihong Lin</h2>
+        <p>Dr. Lin is Professor and former Chair of Biostatistics, and Coordinating Director of the Program in Quantitative Genomics at Harvard School of Public Health, and Professor of Statistics at Harvard University. Dr. Lin works on the development and application of scalable and interpretable statistical and machine learning methods for analysis of big and complex genomic and health data, including multi-ethnic biobanks, whole genome sequencing studies, and multi-omics data. Dr. Lin is an elected member of the US National Academy of Medicine and the US National Academy of Sciences. She received the 2002 Mortimer Spiegelman Award from the American Public Health Association, the 2006 Presidents’ Award from the Committee of Presidents of Statistical Societies (COPSS). She also received the 2017 COPSS FN David Award, the 2022 National Institute of Statistical Sciences Sacks Award for Outstanding Cross-Disciplinary Research, and the 2022 Zelen Leadership in Statistical Science Award. She is an elected fellow of American Statistical Association, Institute of Mathematical Statistics, and International Statistical Institute. Dr. Lin’s research has been supported by the MERIT Award (2007-2015) and the Outstanding Investigator Award (2015-2029) from the National Cancer Institute. Dr. Lin is the former Chair of COPSS and is the former Editor of several biostatistical journals.  
+        </p>
+        </div>
+    </div>
+
+    <div class="interviewee-introduction">
+    <img src="Jessica.jpg" alt="Interviewee Name" class="interviewee-photo">
+    <div class="interviewee-details">
+        <h2>Dr. Jessica Gronsbell </h2>
+        <p>Dr. Gronsbell is an Assistant Professor in the Department of Statistical Sciences at the University of Toronto, with cross-appointments in the Departments of Family and Community Medicine and Computer Science. Her research focuses on developing statistical learning and inference methods to tackle key challenges in analyzing modern observational health data, particularly electronic health records data.
+        </p>
+        </div>
+    </div>
+
+    
+    <div class="interview">
+        <p class="question">Regarding the research background and significance, does this work discover new knowledge or solve existing problems within the field? Please elaborate in detail.</p>
+        <p class="answer">Synthetic surrogate analysis, or SynSurr, was developed to address the problem of missing data in genome-wide association studies (GWAS). Within large population biobanks, such as the UK Biobank (~500,000 participants), certain phenotypes of interest, especially those that require specialized imaging, are only measured for a subset of the cohort. Examples include body composition as measured by dual-energy X-ray absorptiometry, neurological and cardiac structure as measured by magnetic resonance imaging, and optical parameters as measured by color fundus photography, among others. In recent years, the practice of developing machine learning (ML) models to impute the missing values of these specialized phenotypes has become commonplace. However, performing GWAS on an imputed outcome carries an increased risk of discovering false-positive associations. SynSurr proposes a new approach for leveraging an ML-derived surrogate phenotype, which we describe as a “synthetic surrogate”, to empower GWAS of a partially missing target phenotype. Rather than replacing missing values with imputations from an ML model, or analyzing the ML-phenotype in place of the target phenotype, SynSurr jointly analyzes the target phenotype and its synthetic surrogate within a bivariate outcome framework. We show that SynSurr is unbiased, estimating the same effect size as standard GWAS of the target phenotype, properly controls the type I error, and improves power in proportion to squared correlation between the target and ML phenotypes. Importantly, unlike existing methods for imputation-based inference, the validity of SynSurr does not depend on proper specification of the imputation model. In fact, SynSurr remains unbiased and comparably powerful to standard GWAS even when the ML-phenotype is unrelated to the target phenotype.</p>
+
+        <p class="question">How did the reviewers evaluate (praise) it?</p>
+        <p class="answer">Reviewers thought that the problem addressed by SynSurr was an important and practical one in analyzing large scale biobanks, such as the UK biobank, that the method was simple but innovative, that the pitfalls of existing approaches provided compelling motivation for SynSurr’s development, that the statistical validation was rigorous, that the power advantage achieved in the real-data application was impressive, and overall that the paper was clearly written and explained. Nature Genetics publishes reviews alongside the paper, which can be found with the online manuscript.
+        </p>
+
+
+        <p class="question">If this achievement has potential applications, what are some specific applications it might have in a few years?</p>
+        <p class="answer">The most immediate application of SynSurr is to provide a valid method of improving power for GWAS of phenotypes that are measured in only a subset of any large population biobank. We demonstrate an application of SynSurr to GWAS of dual X-ray absorptiometry (DEXA) measurements of body-composition in the UK biobank data, borrowing power from an ML-derived surrogate phenotype based in part on bioelectrical impedance. More generally, the SynSurr framework provides a simple alternative to imputation that enables valid inference on a partially missing target outcome without requiring that the imputations be generated from a correctly specified model.</p>
+
+        <p class="question">Can you recount the specific steps or stages from setting the research topic to the successful completion of the research?</p>
+        <p class="answer">SynSurr was inspired by the observation that, in the context of large biobanks, such as the UK Biobank, ML-models are increasingly capable of predicting missing phenotypes, yet guidance was lacking on how to perform GWAS on those model’s predictions. Proxy GWAS, in which the predicted phenotype is analyzed in place of the target phenotype, is sometimes reasonable, but becomes questionable when the quality of the predictions is only modest. Multiple imputation, in which missing values of the target phenotype are repeatedly generated from a probabilistic model, provides an alternative, but is sensitive to correct specification of the imputation model. Prior to SynSurr, no method was widely available for leveraging a predicted phenotype to empower GWAS of a partially missing target phenotype while also guaranteeing 1) estimation of the same effect size as standard GWAS, 2) proper control of the type I error, and 3) robustness to specification of the imputation model. We set out to fill this gap. Our first steps were to propose the model then derive and implement the estimation and inference procedures. We next conducted extensive simulation studies to validate SynSurr’s operating characteristics. To build further conviction, we designed an ablation study, using data from the UK Biobank, where analyses were performed while masking a progressively larger proportion of the target phenotype. This enabled us to compare the performance of SynSurr, and its comparators, to an oracle model that had access to the complete data. Finally, having validated SynSurr on both simulated and real data, we applied our method to empower GWAS of several body composition phenotypes, which were measured via DEXA scan in only a subset of the UK Biobank. </p>
+
+
+        <p class="question">Were there any memorable events during the research? You can tell a story about anything related to people, events, or objects.</p>
+        <p class="answer">A pivotal moment in the development of SynSurr was seeing the results from its application to the DEXA body composition phenotypes in the UK Biobank. From our previous simulation and ablation studies, we knew SynSurr worked in principle, yet the magnitude of the benefit it would provide in practice remained uncertain. Fortunately, SynSurr exceeded our expectations, providing a nearly 22-fold improvement in the number of genome-wide significant associations, from a mean of 8 with standard GWAS to 180 with SynSurr. Investigation of SynSurr’s lead variants confirmed that many had existing support from the literature, and that the tagged genes were highly enriched for pathways related to body composition and anthropomorphic traits.
+        </p>
+        
+
+        <p class="question">Is there a follow-up plan based on this research? If so, please elaborate.</p>
+        <p class="answer">We are working on an extension of SynSurr to the rare-variant setting. Our initial method focuses on identifying associations between individual common variants and a target phenotype. Different methodology is required for rare variants, which may be present in only one or two subjects even in biobank-scale cohorts. The extension will focus on leveraging an ML-phenotype to improve power for identifying an association between the collection of rare variants in a given gene and functional category, and the target phenotype. </p>
+
+        <p class="question">Without a doubt, AI is one of the hot topics of 2024, requiring extensive data support in its development. What assistance can biostatistics offer to the development of AI?</p>
+        <p class="answer">SynSurr provides a quintessential example of how biostatistics and AI or ML can intersect. While AI/ML provides an unparalleled ability to generate predictions, questions of statistical inference and estimation remain paramount.  For example, whether and to what extent a model’s outputs are related to other variables (such as genotype) is scientifically important. SynSurr further distinguishes association with the target outcome (i.e., what the ML model is trying to predict) from association with the model’s predictions. While the two are related, they are not identical, especially when the model’s predictions are imperfect. Statistical thinking has an important role to play in highlighting distinctions such as these, and asking how the outputs of AI/ML models can be leveraged to benefit well-known estimation and inference tasks, as we did in SynSurr.
+        </p>
+
+        <!-- 添加更多问题和答案 -->
+
+    </div>
+    <div class="edit-info">
+        Edited by: Shan Gao<br>
+        Proofread by: Hongtu Zhu
+    </div>
+<div class="background-image"></div>
+<!-- Default Statcounter code for Interview_peiwang
+https://statsupai.com/pages/interview_weipeng.html -->
+<div style="display: flex; align-items: center; color: #8E8E8E; font-size: 13px; font-family: Arial, sans-serif;">Page Views: <div class="statcounter" style="margin-left: 10px;"> <!-- Add this line for styling -->
+<!-- Default Statcounter code for s8
+https://statsupai.org/pages/S8_interview.html -->
+<script type="text/javascript">
+var sc_project=13033182; 
+var sc_invisible=0; 
+var sc_security="7a36f821"; 
+var scJsHost = "https://";
+document.write("<sc"+"ript type='text/javascript' src='" +
+scJsHost+
+"statcounter.com/counter/counter.js'></"+"script>");
+</script>
+<noscript><div class="statcounter"><a title="Web Analytics"
+href="https://statcounter.com/" target="_blank"><img
+class="statcounter"
+src="https://c.statcounter.com/13033182/0/7a36f821/0/"
+alt="Web Analytics"
+referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+<!-- End of Statcounter Code -->
+</body>
+</html>
