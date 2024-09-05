@@ -1,0 +1,59 @@
+---
+title: "Call for Papers: SCIENCE CHINA Mathematics Special Issue on Random Forests"
+image: figures/callpaper.jpg
+author:
+  - name: "Shan Gao"
+  - affiliation: "Yunnan University"
+categories:
+  - Interviews
+date: "2024-09-05"
+---
+
+# Call for Papers
+
+## SCIENCE CHINA Mathematics Special Issue on Random Forests
+
+**Guest Editors:** Jinchi Lv and Hongtu Zhu
+
+Join us in shaping the future of research on random forests! We invite researchers and practitioners to submit their groundbreaking work to our esteemed academic journal.
+
+### Topics of Interest Include:
+- Advanced techniques in random forests modeling
+- Applications in data mining and machine learning
+- Ensemble learning strategies
+- Interpretability and visualization methods
+- Optimization and scalability challenges
+- Novel algorithms and implementations
+- Performance evaluation and benchmarking
+
+### Submission Guidelines:
+- Manuscripts should be original and unpublished.
+- Submit through the journal's online platform at [mc03.manuscriptcentral.com/scmath](https://mc03.manuscriptcentral.com/scmath).
+- **Deadline for submissions:** 06/30/2025
+
+**Don't Miss This Opportunity to Contribute to the Field!**
+
+For inquiries and submissions, contact us at:
+- **Jinchi Lv:** [jinchilv@marshall.usc.edu](mailto:jinchilv@marshall.usc.edu)
+- **Hongtu Zhu:** [htzhu@email.unc.edu](mailto:htzhu@email.unc.edu)
+
+**Join the conversation and shape the future of random forests research!**
+
+## About SCIENCE CHINA Mathematics
+
+**SCIENCE CHINA Mathematics** is a highly respected mathematical journal in China dedicated to promoting cutting-edge research in mathematics and its applications. Founded in 1950, cosponsored by the Chinese Academy of Sciences and the National Natural Science Foundation of China, we strive to provide a platform for scholars worldwide to exchange ideas and advance the frontier of mathematical knowledge.
+
+**Impact factor**: 1.4 (2022)
+
+### Highlights:
+- Six months from submission to acceptance on average
+- No limit to paper length
+- Articles online first, available worldwide on Springer
+
+**Editor-in-Chief:** Nanhua Xi  
+**Probability and Statistics Editor:** Qiman Shao
+
+### Editorial Board:
+- **Probability:** Jian Ding, Zhan Shi, Qihe Tang, Hao Wu, Hanqin Zhang, Xicheng Zhang
+- **Statistics:** Songxi Chen, Xuming He, Runze Li, Weidong Liu, Shuangge Ma, Wenguang Sun, Donglin Zeng
+

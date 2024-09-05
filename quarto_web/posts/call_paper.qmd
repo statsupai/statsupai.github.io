@@ -1,0 +1,27 @@
+---
+title: "Advancing Health Research through Ethical, Multimodal AI"
+image: figures/nih_multimodal_ai.png
+author:
+  - name: "Bangyao Zhao"
+  - affiliation: "University of Michigan"
+categories:
+  - Opportunities
+  - Events
+date: "2024-04-12"
+---
+
+The NIH Office of Data Science Strategy (ODSS) launches the **[Advancing Health Research through Ethical, Multimodal AI Initiative](https://datascience.nih.gov/artificial-intelligence/MultimodalAI)**, a call for applications to foster ethically aligned, data-driven AI research in biology, behavior, and health.
+
+**Key Dates:**
+
+- Register for the webinar: April 19, 2024, 2:00-3:00pm ET  
+- Letter of Intent Due: April 29, 2024, by 5:00pm local time  
+- Full Proposal Due: May 16, 2024, by 5:00pm local time  
+
+Direct inquiries to: [ODMultimodalAI@od.nih.gov](mailto:ODMultimodalAI@od.nih.gov)
+
+This initiative aims to develop new AI approaches for modeling and understanding complex systems to improve disease detection and treatment. Don't miss out on contributing to this groundbreaking research effort.
+
+For complete details, view the [Research Opportunity Announcement](https://datascience.nih.gov/artificial-intelligence/MultimodalAI).
+
+
