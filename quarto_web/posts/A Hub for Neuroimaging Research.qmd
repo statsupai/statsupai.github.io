@@ -1,0 +1,40 @@
+---
+title: "Explore the OHBM YouTube Channel: A Hub for Neuroimaging Research"
+image: figures/ohbm.jpg
+author:
+  - name: "Bangyao Zhao"
+  - affiliation: "University of Michigan"
+categories:
+  - Resources
+date: "2024-09-10"
+---
+
+## The Organization for Human Brain Mapping (OHBM) YouTube Channel
+
+The [Organization for Human Brain Mapping (OHBM)](https://www.humanbrainmapping.org/) YouTube channel is a treasure trove of educational content related to brain mapping and neuroimaging. The OHBM, founded in 1995, is an international organization dedicated to advancing our understanding of the human brain using cutting-edge neuroimaging techniques. They host annual meetings that gather experts from nearly 50 countries, and their YouTube channel provides access to numerous presentations and talks from these events.
+
+### Featured OHBM 2022 Talks
+
+OHBM’s YouTube channel is home to an extensive collection of research talks from the 2022 conference. Here are some of the highlighted presentations:
+
+- **Mijin Kwon** - Common and selective representation of pain, emotion, and cognition.
+- **Martin Gell** - Networks of impulsivity: Meta-analyses and functional networks.
+- **Ben Deen** - Parallel systems for social and spatial reasoning in the cortex.
+- **Fernando M. Ramirez** - 7T BOLD fMRI of human V1 reveals orientation-tuned responses.
+- **Giada Lettieri** - Representation of affect in vmPFC and pSTG.
+
+These videos, along with hundreds of others, provide valuable insights into ongoing research in brain imaging, fMRI, and various other neuroimaging modalities.
+
+### Explore More
+
+For anyone interested in neuroimaging, the OHBM YouTube channel is an excellent resource. Here’s how you can explore further:
+
+- **OHBM YouTube Channel**: Visit their [YouTube channel](https://www.youtube.com/@OHBM) to access talks from their conferences and educational sessions.
+- **OHBM Educational Courses**: Interested in more structured learning? Check out their [PathLMS courses](https://pathlms.com/ohbm) for more in-depth material.
+
+---
+
+> Stay updated on the latest developments in brain mapping and neuroimaging by subscribing to the OHBM YouTube channel. With hundreds of videos from leading researchers, you can keep abreast of the most groundbreaking discoveries in the field.
+
+Recommended Resource:  
+- **OHBM PathLMS** – A platform offering structured courses on neuroimaging and brain mapping [Explore Now](https://pathlms.com/ohbm).
