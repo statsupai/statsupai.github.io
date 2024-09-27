@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Omics Data</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+    body {
+        font-family: 'Roboto', sans-serif; /* Use Roboto font as the default */
+        background: #e8eff1;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+    }
+    .container {
+        width: 100%;
+        max-width: 1200px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background: #ffffff;
+        margin: 20px;
+        border-radius: 8px;
+    }
+    .title {
+        font-size: 28px;
+        font-weight: bold;
+        color: #2c3e50;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        letter-spacing: 1.2px;
+    }
+    p {
+        font-size: 18px;
+        line-height: 1.8;
+        color: #595d63;
+        margin-bottom: 20px;
+        font-style: italic;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    th, td {
+        padding: 20px; /* Existing padding */
+        text-align: left;
+        border-bottom: 1px solid #ccc;
+        font-size: 16px; /* Existing font size */
+        letter-spacing: 1px; /* Increases spacing between characters */
+        line-height: 1.5; /* Increases spacing between lines */
+    }
+    th {
+        background-color: #607d8b; /* Neutral blue-grey header */
+        color: white;
+    }
+    tr:nth-child(even) {
+        background-color: #f8f8f8;
+    }
+    tr:hover {
+        background-color: #f1f1f1;
+    }
+    a {
+        color: #2980b9; /* Links remain blue for visibility */
+        text-decoration: none;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+    .dataTables_wrapper .dataTables_filter {
+        text-align: right;
+        margin-top: 20px; /* Additional spacing specifically for the search box */
+    }
+    .dataTables_wrapper .dataTables_filter input {
+        margin-left: 0.5em;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 5px;
+    }
+</style>
+<!-- DataTables CSS and JS -->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <h1 class="title toc-ignore">The Omics Data</h1>
+
+    <p>This online resource offers researchers, academics, and enthusiasts overviews and direct access to a diverse range of omics datasets. By integrating multiple high-quality resources, the center aims to facilitate collaboration, promote data transparency, and accelerate scientific advancements across various omics fields.</p>
+
+    <table id="researchTable">
+        <thead>
+            <tr class="header">
+                <th>Name</th>
+                <th>Description</th>
+                <th>Website</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Repeat your rows here as before -->
+            <tr class="odd">
+                <td>Spatial Transcriptomics Arena(STAr)</td>
+                <td>The Spatial Transcriptomics Arena(STAr) is an open platform for methodology research. It provides resources including curated datasets from simulation and real studies (Dataset tab), accessible analysis methods (Method tab), and reproducible analysis results (Analysis tab). It also welcomes new datasets, methods, or analysis results contributed by the broad research community. (600+ Simulation Datasets, 193+ Real Datasets, 5 Spatial Patterns, 4 Sparsity Settings.)</td>
+                <td><a href="https://lce.biohpc.swmed.edu/star/">STAr</a></td>
+            </tr>
+            
+            
+            <!-- Additional rows go here -->
+        </tbody>
+    </table>
+</div>
+
+<!-- <script>
+$(document).ready( function () {
+    $('#researchTable').DataTable({
+        "pagingType": "full_numbers",
+        "info": false,
+        "lengthChange": false
+    });
+} );
+</script> -->
+<script>
+$(document).ready( function () {
+    $('#researchTable').DataTable({
+        "pagingType": "full_numbers",
+        "info": false,
+        "lengthChange": false,
+        "pageLength": 15  // This sets the default number of rows per page
+    });
+});
+</script>
+
+</body>
+</html>
