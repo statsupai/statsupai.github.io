@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spacia: Unveiling a New Era of Cell-Cell Communication in Spatial Transcriptomics</title>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://statsupai.org/pages/S10_interview.html">
+    <meta property="og:title" content="Spacia">
+    <meta property="og:description" content="Unveiling a New Era of Cell-Cell Communication in Spatial Transcriptomics">
+    <meta property="og:image" content="S10.jpg">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif; 
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            line-height: 1.6; /* 增加行距 */
+        }
+        .large-text {
+            font-size: larger; /* 或你想要的任何大小 */
+        }
+
+        .interviewee-introduction {
+            display: flex;
+            align-items: center;
+            background-color: #f8f8f8; /* 轻灰色背景 */
+            border-radius: 8px; /* 边角圆润 */
+            padding: 20px;
+            margin-bottom: 20px; /* 和问答部分保持一定距离 */
+        }
+
+        .interviewee-photo {
+            width: 150px; /* 根据需要调整 */
+            height: 150px; /* 根据需要调整 */
+            border-radius: 50%; /* 创建圆形图片 */
+            object-fit: cover; /* 确保图片内容适应尺寸 */
+            margin-right: 20px;
+        }
+
+        .interviewee-details h2 {
+            margin-top: 0;
+            color: #082653; /* 深蓝色，你可以根据网站主题更改 */
+        }
+
+        .interviewee-details p {
+            color: #333; /* 深灰色文本 */
+            line-height: 1.6; /* 增加行距 */
+        }
+        .edit-info {
+            color: #808080; /* 设置为灰色字体 */
+            font-size: 15px; /* 设置字体大小，根据需要调整 */
+            text-align: right; /* 右对齐文本 */
+            padding: 20px 0; /* 在内容上下添加一些空间 */
+            margin-top: 20px; /* 与问答内容保持一定距离 */
+            border-top: 1px solid #ccc; /* 如果需要，可以添加一条分隔线 */
+        }
+
+        .header-image {
+            width: 97%;
+            height: auto;
+            display: block; /* 使图片成为块级元素 */
+            margin: 0 auto; /* 水平居中 */
+        }
+        .fixed-counter {
+            position: fixed; /* 固定定位，使元素不随页面滚动 */
+            left: 0; /* 距离页面左边界的距离 */
+            bottom: 0; /* 距离页面底部边界的距离 */
+            background-color: transparent; /* 可以根据需要设置背景颜色 */
+            z-index: 1000; /* 确保计数器显示在其他元素之上 */
+        }
+
+        .interview {
+        margin: 20px;
+        background-color: rgba(255, 255, 255, 0.7); /* 白色背景，70%不透明度（即30%透明度） */
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 标题和子标题 */
+        h1, h2 {
+            font-weight: bold;
+            color: #7469B6; /* 深蓝色 */
+            margin-bottom: 20px;
+        }
+
+        /* 问题样式 */
+        .question {
+            color: #213c64; /* 深蓝色 */
+            font-weight: bold;
+            margin-bottom: 10px; /* 问题与回答之间的空间 */
+            font-size: larger; /* 突出问题 */
+        }
+        .image {
+            display: block; /* 使图像成为块级元素 */
+            max-width: 60%; /* 设置图像的最大宽度为60%以确保响应式 */
+            height: auto; /* 设置图像的高度自动调整以保持图片比例 */
+            margin: 10px auto; /* 上下边距为20px，左右自动，实现水平居中 */
+            border: 5px solid #808080; /* 添加蓝色的边框，宽度为5px */
+            border-radius: 8px; /* 如果您想要圆角边框，可以添加这个属性 */
+        }
+
+        .answer {
+            background-color: #f8f8f8; /* 轻微的背景色增加对比 */
+            padding: 15px; /* 内边距增加可读性 */
+            border-left: 4px solid #213c64; /* 左侧边框作为视觉提示 */
+            margin-bottom: 20px; /* 增加回答间的空间 */
+            color: #264653; /* 适中的文字颜色 */
+            font-size: medium; /* 适合阅读的字号 */
+            line-height: 1.6; /* 行间距增加可读性 */
+            border-radius: 4px; /* 轻微的圆角 */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* 轻微的阴影增加层次感 */
+        }
+        ul.custom-list {
+        padding-left: 20px; /* 调整以适应项目符号和首行缩进 */
+        }
+        ul.custom-list li {
+            text-indent: 2em; /* 首行缩进 */
+            margin-left: -2em; /* 调整项目符号位置 */
+        }
+
+        .background-image {
+            position: fixed; /* 或absolute，取决于你的需求 */
+            right: 0;
+            bottom: 0;
+            width: 800px; /* 根据你的背景图尺寸调整 */
+            height: 300px; /* 根据你的背景图尺寸调整 */
+            background-image: url('12.jpg'); /* 替换为你的图片名称 */
+            background-size: cover;
+            opacity: 0.4; /* 设置透明度为40% */
+            z-index: -1; /* 确保背景图不会覆盖其他内容 */
+        }
+        .article-link {
+            background-color: #f4f4f4; /* 背景色 */
+            padding: 10px; /* 内边距 */
+            border-radius: 8px; /* 边角圆滑 */
+            text-align: center; /* 文本居中 */
+            margin: 20px 0; /* 上下外边距 */
+        }
+    
+        .article-link p {
+            margin: 0; /* 移除默认边距 */
+            color: #003366; /* 文本颜色 */
+            font-weight: bold; /* 字体加粗 */
+        }
+    
+        .article-link a {
+            display: inline-block; /* 可以设置宽度和高度 */
+            background-color: #213c64; /* 链接背景色 */
+            color: white; /* 链接文字颜色 */
+            padding: 10px 20px; /* 链接内边距 */
+            border-radius: 5px; /* 链接边角圆滑 */
+            text-decoration: none; /* 去掉下划线 */
+            font-size: 18px; /* 字体大小 */
+            margin-top: 10px; /* 与段落之间的距离 */
+            transition: background-color 0.3s; /* 过渡动画 */
+        }
+    
+        .article-link a:hover {
+            background-color: #082653; /* 鼠标悬停时的背景色 */
+        }
+        
+
+    </style>
+
+</head>
+<body>
+    <img class="header-image" src="S10.jpg" alt="Interview Image">
+
+    <div class="article-link">
+    <p>The Article Link:</p><a href="https://www.nature.com/articles/s41592-024-02408-1" target="_blank">Mapping cellular interactions from spatially resolved transcriptomics data</a>
+    </div>
+
+    <div class="interviewee-introduction">
+    <img src="tao_wang.jpg" alt="Interviewee Name" class="interviewee-photo">
+    <div class="interviewee-details">
+        <h2>Dr. Tao Wang</h2>
+        <p>Dr. Tao Wang runs a top computational immunology lab in UT Southwestern Medical Center. Machine learning, statistics, medicine, and biology are the four integral pillars of his interdisciplinary research program. Dr. Wang has been working on mining public and in-house high throughput data to achieve a deeper understanding of the mechanisms of various human diseases, with a heavy emphasis on immunological diseases, and their diagnosis, prognosis, and treatment. These approaches include, for example, modeling of T/B cell antigens and T/B cell receptor sequences, profiling immune cell infiltrates in bulk tissues and analyses of single cell profiling (scRNA-seq, spatially resolved transcriptomics, and CyTOF) data, and integrative analyses of genomics data with electronic medical record data. The ultimate goal of Wang lab is to impact the prognosis and treatment of patients suffering from various diseases, through modeling of high dimensional data, especially genomics data.  
+        </p>
+        </div>
+    </div>
+
+    <div class="interviewee-introduction">
+    <img src="Yang_Xie.jpg" alt="Interviewee Name" class="interviewee-photo">
+    <div class="interviewee-details">
+        <h2>Dr. Yang Xie</h2>
+        <p>Dr. Yang Xie holds the Raymond D. and Patsy R. Nasher Distinguished Chair in Cancer Research and is the Associate Dean for Data Sciences at UT Southwestern Medical Center. She is the founding director of the Quantitative Biomedical Research Center (QBRC), the Pediatric Cancer Data Commons (PCDC), and the Cancer Center Data Science Shared Resources (DSSR) at the Harold C. Simmons Comprehensive Cancer Center. Dr. Yang Xie received her training in biostatistics, medicine and epidemiology. Her research lab focuses on medical informatics, developing predictive and prognostic biomarkers, and precision medicine. She is currently the PI of an NIH Maximizing Investigators' Research Award (MIRA) grant, MPI of an NIAID U01 grant and PI of the Pediatric Cancer Data Core at CPRIT.
+        </p>
+        </div>
+    </div>
+
+    <div class="interviewee-introduction">
+    <img src="sherry.jpg" alt="Interviewee Name" class="interviewee-photo">
+    <div class="interviewee-details">
+        <h2>Dr. Xinlei (Sherry) Wang</h2>
+        <p>Dr. Xinlei (Sherry) Wang is Jenkins-Garratt Endowed Professor of Statistics and Data Science and Director for Research, Division of Data Science at UTA.  Her research interests include Bayesian statistics, statistical omics, machine/deep learning and AI, integrative/meta-analysis, and order-related sampling design, theory, and inference. Sher has rich experience in developing and applying statistical and computational methods for analysis of complex and diverse data. She leverages this expertise to extensively collaborate with researchers across various fields, including biomedicine, health care, business, computer science, engineering, chemistry, physics, and mathematics. Her research projects have been generously supported by external funding, including NCI R01, NIGMS R15, NIDA R21 and R33, NSF-DMS grants as PI or subcontract PI. In 2020, she was honored with the Gerald J. Ford Senior Research Fellowship at SMU. In 2024, She was elected as an ASA fellow.
+        </p>
+        </div>
+    </div>
+
+    
+    <div class="interview">
+        <p class="question">Regarding the research background and significance, does this work discover new knowledge or solve existing problems within the field? Please elaborate in detail.</p>
+        <p class="answer">Spacia uses a novel approach to infer cell-to-cell communication (CCC) using data from spatially resolved transcriptomics technologies (SRTs). This approach improves upon the capabilities of current methods by achieving single-cell resolution, not requiring prior knowledge of interaction pathways, and accounting for complex, multiple-to-one and one-to-multiple relationships.</p>
+
+        <p class="question">How did the reviewers evaluate (praise) it?</p>
+        <p class="answer">The reviewers were impressed by Spacia’s novel approach and additional capabilities over existing methods.
+        </p>
+
+
+        <p class="question">If this achievement has potential applications, what are some specific applications it might have in a few years?</p>
+        <p class="answer">We hope that Spacia can help researchers dissect the complex interactions occurring within heterogeneous cellular environments, such as tumors. It will enable the discovery and understanding of novel CCCs and their roles in normal and disease biological processes. As the cost of SRTs decline over time, Spacia may be used in a more translational setting to identify potential drug targets.</p>
+
+        <p class="question">Can you recount the specific steps or stages from setting the research topic to the successful completion of the research?</p>
+        <p class="answer">With the appearance of single-cell resolution SRTs, we wanted to take advantage of the spatial information offered by these techniques to improve CCC inference. At the same time, we also wanted to take a different approach. Instead of limiting CCCs to ligand-receptor interactions, we used what we refer to as a multiple-instance learning framework to simultaneously model and solve the complex interactions among cells. We first fine-tuned the model on simulated data as a proof of concept, then used Spacia to analyze real SRT datasets from different technologies. Using a combination of existing knowledge and other types of transcriptomics data we generated or collected from public sources, we confirmed Spacia’s findings and found them to be overall generalizable. We also discovered some clinically relevant and biologically interesting findings through our analysis. Throughout this process, we had to overcome many different issues in optimizing and refining the model, finding and processing diverse types of data, and analyzing and interpreting the results.</p>
+
+
+        <p class="question">Were there any memorable events during the research? You can tell a story about anything related to people, events, or objects.</p>
+        <p class="answer">While significant amounts of resources and time have been spent by the field on developing and applying spatially resolved transcriptomics, few works have established the true value of these technologies to reveal insights that cannot be efficiently provided by traditional experimental assays, bulk sequencing or single cell sequencing. I have several collaborators who expressed to me that they did not feel the current hype of spatial transcriptomics and even single cell sequencing were helping them in any way, because their scientific questions could all be addressed by bulk sequencing or even traditional IHC already. While there are certain aspects of their statement that are valid, we here showed that SRT data offer much more than just showing the spatial distribution of cells and their cell types in a tissue sample. We can actually perform more complicated analyses that reveal very novel interesting new biology from these data. We plan to further dive into SRT data to demonstrate all the exciting discoveries they can make.
+        </p>
+        
+
+        <p class="question">Is there a follow-up plan based on this research? If so, please elaborate.</p>
+        <p class="answer">We are looking to follow up on some of the novel and biologically interesting findings we made during our analysis. There are also aspects of Spacia, namely speed and ease of use that we would like to continue to improve. In this respect, we hope to gather input from other interested users to gain a better understanding of their needs. We also hope that other researchers can adapt and expand our multiple-instance learning framework to other problems and fields. </p>
+
+        <p class="question">Without a doubt, AI is one of the hot topics of 2024, requiring extensive data support in its development. What assistance can biostatistics offer to the development of AI?</p>
+        <p class="answer">We believe that biostatistics is a critical part of AI, especially in data processing and analysis of results to arrive at more profound understandings. In addition, statistical learning methods, such as what we have used in this paper, have the potential to offer elegant solutions with advantages in interpretability and stability. We believe there is a bright future for biostatistics in the age of AI.
+        </p>
+
+        <!-- 添加更多问题和答案 -->
+
+    </div>
+    <div class="edit-info">
+        Edited by: Shan Gao<br>
+        Proofread by: Hongtu Zhu
+    </div>
+<div class="background-image"></div>
+<!-- Default Statcounter code for Interview_peiwang
+https://statsupai.com/pages/interview_weipeng.html -->
+<div style="display: flex; align-items: center; color: #8E8E8E; font-size: 13px; font-family: Arial, sans-serif;">Page Views: <div class="statcounter" style="margin-left: 10px;"> <!-- Add this line for styling -->
+<!-- Default Statcounter code for Interview_peiwang1
+https://statsupai.com/pages/interview_weipeng.html -->
+<script type="text/javascript">
+var sc_project=12973370; 
+var sc_invisible=0; 
+var sc_security="a715d5f2"; 
+var scJsHost = "https://";
+document.write("<sc"+"ript type='text/javascript' src='" +
+scJsHost+
+"statcounter.com/counter/counter.js'></"+"script>");
+</script>
+<noscript><div class="statcounter"><a title="Web Analytics"
+href="https://statcounter.com/" target="_blank"><img
+class="statcounter"
+src="https://c.statcounter.com/12973370/0/a715d5f2/0/"
+alt="Web Analytics"
+referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+<!-- End of Statcounter Code -->
+</body>
+</html>
