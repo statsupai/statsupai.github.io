@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POP-GWAS: Valid inference for machine learning-assisted GWAS</title>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://statsupai.org/pages/S9_interview.html">
+    <meta property="og:title" content="POP-GWAS">
+    <meta property="og:description" content="Valid inference for machine learning-assisted GWAS">
+    <meta property="og:image" content="S9.jpg">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif; 
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            line-height: 1.6; /* 增加行距 */
+        }
+        .large-text {
+            font-size: larger; /* 或你想要的任何大小 */
+        }
+
+        .interviewee-introduction {
+            display: flex;
+            align-items: center;
+            background-color: #f8f8f8; /* 轻灰色背景 */
+            border-radius: 8px; /* 边角圆润 */
+            padding: 20px;
+            margin-bottom: 20px; /* 和问答部分保持一定距离 */
+        }
+
+        .interviewee-photo {
+            width: 150px; /* 根据需要调整 */
+            height: 150px; /* 根据需要调整 */
+            border-radius: 50%; /* 创建圆形图片 */
+            object-fit: cover; /* 确保图片内容适应尺寸 */
+            margin-right: 20px;
+        }
+
+        .interviewee-details h2 {
+            margin-top: 0;
+            color: #082653; /* 深蓝色，你可以根据网站主题更改 */
+        }
+
+        .interviewee-details p {
+            color: #333; /* 深灰色文本 */
+            line-height: 1.6; /* 增加行距 */
+        }
+        .edit-info {
+            color: #808080; /* 设置为灰色字体 */
+            font-size: 15px; /* 设置字体大小，根据需要调整 */
+            text-align: right; /* 右对齐文本 */
+            padding: 20px 0; /* 在内容上下添加一些空间 */
+            margin-top: 20px; /* 与问答内容保持一定距离 */
+            border-top: 1px solid #ccc; /* 如果需要，可以添加一条分隔线 */
+        }
+
+        .header-image {
+            width: 97%;
+            height: auto;
+            display: block; /* 使图片成为块级元素 */
+            margin: 0 auto; /* 水平居中 */
+        }
+        .fixed-counter {
+            position: fixed; /* 固定定位，使元素不随页面滚动 */
+            left: 0; /* 距离页面左边界的距离 */
+            bottom: 0; /* 距离页面底部边界的距离 */
+            background-color: transparent; /* 可以根据需要设置背景颜色 */
+            z-index: 1000; /* 确保计数器显示在其他元素之上 */
+        }
+
+        .interview {
+        margin: 20px;
+        background-color: rgba(255, 255, 255, 0.7); /* 白色背景，70%不透明度（即30%透明度） */
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 标题和子标题 */
+        h1, h2 {
+            font-weight: bold;
+            color: #7469B6; /* 深蓝色 */
+            margin-bottom: 20px;
+        }
+
+        /* 问题样式 */
+        .question {
+            color: #213c64; /* 深蓝色 */
+            font-weight: bold;
+            margin-bottom: 10px; /* 问题与回答之间的空间 */
+            font-size: larger; /* 突出问题 */
+        }
+        .image {
+            display: block; /* 使图像成为块级元素 */
+            max-width: 60%; /* 设置图像的最大宽度为60%以确保响应式 */
+            height: auto; /* 设置图像的高度自动调整以保持图片比例 */
+            margin: 10px auto; /* 上下边距为20px，左右自动，实现水平居中 */
+            border: 5px solid #808080; /* 添加蓝色的边框，宽度为5px */
+            border-radius: 8px; /* 如果您想要圆角边框，可以添加这个属性 */
+        }
+
+        .answer {
+            background-color: #f8f8f8; /* 轻微的背景色增加对比 */
+            padding: 15px; /* 内边距增加可读性 */
+            border-left: 4px solid #213c64; /* 左侧边框作为视觉提示 */
+            margin-bottom: 20px; /* 增加回答间的空间 */
+            color: #264653; /* 适中的文字颜色 */
+            font-size: medium; /* 适合阅读的字号 */
+            line-height: 1.6; /* 行间距增加可读性 */
+            border-radius: 4px; /* 轻微的圆角 */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* 轻微的阴影增加层次感 */
+        }
+        ul.custom-list {
+        padding-left: 20px; /* 调整以适应项目符号和首行缩进 */
+        }
+        ul.custom-list li {
+            text-indent: 2em; /* 首行缩进 */
+            margin-left: -2em; /* 调整项目符号位置 */
+        }
+
+        .background-image {
+            position: fixed; /* 或absolute，取决于你的需求 */
+            right: 0;
+            bottom: 0;
+            width: 800px; /* 根据你的背景图尺寸调整 */
+            height: 300px; /* 根据你的背景图尺寸调整 */
+            background-image: url('12.jpg'); /* 替换为你的图片名称 */
+            background-size: cover;
+            opacity: 0.4; /* 设置透明度为40% */
+            z-index: -1; /* 确保背景图不会覆盖其他内容 */
+        }
+        .article-link {
+            background-color: #f4f4f4; /* 背景色 */
+            padding: 10px; /* 内边距 */
+            border-radius: 8px; /* 边角圆滑 */
+            text-align: center; /* 文本居中 */
+            margin: 20px 0; /* 上下外边距 */
+        }
+    
+        .article-link p {
+            margin: 0; /* 移除默认边距 */
+            color: #003366; /* 文本颜色 */
+            font-weight: bold; /* 字体加粗 */
+        }
+    
+        .article-link a {
+            display: inline-block; /* 可以设置宽度和高度 */
+            background-color: #213c64; /* 链接背景色 */
+            color: white; /* 链接文字颜色 */
+            padding: 10px 20px; /* 链接内边距 */
+            border-radius: 5px; /* 链接边角圆滑 */
+            text-decoration: none; /* 去掉下划线 */
+            font-size: 18px; /* 字体大小 */
+            margin-top: 10px; /* 与段落之间的距离 */
+            transition: background-color 0.3s; /* 过渡动画 */
+        }
+    
+        .article-link a:hover {
+            background-color: #082653; /* 鼠标悬停时的背景色 */
+        }
+        
+
+    </style>
+
+</head>
+<body>
+    <img class="header-image" src="S9.jpg" alt="Interview Image">
+
+    <div class="article-link">
+    <p>The Article Link:</p><a href="https://www.nature.com/articles/s41588-024-01934-0" target="_blank">Valid inference for machine learning-assisted genome-wide association studies</a>
+    </div>
+
+    <div class="interviewee-introduction">
+    <img src="Qiongshi_Lu.jpg" alt="Interviewee Name" class="interviewee-photo">
+    <div class="interviewee-details">
+        <h2>Dr. Qiongshi Lu</h2>
+        <p>Dr. Qiongshi Lu is an Associate Professor in the Department of Biostatistics and Medical Informatics at the University of Wisconsin-Madison. His research focuses on developing statistical and computational methods to study complex trait genetics. In particular, he is interested in noncoding genome annotation, genetic risk prediction, genetic correlation estimation, and gene-environment interaction.   
+        </p>
+        </div>
+    </div>
+
+    <div class="interviewee-introduction">
+    <img src="Jiacheng_Miao.jpg" alt="Interviewee Name" class="interviewee-photo">
+    <div class="interviewee-details">
+        <h2>Dr. Jiacheng Miao</h2>
+        <p>Dr. Jiacheng Miao is a fifth-year Ph.D. candidate in Biomedical Data Science at the University of Wisconsin–Madison advised by Drs. Qiongshi Lu and Lauren Schmitz. His research interests lie at the intersection of human genetics, statistics, machine learning, and their applications to medicine.  His work focuses on machine learning-assisted statistical inference, heterogeneous treatment effect estimation based on genetic variation, and genetically-informed risk prediction across diverse contexts.
+        </p>
+        </div>
+    </div>
+
+    
+    <div class="interview">
+        <p class="question">Regarding the research background and significance, does this work discover new knowledge or solve existing problems within the field? Please elaborate in detail.</p>
+        <p class="answer">A common challenge in modern scientific research is the scarcity of gold-standard data that can be expensive and time-consuming to collect. With the rapid development of machine learning (ML), scientists have realized that it is now possible to leverage ML/AI and predict gold-standard outcomes with variables that are much easier to obtain. However, these predicted outcomes are often used directly in subsequent statistical analyses, ignoring the noise and bias introduced by the prediction procedure.  One notable example of this type of research is ML-assisted genome-wide association study (GWAS), which applies advanced ML to predict phenotypes that are difficult or expensive to measure and then conducts GWAS on the ML-imputed outcomes. In our work, we first demonstrate the risk of pervasive false positive associations in existing ML-assisted GWAS. To address this issue, we introduce POP-GWAS,  a principled statistical framework that ensures valid and efficient statistical inference in GWAS of ML-predicted outcomes, irrespective of the quatlify of ML prediction. Applying POP-GWAS to data from UK Biobank, we performed the largest GWAS to date on bone mineral density derived from dual-energy x-ray absorptiometry imaging at 14 skeletal sites, achieving a 9.7-50.7% increase in effective sample size and identifying 89 novel loci. Our work exemplifies how to leverage ML prediction to facilitate rigorous scientific discovery.</p>
+
+        <p class="question">How did the reviewers evaluate (praise) it?</p>
+        <p class="answer">The reviewers stated that our paper “illustrates a key issue with using machine learning predictions to augment sample sizes in genome-wide association studies.” Additional comments include “The issue is nicely summarized and indeed credible and critical. The motivating example of HbA1c intended as a glycemic control metric but inevitably reflecting erythrocytic levels is an excellent example.”, and the paper “contributes an important new result (assumption free ML augmentation of GWAS)”.
+        </p>
+
+
+        <p class="question">If this achievement has potential applications, what are some specific applications it might have in a few years?</p>
+        <p class="answer">A notable application of our work is to understand the genetic basis of disease outcomes or human traits that are challenging or costly to measure. Examples include but are not limited to undiagnosed diseases in biobank cohorts, imaging-derived outcomes, and molecular traits in rare tissues. As of early 2024, various data types in the UK Biobank, including proteomics, brain magnetic resonance imaging (MRI), heart MRI, dual-energy X-ray absorptiometry imaging, electrocardiograms, and metabolomics, exhibit missing rates ranging from 45% to 94%. Advanced ML can be employed to predict these missing variables, allowing POP-GWAS to facilitate valid and efficient inference in downstream genetic association studies.</p>
+
+        <p class="question">Can you recount the specific steps or stages from setting the research topic to the successful completion of the research?</p>
+        <p class="answer">Our research was initially prompted by the observation that most current ML-assisted GWAS directly perform genetic association analysis on ML-predicted phenotypes. Given that ML predictions may be imprecise or biased, we wanted to investigate whether current approaches could lead to false positive findings. We came across a study suggesting that HbA1c, a clinical diagnostic criterion for type 2 diabetes (T2D), is influenced by genetic variants through both glycemic and non-glycemic pathways. In addition, individuals with many genetic variants in non-glycemic pathways that increase their HbA1c levels may be misdiagnosed with T2D. With these biological insights, we conducted comparisons between GWAS on ground-truth and ML-imputed T2D outcomes, and found that 82% of the associations from ML-imputed GWAS could not be replicated in the ground-truth GWAS. Notably, many of these associations were associated with non-glycemic pathways affecting HbA1c. This finding reinforced our belief that current ML-assisted GWAS methods are prone to generating false-positive results. </p>
+        <p class="answer">To tackle this issue, we applied a recently introduced method for ML-assisted inference to UK Biobank data, encountering several challenges. First, this method identified fewer significant associations compared to conventional GWAS based solely on labeled data. After some investigation, we realized that current ML-assisted inference methods can be less statistically powerful compared to conventional GWAS approaches when the ML prediction has poor quality. To overcome this issue, we developed a weighting scheme that enables ML-assisted GWAS to adapt according to the accuracy of ML prediction. This approach worked out quite effectively in our analysis, enabling us to identify many more significant associations through the integration of ML prediction. We also provide the theoretical proof that our method is always more powerful than GWAS that does not incorporate ML. In fact, we demonstrated that our method is the best linear unbiased estimator for GWAS coefficients based on observed and ML-imputed phenotypes. </p>
+        <p class="answer">Another challenge is that the existing ML-assisted inference methods struggle to handle the technical factors that are crucial for real-world scientific applications. In our GWAS application, this includes sample relatedness and population structure, which the field has learned to account for in order to ensure valid GWAS results. Additionally, existing software does not effectively scale with the large sample size and data dimensionality in a typical GWAS, which often involves hundreds of thousands of individuals and tens of millions of linear regressions. We proposed a solution to this problem, drawing inspiration from the observation that the GWAS field has developed sophisticated and computationally efficient algorithms to address these complexities, and summary statistics is sufficient for ML-assisted inference. Our solution employs a two-step approach. First, we utilize highly optimized GWAS software to generate summary statistics for both observed and ML-predicted outcomes. Subsequently, we directly integrate these summary statistics to produce statistically-valid ML-assisted inference results. This method has proven highly effective in biobank-scale genetic analyses. Through the use of POP-GWAS, we have identified many new genetic associations for bone mineral density and provided new insights into the genetic basis of osteoporosis and fracture risk. </p>
+
+
+        <p class="question">Were there any memorable events during the research? You can tell a story about anything related to people, events, or objects.</p>
+        <p class="answer">There are two particularly memorable events. The first is the time we proved an ML-assisted version of the Gauss-Markov theorem. Traditionally, the Gauss-Markov theorem states that the ordinary least squares estimator is the best linear unbiased estimator in linear regressions of observed outcomes. In our work, we demonstrated that our POP-GWAS estimator is the best linear unbiased estimator given both the observed and ML-predicted outcomes. This result was unexpected since our estimator, a heuristic weighted sum of three sets of GWAS results, was not anticipated to exhibit such strong statistical properties. The second memorable event was when we identified novel head-specific genetic associations for bone mineral density, including LGR5. This discovery was backed by evidence showing that Lgr5-deleted mice exhibit various craniofacial abnormalities, suggesting potential new avenues for diagnosing and treating head-related skeletal disorders.
+        </p>
+        
+
+        <p class="question">Is there a follow-up plan based on this research? If so, please elaborate.</p>
+        <p class="answer">We are actively extending the POP-GWAS framework beyond genome-wide association studies typically based on linear or logistic regressions. Our goal is to develop general methodology that enables valid and efficient statistical inference following machine learning predictions across diverse types of statistical applications. </p>
+
+        <p class="question">Without a doubt, AI is one of the hot topics of 2024, requiring extensive data support in its development. What assistance can biostatistics offer to the development of AI?</p>
+        <p class="answer">ML/AI is quickly gaining popularity in scientific research. However, it is crucially important to develop modern statistical methods that enables integrative analysis based on both statistical ideas and ML/AI techniques, while ensuring reliability of scientific findings. It will be a missed opportunity if statisticians and biostatisticians ignore the strengths of ML/AI. Instead, as a field, we should critically introduce ML/AI into statistics, and develop new methods to facilitate new applications. It is our view (and experience) that many new and exciting data science problems will emerge once we start doing that.
+        </p>
+
+        <!-- 添加更多问题和答案 -->
+
+    </div>
+    <div class="edit-info">
+        Edited by: Shan Gao<br>
+        Proofread by: Hongtu Zhu
+    </div>
+<div class="background-image"></div>
+<!-- Default Statcounter code for Interview_peiwang
+https://statsupai.com/pages/interview_weipeng.html -->
+<div style="display: flex; align-items: center; color: #8E8E8E; font-size: 13px; font-family: Arial, sans-serif;">Page Views: <div class="statcounter" style="margin-left: 10px;"> <!-- Add this line for styling -->
+<!-- Default Statcounter code for Interview_peiwang1
+https://statsupai.com/pages/interview_weipeng.html -->
+<script type="text/javascript">
+var sc_project=12973370; 
+var sc_invisible=0; 
+var sc_security="a715d5f2"; 
+var scJsHost = "https://";
+document.write("<sc"+"ript type='text/javascript' src='" +
+scJsHost+
+"statcounter.com/counter/counter.js'></"+"script>");
+</script>
+<noscript><div class="statcounter"><a title="Web Analytics"
+href="https://statcounter.com/" target="_blank"><img
+class="statcounter"
+src="https://c.statcounter.com/12973370/0/a715d5f2/0/"
+alt="Web Analytics"
+referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+<!-- End of Statcounter Code -->
+</body>
+</html>
