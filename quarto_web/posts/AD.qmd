@@ -1,0 +1,19 @@
+---
+title: "2024 NIH Alzheimer's Research Summit: Building a Precision Medicine Research Enterprise"
+image: figures/ADlink.jpg
+author:
+  - name: "Shan Gao"
+  - affiliation: "Yunnan University"
+categories:
+  - Events
+  - Videos
+date: "2024-10-05"
+---
+<!-- JavaScript Redirect to the target URL -->
+<script>
+  window.location.href = "https://www.nia.nih.gov/2024-alzheimers-summit?utm_source=Division+of+Neuroscience+List&utm_campaign=7d9e450881-DN-newsletter-October-2024&utm_medium=email&utm_term=0_-93e0877f9b-%5BLIST_EMAIL_ID%5D";
+</script>
+
+On Sept. 23-25, 2024, NIA hosted the NIH Alzheimer’s Disease Research Summit: Building a Precision Medicine Research Enterprise. The Summit brought together over 70 leading academic and industry researchers, innovators and public advocates to report on a decade of progress towards precision medicine and to chart the vision for the next decade.
+
+If you are not redirected, please click [here](https://www.nia.nih.gov/2024-alzheimers-summit?utm_source=Division+of+Neuroscience+List&utm_campaign=7d9e450881-DN-newsletter-October-2024&utm_medium=email&utm_term=0_-93e0877f9b-%5BLIST_EMAIL_ID%5D).
