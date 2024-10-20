@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conference Video Showcase and Schedule</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Lora', serif;
+            background: linear-gradient(to bottom, #f0f0f0, #d9e1e8);
+            color: #2c3e50;
+            margin: 0;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Title Styling */
+        h1 {
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 50px;
+            color: #1b3a5d;
+            margin-bottom: 40px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            background: linear-gradient(to right, #6a85b6, #bac8e0);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+        /* Organizer and Speaker List Styling */
+        .organizers-speakers {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .organizers-speakers h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #1b3a5d;
+            margin-bottom: 20px;
+        }
+
+        .organizers-speakers ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .organizers-speakers li {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #34495e;
+        }
+        /* Flexbox layout for description and image side by side */
+        .flex-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        /* Description Styling */
+        .highlight-description {
+            font-size: 19px;
+            font-weight: bold;
+            color: #2c3e50;
+            line-height: 1.8;
+            max-width: 50%;
+        }
+
+        /* Image Styling */
+        .image-container {
+            flex: 1;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Grid layout for two video cards per row */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .video-card {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .video-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .video {
+            margin-bottom: 20px;
+        }
+
+        /* Styling for schedule cards */
+        .narrow-card {
+            max-width: 700px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 12px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: left;
+        }
+
+        /* Hover effect on the card */
+        .narrow-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .narrow-card .video iframe {
+            width: 100%;
+            height: 300px;
+            border-radius: 8px;
+        }
+
+        .speaker-info {
+            margin-top: 15px;
+            padding: 15px;
+            line-height: 1.7;
+            background-color: #e8eff5;
+            border-radius: 8px;
+        }
+
+        .speaker-info p.chair {
+            font-size: 16px;
+            color: #2c3e50;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .divider {
+            margin: 10px 0;
+            border: 0;
+            height: 1px;
+            background-color: #ccc;
+        }
+
+        /* Talks list */
+        .talk-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 10px 0;
+        }
+
+        .talk-list li {
+            margin-bottom: 10px;
+            font-size: 15px;
+            color: #34495e;
+        }
+
+        .talk-list li em {
+            font-style: normal;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        /* Button Styling */
+        .button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 24px;
+            background-color: #34495e;
+            color: #fff;
+            border-radius: 8px;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #2c3e50;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Accordion Button */
+        .accordion {
+            background-color: #ffffff;
+            color: #2c3e50;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            text-align: left;
+            border: none;
+            outline: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .accordion:hover {
+            background-color: #d9e1e8;
+        }
+
+        .accordion-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .accordion .icon {
+            font-size: 22px;
+            transition: transform 0.3s ease;
+        }
+
+        .accordion.active .icon {
+            transform: rotate(45deg);
+        }
+
+        /* Panel styling */
+        .panel {
+            padding: 0 18px;
+            background-color: #f0f4f8;
+            display: none;
+            overflow: hidden;
+            border-left: 4px solid #ccc;
+            border-radius: 0 0 8px 8px;
+            margin-top: -10px;
+        }
+
+        .panel.show {
+            display: block;
+            padding-top: 10px;
+        }
+
+        .panel.schedule-item {
+            padding: 20px;
+            background-color: #ffffff;
+            border-left: 4px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            margin-bottom: 20px;
+        }
+
+        /* Responsive design adjustments */
+        @media (max-width: 768px) {
+            .flex-container {
+                flex-direction: column;
+            }
+
+            .highlight-description {
+                max-width: 100%;
+            }
+
+            .narrow-card {
+                padding: 15px;
+                max-width: 100%;
+            }
+
+            .narrow-card .video iframe {
+                height: 220px;
+            }
+
+            .button {
+                font-size: 14px;
+                padding: 10px 18px;
+            }
+
+            .panel.schedule-item {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>Challenges in Neuroimaging Data Analysis</h1>
+
+        <!-- Flexbox layout for description and image side by side -->
+        <div class="flex-container">
+            <p class="highlight-description">The "Challenges in Neuroimaging Data Analysis" conference brought together leading experts in the field to discuss the latest advancements and address the complex challenges in analyzing neuroimaging data. From deep learning techniques to advanced statistical modeling, each session aimed to explore innovative methods and foster collaboration among researchers, clinicians, and data scientists. This webpage serves as a showcase of the conference's insightful talks, featuring session videos and detailed information about the presented topics.</p>
+            <div class="image-container">
+                <img src="youtube_sum2.jpg" alt="Conference Image">
+            </div>
+        </div>
+
+
+        <!-- Conference Schedule -->
+        <div class="schedule">
+            <h2>Conference Videos</h2>
+
+            <button class="accordion">
+                <div class="accordion-content">
+                    <span class="panel-title"><strong>Plenary Talk: Identification of Interacting Neural Populations: Ideas, Issues, and Personal Experience</strong></span>
+                    <span class="panelists">Plenary speaker: Robert Kass (Carnegie Mellon University, Statistics & Data Sciences)</span>
+                </div>
+                <span class="icon">+</span>
+            </button>
+            <div class="panel">
+                <div class="video-card narrow-card">
+                    <div class="video">
+                        <iframe src="https://www.youtube.com/embed/s6awOSZLons" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Example Accordion -->
+            <button class="accordion">
+                <div class="accordion-content">
+                    <span class="panel-title"><strong>Deep Learning (Chair: Jian Kang)</strong></span>
+                    <span class="panelists">Speakers: Carl Yang, Fei Jiang, Linglong Kong, Lily Wang</span>
+                </div>
+                <span class="icon">+</span>
+            </button>
+            <div class="panel">
+                <div class="video-card narrow-card">
+                    <div class="video">
+                        <iframe src="https://www.youtube.com/embed/3SjMnuIBTNc" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                        <div class="speaker-info">
+                            <p class="chair">Chair: <strong>Jian Kang</strong></p>
+                            <hr class="divider">
+                            <p class="talk-title"><strong>Talks and Speakers:</strong></p>
+                            <ul class="talk-list">
+                                <li>“Graph Neural Networks for Brain Connectome Analysis,” <em>Carl Yang</em> (Emory University)</li>
+                                <li>“Dynamic resting state functional connectivity: A time-varying dynamic network model,” <em>Fei Jiang</em> (University of California)</li>
+                                <li>“Doubly Adaptive Spatial Quantile Regression for Neuroimaging Data,” <em>Linglong Kong</em> (University of Alberta)</li>
+                                <li>“Deciphering Relationships between Massive High-Dimensional Imaging Responses and Scalar Predictors: A Distributed Learning Approach,” <em>Lily Wang</em> (George Mason University)</li>
+                            </ul>
+                        </div>
+                </div>
+            </div>
+
+            <button class="accordion">
+                <div class="accordion-content">
+                    <span class="panel-title"><strong>Functional Connectome (Chair: Tingting Zhang)</strong></span>
+                    <span class="panelists">Speakers: Mark Fiecas, Amanda Mejia, Sean Simpson, Tingting Zhang</span>
+                </div>
+                <span class="icon">+</span>
+            </button>
+            <div class="panel">
+                <div class="video-card narrow-card">
+                    <div class="video">
+                        <iframe src="https://www.youtube.com/embed/6D3F7YxZvLo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                        <div class="speaker-info">
+                            <p class="chair">Chair: <strong>Tingting Zhang</strong></p>
+                            <hr class="divider">
+                            <p class="talk-title"><strong>Talks and Speakers:</strong></p>
+                            <ul class="talk-list">
+                                <li>“Changepoint Analysis in a Mixed Model Framework, With Applications to fMRI Time Series,” <em>Mark Fiecas</em> (University of Minnesota)</li>
+                                <li>“The hidden cost of stringent motion scrubbing,” <em>Amanda Mejia</em> (Indiana University)</li>
+                                <li>“Statistical Brain Network Analysis: Recent Developments and Future Directions,” <em>Sean Simpson</em> (Wake Forest University)</li>
+                                <li>“Analysis of Functional Connectivity Changes from Childhood to Old Age,” <em>Tingting Zhang</em> (University of Pittsburgh)</li>
+                            </ul>
+                        </div>
+                </div>
+            </div>
+
+            <button class="accordion">
+                <div class="accordion-content">
+                    <span class="panel-title"><strong>Imaging Processing (Chair: Sean Simpson)</strong></span>
+                    <span class="panelists">Speakers: Speakers: Daniel Rowe, Martin Lindquist, Heather Shappell, Yi Zhao</span>
+                </div>
+                <span class="icon">+</span>
+            </button>
+            <div class="panel">
+                <div class="video-card narrow-card">
+                    <div class="video">
+                        <iframe src="https://www.youtube.com/embed/PYhXlkmiN9k" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                        <div class="speaker-info">
+                            <p class="chair">Chair: <strong>Sean Simpson</strong></p>
+                            <hr class="divider">
+                            <p class="talk-title"><strong>Talks and Speakers:</strong></p>
+                            <ul class="talk-list">
+                                <li>“Processing Induced Correlation in FMRI Data,” <em>Daniel Rowe</em> (Marquette University)</li>
+                                <li>“Sliding windows analysis can undo the effects of preprocessing when applied to fMRI,” <em>Martin Lindquist</em> (Johns Hopkins University)</li>
+                                <li>“A Hidden Semi-Markov Model Approach to State-Based Dynamic Brain Network Analyses: Recent Developments and Future Directions,” <em>Heather Shappell</em> (Wake Forest University School of Medicine)</li>
+                                <li>“Utilizing Invariance and Exchangeability in Neuroimaging Data Analysis,” <em>Yi Zhao</em> (Indiana University)</li>
+                            </ul>
+                        </div>
+                </div>
+            </div>
+
+            <button class="accordion">
+                <div class="accordion-content">
+                    <span class="panel-title"><strong>Panel: Brain Behavior and Synchronization (Chair: Eardi Lila)</strong></span>
+                    <span class="panelists">Panelists: Robert Kass, Tianwen Ma, Jun Young Park</span>
+                </div>
+                <span class="icon">+</span>
+            </button>
+            <div class="panel">
+                <div class="video-card narrow-card">
+                    <div class="video">
+                        <iframe src="https://www.youtube.com/embed/42bKwo46WBc" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                        <div class="speaker-info">
+                            <p class="chair">Chair: <strong>Eardi Lila</strong></p>
+                            <hr class="divider">
+                            <p class="talk-title"><strong>Panelists:</strong></p>
+                            <ul class="talk-list">
+                                <li><em>Robert Kass</em> (Carnegie Mellon University)</li>
+                                <li><em>Tianwen Ma</em> (Emory University)</li>
+                                <li><em>Jun Young Park</em> (University of Toronto)</li>
+                            </ul>
+                        </div>
+                </div>
+            </div>
+
+            <button class="accordion">
+                <div class="accordion-content">
+                    <span class="panel-title"><strong>Plenary Talk: Scale Matters: The Nested Human Connectome</strong></span>
+                    <span class="panelists">Plenary Speaker: Markus Axer (Institute of Neurosciences and Medicine (INM-1), Research Centre Jülich)</span>
+                </div>
+                <span class="icon">+</span>
+            </button>
+            <div class="panel">
+                <div class="video-card narrow-card">
+                    <div class="video">
+                        <iframe src="https://www.youtube.com/embed/mXCbIs5EoHE" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+
+
+            <button class="accordion">
+                <div class="accordion-content">
+                    <span class="panel-title"><strong>Data Integration (Chair: Tingting Zhang)</strong></span>
+                    <span class="panelists">Speakers: Ani Eloyan, Tanya Garcia, Lexin Li, Hai Shu</span>
+                </div>
+                <span class="icon">+</span>
+            </button>
+            <div class="panel">
+                <div class="video-card narrow-card">
+                    <div class="video">
+                        <iframe src="https://www.youtube.com/embed/PeDh_TdoIso" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                        <div class="speaker-info">
+                            <p class="chair">Chair: <strong>Tingting Zhang</strong></p>
+                            <hr class="divider">
+                            <p class="talk-title"><strong>Talks and Speakers:</strong></p>
+                            <ul class="talk-list">
+                                <li>“Longitudinal Manifold Learning for Modeling Shapes in Alzheimer’s Disease,” <em>Ani Eloyan</em> (Brown University)</li>
+                                <li>“The Missing Link: Establishing the Parallels Between Censored Covariate and Missing Data,” <em>Tanya Garcia</em> (University of North Carolina at Chapel Hill)</li>
+                                <li>“Some Recent and Ongoing Work on Intracranial Neurodata Analysis,” <em>Lexin Li</em> (University of California, Berkeley)</li>
+                                <li>“Orthogonal Common-Source and Distinctive-Source Decomposition Between High-Dimensional Data Views,” <em>Hai Shu</em> (New York University)</li>
+                            </ul>
+                        </div>
+                </div>
+            </div>
+
+            <button class="accordion">
+                <div class="accordion-content">
+                    <span class="panel-title"><strong>Applications to Neurological and Mental Diseases (Chair: John Kornak)</strong></span>
+                    <span class="panelists">Speakers: Jaroslaw Harezlak, John Kornak, Dana Tudorascu, Duygu Tosun-Turgut</span>
+                </div>
+                <span class="icon">+</span>
+            </button>
+            <div class="panel">
+                <div class="video-card narrow-card">
+                    <div class="video">
+                        <iframe src="https://www.youtube.com/embed/w1n3621DnAA" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                        <div class="speaker-info">
+                            <p class="chair">Chair: <strong>John Kornak</strong></p>
+                            <hr class="divider">
+                            <p class="talk-title"><strong>Talks and Speakers:</strong></p>
+                            <ul class="talk-list">
+                                <li>“Statistical Regularization Used to Study Brain Structure, Function, and Connectivity: Current Work and Future Directions,” <em>Jaroslaw Harezlak</em> (Indiana University Bloomington)</li>
+                                <li>“Disease Progression Modeling for Frontotemporal Dementia,” <em>John Kornak</em> (University of California)</li>
+                                <li>“Statistical Challenges in Analysis of Tau PET Imaging Data in Alzheimer’s Disease,” <em>Dana Tudorascu</em> (University of Pittsburgh)</li>
+                                <li>“Multidimensional Biomarker Landscape in Alzheimer’s Disease: Insights for Improved Disease Modeling and Clinical Trial Design,” <em>Duygu Tosun-Turgut</em> (University of California)</li>
+                            </ul>
+                        </div>
+                </div>
+            </div>
+
+            <button class="accordion">
+                <div class="accordion-content">
+                    <span class="panel-title"><strong>Bayesian Methods (Chair: Jian Kang)</strong></span>
+                    <span class="panelists">Speakers: Sharmistha Guha, Timothy Johnson, Tianwen Ma, Marina Vannucci</span>
+                </div>
+                <span class="icon">+</span>
+            </button>
+            <div class="panel">
+                <div class="video-card narrow-card">
+                    <div class="video">
+                        <iframe src="https://www.youtube.com/embed/xH2llMtijJI" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                        <div class="speaker-info">
+                            <p class="chair">Chair: <strong>Jian Kang</strong></p>
+                            <hr class="divider">
+                            <p class="talk-title"><strong>Talks and Speakers:</strong></p>
+                            <ul class="talk-list">
+                                <li>“Bayes in Neuroscience: Addressing Key Research Challenges with Single and Multi-Object Data,” <em>Sharmistha Guha</em> (Texas A&M University)</li>
+                                <li>“Challenges in Functional Near-Infrared Spectroscopy,” <em>Timothy Johnson</em> (University of Michigan)</li>
+                                <li>“Bayesian Methods in EEG-Based Brain-Computer Interfaces,” <em>Tianwen Ma</em> (Emory University)</li>
+                                <li>“Opportunities and Challenges in the Analysis of Event-Related Potentials,” <em>Marina Vannucci</em> (Rice University)</li>
+                            </ul>
+                        </div>
+                </div>
+            </div>
+
+            <button class="accordion">
+                <div class="accordion-content">
+                    <span class="panel-title"><strong>Panel: Population Neurosciences (Moderator: Chao Huang)</strong></span>
+                    <span class="panelists">Panelists: Tom Nichols, Li Shen, Dana Tudorascu, Wesley Thompson</span>
+                </div>
+                <span class="icon">+</span>
+            </button>
+            <div class="panel">
+                <div class="video-card narrow-card">
+                    <div class="video">
+                        <iframe src="https://www.youtube.com/embed/hrd_T005e7M" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                        <div class="speaker-info">
+                            <p class="chair">Chair: <strong>Chao Huang</strong></p>
+                            <hr class="divider">
+                            <p class="talk-title"><strong>Panelists:</strong></p>
+                            <ul class="talk-list">
+                                <li><em>Tom Nichols</em> (University of Oxford)</li>
+                                <li><em>Li Shen</em> (University of Pennsylvania)</li>
+                                <li><em>Dana Tudorascu</em> (University of Pittsburgh)</li>
+                                <li><em>Wesley Thompson</em> (Laureate Institute for Brain Research)</li>
+                            </ul>
+                        </div>
+                </div>
+            </div>
+
+
+            <button class="accordion">
+                <div class="accordion-content">
+                    <span class="panel-title"><strong>Plenary Talk: Analyzing and Modelling Spatio-temporal patterns</strong></span>
+                    <span class="panelists">Plenary Speaker: Jianfeng Feng (University of Warwick)</span>
+                </div>
+                <span class="icon">+</span>
+            </button>
+            <div class="panel">
+                <div class="video-card narrow-card">
+                    <div class="video">
+                        <iframe src="https://www.youtube.com/embed/nqS8iiAolvU" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <button class="accordion">
+                <div class="accordion-content">
+                    <span class="panel-title"><strong>Shape Analysis (Chair: Anju Srivastava)</strong></span>
+                    <span class="panelists">Speakers: Laurent Younes, L Mahadevan, Xavier Pennec, Anuj Srivastava</span>
+                </div>
+                <span class="icon">+</span>
+            </button>
+            <div class="panel">
+                <div class="video-card narrow-card">
+                    <div class="video">
+                        <iframe src="https://www.youtube.com/embed/PZo5KYODDHQ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                        <div class="speaker-info">
+                            <p class="chair">Chair: <strong>Anju Srivastava</strong></p>
+                            <hr class="divider">
+                            <p class="talk-title"><strong>Talks and Speakers:</strong></p>
+                            <ul class="talk-list">
+                                <li>“Atlas-to-Data Alignment of Spatially-Resolved Transcriptomics Data,” <em>Laurent Younes</em> (Johns Hopkins University)</li>
+                                <li>“Cortical Convolutions: Morphogenesis and Morphometry,” <em>L Mahadevan</em> (Harvard University)</li>
+                                <li>“Which Riemannian Metric for Statistics in Connectomics?,” <em>Xavier Pennec</em> (INRIA)</li>
+                                <li>“Statistical Shape Analysis of Complex Natural Structures,” <em>Anuj Srivastava</em> (Florida State University)</li>
+                            </ul>
+                        </div>
+                </div>
+            </div>
+
+            <button class="accordion">
+                <div class="accordion-content">
+                    <span class="panel-title"><strong>Structural Connectome (Chair: Zhengwu Zhang)</strong></span>
+                    <span class="panelists">Speakers: Maxime Descoteaux, Lauren O’Donnell, Tengfei Li, Zhengwu</span>
+                </div>
+                <span class="icon">+</span>
+            </button>
+            <div class="panel">
+                <div class="video-card narrow-card">
+                    <div class="video">
+                        <iframe src="https://www.youtube.com/embed/HFcfRAbHNFg" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                        <div class="speaker-info">
+                            <p class="chair">Chair: <strong>Zhengwu Zhang</strong></p>
+                            <hr class="divider">
+                            <p class="talk-title"><strong>Talks and Speakers:</strong></p>
+                            <ul class="talk-list">
+                                <li>“Challenges & Opportunities in Tractography: From Classical Techniques to Futuristic Machine Learning,” <em>Maxime Descoteaux</em> (Université de Sherbrooke)</li>
+                                <li>“Defining and Quantifying the Brain’s White Matter Bundles,” <em>Lauren O’Donnell</em> (Brigham and Women’s Hospital)</li>
+                                <li>“Connectome-Based Spatial Statistics Using a Function-Aware Structural Connectome Atlas,” <em>Tengfei Li</em> (University of North Carolina, Chapel Hill)</li>
+                                <li>“Continuous and Atlas-Free Analysis of Brain Structural Connectivity,” <em>Zhengwu Zhang</em> (University of North Carolina, Chapel Hill)</li>
+                            </ul>
+                        </div>
+                </div>
+            </div>
+
+            <button class="accordion">
+                <div class="accordion-content">
+                    <span class="panel-title"><strong>Causality Research (Chair: Hernando Ombao)</strong></span>
+                    <span class="panelists">Speakers: Sumanta Basu, Xi (Rossi) Luo, Hernando Ombao, Ali Shojaie</span>
+                </div>
+                <span class="icon">+</span>
+            </button>
+            <div class="panel">
+                <div class="video-card narrow-card">
+                    <div class="video">
+                        <iframe src="https://www.youtube.com/embed/SQfR5ET6V34" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                        <div class="speaker-info">
+                            <p class="chair">Chair: <strong>Hernando Ombao</strong></p>
+                            <hr class="divider">
+                            <p class="talk-title"><strong>Talks and Speakers:</strong></p>
+                            <ul class="talk-list">
+                                <li>“Graphical Modeling and Spectral Analysis: New Directions and Challenges,” <em>Sumanta Basu</em> (Cornell University)</li>
+                                <li>“Challenges in Causal Inference from fMRI: Time Series, Networks, Interpretation, and Assumptions,” <em>Xi (Rossi) Luo</em> (UTHealth Houston)</li>
+                                <li>“Modeling Dependence and Testing for Causality Via Spectral Entropy,” <em>Hernando Ombao</em> (KAUST)</li>
+                                <li>“Non-Stationarity in Brain Imaging Data: Challenges and Opportunities,” <em>Ali Shojaie</em> (University of Washington)</li>
+                            </ul>
+                        </div>
+                </div>
+            </div>
+
+            <!-- Example Accordion -->
+            <button class="accordion">
+                <div class="accordion-content">
+                    <span class="panel-title"><strong>Panel: Increasing Research Speed and Impact of Imaging Statistics (Chair: Hongtu Zhu)</strong></span>
+                    <span class="panelists">Panelists: Tom Nichols, Hernando Ombao, Anuj Srivastava, Michele Guindani</span>
+                </div>
+                <span class="icon">+</span>
+            </button>
+            <div class="panel">
+                <div class="video-card narrow-card">
+                    <div class="video">
+                        <iframe src="https://www.youtube.com/embed/VDAqZHLvOH8" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="speaker-info">
+                        <p class="chair">Chair: <strong>Hongtu Zhu</strong></p>
+                        <hr class="divider">
+                        <p class="talk-title"><strong>Panelists:</strong></p>
+                        <ul class="talk-list">
+                            <li><em>Tom Nichols</em> (University of Oxford)</li>
+                            <li><em>Hernando Ombao</em> (KAUST)</li>
+                            <li><em>Anuj Srivastava</em> (Florida State University)</li>
+                            <li><em>Michele Guindani</em> (UCLA)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <button class="accordion">
+                <div class="accordion-content">
+                    <span class="panel-title"><strong>Plenary Talk: Scalable Approaches to Modelling Longitudinal Neuroimaging Data</strong></span>
+                    <span class="panelists">Plenary Speaker: Thomas Nichols (University of Oxford)</span>
+                </div>
+                <span class="icon">+</span>
+            </button>
+            <div class="panel">
+                <div class="video-card narrow-card">
+                    <div class="video">
+                        <iframe src="https://www.youtube.com/embed/nhSU8a64nD4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <button class="accordion">
+                <div class="accordion-content">
+                    <span class="panel-title"><strong>Imaging Genetics (Chair: Hongtu Zhu)</strong></span>
+                    <span class="panelists">Talks and Speakers: Li Shen, Yuping Wang, Bingxin Zhao, Yize Zhao</span>
+                </div>
+                <span class="icon">+</span>
+            </button>
+            <div class="panel">
+                <div class="video-card narrow-card">
+                    <div class="video">
+                        <iframe src="https://www.youtube.com/embed/CHu2T629xnU" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="speaker-info">
+                        <p class="chair">Chair: <strong>Hongtu Zhu</strong></p>
+                        <hr class="divider">
+                        <p class="talk-title"><strong>Talks and Speakers:</strong></p>
+                        <ul class="talk-list">
+                            <li>“Enhancing Dementia Studies with AI and Informatics: Strategies for Mining Brain Imaging Genomics Data,” <em>Li Shen</em> (University of Pennsylvania)</li>
+                            <li>“Integrative analysis of multi-modal MRI and genomics data: from linear to deep collaborative learning,” <em>Yuping Wang</em> (Tulane University)</li>
+                            <li>“Multi-organ imaging-derived polygenic indexes,” <em>Bingxin Zhao</em> (University of Pennsylvania)</li>
+                            <li>“Heritability and Genetic Contribution Analysis of Structural-Functional Coupling in Human Brain,” <em>Yize Zhao</em> (Yale University)</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+            <button class="accordion">
+                <div class="accordion-content">
+                    <span class="panel-title"><strong>Population Neurosciences (Chair: Tom Nichols)</strong></span>
+                    <span class="panelists">Speakers: Jian Kang, Liza Levina, Wesley Thompson, Hongtu Zhu</span>
+                </div>
+                <span class="icon">+</span>
+            </button>
+            <div class="panel">
+                    <!-- Embedded video for session -->
+                    <div class="video-card narrow-card">
+                        <div class="video">
+                            <iframe src="https://www.youtube.com/embed/tSSUgsyIfos" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="speaker-info">
+                            <p class="chair">Chair: <strong>Tom Nichols</strong></p>
+                            <hr class="divider">
+                            <p class="talk-title"><strong>Talks and Speakers:</strong></p>
+                            <ul class="talk-list">
+                                <li>“Scalable Bayesian Image-on-Scalar Regression for Population-Scale Neuroimaging Data Analysis,” <em>Jian Kang</em> (University of Michigan)</li>
+                                <li>“Network-Aware Connectome Analysis,” <em>Liza Levina</em> (University of Michigan)</li>
+                                <li>“Annotation-Informed Variance Components Model for Whole-Brain Associations,” <em>Wesley Thompson</em> (Laureate Institute for Brain Research)</li>
+                                <li>“Neuroimaging Data Analysis in the Era of Data Science and AI,” <em>Hongtu Zhu</em> (University of North Carolina)</li>
+                            </ul>
+                        </div>
+
+                </div>
+            </div>
+
+            <button class="accordion">
+                <div class="accordion-content">
+                    <span class="panel-title"><strong>Panel: Brain Connectome (Chair: Yi Zhao)</strong></span>
+                    <span class="panelists">Panelists: Markus Axer, Shuo Chen, Moo Chung, Ivor Cribben, Maxime Descoteaux</span>
+                </div>
+                <span class="icon">+</span>
+            </button>
+            <div class="panel">
+                    <!-- Embedded video for session -->
+                    <div class="video-card narrow-card">
+                        <div class="video">
+                            <iframe src="https://www.youtube.com/embed/J_zV665wyOw" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="speaker-info">
+                            <p class="chair">Chair: <strong>Yi Zhao</strong></p>
+                            <hr class="divider">
+                            <p class="talk-title"><strong>Panelists:</strong></p>
+                            <ul class="talk-list">
+                                <li><em>Markus Axer</em> (Institute of Neurosciences and Medicine (INM-1), Research Centre Jülich)</li>
+                                <li><em>Shuo Chen</em> (University of Maryland)</li>
+                                <li><em>Moo Chung</em> (University of Wisconsin, Madison)</li>
+                                <li><em>Ivor Cribben</em> (University of Alberta)</li>
+                                <li><em>Maxime Descoteaux</em> (Université de Sherbrooke)</li>
+                            </ul>
+                        </div>
+
+                </div>
+            </div>
+
+
+
+        </div>
+
+        <div class="organizers-speakers">
+            <h2>Organizers</h2>
+            <ul>
+                <li>Jian Kang - University of Michigan</li>
+                <li>John Kornak - University of California, San Francisco</li>
+                <li>Nicole Lazar - Penn State University</li>
+                <li>Thomas Nichols - University of Oxford</li>
+                <li>Hernando Ombao - King Abdullah University of Science and Technology</li>
+                <li>Sean L. Simpson - Wake Forest University School of Medicine</li>
+                <li>Anuj Srivastava - Florida State University</li>
+                <li>Tingting Zhang - University of Pittsburgh</li>
+                <li>Hongtu Zhu - University of North Carolina at Chapel Hill</li>
+            </ul>
+
+            <h2>Speakers</h2>
+            <ul>
+                <li>Markus Axer - Institute of Neurosciences and Medicine (INM-1), Research Centre Jülich</li>
+                <li>Sumanta Basu - Cornell University</li>
+                <li>Maxime Descoteaux - Université de Sherbrooke</li>
+                <li>Ani Eloyan - Brown University</li>
+                <li>Jianfeng Feng - University of Warwick</li>
+                <li>Mark Fiecas - University of Minnesota</li>
+                <li>Tanya Garcia - University of North Carolina at Chapel Hill</li>
+                <li>Sharmistha Guha - Texas A&M University</li>
+                <li>Jaroslaw Harezlak - Indiana University Bloomington</li>
+                <li>Fei Jiang - University of California, San Francisco</li>
+                <li>Timothy Johnson - University of Michigan</li>
+                <li>Jian Kang - University of Michigan</li>
+                <li>Robert Kass - Carnegie Mellon University</li>
+                <li>Linglong Kong - University of Alberta</li>
+                <li>John Kornak - University of California, San Francisco</li>
+                <li>Liza Levina - University of Michigan</li>
+                <li>Lexin Li - University of California, Berkeley</li>
+                <li>Tengfei Li - University of North Carolina, Chapel Hill</li>
+                <li>Martin Lindquist - Johns Hopkins University</li>
+                <li>Xi (Rossi) Luo - UTHealth Houston</li>
+                <li>Tianwen Ma - Emory University</li>
+                <li>L Mahadevan - Harvard University</li>
+                <li>Amanda Mejia - Indiana University</li>
+                <li>Thomas Nichols - University of Oxford</li>
+                <li>Lauren O’Donnell - Brigham and Women’s Hospital</li>
+                <li>Hernando Ombao - KAUST</li>
+                <li>Hanchuan Peng - Institute for Brain and Intelligence</li>
+                <li>Xavier Pennec - INRIA</li>
+                <li>Daniel Rowe - Marquette University</li>
+                <li>Heather Shappell - Wake Forest University School of Medicine</li>
+                <li>Li Shen - University of Pennsylvania</li>
+                <li>Ali Shojaie - University of Washington</li>
+                <li>Hai Shu - New York University</li>
+                <li>Sean Simpson - Wake Forest University School of Medicine</li>
+                <li>Anuj Srivastava - Florida State University</li>
+                <li>Wesley Thompson - Laureate Institute for Brain Research</li>
+                <li>Duygu Tosun-Turgut - University of California, San Francisco</li>
+                <li>Dana Tudorascu - University of Pittsburgh</li>
+                <li>Marina Vannucci - Rice University</li>
+                <li>Yuping Wang - Tulane University</li>
+                <li>Carl Yang - Emory University</li>
+                <li>Laurent Younes - Johns Hopkins University</li>
+                <li>Tingting Zhang - University of Pittsburgh</li>
+                <li>Zhengwu Zhang - University of North Carolina, Chapel Hill</li>
+                <li>Bingxin Zhao - University of Pennsylvania</li>
+                <li>Yize Zhao - Yale University</li>
+                <li>Hongtu Zhu - University of North Carolina</li>
+            </ul>
+        </div>
+    </div>
+
+
+    <script>
+        // JavaScript for accordion functionality with rotating icon
+        var acc = document.getElementsByClassName("accordion");
+        for (var i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                panel.classList.toggle("show");
+
+                // Toggle between plus and minus for the icon
+                var icon = this.querySelector(".icon");
+                if (panel.classList.contains("show")) {
+                    icon.textContent = "-";
+                } else {
+                    icon.textContent = "+";
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>
