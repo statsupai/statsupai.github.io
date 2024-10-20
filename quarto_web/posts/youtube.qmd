@@ -1,0 +1,19 @@
+---
+title: "Neuroimaging Data Analysis Conference Showcase"
+image: figures/youtube.jpg
+author:
+  - name: "Shan Gao"
+  - affiliation: "Yunnan University"
+categories:
+  - Events
+  - Videos
+date: "2024-10-20"
+---
+<!-- JavaScript Redirect to the target URL -->
+<script>
+  window.location.href = "https://statsupai.org/pages/youtube_2.html";
+</script>
+
+The "Challenges in Neuroimaging Data Analysis" conference brought together leading experts in the field to discuss the latest advancements and address the complex challenges in analyzing neuroimaging data. From deep learning techniques to advanced statistical modeling, each session aimed to explore innovative methods and foster collaboration among researchers, clinicians, and data scientists. This webpage serves as a showcase of the conference's insightful talks, featuring session videos and detailed information about the presented topics.
+
+If you are not redirected, please click [here](https://statsupai.org/pages/youtube_2.html).
