@@ -1,0 +1,23 @@
+---
+title: "NIH Strategic Plan for Data Science"
+image: figures/nih_logo.jpg
+author:
+  - name: "Bangyao Zhao"
+  - affiliation: "University of Michigan"
+categories:
+  - Resources
+  - Opportunities
+date: "2024-11-02"
+---
+
+The National Institutes of Health (NIH) has developed a [Strategic Plan for Data Science](https://datascience.nih.gov/nih-strategic-plan-data-science), initially launched in 2018, to modernize and enhance NIH-funded biomedical data science. The plan aims to improve the storage, management, standardization, and accessibility of biomedical data, ensuring it supports accelerated scientific discovery and medical innovation.
+
+
+Key focus areas include:
+
+- **Findability and Interoperability**: Enhancing the discoverability and interconnectivity of NIH-funded data sets to support broader scientific use.
+- **Tool Integration**: Developing new data management tools and integrating existing ones to improve accessibility and efficiency.
+- **Algorithm and Tool Accessibility**: Transforming academic innovations into robust, user-friendly resources that meet industry standards.
+- **Cost Management**: Addressing the rising costs associated with data storage and management.
+
+The NIH invites ongoing community input to refine and implement the strategic goals. For more details, visit the [NIH Office of Data Science Strategy website](https://datascience.nih.gov/) or contact them directly at [datascience@nih.gov](mailto:datascience@nih.gov).

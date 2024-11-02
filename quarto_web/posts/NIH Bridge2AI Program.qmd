@@ -1,0 +1,23 @@
+---
+title: "NIH Bridge2AI Program: Advancing AI in Biomedical Research"
+image: figures/nih_logo.jpg
+author:
+  - name: "Bangyao Zhao"
+  - affiliation: "University of Michigan"
+categories:
+  - Resources
+  - Opportunities
+date: "2024-11-02"
+---
+
+The NIH Common Fund’s [Bridge to Artificial Intelligence (Bridge2AI)](https://commonfund.nih.gov/bridge2ai) program is accelerating biomedical research through the strategic integration of artificial intelligence (AI) to address complex biomedical challenges. Bridge2AI fosters collaboration between technological, biomedical, social science, and humanities experts to create data sets and tools that expand AI applications in biomedical research.
+
+Key objectives of Bridge2AI include:
+
+- **Data Generation**: Creating flagship biomedical and behavioral data sets that are ethically sourced, trustworthy, and accessible.
+- **Standardization**: Developing software and standards to unify data attributes across various data sources and types.
+- **Automated FAIR Data**: Building tools that enhance the creation of data sets that are Findable, Accessible, Interoperable, and Reusable (FAIR).
+- **Ethics and Best Practices**: Providing resources to ensure data transparency, ethical principles, and best practices.
+- **Workforce Development**: Offering training materials and activities that bridge AI, biomedical, and behavioral fields.
+
+This program offers numerous [funding opportunities](https://commonfund.nih.gov/bridge2ai/funding) for researchers interested in advancing AI applications in health science. For more information on current projects and collaborations, visit the Bridge2AI website or join the Bridge2AI community through the platform.
