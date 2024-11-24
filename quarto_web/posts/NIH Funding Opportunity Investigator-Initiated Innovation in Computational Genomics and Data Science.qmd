@@ -1,0 +1,58 @@
+---
+title: "NIH Funding Opportunity: Investigator-Initiated Innovation in Computational Genomics and Data Science"
+image: figures/nih_logo.jpg
+author:
+  - name: "Bangyao Zhao"
+  - affiliation: "University of Michigan"
+categories:
+  - Resources
+  - Opportunities
+date: "2024-11-24"
+---
+
+The National Institutes of Health (NIH) has announced a new funding opportunity, **PAR-25-228**, titled **"Investigator-Initiated Innovation in Computational Genomics and Data Science (R01 Clinical Trial Not Allowed)"**. This program is sponsored by the **National Human Genome Research Institute (NHGRI)** and the **National Library of Medicine (NLM)** and aims to support innovative research in computational genomics, bioinformatics, and data science.
+
+## Key Details
+
+- **Purpose**: This program supports the development of cutting-edge computational, statistical, and bioinformatics tools and methods that enable advances in genomics research with broad applicability to human health and disease.
+- **Funding Limits**: Up to **$500,000 in direct costs per year** for a maximum of 5 years.
+- **Submission Deadlines**:
+  - **First Due Date**: February 5, 2025
+  - Additional due dates occur semi-annually in February and June through September 8, 2027.
+
+## Goals of the Program
+
+The program seeks to:
+- Foster **highly innovative approaches** for analyzing, processing, and interpreting genomic data.
+- Support projects that focus on **scalability, accessibility**, and **interoperability** of tools for genomics research.
+- Advance methodologies such as:
+  - Tools for **visualizing large genomic datasets**.
+  - **AI/ML methods** for genomics, including generative AI and benchmarking.
+  - **Privacy-preserving technologies** for genomic data.
+  - **Federated learning models** for distributed data analysis.
+
+## Application Instructions
+
+Interested researchers must:
+- Follow the guidelines in the [NIH How to Apply - Application Guide](https://grants.nih.gov/grants/how-to-apply-application-guide.html).
+- Submit applications electronically via **Grants.gov**, **NIH ASSIST**, or institutional systems.
+- Include a detailed **resource-sharing plan** and comply with NIH’s **Data Management and Sharing Policy**.
+
+### Ineligible Projects
+Applications focused on the following will **not** be reviewed:
+- Microbial genomics or microbiome research.
+- Maintenance or expansion of existing genomic resources.
+- Projects with a narrow focus on specific diseases or systems.
+
+## Contact Information
+
+- **Scientific Contacts**:
+  - NHGRI: Dr. Jean Gao, email: [jean.gao@nih.gov](mailto:jean.gao@nih.gov)
+  - NLM: Dr. Catherine Farrell, email: [catherine.farrell@nih.gov](mailto:catherine.farrell@nih.gov)
+- **Grants Management Contacts**:
+  - NHGRI: Natalie Linear, email: [natalie.linear@nih.gov](mailto:natalie.linear@nih.gov)
+  - NLM: Andrea Culhane, email: [andrea.culhane@nih.gov](mailto:andrea.culhane@nih.gov)
+
+## Learn More
+
+For additional details, please visit the official [NIH PAR-25-228 page](https://grants.nih.gov/grants/guide/pa-files/PAR-25-228.html).
