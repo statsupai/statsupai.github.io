@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interview with Award Winner Dr.Weijie Su for the Interface of Statistics and Al</title>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://statsupai.com/pages/S2_interview_award.html">
+    <meta property="og:title" content="Interview with Dr.Weijie Su">
+    <meta property="og:description" content="Interview with Award Winners for the Interface of Statistics and Al">
+    <meta property="og:image" content="s2_award.jpg">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            line-height: 1.6;
+        }
+
+        .header-image {
+            width: 100%; /* 设置宽度为文本宽度的 80% */
+            max-width: 1400px; /* 设置图片的最大宽度，与文本区域匹配 */
+            height: auto; /* 确保图片比例不失真 */
+            display: block; /* 使图片成为块级元素 */
+            margin: 20px auto; /* 居中对齐，增加上下间距 */
+            border-radius: 8px; /* 圆角处理，增加柔和感 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 轻微阴影，减轻视觉重量 */
+            border: 3px solid #ddd; /* 边框颜色与页面风格统一 */
+        }
+
+        .interview {
+            margin: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .answer-section {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #ccc;
+        }
+
+        .question-title {
+            font-size: 1.2rem;
+            color: #003366;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .answer-paragraph {
+            margin-bottom: 15px;
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+            line-height: 1.8;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .answer-paragraph:last-child {
+            margin-bottom: 0;
+        }
+
+        .edit-info {
+            color: #808080;
+            font-size: 15px;
+            text-align: right;
+            padding: 20px 0;
+            margin-top: 20px;
+            border-top: 1px solid #ccc;
+        }
+
+        .article-link {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .article-link p {
+            margin: 0;
+            color: #003366;
+            font-weight: bold;
+        }
+
+        .article-link a {
+            display: inline-block;
+            background-color: #003366;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 18px;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .article-link a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <img class="header-image" src="s2_award.jpg" alt="Interview Image">
+        
+        <div class="interview">
+            <div class="answer-section">
+                <p class="question-title">1. How did you first get into AI and start working at the intersection of statistics and AI?</p>
+                <div class="answer-paragraph">
+                    Thank you for the opportunity to share my experience! My PhD training was in high-dimensional statistics and multiple hypothesis testing. However, I started regularly hearing people talk about AI around 2016. At that time, AI mostly referred to multilayer neural networks—very effective, yes, but not exactly what I’d call intelligent. It felt more like a buzzword that companies used, often for marketing purposes.
+                </div>
+                <div class="answer-paragraph">
+                    But everything changed in 2017 with the introduction of Transformer. Suddenly, breakthroughs that had seemed years away were happening—AlphaFold, ChatGPT, and many more. I decided to shift my research focus to AI after playing with ChatGPT in early December 2022. I had this strong instinct that a revolution was beginning. To my delight, my students were even more excited about large language models than I was! Together, we dove into this new direction, approaching it from a statistical perspective.
+                </div>
+                <div class="answer-paragraph">
+                    After nearly two years of working on LLMs, I’m continually amazed at how powerful statistical techniques and insights are in AI research. LLMs and the Transformer architecture are massive and full of complex engineering details. But the beauty of statistics is that we can treat these systems like black boxes and study their probabilistic behavior without needing to untangle the engineering complexities.
+                </div>
+            </div>
+            
+            <div class="answer-section">
+                <p class="question-title">2. What statistical methods from your research are most applicable to AI?</p>
+                <div class="answer-paragraph">
+                    My group has been working on LLMs in several directions. One area we’ve been exploring is watermarking for AI-generated content. For example, imagine encountering a piece of text, such as an article or a message, and wondering whether it was written by a human or generated by ChatGPT. Detecting AI-generated text is a critical challenge with wide-ranging applications, from education to combating misinformation. Tech giants like OpenAI and Google DeepMind have been working on watermarking schemes, and DeepMind recently published a Nature paper on their new watermarking method. My group recently developed a statistical framework for watermark detection through the lens of hypothesis testing. By leveraging classical statistical ideas like pivots and robustness, we’ve obtained detection methods that are both efficient and robust.
+                </div>
+                <div class="answer-paragraph">
+                    Another area of our research is addressing fairness challenges in LLM alignment. As LLMs increasingly influence decision-making processes, it is important to ensure that their outputs align with human preferences between, for example, an apple and an orange. However, our recent work reveals that the current training paradigm for LLMs is inherently biased, and we developed a new method that eliminates this bias without adding any computational overhead. Once again, this solution draws heavily on statistical techniques, particularly regularization.
+                </div>
+                <div class="answer-paragraph">
+                    Beyond these applications, my group has also been tackling copyright and privacy challenges associated with generative AI.
+                </div>
+                <div class="answer-paragraph">
+                    While not directly tied to AI, another area of focus for my group has been improving the peer review process for AI/ML conferences. Over the past two years, we’ve experimented at ICML with a new method for estimating review scores for AI/ML conferences. While this isn't directly applicable to AI, it helps create a better academic environment for AI research.
+                </div>
+            </div>
+            
+            
+            <div class="answer-section">
+                <p class="question-title">3. What aspects of AI do you think statistics can advance?</p>
+                <div class="answer-paragraph">
+                    Statistics has a tremendous role to play in advancing AI, particularly because generative AI systems like LLMs are inherently probabilistic in nature. Unlike earlier neural networks, which were often deterministic, LLMs generate outputs that are random and probabilistic. This makes them a natural fit for statistical tools and reasoning.
+                </div>
+                <div class="answer-paragraph">
+                    One area where statistics can really help advance is watermarking for LLMs. With the Biden administration’s executive order requiring tech companies to watermark AI-generated content, there’s a real need for robust, provable methods to identify AI-generated outputs. Statistics is great for this because it provides the tools to build efficient and reliable detection systems that can help protect users from fraud and misinformation. Uncertainty quantification is another vital area. LLM outputs are inherently random and often miscalibrated, sometimes being overconfident. This is where statisticians can really make a difference. We're also seeing statistics prove invaluable in LLM alignment, especially regarding distributional properties like fairness, bias, and privacy.
+                </div>
+            </div>
+            
+            <div class="answer-section">
+                <p class="question-title">4. What can our community do to get more involved in this AI wave?</p>
+                <div class="answer-paragraph">
+                    This year, I’ve seen so many exciting initiatives in the statistics community that promote AI research. For example, earlier this year, there was a fireside chat on the intersection of statistics and AI. I hope we’ll see more events like this in the future.
+                </div>
+                <div class="answer-paragraph">
+                    Special issues in journals can also inspire statisticians to contribute more to AI. It’s great to see JASA launching a special issue on this topic. I’m also guest-editing a special issue on statistics and LLMs at Stat (please submit your work to us. Thanks!).
+                </div>
+                <div class="answer-paragraph">
+                    We should also modernize statistical education by integrating more AI elements. I had the privilege of teaching a short course on LLMs with colleagues at JSM this year. I’m very encouraged based on the feedback we got, and while it took a lot of time to prepare, it was incredibly rewarding. I plan to offer it again at ENAR and through ASA’s traveling course program.
+                </div>
+                <div class="answer-paragraph">
+                    Looking at the bigger picture, I think we should consider establishing our own AI/ML conference with proceedings. It's not only about the quick turnaround of conference review processes, it's more about accommodating how AI research advances. Many AI advances are enabled first by individual and preliminary findings, which can be challenging to publish in statistics journals, instead of well-established frameworks or comprehensive sets of results. While publishing in ICML and NeurIPS has become very common among young statisticians, these contributions could be easily perceived by the public as CS contributions since these conferences are considered CS venues, even when statisticians produce the results. This has been my own experience as well. Having our own conference with proceedings would help us claim a stronger voice in the AI era.
+                </div>
+            </div>
+        </div>
+        
+        <div class="edit-info">
+            Edited by: Shan Gao<br>
+            Proofread by: Hongtu Zhu
+        </div>
+        
+<div style="display: flex; align-items: center; color: #8E8E8E; font-size: 13px; font-family: Arial, sans-serif;">Page Views: <div class="statcounter" style="margin-left: 10px;"> <!-- Add this line for styling -->
+        <!-- Default Statcounter code for Interview_peiwang1
+        https://statsupai.com/pages/interview_weipeng.html -->
+        <script type="text/javascript">
+        var sc_project=12973370;
+        var sc_invisible=0;
+        var sc_security="a715d5f2";
+        var scJsHost = "https://";
+        document.write("<sc"+"ript type='text/javascript' src='" +
+        scJsHost+
+        "statcounter.com/counter/counter.js'></"+"script>");
+        </script>
+        <noscript><div class="statcounter"><a title="Web Analytics"
+        href="https://statcounter.com/" target="_blank"><img
+        class="statcounter"
+        src="https://c.statcounter.com/12973370/0/a715d5f2/0/"
+        alt="Web Analytics"
+        referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+        <!-- End of Statcounter Code -->
+</body>
+</html>
