@@ -1,0 +1,304 @@
+---
+title: "Mapping the Proteome-Phenome Atlas: A New Frontier in Precision Medicine"
+image: figures/S11_1.jpg
+author:
+  - name: "Shan Gao"
+  - affiliation: "Yunnan University"
+categories:
+  - Interviews
+date: "2024-12-09"
+---
+
+```{=html}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapping the Proteome-Phenome Atlas: A New Frontier in Precision Medicine</title>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://statsupai.com/pages/S11.html">
+    <meta property="og:title" content="Mapping the Proteome-Phenome Atlas: A New Frontier in Precision Medicine">
+    <meta property="og:description" content="A large-scale proteomics study involving 53,026 individuals maps 2,920 plasma proteins to 406 prevalent diseases, 660 incident diseases, and 986 health-related traits, identifying promising biomarkers for disease discrimination and potential therapeutic targets and paving the way for precision medicine.">
+    <meta property="og:image" content="figures/S11_1.jpg">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            line-height: 1.6;
+        }
+        .interviewee-introduction {
+            display: flex;
+            align-items: center;
+            background-color: #f8f8f8; /* 轻灰色背景 */
+            border-radius: 8px; /* 边角圆润 */
+            padding: 20px;
+            margin-bottom: 20px; /* 和问答部分保持一定距离 */
+        }
+
+        .interviewee-photo {
+            width: 150px; /* 根据需要调整 */
+            height: 150px; /* 根据需要调整 */
+            border-radius: 50%; /* 创建圆形图片 */
+            object-fit: cover; /* 确保图片内容适应尺寸 */
+            margin-right: 20px;
+        }
+
+        .interviewee-details h2 {
+            margin-top: 0;
+            color: #082653; /* 深蓝色，你可以根据网站主题更改 */
+        }
+
+        .interviewee-details p {
+            color: #333; /* 深灰色文本 */
+            line-height: 1.6; /* 增加行距 */
+        }
+
+        .header-image {
+            width: 100%; /* 设置宽度为文本宽度的 80% */
+            max-width: 1400px; /* 设置图片的最大宽度，与文本区域匹配 */
+            height: auto; /* 确保图片比例不失真 */
+            display: block; /* 使图片成为块级元素 */
+            margin: 20px auto; /* 居中对齐，增加上下间距 */
+            border-radius: 8px; /* 圆角处理，增加柔和感 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 轻微阴影，减轻视觉重量 */
+            border: 3px solid #ddd; /* 边框颜色与页面风格统一 */
+        }
+        .inline-image {
+            width: 85%; /* 设置宽度为容器宽度的一半，可根据需要调整 */
+            max-width: 600px; /* 限制图片最大宽度 */
+            height: auto; /* 保持图片比例 */
+            display: block; /* 将图片作为块级元素显示 */
+            margin: 10px auto; /* 居中对齐，增加间距 */
+            border-radius: 4px; /* 圆角处理 */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 添加轻微阴影 */
+            border: 2px solid #ccc; /* 边框颜色柔和，与文字风格一致 */
+        }
+
+        .interview {
+            margin: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .answer-section {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #ccc;
+        }
+
+        .question-title {
+            font-size: 1.2rem;
+            color: #003366;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .answer-paragraph {
+            margin-bottom: 15px;
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+            line-height: 1.8;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .answer-paragraph:last-child {
+            margin-bottom: 0;
+        }
+
+        .edit-info {
+            color: #808080;
+            font-size: 15px;
+            text-align: right;
+            padding: 20px 0;
+            margin-top: 20px;
+            border-top: 1px solid #ccc;
+        }
+
+        .article-link {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .article-link p {
+            margin: 0;
+            color: #003366;
+            font-weight: bold;
+        }
+
+        .article-link a {
+            display: inline-block;
+            background-color: #003366;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 18px;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .article-link a:hover {
+            background-color: #0056b3;
+        }
+        
+        .text-image-container {
+            display: flex;
+            align-items: flex-start; /* 对齐方式 */
+            gap: 20px; /* 设置文字和图片之间的间距 */
+            margin: 20px 0; /* 增加上下间距 */
+        }
+
+        .text-content {
+            flex: 1; /* 占用容器的一部分，自动调整宽度 */
+        }
+
+        .image-content {
+            flex: 0 0 40%; /* 固定图片宽度占40%，可以根据需要调整 */
+            max-width: 400px; /* 限制图片最大宽度 */
+        }
+
+        .image-content img {
+            width: 100%; /* 图片宽度自适应 */
+            height: auto; /* 保持图片比例 */
+            border-radius: 8px; /* 圆角 */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 添加阴影 */
+            border: 2px solid #ccc; /* 边框 */
+        }
+    </style>
+</head>
+<body>
+    <img class="header-image" src="figures/S11_1.jpg" alt="Interview Image">
+    <div class="article-link">
+        <p>The Article Link:</p><a href="https://www.cell.com/cell/fulltext/S0092-8674(24)01268-6" target="_blank">Atlas of the plasma proteome in health and disease in 53,026 adults</a>
+    </div>
+    <div class="interviewee-introduction">
+    <img src="figures/Jianfeng_Feng.jpg" alt="Interviewee Name" class="interviewee-photo">
+    <div class="interviewee-details">
+        <h2>Dr. Jianfeng Feng</h2>
+        <p>Dr. Jianfeng Feng is the chair professor of Shanghai National Centre for Mathematic Sciences, the Dean of Brain-inspired AI Institute in Fudan University, and the dean of the School of Data Science. He has made considerable contributions on developing brain-inspired AI algorithms and applying them to tackle challenges raised in neuroscience and mental health with many publications in Cell, Nature Medicine, Nature Human Behaviour, Nature Aging, Nature Mental Health etc. He led a team to implement for the first time in the world the digital twin brain which has 86B neurons and 100T parameters. He was awarded the 2023 Humboldt Research Award, prestigious Royal Society Wolfson Research Merit Award, and invited to deliver 2019 Paykel Lecture at the Cambridge University.
+        </p>
+        </div>
+    </div>
+    
+    <div class="interviewee-introduction">
+    <img src="figures/Jintai_Yu.jpg" alt="Interviewee Name" class="interviewee-photo">
+    <div class="interviewee-details">
+        <h2>Dr. Jintai Yu</h2>
+        <p>Dr. Jintai Yu is the Deputy Head of Department of Neurology in Huashan Hospital and the Vice Director of the Institute of Neurology, WHO Collaborating Center for Research and Training in Neurosciences, Fudan University, Shanghai, China. He also directs the Memory Disorders Subspecialty, National Center for Neurological Disorders in China, Huashan Hospital. Currently, he is focusing on basic and clinical research for Alzheimer’s disease and related dementia, and is the PI of several national grants on dementia, including Science and Technology Innovation 2030 Major Projects and National Natural Science Foundation of China. His research interests focus on the prevention, diagnosis, and treatment of AD, with the aim of applying research findings to clinical practice.
+        </p>
+        </div>
+    </div>
+        
+        <div class="interview">
+            <div class="answer-section">
+                <p class="question-title">1. Regarding the research background and significance, does this work discover new knowledge or solve existing problems within the field? Please elaborate in detail.</p>
+                <div class="answer-paragraph">
+                    Large-scale proteomic studies can refine the understanding of health and disease. Nevertheless, most current proteomic studies have only focused on limited disease outcomes. The lack of a comprehensive human proteome-phenome atlas raises many questions. For example, are the associated proteins specific or shared among diseases and health-related traits, and can those proteomic profiles facilitate biological classification of human diseases? How do those plasma proteins contribute to minimally invasive assessment and tracking of hundreds of diseases? Are those associated proteins causally related to diseases, and do those causal proteins hold the potential to be therapeutic targets?
+
+                </div>
+                <div class="answer-paragraph">
+                    This work present a comprehensive atlas of proteome-phenome associations (<a href="https://proteome-phenome-atlas.com/" target="_blank">https://proteome-phenome-atlas.com/</a>) by systematically mapping 2,920 plasma proteins to the presence and onset of 720 diseases and 986 health-related traits in 53,026 individuals. This atlas provides insights into shared and characteristic biological mechanisms among diseases. The proteomic profiles, coupled with machine learning, identify useful biomarkers and prediction models for multiple health conditions simultaneously. Through integrating protein quantitative trait locus (pQTL) data, this work also illustrates the use of the atlas for causal protein discovery and further drug target prioritization. The proteome-phenome atlas furnishes an extensive resource supporting future research in screening, diagnosis, and treatment of human diseases and advancing precision medicine.
+                    <img class="inline-image" src="figures/S11_0.jpg" alt="Interview Image">
+                </div>
+            </div>
+            <div class="answer-section">
+                <p class="question-title">2. How did the reviewers evaluate (praise) it?</p>
+                <div class="answer-paragraph">
+                    Reviewers found this a comprehensive resource that holds promise for advancing precision medicine research. This paper presents an impressive amount of data that is of huge value for the scientific community. A particular strength of this study is the integration with pQTL and diseases genome-wide association analysis (GWAS) data to perform proteome-by-phenome Mendelian randomization. This provides insights into proteins causally linked to disease, which is critically important to develop treatments.
+                </div>
+            </div>
+            
+            
+            <div class="answer-section">
+                <p class="question-title">3. If this achievement has potential applications, what are some specific applications it might have in a few years?</p>
+                <div class="answer-paragraph">
+                    This work provides an open-access proteome-phenome resource (https://proteome-phenome-atlas.com/) revealing 168,100 protein-disease associations and 554,488 protein-trait associations. Moving forward, the research community will benefit from this comprehensive human proteome-phenome atlas to elucidate the biological mechanisms of diseases and accelerate the development of disease biomarkers.
+                </div>
+                <div class="answer-paragraph">
+                    Integrating pQTL with diseases GWAS data, this work determines 474 potential causal protein-disease pairs using proteome-by-phenome Mendelian randomization, providing 37 drug repurposing opportunities and prioritizing 26 novel targets with favorable safety profiles. These findings may provide directive significance for drug repositioning and future drug development.
+                </div>
+            </div>
+            
+            <div class="answer-section">
+                <p class="question-title">4. Can you recount the specific steps or stages from setting the research topic to the successful completion of the research?</p>
+                <div class="answer-paragraph">
+                    The initial attempt is our previous work, a proteomics study on Alzheimer’s disease (AD), that identified valuable potential biomarkers for risk prediction (DOI: 10.1038/s43587-023-00565-0). This encouraged us to explore the value of proteins for human health. We further conducted literature review and found existing gaps and societal needs, particularly regarding whether the identified proteins are AD-specific or shared across other diseases, and whether these proteins could serve as potential biomarkers or therapeutic targets in broader contexts. This led to the formation of our research topic: creating a comprehensive protein atlas for diseases and health-related traits, to answer the research questions (as detailed in Q1).
+                </div>
+                <div class="answer-paragraph">
+                    Next, we defined the phenotypes and population. In order to accurately define the diseases, we used ICD-10 codes and conducted rigorous quality control. Considering that protein alterations could occur before or after disease onset, we treated diseases as both prevalent and incident. Health-related traits were also incorporated as critical disease indicators. Then, with our research design in place, we leveraged the expertise of our interdisciplinary team to select the optimal algorithms. We then conducted the analysis, followed by writing and peer review, culminating in the successful completion of the project.
+                </div>
+            </div>
+            
+            <div class="answer-section">
+                <p class="question-title">5. Were there any memorable events during the research? You can tell a story about anything related to people, events, or objects.</p>
+                <div class="answer-paragraph">
+                    When reflecting on memorable events during the research, one particular moment stands out. As we were clustering the 660 diseases into 40 clusters, we found that the diseases from different chapters were gathered around, some of which were diseases with shared etiology. It was one of those moments where the potential implications of our work became much more exciting. Everyone, from data scientists to clinical researchers, began contributing ideas on how to further interpret these disease clusters. After the conversation, we conducted further investigation on the characteristic pathways and the comorbity status, which helped us to refine our research questions and expand the scope of the project. We archieved a real collaboration where the collective expertise of the team came together to push the boundaries of our initial vision. It was a reminder that research is not just about data—it’s about the ideas and interactions that propel us forward.
+                </div>
+            </div>
+            
+            <div class="answer-section">
+                <p class="question-title">6.  Is there a follow-up plan based on this research? If so, please elaborate.</p>
+                <div class="answer-paragraph">
+                    Yes, there is a clear follow-up plan based on the findings. First, we plan to validate the protein biomarkers in clinical practice, with a particular focus on minimal-invasive approaches like blood-based biomarkers. Furthermore, we are considering collaborations with pharmaceutical companies to explore the therapeutic potential of the identified proteins, particularly those that show promise as druggable targets.
+                </div>
+            </div>
+            
+            <div class="answer-section">
+                <p class="question-title">7. Without a doubt, AI is one of the hot topics of 2024, requiring extensive data support in its development. What assistance can biostatistics offer to the development of AI?</p>
+                <div class="answer-paragraph">
+                    AI is largely grounded in data-driven algorithms and applications, whereas biostatistics delves deeper into theoretical frameworks. Biostatistics offers invaluable methodologies to derive meaningful and persuasive solutions tailored to the unique datasets encountered in research, while AI presents a more straightforward approach to addressing complex queries. In my point, statisticians should try to jump out of their traditional boundaries and embrace the realm of various big data, and AI developers should pay more attention on mathematical foundations. In the age of big data, no data scientist should overlook the fundamental challenges inherent in the data itself.
+                </div>
+            </div>
+            
+            <div class="answer-section">
+                <p class="question-title">8. Besides the above questions, is there anything else about this achievement that you would like to add? If so, please add it below.</p>
+                <div class="answer-paragraph">
+                    Another key takeaway from this work is the validation of the hypothesis that omics data, when combined with advanced AI models, can significantly enhance disease diagnosis, risk prediction, and therapeutic development. The ability to integrate omics data such as genomic, proteomic, metabolmic, and clinical data into cohesive models will further facilitate precision medicine.
+                </div>
+            </div>
+            
+        </div>
+        
+        <div class="edit-info">
+            Edited by: Shan Gao<br>
+            Proofread by: Hongtu Zhu
+        </div>
+        
+<div style="display: flex; align-items: center; color: #8E8E8E; font-size: 13px; font-family: Arial, sans-serif;">Page Views: <div class="statcounter" style="margin-left: 10px;"> <!-- Add this line for styling -->
+<!-- Default Statcounter code for s11
+https://statsupai.org/quarto_web/site/posts/S10_interview.html
+-->
+<script type="text/javascript">
+var sc_project=13068110; 
+var sc_invisible=0; 
+var sc_security="a70f159f"; 
+var scJsHost = "https://";
+document.write("<sc"+"ript type='text/javascript' src='" +
+scJsHost+
+"statcounter.com/counter/counter.js'></"+"script>");
+</script>
+<noscript><div class="statcounter"><a title="Web Analytics"
+href="https://statcounter.com/" target="_blank"><img
+class="statcounter"
+src="https://c.statcounter.com/13068110/0/a70f159f/0/"
+alt="Web Analytics"
+referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+<!-- End of Statcounter Code -->
+</body>
+</html>
+
+</html>
+```
