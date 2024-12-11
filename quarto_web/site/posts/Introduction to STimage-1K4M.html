@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2024-12-10">
+
+<title>Introduction to STimage-1K4M: A Histopathology Image-gene Expression Dataset for Spatial Transcriptomics</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+
+<div id="quarto-search-results"></div>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Introduction to STimage-1K4M: A Histopathology Image-gene Expression Dataset for Spatial Transcriptomics</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Resources</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 10, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<p><img src="figures/sTimage/image5.png" class="img-fluid"></p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">English</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">中文</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>Recent advances in multi-modal algorithms have driven and been driven by the increasing availability of large matched image-text datasets, leading to significant strides in various fields, including computational pathology. Histopathology plays a crucial role in medical diagnostics. Recent efforts to collect and annotate histopathology slides have opened up new opportunities for multi-modal algorithms, with annotations varying from simple single labels, such as cell/nuclei types in PanNuke (Gamper et al., 2019) to more complex natural language descriptions derived from social media sources such as Twitter or YouTube, as seen in datasets such as OpenPath (Huang et al., 2023) and Quilt-1M (Ikezogwo et al., 2024). Despite the advancement in histopathology annotation, histopathology slides remain complex and contain a wealth of information that can be challenging to encapsulate in a limited amount of text (Radford et al., 2021; Chen and Zou, 2023). These large tissue slides often feature diverse tissue structures, making it difficult to accurately describe all aspects within a confined-length text.</p>
+<p>To address this need, we highlight spatial transcriptomics (ST) (Ståhl et al., 2016; Moses and Pachter, 2022), a technology that measures gene expression while preserving spatial information within the tissue. A key advantage of ST is its ability to provide both high-resolution histopathology images and detailed whole-transcriptome data for each spatial coordinate within a large tissue slide (Ståhl et al., 2016). This makes ST a perfect source for paired medical image and text datasets, offering a richer, more accurate annotation that addresses the limitations of over-simplified textual descriptions that typically focus solely on broad categories like cancer or non-cancer regions. By providing high-dimensional annotations for each sub-tile, ST enables a more comprehensive understanding of tissue granularity, facilitating various studies including cell-cell communication, tissue architecture, disease diagnosis, and progression (Ståhl et al., 2016; Tian et al., 2023).</p>
+<p>The rise of ST and spatial omics data has spurred the development of various datasets that focus on transcriptomics or other omics data in tissue samples. Notable databases include SpatialDB (Fan et al., 2020), STOmicsDB (Xu et al., 2022), SPASCER (Fan et al., 2023), SODB (Yuan et al., 2023), Aquila (Zheng et al., 2023), Museum of Spatial Transcriptomics (Moses and Pachter, 2022), SORC Zhou et al.&nbsp;(2024), and SOAR (Li et al., 2022). These datasets focus primarily on gene expression data, providing researchers with a wealth of information about the spatial distribution of gene expression in tissue samples. However, there is currently a lack of datasets that provide paired image and gene expression data, which is crucial for bridging the gap between visual information and underlying transcriptomic profiles. Here, we introduce STimage-1K4M (<em>NeurIPS 2024</em>), a groundbreaking dataset specifically designed to enhance the integration between histopathology and gene expression using spatial transcriptomics (ST). There are over <strong>10,000 downloads</strong> as of Dec 7, 2024.</p>
+<section id="stimage-1k4m-composition" class="level2">
+<h2 class="anchored" data-anchor-id="stimage-1k4m-composition">STimage-1K4M Composition</h2>
+<p><img src="figures/sTimage/image2.png" class="img-fluid"></p>
+<p>STimage-1K4M is a meticulously curated collection of 1,149 histopathology images, derived from spatial transcriptomics data. Each image could be divided into smaller sub-tiles (commonly referred to as spots), each paired with high-dimensional gene expression data ranging from 15,000 to 30,000 dimensions. With over 4 million pairs of sub-tile images and gene expressions, STimage-1K4M offers unprecedented granularity, paving the way for a wide range of advanced research in multi-modal data analysis and innovative applications in computational pathology and beyond.</p>
+<p><img src="figures/sTimage/image6.png" class="img-fluid"></p>
+<p>STimage-1K4M is built on data from three leading ST technologies: Spatial Transcriptomics (Ståhl et al., 2016), Visium, and VisiumHD (10x Genomics). These technologies capture gene expression at various resolutions, with VisiumHD offering the highest, down to an 8µm x 8µm bin structure. The dataset spans 10 species and includes 50 distinct tissue types, with a significant portion focusing on brain and breast tissues. Additionally, STimage-1K4M includes pathologist annotations for 71 slides, further enriching the dataset by providing “ground truth” labels for spatial domain detection and clustering tasks. Moreover, the dataset includes textual information such as study titles, abstracts, and relevant keywords for each study, further enhancing its utility for comprehensive research.</p>
+<p><img src="figures/sTimage/image4.png" class="img-fluid"></p>
+</section>
+<section id="applications-and-impact" class="level2">
+<h2 class="anchored" data-anchor-id="applications-and-impact">Applications and Impact</h2>
+<p>STimage-1K4M is poised to revolutionize computational pathology and beyond. By offering a rich, multi-modal dataset, it supports a wide range of tasks, including gene expression prediction, resolution enhancement, spatial clustering, and deconvolution. These capabilities are particularly valuable for researchers aiming to develop new diagnostic tools or explore cellular heterogeneity of tissues in unprecedented detail.</p>
+<p><img src="figures/sTimage/image1.png" class="img-fluid"></p>
+<p>STimage-1K4M’s extensive collection of image-gene expression pairs also makes it an invaluable resource for training and fine-tuning advanced multi-modal models. For instance, preliminary experiments using STimage-1K4M have demonstrated significant improvements in model performance when integrating pathology images with gene expressions, underscoring the dataset’s potential to drive future advancements in the field.</p>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>STimage-1K4M represents a significant leap forward in the field of computational pathology. By bridging the gap between histopathology images and detailed genomic data, it opens up new avenues for research and innovation.</p>
+<p>STimage-1K4M is now publicly accessible on Hugging Face at <a href="https://huggingface.co/datasets/jiawennnn/STimage-1K4M" class="uri">https://huggingface.co/datasets/jiawennnn/STimage-1K4M</a>. Additionally, you can request access to our FTP server via our GitHub repository <a href="https://github.com/JiawenChenn/STimage-1K4M" class="uri">https://github.com/JiawenChenn/STimage-1K4M</a>. For researchers interested in utilizing our dataset, our website (<a href="https://jiawenchenn.github.io/STimage-1K4M/docs/00_about" class="uri">https://jiawenchenn.github.io/STimage-1K4M/docs/00_about</a>) provides several supporting resources, including a pipeline for converting our data into the commonly used AnnData format, processing steps, downstream analysis guidelines, and instructions on how to fine-tune large vision models using our data. For more detailed information about the dataset and experiments, you can refer to our manuscript available <a href="https://openreview.net/pdf?id=iTyOWtcCU2">here</a>.</p>
+<p><img src="figures/sTimage/image3.png" class="img-fluid"></p>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<ul>
+<li>Chen, Y. T. and J. Zou (2023). Genept: A simple but hard-to-beat foundation model for genes and cells built from ChatGPT. <em>bioRxiv.</em></li>
+<li>Fan, Z., R. Chen, and X. Chen (2020). Spatialdb: a database for spatially resolved transcriptomes. <em>Nucleic acids research 48</em>(D1), D233–D237.</li>
+<li>Fan, Z., Y. Luo, H. Lu, et al.&nbsp;(2023). Spascer: spatial transcriptomics annotation at single-cell resolution. <em>Nucleic Acids Research 51</em>(D1), D1138–D1149.</li>
+<li>Gamper, J., et al.&nbsp;(2019). Pannuke: an open pan-cancer histology dataset for nuclei instance segmentation and classification. <em>In Digital Pathology.</em> Springer.</li>
+<li>Moses, L., &amp; Pachter, L. (2022). Museum of spatial transcriptomics. <em>Nature Methods 19</em>(5), 534–546.</li>
+<li>Radford, A., et al.&nbsp;(2021). Learning transferable visual models from natural language supervision. <em>In ICML.</em></li>
+<li>Ståhl, P. L., et al.&nbsp;(2016). Visualization and analysis of gene expression in tissue sections by spatial transcriptomics. <em>Science 353</em>(6294), 78–82.</li>
+<li>Tian, L., et al.&nbsp;(2023). The expanding vistas of spatial transcriptomics. <em>Nature Biotechnology 41</em>(6), 773–782.</li>
+<li>Xu, Z., et al.&nbsp;(2022). Stomicsdb: a database of spatial transcriptomic data. <em>bioRxiv.</em></li>
+<li>Yuan, Z., et al.&nbsp;(2023). Sodb facilitates comprehensive exploration of spatial omics data. <em>Nature Methods 20</em>(3), 387–399.</li>
+<li>Zheng, Y., et al.&nbsp;(2023). Aquila: a spatial omics database and analysis platform. <em>Nucleic Acids Research 51</em>(D1), D827–D834.</li>
+<li>Zhou, W., et al.&nbsp;(2024). Sorc: an integrated spatial omics resource in cancer. <em>Nucleic Acids Research 52</em>(D1), D1429–D1437.</li>
+</ul>
+</section>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p><span style="font-size: 2em; font-weight: bold;">STimage-1K4M：一种用于空间转录组学的组织病理学图像-基因表达数据集</span></p>
+<p>近年来，多模态算法的快速发展得益于大量匹配的图像-文本数据集的涌现，这推动了包括计算病理学在内的多个领域取得了显著进步。组织病理学在医学诊断中扮演着关键角色。近期的组织病理学切片标注数据集，为多模态算法创造了新机遇。这些标注从简单的单标签（例如 PanNuke 数据集中的细胞/细胞核类型标注，Gamper et al., 2019），到从社交媒体（如 Twitter 或 YouTube）中提取的复杂自然语言描述（如 OpenPath 数据集 Huang et al., 2023 和 Quilt-1M 数据集 Ikezogwo et al., 2024）不一而足。尽管组织病理学标注取得了长足进步，但组织病理学切片依然复杂且包含丰富的信息，仅用有限的文本难以全面表达 (Radford et al., 2021; Chen and Zou, 2023)。大型组织切片通常具有多样的组织结构，因此很难在有限长度的文本中准确描述其全部细节。</p>
+<p>为应对这一挑战，我们特别介绍了空间转录组学（Spatial Transcriptomics, ST） (Ståhl et al., 2016; Moses and Pachter, 2022)。这是一项能够测量基因表达，同时保留组织中的空间信息的技术。ST 的核心优势在于它能够为大型组织切片的每个空间坐标提供高分辨率的组织病理学图像和详细的全转录组数据 (Ståhl et al., 2016)。这使得 ST 成为医疗图像与标注数据集的理想来源，提供比简单的文本描述（如癌症或非癌症区域）更丰富且准确的标注。通过为每个小区域提供高维度的基因表达标注，ST 可以更全面地理解组织的细粒度特性，支持诸如细胞间通信、组织结构、疾病诊断和进展等多项研究 (Ståhl et al., 2016; Tian et al., 2023)。</p>
+<p>ST 和空间组学 （spatial omics）数据的兴起推动了多个聚焦于组织样本转录组学或其他组学数据的数据集的发展。值得一提的数据库包括 SpatialDB (Fan et al., 2020)、STOmicsDB (Xu et al., 2022)、SPASCER (Fan et al., 2023)、SODB (Yuan et al., 2023)、Aquila (Zheng et al., 2023)、Museum of Spatial Transcriptomics (Moses and Pachter, 2022)、SORC (Zhou et al., 2024) 和 SOAR (Li et al., 2022)。这些数据集主要集中于基因表达数据，为研究人员提供了关于组织样本中基因表达空间分布的大量信息。然而，目前仍缺乏能够提供图像和基因表达配对数据的数据集，而这种数据对于结合视觉信息与底层转录组学特征至关重要。在此，我们推出了 STimage-1K4M (NeurIPS 2024)，一个旨在通过ST 加强组织病理学与基因表达整合的突破性数据集。截至 2024 年 12 月 8 日，该数据集已被下载超过 10,000 次。</p>
+<section id="stimage-1k4m-数据集概述" class="level2">
+<h2 class="anchored" data-anchor-id="stimage-1k4m-数据集概述">STimage-1K4M 数据集概述</h2>
+<p><img src="figures/sTimage/image2.png" class="img-fluid"></p>
+<p>STimage-1K4M 是一个由 1,149 张组织病理学图像组成的数据集，这些图像均源自空间转录组学数据。每张图像可以分割为更小的区域（通常称为点，spot），每个区域都与高维基因表达数据（维度范围为约 15,000 到 30,000）配对。该数据集包含超过 400 万spot图像和基因表达对，提供了前所未有的细粒度数据，为多模态数据分析和计算病理学等领域的先进研究及创新应用奠定了基础。</p>
+<p><img src="figures/sTimage/image6.png" class="img-fluid"></p>
+<p>STimage-1K4M 基于三大领先的 ST 技术构建：Spatial Transcriptomics (Ståhl et al., 2016)、Visium 和 VisiumHD (10x Genomics)。这些技术在不同分辨率下捕获基因表达，其中 VisiumHD 提供了最高分辨率，达到 8µm x 8µm 的细胞区域。数据集涵盖了 10 个物种和 50 种不同的组织类型，其中相当一部分重点关注脑组织和乳腺组织。此外，STimage-1K4M 包含了 71 张切片的病理学家标注，为空间域检测和聚类任务提供了“真实标签”。数据集还包含文本信息，例如研究标题、摘要和相关关键词，进一步提升了其研究价值。</p>
+<p><img src="figures/sTimage/image4.png" class="img-fluid"></p>
+</section>
+<section id="应用与影响" class="level2">
+<h2 class="anchored" data-anchor-id="应用与影响">应用与影响</h2>
+<p>STimage-1K4M 有望在计算病理学及其他领域引发革命性变革。通过提供丰富的多模态数据集，它支持广泛的研究任务，包括基因表达预测、分辨率增强、空间聚类和去卷积分析。这些功能对于开发新型诊断工具或探索组织细胞异质性具有重要价值。</p>
+<p><img src="figures/sTimage/image1.png" class="img-fluid"></p>
+<p>此外，STimage-1K4M 丰富的图像-基因表达配对数据也成为训练和微调多模态模型的重要资源。例如，基于 STimage-1K4M 的初步实验表明，在结合病理图像和基因表达时，模型性能显著提升，进一步凸显了该数据集推动领域进步的潜力。</p>
+</section>
+<section id="总结" class="level2">
+<h2 class="anchored" data-anchor-id="总结">总结</h2>
+<p>STimage-1K4M 代表了计算病理学领域的一个重大飞跃。通过结合组织病理学图像与详细基因组数据，它为研究与创新开辟了新途径。</p>
+<p>STimage-1K4M 数据集现已在 Hugging Face 上公开获取：<a href="https://huggingface.co/datasets/jiawennnn/STimage-1K4M">访问链接</a>。此外，您也可以通过我们的 GitHub 申请访问 FTP 服务器：<a href="https://github.com/JiawenChenn/STimage-1K4M">访问链接</a>。对数据集感兴趣的研究人员可以访问我们的官网 (<a href="https://jiawenchenn.github.io/STimage-1K4M/docs/00_about">链接</a>)，获取更多资源，包括如何将数据转换为常用的 AnnData 格式、处理步骤、下游分析指南，以及如何利用我们的数据微调大规模视觉模型。更多详细信息可参阅我们的论文：<a href="https://openreview.net/pdf?id=iTyOWtcCU2">链接</a>。</p>
+<p><img src="figures/sTimage/image3.png" class="img-fluid"></p>
+</section>
+<section id="参考文献" class="level2">
+<h2 class="anchored" data-anchor-id="参考文献">参考文献</h2>
+<ul>
+<li>Chen, Y. T. and J. Zou (2023). Genept: A simple but hard-to-beat foundation model for genes and cells built from ChatGPT. <em>bioRxiv.</em></li>
+<li>Fan, Z., R. Chen, and X. Chen (2020). Spatialdb: a database for spatially resolved transcriptomes. <em>Nucleic acids research 48</em>(D1), D233–D237.</li>
+<li>Fan, Z., Y. Luo, H. Lu, et al.&nbsp;(2023). Spascer: spatial transcriptomics annotation at single-cell resolution. <em>Nucleic Acids Research 51</em>(D1), D1138–D1149.</li>
+<li>Gamper, J., et al.&nbsp;(2019). Pannuke: an open pan-cancer histology dataset for nuclei instance segmentation and classification. <em>In Digital Pathology.</em> Springer.</li>
+<li>Moses, L., &amp; Pachter, L. (2022). Museum of spatial transcriptomics. <em>Nature Methods 19</em>(5), 534–546.</li>
+<li>Radford, A., et al.&nbsp;(2021). Learning transferable visual models from natural language supervision. <em>In ICML.</em></li>
+<li>Ståhl, P. L., et al.&nbsp;(2016). Visualization and analysis of gene expression in tissue sections by spatial transcriptomics. <em>Science 353</em>(6294), 78–82.</li>
+<li>Tian, L., et al.&nbsp;(2023). The expanding vistas of spatial transcriptomics. <em>Nature Biotechnology 41</em>(6), 773–782.</li>
+<li>Xu, Z., et al.&nbsp;(2022). Stomicsdb: a database of spatial transcriptomic data. <em>bioRxiv.</em></li>
+<li>Yuan, Z., et al.&nbsp;(2023). Sodb facilitates comprehensive exploration of spatial omics data. <em>Nature Methods 20</em>(3), 387–399.</li>
+<li>Zheng, Y., et al.&nbsp;(2023). Aquila: a spatial omics database and analysis platform. <em>Nucleic Acids Research 51</em>(D1), D827–D834.</li>
+<li>Zhou, W., et al.&nbsp;(2024). Sorc: an integrated spatial omics resource in cancer. <em>Nucleic Acids Research 52</em>(D1), D1429–D1437.</li>
+</ul>
+</section>
+</div>
+</div>
+</div>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
