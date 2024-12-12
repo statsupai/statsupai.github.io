@@ -126,6 +126,21 @@
             <p>GENIE (Generative Note Information Extraction) is an end-to-end model designed to structure free text from electronic health records (EHRs). It processes EHRs in a single pass, extracting biomedical named entities along with their assertion statuses, body locations, modifiers, values, units, and intended purposes, outputting this information in a structured JSON format.  </p>
             <a href="https://huggingface.co/THUMedInfo/GENIE_en_8b">GENIE</a>
         </div>
+        
+        <div class="card">
+            <h2>10. PMC-Patients</h2>
+            <p>PMC-Patients is a first-of-its-kind dataset consisting of 167k patient summaries extracted from case reports in PubMed Central (PMC), 3.1M patient-article relevance and 293k patient-patient similarity annotations defined by PubMed citation graph.  </p>
+            <p><strong>Supported Tasks:</strong> PMC-Patients serves as the foundation for benchmarking Retrieval-based Clinical Decision Support systems through two key tasks: <em>Patient-to-Article Retrieval</em>, which focuses on identifying the most relevant articles for a given patient case, and <em>Patient-to-Patient Retrieval</em>, which identifies similar patient cases to assist in clinical reasoning and decision-making. </p>
+            <p><strong>Notes:</strong> This dataset is generated from free text available in PMC.</p>
+            <a href="https://huggingface.co/datasets/THUMedInfo/PMC-Patients">PMC-Patients</a> | <a href="https://www.nature.com/articles/s41597-023-02814-8">Publication</a>
+        </div>
+        
+        <div class="card">
+            <h2>11. RareArena</h2>
+            <p>A Comprehensive Rare Disease Diagnostic Dataset with nearly 50,000 patients covering more than 4000 diseases.  </p>
+            <p><strong>Notes:</strong>This dataset is derived from PMC-Patients and has been further developed to focus on rare diseases.</p>
+            <a href="https://huggingface.co/datasets/THUMedInfo/RareArena">RareArena</a>
+        </div>
     </div>
 </body>
 </html>
