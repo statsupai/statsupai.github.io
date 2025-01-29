@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Announcing Stats Up AI's Official Recognition as an ASA Interest Group</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .committee-member {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .committee-member img {
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            margin-right: 15px;
+            border: 2px solid #2c3e50;
+        }
+        .committee-member div {
+            flex: 1;
+        }
+        .contact-info {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-left: 4px solid #2c3e50;
+            margin-top: 20px;
+        }
+        a {
+            color: #2980b9;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        /* Responsive Layout */
+        @media (max-width: 600px) {
+            .committee-member {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .committee-member img {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Announcing Stats Up AI's Official Recognition as an ASA Interest Group</h1>
+
+    <p>We are thrilled to announce that <strong>Stats Up AI</strong> has been officially recognized as an <strong>ASA Interest Group</strong>! This significant milestone marks the beginning of our journey to advance the intersection of statistics and artificial intelligence, fostering collaboration, innovation, and professional growth within the ASA community.</p>
+
+    <h2>Formation of the Steering Committee</h2>
+
+    <p>To guide our newly established interest group, we have formed a dedicated <strong>Steering Committee</strong>. This team is committed to steering our initiatives and ensuring that we achieve our objectives effectively. Our Steering Committee members are:</p>
+
+    <ul>
+        <li class="committee-member">
+            <img src="images/dbanks.jpg" alt="David Banks">
+            <div>
+                <strong>David Banks</strong>, Professor, Department of Statistical Science, Duke University
+            </div>
+        </li>
+       <li class="committee-member">
+            <img src="images/EdgarDobriban.jpeg" alt="Edgar Dobriban">
+            <div>
+                <strong>Edgar Dobriban</strong>, Associate Professor, Department of Statistics & Data Science, University of Pennsylvania
+            </div>
+        </li> 
+        <li class="committee-member">
+            <img src="images/jiankang.jpg" alt="Jian Kang">
+            <div>
+                <strong>Jian Kang</strong>, Professor, Department of Biostatistics, University of Michigan
+            </div>
+        </li>
+        <li class="committee-member">
+            <img src="images/XihongLin.png" alt="Xihong Lin">
+            <div>
+                <strong>Xihong Lin</strong>, Professor, Department of Biostatistics, Harvard University
+            </div>
+        </li>
+        <li class="committee-member">
+            <img src="images/DanNettleton.jpg" alt="Daniel Nettleton">
+            <div>
+                <strong>Daniel Nettleton</strong>, Professor, Department of Statistics, Iowa State University
+            </div>
+        </li>
+        <li class="committee-member">
+            <img src="images/Wang_W.jpg" alt="Wenyi Wang">
+            <div>
+                <strong>Wenyi Wang</strong>, Professor, Department of Bioinformatics and Computational Biology & Department of Biostatistics, The University of Texas MD Anderson Cancer Center
+            </div>
+        </li>
+        <li class="committee-member">
+            <img src="images/Zheng.Tian2019.jpg" alt="Tian Zheng">
+            <div>
+                <strong>Tian Zheng</strong>, Professor, Department of Statistics, Columbia University
+            </div>
+        </li>
+        <li class="committee-member">
+            <img src="images/zhu-hongtu-2023.jpg" alt="Hongtu Zhu">
+            <div>
+                <strong>Hongtu Zhu</strong>, Professor, Department of Biostatistics, The University of North Carolina at Chapel Hill
+            </div>
+        </li>
+    </ul>
+
+    <h2>Introducing Our Inaugural Officers</h2>
+
+    <p>To kickstart our activities, the Steering Committee has selected our inaugural officers who will lead various aspects of the interest group:</p>
+
+    <ul>
+        <li><strong>Chair:</strong> Tian Zheng</li>
+        <li><strong>Program Chair:</strong> Edgar Dobriban</li>
+        <li><strong>Outreach Chair:</strong> Wenyi Wang</li>
+        <li><strong>Secretary:</strong> Jian Kang</li>
+        <li><strong>External Advisory Board Members:</strong> TBD</li>
+    </ul>
+
+    <h2>Current Initiatives of the Steering Committee</h2>
+
+    <p>Our Steering Committee is actively working on several key initiatives to establish and grow <strong>Stats Up AI</strong>:</p>
+
+    <ul>
+        <li><strong>Programming:</strong> We are developing a robust schedule of events and activities that bridge statistics and artificial intelligence. Stay tuned for more announcements about upcoming programs and events!</li>
+        <li><strong>Establishing an Executive Advisory Committee (EAC):</strong> To broaden the reach and impact of our interest group, we are in the process of forming an EAC. This committee will provide strategic guidance and support our long-term goals.</li>
+        <li><strong>Organizing Communication and Events:</strong> Effective communication is vital for our community. We are organizing regular meetings, webinars, and networking events to engage our members and foster collaboration.</li>
+    </ul>
+
+
+    <h2>Join Us on This Exciting Journey</h2>
+
+    <p>We invite all members of the ASA community to join us in this exciting new chapter. Whether you’re looking to contribute, participate in our interest group, or simply stay informed, there are plenty of opportunities to get involved.</p>
+
+    <p>Stay connected with us through our <a href="https://statsupai.org">website</a> and follow our updates on <a href="https://x.com/i/flow/login?redirect_after_login=%2Fstatsupai">X</a>.
+    <p>Together, we can make a meaningful impact and advance our shared interests within the ASA community.</p>
+
+    <div class="contact-info">
+        <h3>Contact Us:</h3>
+        <p>For more information or to get involved, please reach out to <strong>Chair Name</strong> at <a href="mailto:email">email</a>.</p>
+    </div>
+
+</body>
+</html>
+

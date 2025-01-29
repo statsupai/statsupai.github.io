@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashing Link Example</title>
+    <style>
+        /* Define the flashing animation */
+        @keyframes flash {
+            0%, 100% { color: red; }   /* Start and end with red */
+            50% { color: yellow; }      /* Flash yellow in the middle */
+        }
+
+        /* Apply the animation to the link */
+        .flashing-link {
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            animation: flash 1s infinite; /* Flash every second */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Link with the flashing effect -->
+    <a href="your-page.html" class="flashing-link">Click Here for More Info!</a>
+
+</body>
+</html>
