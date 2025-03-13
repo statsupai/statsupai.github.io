@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interview with Award-Winning Dr. Irina Gaynanova on the interface between statistics and AI</title>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://statsupai.com/pages/S3_interview_award.html">
+    <meta property="og:title" content="Interview with Dr. Irina Gaynanova">
+    <meta property="og:description" content="Interview with Award Winners for the Interface of Statistics and Al">
+    <meta property="og:image" content="s3_award.png">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            line-height: 1.6;
+        }
+
+        .header-image {
+            width: 100%; /* 设置宽度为文本宽度的 80% */
+            max-width: 1400px; /* 设置图片的最大宽度，与文本区域匹配 */
+            height: auto; /* 确保图片比例不失真 */
+            display: block; /* 使图片成为块级元素 */
+            margin: 20px auto; /* 居中对齐，增加上下间距 */
+            border-radius: 8px; /* 圆角处理，增加柔和感 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 轻微阴影，减轻视觉重量 */
+            border: 3px solid #ddd; /* 边框颜色与页面风格统一 */
+        }
+
+        .interview {
+            margin: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .answer-section {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #ccc;
+        }
+
+        .question-title {
+            font-size: 1.2rem;
+            color: #003366;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .answer-paragraph {
+            margin-bottom: 15px;
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+            line-height: 1.8;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .answer-paragraph:last-child {
+            margin-bottom: 0;
+        }
+
+        .edit-info {
+            color: #808080;
+            font-size: 15px;
+            text-align: right;
+            padding: 20px 0;
+            margin-top: 20px;
+            border-top: 1px solid #ccc;
+        }
+
+        .article-link {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .article-link p {
+            margin: 0;
+            color: #003366;
+            font-weight: bold;
+        }
+
+        .article-link a {
+            display: inline-block;
+            background-color: #003366;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 18px;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .article-link a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <img class="header-image" src="s3_award.png" alt="Interview Image">
+        
+        <div class="interview">
+            <div class="answer-section">
+                <p class="question-title">1. Can you summarize your award-winning research and its significance for statistics and AI?</p>
+                <div class="answer-paragraph">
+                    Thank you for the opportunity to discuss my research. I am honored to be among the recipients of the 2025 IMS Thelma and Marvin Zelen Emerging Women Leaders in Data Science Award, which recognizes women researchers’ leadership and contributions to data science.
+                </div>
+                <div class="answer-paragraph">
+                    My research focuses on developing statistical methods for multi-view data integration. With the growing availability of data collected on the same subjects from multiple sources—such as gene expression, DNA methylation, and metabolomics in multi-omics studies, or continuous glucose monitoring (CGM), blood pressure, heart rate, and actigraphy in wearable studies—there is a pressing need for principled approaches to uncovering shared structures across these diverse data modalities.
+                </div>
+                <div class="answer-paragraph">
+                    The award cites our group’s work in developing low-rank matrix models that allow partial sharing in column spaces and mixed Gaussian copula models that account for different variable types (binary, continuous, zero-inflated, ordinal). These methods are rooted in statistics but align closely with some of the AI models’ principles, such as structure learning and latent space modeling.
+                </div>
+                <div class="answer-paragraph">
+                    I am particularly proud that the award recognizes our contributions to open-source software. No method is truly impactful without accessible and efficient implementations, and my team has developed multiple R packages, often incorporating optimized C and C++ code for scalability. Notably, our R package IGLU extracts glycemic metrics from continuous glucose monitoring (CGM) data and has seen community involvement from 22 contributors, including many former students. While these metrics are themselves valuable and often serve as primary endpoints in clinical trials with CGM data, they often also serve as inputs for AI-based models, including glucose forecasting models. Our group has spent significant efforts ensuring the extracted metrics' reliability, benchmarking existing glucose forecasting models, and curating public CGM datasets for centralized evaluation.
+                </div>
+            </div>
+            
+            <div class="answer-section">
+                <p class="question-title">2. What statistical methods from your research are most applicable to AI?</p>
+                <div class="answer-paragraph">
+                    Much of my work is fundamentally grounded in statistics and driven by scientific inquiry rather than AI. However, my interest in AI has deepened recently, primarily due to the work of a former student, Renat Sergazinov, who led our CGM forecasting efforts and helped me appreciate that, whether I like it or not, AI models can be highly effective, and I should at least try to understand why. So far, we have primarily concentrated on the accessibility and reproducibility of AI models in the context of glucose forecasting. Our group curates an Awesome-CGM repository on GitHub, which is a starting point for exploring publicly available CGM data, and we also maintain a public GlucoBench repository with standardized processing and the implementation of several benchmark models for glucose forecasting. Looking ahead, I am excited about potentially integrating my methodological work on structure learning with advancements in AI to explore latent representations across diverse data modalities.
+                </div>
+            </div>
+            
+            
+            <div class="answer-section">
+                <p class="question-title">3. How does your work address challenges at the intersection of statistics and AI?</p>
+                <div class="answer-paragraph">
+                    My methodological work focuses on learning interpretable, lower-dimensional latent representations of input data. While AI models typically generate these representations in "black-box" settings to facilitate downstream tasks such as prediction, I emphasize learning them in more "open-box" settings, where interpretability is prioritized. I admire and am deeply inspired by Cynthia Rudin’s work on interpretable AI models for high-stakes decision-making. I firmly believe that, especially in contexts related to human health, interpretable models are preferable to “fancy” models, particularly when their performance is comparable. I am excited about the potential to incorporate more interpretable structural elements within AI modes to improve their performance and transparency.
+                </div>
+            </div>
+            
+            <div class="answer-section">
+                <p class="question-title">4. What impact do you foresee your research having on the future of AI systems?</p>
+                <div class="answer-paragraph">
+                    Although I can’t predict the future, my work addresses scientific challenges, with AI as a tool rather than the primary focus. I believe the most significant impact of my research on AI will come from emphasizing reproducibility and open-source software development, which promote transparency and accountability.
+                </div>
+            </div>
+            
+            <div class="answer-section">
+                <p class="question-title">5. What emerging trends in statistics do you believe are crucial for advancing AI?</p>
+                <div class="answer-paragraph">
+                    AI models are advancing rapidly, and statisticians often face tools that exceed initial expectations. This pace can feel overwhelming, but I see particular value in areas like uncertainty quantification for black-box model predictions, understanding AI biases, ensuring fairness, protecting sensitive data, transferring knowledge across domains, and developing rigorous models for unstructured data. Of particular interest to me is the work on identifiability. AI models, particularly transformers, excel at learning unstructured representations, but making them more interpretable and identifiable holds great promise, especially in biomedical applications. In healthcare, I don’t just want to know if a model predicts well—I want to understand how it reaches those predictions. Ensuring transparency, interpretability, and external validation of these models is critical, so reproducibility and open science remain central to my work.
+                </div>
+            </div>
+            
+            
+        </div>
+        
+        <div class="edit-info">
+            Edited by: Shan Gao<br>
+            Proofread by: Hongtu Zhu, Jian Kang
+        </div>
+        
+<div style="display: flex; align-items: center; color: #8E8E8E; font-size: 13px; font-family: Arial, sans-serif;">Page Views: <div class="statcounter" style="margin-left: 10px;"> <!-- Add this line for styling -->
+        <!-- Default Statcounter code for Interview_peiwang1
+        https://statsupai.com/pages/interview_weipeng.html -->
+        <script type="text/javascript">
+        var sc_project=12973370;
+        var sc_invisible=0;
+        var sc_security="a715d5f2";
+        var scJsHost = "https://";
+        document.write("<sc"+"ript type='text/javascript' src='" +
+        scJsHost+
+        "statcounter.com/counter/counter.js'></"+"script>");
+        </script>
+        <noscript><div class="statcounter"><a title="Web Analytics"
+        href="https://statcounter.com/" target="_blank"><img
+        class="statcounter"
+        src="https://c.statcounter.com/12973370/0/a715d5f2/0/"
+        alt="Web Analytics"
+        referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+        <!-- End of Statcounter Code -->
+</body>
+</html>
