@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interview with Award Winner Dr. Yize Zhao for the Interface of Statistics and Al</title>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://statsupai.com/pages/S4_reward.html">
+    <meta property="og:title" content="Interview with Award Winner Dr. Yize Zhao">
+    <meta property="og:description" content="Interview with Award Winner Dr. Yize Zhao for the Interface of Statistics and Al">
+    <meta property="og:image" content="s4_award.png">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            line-height: 1.6;
+        }
+        .interviewee-introduction {
+            display: flex;
+            align-items: center;
+            background-color: #f8f8f8; /* 轻灰色背景 */
+            border-radius: 8px; /* 边角圆润 */
+            padding: 20px;
+            margin-bottom: 20px; /* 和问答部分保持一定距离 */
+        }
+
+        .interviewee-photo {
+            width: 150px; /* 根据需要调整 */
+            height: 150px; /* 根据需要调整 */
+            border-radius: 50%; /* 创建圆形图片 */
+            object-fit: cover; /* 确保图片内容适应尺寸 */
+            margin-right: 20px;
+        }
+
+        .interviewee-details h2 {
+            margin-top: 0;
+            color: #082653; /* 深蓝色，你可以根据网站主题更改 */
+        }
+
+        .interviewee-details p {
+            color: #333; /* 深灰色文本 */
+            line-height: 1.6; /* 增加行距 */
+        }
+
+        .header-image {
+            width: 100%; /* 设置宽度为文本宽度的 80% */
+            max-width: 1400px; /* 设置图片的最大宽度，与文本区域匹配 */
+            height: auto; /* 确保图片比例不失真 */
+            display: block; /* 使图片成为块级元素 */
+            margin: 20px auto; /* 居中对齐，增加上下间距 */
+            border-radius: 8px; /* 圆角处理，增加柔和感 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 轻微阴影，减轻视觉重量 */
+            border: 3px solid #ddd; /* 边框颜色与页面风格统一 */
+        }
+        .inline-image {
+            width: 50%; /* 设置宽度为容器宽度的一半，可根据需要调整 */
+            max-width: 600px; /* 限制图片最大宽度 */
+            height: auto; /* 保持图片比例 */
+            display: block; /* 将图片作为块级元素显示 */
+            margin: 10px auto; /* 居中对齐，增加间距 */
+            border-radius: 4px; /* 圆角处理 */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 添加轻微阴影 */
+            border: 2px solid #ccc; /* 边框颜色柔和，与文字风格一致 */
+        }
+
+        .interview {
+            margin: 10px;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .answer-section {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #ccc;
+        }
+
+        .question-title {
+            font-size: 1.2rem;
+            color: #003366;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .answer-paragraph {
+            margin-bottom: 15px;
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+            line-height: 1.8;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .answer-paragraph:last-child {
+            margin-bottom: 0;
+        }
+
+        .edit-info {
+            color: #808080;
+            font-size: 15px;
+            text-align: right;
+            padding: 20px 0;
+            margin-top: 20px;
+            border-top: 1px solid #ccc;
+        }
+
+        .article-link {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .article-link p {
+            margin: 0;
+            color: #003366;
+            font-weight: bold;
+        }
+
+        .article-link a {
+            display: inline-block;
+            background-color: #003366;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 18px;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .article-link a:hover {
+            background-color: #0056b3;
+        }
+        
+        .text-image-container {
+            display: flex;
+            align-items: flex-start; /* 对齐方式 */
+            gap: 20px; /* 设置文字和图片之间的间距 */
+            margin: 20px 0; /* 增加上下间距 */
+        }
+
+        .text-content {
+            flex: 1; /* 占用容器的一部分，自动调整宽度 */
+        }
+
+        .image-content {
+            flex: 0 0 50%; /* 固定图片宽度占40%，可以根据需要调整 */
+            max-width: 600px; /* 限制图片最大宽度 */
+        }
+
+        .image-content img {
+            width: 100%; /* 图片宽度自适应 */
+            height: auto; /* 保持图片比例 */
+            border-radius: 8px; /* 圆角 */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 添加阴影 */
+            border: 2px solid #ccc; /* 边框 */
+        }
+    </style>
+</head>
+<body>
+    <img class="header-image" src="s4_award.png" alt="Interview Image">
+        <div class="interview">
+            <div class="answer-section">
+                <p class="question-title">1. Can you summarize your award-winning research and its significance for statistics and AI?</p>
+                <div class="answer-paragraph">
+                    I am honored to receive the IMS Thelma and Marvin Zelen Emerging Women Leaders in Data Science Award for my research on innovative and interpretable Bayesian modeling and computation for structural and graphical data. My work focuses on developing advanced analytical methods and applications in medical imaging, particularly integrating imaging data with other biomedical and real-world data sources to gain meaningful insights.
+
+                </div>
+                <div class="answer-paragraph">
+                    Brain imaging data presents unique challenges due to its high noise levels, complex topological structure, multi-modal nature, and intricate relationships with other data sources, such as molecular and behavioral data. These complexities make it challenging to extract meaningful signals from imaging scans and to better understand psychiatric disorders and neurodevelopmental or aging processes. To address these challenges, my group has developed a series of supervised and unsupervised learning models that account for heterogeneity across data sources and accommodate diverse variable types, including network-based brain connectivity measures. Our models are designed to reflect underlying neurobiological mechanisms by incorporating biologically-informed modeling for features such as hub nodes and modular structures. This ensures that our findings are not only statistically rigorous but also biologically interpretable, offering valuable insights into the relationships between genetic factors, brain signatures, and behavioral outcomes.
+                </div>
+                <div class="answer-paragraph">
+                    The significance of my work for both statistics and AI lies in bridging the gap between neuroscience and advanced analytical methods. By grounding model complexity in biologically driven principles, we enhance both the interpretability and practical applicability of AI-driven approaches in neuroscience and mental health research. This interdisciplinary framework paves the way for more accurate and reliable insights that can inform clinical decision-making and advance our understanding of the brain.
+                </div>
+            </div>
+            <div class="answer-section">
+                <p class="question-title">2. What statistical methods from your research are most applicable to AI?</p>
+                <div class="answer-paragraph">
+                    One of the key areas my group has been actively working on is Bayesian deep learning, where we focus on incorporating prior knowledge and principled uncertainty quantification into deep learning models. To address the inherent black-box nature of conventional deep learning models, my research develops analytical frameworks grounded in Bayesian inference. Our work integrates CNN and transformer models to generate posterior distributions for complex latent structures that are often difficult to accurately estimate using traditional posterior computation methods. These Bayesian frameworks enable rigorous inference for key learning parameters, enhancing the interpretability and reliability of decision-making processes. I am particularly passionate about bridging the gap between traditional statistical learning approaches and modern AI models, striving to achieve a balance that leverages the strengths of both paradigms.
+                </div>
+                <div class="answer-paragraph">
+                    Another significant area of my research involves higher-order relationship modeling, which aims to capture complex interactions within high-dimensional data. Analyzing these relationships presents challenges, particularly due to the exponential search space required to explore all potential interactions. To address this, my group has developed a novel information bottleneck framework that efficiently identifies maximally informative and minimally redundant higher-order relationships. This approach builds on foundational statistical principles to ensure rigorous variable selection and feature representation, ultimately enhancing model interpretability and improving generalizability in high-dimensional settings. Again, this represents a combination of statistical rigor with modern computational techniques to provide scalable and reliable solutions for analyzing complex data structures.
+                </div>
+            </div>
+            
+            
+            <div class="answer-section">
+                <p class="question-title">3. How does your work address challenges at the intersection of statistics and AI?</p>
+                <div class="answer-paragraph">
+                    My work addresses key challenges at the intersection of statistics and AI by enhancing the interpretability, reliability, and theoretical foundation of AI models while ensuring they remain computationally efficient and applicable to complex real-world problems. One major challenge in this field is balancing the flexibility of AI models with the rigorous inferential guarantees offered by statistical methods. To address this, my research focuses on embedding core statistical principles—such as uncertainty quantification and structured inference—into AI frameworks. This integration helps ensure that model outputs are not only accurate but also informative and trustworthy. Another critical challenge involves scaling statistical methods to handle high-dimensional and unstructured data. My work focuses on developing computational strategies that enable statistical models to process large datasets efficiently while maintaining their interpretability and inferential integrity.
+                </div>
+                <div class="answer-paragraph">
+                    Additionally, my research emphasizes the importance of integrating domain knowledge into AI models to enhance their practical relevance and ensure meaningful insights. By leveraging AI techniques with modern statistical frameworks, my team is working to develop models that are both theoretically sound and adaptable to evolving data challenges, and ultimately providing more reliable and interpretable outputs.
+                </div>
+            </div>
+            
+            <div class="answer-section">
+                <p class="question-title">4. What impact do you foresee your research having on the future of AI systems?</p>
+                <div class="answer-paragraph">
+                    I see my research contributing to the future of AI systems by helping them evolve into more trustworthy, adaptable, and knowledge-driven tools. As AI applications continue to grow across various fields, the demand for models that are not only accurate but also interpretable and robust will become increasingly critical. My work focuses on addressing these needs by developing frameworks that integrate statistical reasoning with AI, enabling models to provide meaningful insights beyond just predictions.
+                </div>
+                <div class="answer-paragraph">
+                    One key impact I foresee is improving AI's ability to make well-informed decisions under uncertainty, particularly in the analysis of complex biomedical data. Brain imaging data along with their integration with molecular and real-world data sources like electronic health records, present significant challenges due to their high-dimensional, noisy, and heterogeneous nature. My research focuses on embedding statistical inference within deep learning frameworks to better handle these complexities, allowing AI systems to provide more reliable and interpretable outputs. This approach enhances the ability to identify meaningful patterns and relationships across multiple data modalities, leading to more informed decision-making on disease early diagnosis, prevention and intervention.
+                </div>
+            </div>
+            
+            <div class="answer-section">
+                <p class="question-title">5. What emerging trends in statistics do you believe are crucial for advancing AI?</p>
+                <div class="answer-paragraph">
+                    I personally feel the following emerging trends or existing techniques in statistics are crucial for advancing AI, particularly in making models more interpretable, robust, and applicable to complex real-world problems. The first one is the integration of uncertainty quantification in AI models. As AI is widely adopted across various domains, the ability to quantify and communicate uncertainty is essential for informed decision-making. Statistical approaches including Bayesian statistics and inference provide principled frameworks to incorporate uncertainty, enabling AI models to produce more reliable and trustworthy results. The second is the integration of heterogeneous data sources, which is becoming increasingly relevant as AI tackles complex problems that require to analyze diverse data types such as imaging, genetics, and real-world data. Statistical methods that facilitate multi-source data integration—such as latent variable approaches and graph-based techniques—are critical to ensure that AI models can effectively leverage the richness of these data while maintaining interpretability and consistency. Finally, the advancement of explainable AI through causal inference is becoming increasingly important. As AI models grow more complex, understanding the underlying relationships within the data is crucial for generating actionable insights. Statistical causal inference offers a principled way to uncover causal relationships, offering a foundation for building AI systems that go beyond correlation-based learning to better understand the effect mechanisms driving observed patterns.
+                </div>
+            </div>
+            
+        </div>
+        
+        <div class="edit-info">
+            Edited by: Shan Gao<br>
+            Proofread by: Jian Kang, Hongtu Zhu
+        </div>
+        
+<div style="display: flex; align-items: center; color: #8E8E8E; font-size: 13px; font-family: Arial, sans-serif;">Page Views: <div class="statcounter" style="margin-left: 10px;"> <!-- Add this line for styling -->
+        <!-- Default Statcounter code for Interview_peiwang1
+        https://statsupai.com/pages/interview_weipeng.html -->
+        <script type="text/javascript">
+        var sc_project=12973370;
+        var sc_invisible=0;
+        var sc_security="a715d5f2";
+        var scJsHost = "https://";
+        document.write("<sc"+"ript type='text/javascript' src='" +
+        scJsHost+
+        "statcounter.com/counter/counter.js'></"+"script>");
+        </script>
+        <noscript><div class="statcounter"><a title="Web Analytics"
+        href="https://statcounter.com/" target="_blank"><img
+        class="statcounter"
+        src="https://c.statcounter.com/12973370/0/a715d5f2/0/"
+        alt="Web Analytics"
+        referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+        <!-- End of Statcounter Code -->
+</body>
+</html>
