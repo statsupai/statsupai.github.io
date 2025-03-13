@@ -1,0 +1,32 @@
+0000000000000000000000000000000000000000 5acbecf801776023cce21de1523ef1f542b64c11 Apple <apple@gaoshandeMacBook-Pro.local> 1714927410 +0800	clone: from https://github.com/statsupai/statsupai.github.io
+5acbecf801776023cce21de1523ef1f542b64c11 fb718e9a37dfca2346b3df31dad910d8f44adceb Apple <apple@gaoshandeMacBook-Pro.local> 1714927690 +0800	commit: s5 interview post
+fb718e9a37dfca2346b3df31dad910d8f44adceb 2a26a8540e79a13c9250b5942ea9e02512c203bd Apple <apple@gaoshandeMacBook-Pro.local> 1714953443 +0800	commit: s5 update
+2a26a8540e79a13c9250b5942ea9e02512c203bd f1908603b5e3f5fdee2d7c78c273568d31a68cc1 Apple <apple@192.168.1.6> 1718556993 +0800	reset: moving to origin/main
+f1908603b5e3f5fdee2d7c78c273568d31a68cc1 6ce129a11f0bd8b11629b606ac11d82601a01b02 Apple <apple@192.168.1.6> 1718557899 +0800	commit: S6interview
+6ce129a11f0bd8b11629b606ac11d82601a01b02 cf5b757d7808f612e69be2d8aca6ebb28b67a081 Apple <apple@gaoshandeMacBook-Pro.local> 1718759462 +0800	pull origin main: Fast-forward
+cf5b757d7808f612e69be2d8aca6ebb28b67a081 971aae78bcfedbfcfbe0216db935a8b986ad916a Apple <apple@gaoshandeMacBook-Pro.local> 1718763065 +0800	commit: s7interview
+971aae78bcfedbfcfbe0216db935a8b986ad916a 2eab798f3b27d4e494451ec01303fa361afac0d7 Apple <apple@gaoshandeMacBook-Pro.local> 1721482115 +0800	commit: update s1_new_interview
+2eab798f3b27d4e494451ec01303fa361afac0d7 be6184aaa00e72972f301986308c9633805336c6 Apple <apple@gaoshandeMacBook-Pro.local> 1721482452 +0800	reset: moving to origin/main
+be6184aaa00e72972f301986308c9633805336c6 8d26b914305926e1499233578902756e8d87a190 Apple <apple@gaoshandeMacBook-Pro.local> 1721482947 +0800	commit: Your commit message
+8d26b914305926e1499233578902756e8d87a190 7ca34cdaf765b61e2b569cf610ba2126aba843b5 Apple <apple@gaoshandeMacBook-Pro.local> 1721483034 +0800	commit: new_interview
+7ca34cdaf765b61e2b569cf610ba2126aba843b5 e348a0d253b46c1e3612343ac5d2afdce5cb04eb Apple <apple@192.168.1.5> 1725159655 +0800	reset: moving to origin/main
+e348a0d253b46c1e3612343ac5d2afdce5cb04eb 154a33f07481b70f55312c36f4fdba1d7ca51327 Apple <apple@192.168.1.5> 1725160038 +0800	commit: “s8”
+154a33f07481b70f55312c36f4fdba1d7ca51327 9e2af3ed0a1a7449499fb69b9ce53a5e3b995306 Apple <apple@gaoshandeMacBook-Pro.local> 1725161164 +0800	reset: moving to origin/main
+9e2af3ed0a1a7449499fb69b9ce53a5e3b995306 9e2af3ed0a1a7449499fb69b9ce53a5e3b995306 Apple <apple@gaoshandeMacBook-Pro.local> 1725161443 +0800	reset: moving to origin/main
+9e2af3ed0a1a7449499fb69b9ce53a5e3b995306 83c23021afccd6f2323cf584d84b460c7a5240dd Apple <apple@gaoshandeMacBook-Pro.local> 1725161728 +0800	commit: “s8”
+83c23021afccd6f2323cf584d84b460c7a5240dd 2fbb75c5c0884cc5373c41548b3f915d7246d85a Apple <apple@gaoshandeMacBook-Pro.local> 1725549682 +0800	reset: moving to origin/main
+2fbb75c5c0884cc5373c41548b3f915d7246d85a 2fbb75c5c0884cc5373c41548b3f915d7246d85a Apple <apple@gaoshandeMacBook-Pro.local> 1725549722 +0800	reset: moving to origin/main
+2fbb75c5c0884cc5373c41548b3f915d7246d85a dc46b2c84272c6780edd4de0dcab21d5a6a11bc5 Apple <apple@gaoshandeMacBook-Pro.local> 1725549825 +0800	commit: “call_for_paper”
+dc46b2c84272c6780edd4de0dcab21d5a6a11bc5 dc46b2c84272c6780edd4de0dcab21d5a6a11bc5 Apple <apple@gaoshandeMacBook-Pro.local> 1725549984 +0800	reset: moving to origin/main
+dc46b2c84272c6780edd4de0dcab21d5a6a11bc5 e1016963691667e26ae4643b43795d4fa1e2a1fa Apple <apple@gaoshandeMacBook-Pro.local> 1725550158 +0800	commit: “call_for_again”
+e1016963691667e26ae4643b43795d4fa1e2a1fa a05f3380c64fa42c24a726c4ab85ff0c58da5a0c Apple <apple@192.168.1.9> 1727798947 +0800	reset: moving to origin/main
+a05f3380c64fa42c24a726c4ab85ff0c58da5a0c f0856d18c9246da72d31be0f2085d8f85d043fa3 Apple <apple@192.168.1.9> 1727799215 +0800	commit: “s10”
+f0856d18c9246da72d31be0f2085d8f85d043fa3 c6edc26a21a0034470825fb0863721841d27254c Apple <apple@gaoshandeMacBook-Pro.local> 1727924862 +0800	commit: “s9”
+c6edc26a21a0034470825fb0863721841d27254c f875647e65e7d6a8d89dfd26be2fad8e56ed8058 Apple <apple@gaoshandeMacBook-Pro.local> 1727925453 +0800	pull --rebase origin main (start): checkout f875647e65e7d6a8d89dfd26be2fad8e56ed8058
+f875647e65e7d6a8d89dfd26be2fad8e56ed8058 3e85635f8228e9ec2cfb1af9943bcf2e128eaecc Apple <apple@gaoshandeMacBook-Pro.local> 1727925453 +0800	pull --rebase origin main (pick): “s9”
+3e85635f8228e9ec2cfb1af9943bcf2e128eaecc 3e85635f8228e9ec2cfb1af9943bcf2e128eaecc Apple <apple@gaoshandeMacBook-Pro.local> 1727925453 +0800	pull --rebase origin main (finish): returning to refs/heads/main
+3e85635f8228e9ec2cfb1af9943bcf2e128eaecc d3c47f10359348de991a214a30037ebff08d283c Apple <apple@gaoshandeMacBook-Pro.local> 1728095726 +0800	reset: moving to origin/main
+d3c47f10359348de991a214a30037ebff08d283c 8bf2d46d516d76e9e0ce307034d9e5a3be05ae2d Apple <apple@gaoshandeMacBook-Pro.local> 1728096050 +0800	commit: “ADlink”
+8bf2d46d516d76e9e0ce307034d9e5a3be05ae2d 182718d7125afad018bc181b3abfbf00703e5e9f Apple <apple@gaoshandeMacBook-Pro.local> 1729425676 +0800	reset: moving to origin/main
+182718d7125afad018bc181b3abfbf00703e5e9f 75ac0ec76102df5cb278b8a79600e0fd07480a27 Apple <apple@gaoshandeMacBook-Pro.local> 1729426515 +0800	reset: moving to origin/main
+75ac0ec76102df5cb278b8a79600e0fd07480a27 fe6dcfd257742a6f0f6ad80e9b209f9e687d2063 Apple <apple@gaoshandeMacBook-Pro.local> 1729426818 +0800	commit: “youtube”

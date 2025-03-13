@@ -1,0 +1,512 @@
+new_list[[1]][["value"]][["1901-01-01"]][["code"]]
+new_list[[1]][["value"]][["1996-03-07"]][["code"]]
+# 一个列表来保存每个i中的所有代码
+lcodes_per_i <- lapply(new_list, function(i) {
+# 对于每个i，收集所有j的代码
+lcodes_per_j <- lapply(i[["value"]], function(j) {
+# 将逗号分隔的代码字符串分割成单个代码
+strsplit(j[["code"]], ",")[[1]]
+})
+# 返回这个i中所有的代码
+unlist(lcodes_per_j)
+})
+# 将所有的代码连接在一起
+lall_codes <- unlist(lcodes_per_i)
+# 计算每个代码出现的次数
+lcode_counts <- table(lall_codes)
+View(lcodes_per_i)
+# 将所有的codes_per_i拼接成一个大的向量
+l2all_codes <- unlist(lcodes_per_i)
+# 使用table函数计算每个代码的出现次数
+l2code_counts <- table(l2all_codes)
+# 只保留common_codes中的代码的计数
+common_code_counts <- l2code_counts[names(l2code_counts) %in% common_codes]
+# 显示每个common_code的出现次数
+print(common_code_counts)
+load("/Users/apple/Desktop/UKB/R1_refine.rda")
+new_list4[["1075927"]][["2012-08-03"]]
+result <- list()
+for (i in 1:length(new_list4)) {
+sublist = new_list4[[i]]
+for (j in 1:length(sublist)) {
+codes <- strsplit(sublist[[j]]$code, ",")[[1]]
+values <- strsplit(sublist[[j]]$value, ",")[[1]]
+index <- grep("136..", codes)
+if (length(index) > 0) {
+result[[paste(i, j, sep = "_")]] <- list("codes" = codes[index], "values" = values[index])
+}
+}
+}
+# 打印结果
+print(result)
+result <- list()
+for (i in 1:length(new_list4)) {
+sublist = new_list4[[i]]
+for (j in 1:length(sublist)) {
+codes <- strsplit(sublist[[j]][1], ",")[[1]]
+values <- strsplit(sublist[[j]][2], ",")[[1]]
+index <- grep("136..", codes)
+if (length(index) > 0) {
+result[[paste(i, j, sep = "_")]] <- list("codes" = codes[index], "values" = values[index])
+}
+}
+}
+# 打印结果
+print(result)
+View(result)
+hist(time_diffs, main = "Histogram of Time Differences", xlab = "Time Differences (days)", col = "blue")
+hist(time_diffs, main = "Interval between Depression Relapses (R1)", xlab = "days", col = "#800080")
+hist(time_diffs, main = "Interval between Depression Relapses (R1)", xlab = "days", col = "lightyellow")
+hist(time_diffs, main = "Interval between Depression Relapses (R1)", xlab = "days", col = "blue")
+hist(time_diffs, main = "Interval between Depression Relapses (R1)", xlab = "days", col = "blue", breaks = seq(0, max(time_diffs), by = 1000))
+time_diffs
+data <- c(3092, 3095, 763, 1801, 1149, 1504, 2612, 1002, 3181, 3104, 1659, 1372, 3524, 1626, 96, 1076, 197, 1268, 938, 1299, 3101, 53, 401, 695, 329, 1207, 244, 2781, 1446, 809, 9007, 315, 1413, 8001, 1151, 293, 11403, 3673)
+hist(data, main = "Interval between Depression Relapses (R1)", xlab = "days", col = "blue", xlim = c(0, max(data)))
+View(new_list4)
+# 先把你的数据保存为一个向量
+data <- c(3092, 3095, 763, 1801, 1149, 1504, 2612, 1002, 3181, 3104, 1659, 1372,
+3524, 1626, 96, 1076, 197, 1268, 938, 1299, 3101, 53, 401, 695,
+329, 1207, 244, 2781, 1446, 809, 9007, 315, 1413, 8001, 1151, 293,
+11403, 3673)
+# 加载所需的库
+library(ggplot2)
+# 创建一个数据框，以便在ggplot2中使用
+df <- data.frame(Value = data, Index = 1:length(data))
+# 绘制柱状图，并对y轴进行对数变换
+ggplot(df, aes(x = Index, y = Value)) +
+geom_bar(stat = 'identity') +
+scale_y_continuous(trans = 'log10') +
+theme_minimal() +
+xlab('Index') +
+ylab('Value') +
+ggtitle('Barplot with Log Scale')
+# 使用你的数据
+data <- c(3092, 3095, 763, 1801, 1149, 1504, 2612, 1002, 3181, 3104, 1659, 1372,
+3524, 1626, 96, 1076, 197, 1268, 938, 1299, 3101, 53, 401, 695,
+329, 1207, 244, 2781, 1446, 809, 9007, 315, 1413, 8001, 1151, 293,
+11403, 3673)
+# 加载ggplot2库
+library(ggplot2)
+# 创建数据框
+df <- data.frame(Value = data)
+# 生成箱线图
+ggplot(df, aes(y = Value)) +
+geom_boxplot() +
+ylab('Value') +
+ggtitle('Boxplot of Values')
+# 使用你的数据
+data <- c(3092, 3095, 763, 1801, 1149, 1504, 2612, 1002, 3181, 3104, 1659, 1372,
+3524, 1626, 96, 1076, 197, 1268, 938, 1299, 3101, 53, 401, 695,
+329, 1207, 244, 2781, 1446, 809, 9007, 315, 1413, 8001, 1151, 293,
+11403, 3673)
+# 加载ggplot2库
+library(ggplot2)
+# 创建数据框
+df <- data.frame(Value = data)
+# 生成箱线图
+ggplot(df, aes(y = Value)) +
+geom_boxplot() +
+ylab('days') +
+ggtitle('Interval between Depression Relapses (R1)')
+View(combined_list)
+View(combined_list)
+View(result2)
+# 使用你的数据
+data <- c(3092, 3095, 763, 1801, 1149, 1504, 2612, 1002, 3181, 3104, 1659, 1372,
+3524, 1626, 96, 1076, 197, 1268, 938, 1299, 3101, 53, 401, 695,
+329, 1207, 244, 2781, 1446, 809, 9007, 315, 1413, 8001, 1151, 293,
+11403, 3673)
+# 加载ggplot2库
+library(ggplot2)
+# 创建数据框
+df <- data.frame(Value = data)
+# 生成小提琴图
+ggplot(df, aes(y = Value)) +
+geom_violin(trim = FALSE) +
+theme_light() +
+ylab('Value') +
+ggtitle('Violin Plot of Values')
+result2[[1]][["value"]][["1901-01-01"]]
+result2[[1]][["value"]][["1999-04-22"]]
+result2[[1]][["value"]][["1999-04-22"]][["code"]]
+# 我假设你的数据是一个列表，每个元素都是一个列表，它包含日期、值和代码
+# 其中代码是一个以逗号分隔的字符串，所以我们首先要对这个字符串进行分割
+# 导入必要的包
+library(dplyr)
+library(ggplot2)
+# 初始化一个空的数据框来存储结果
+df <- data.frame()
+# 遍历数据
+for(i in 1:length(result2)){
+date <- names(result2[[i]][["value"]]) # 获取日期
+code <- unlist(strsplit(result2[[i]][["value"]][[date]][["code"]], ",")) # 分割代码
+# 查找是否包含XaLG0
+if("XaLG0" %in% code){
+df <- rbind(df, data.frame(Date = as.Date(date), Year = as.numeric(format(as.Date(date),"%Y"))))
+}
+}
+# 确保Date是日期格式
+df$Date <- as.Date(df$Date)
+# 按年统计XaLG0出现的次数
+df_yearly <- df %>%
+group_by(Year) %>%
+summarise(count = n())
+# 使用ggplot2创建图
+ggplot(df_yearly, aes(x = Year, y = count)) +
+geom_line() +
+labs(x = "Year", y = "Count of XaLG0", title = "Yearly Count of XaLG0") +
+theme_minimal()
+install.packages("dplyr")
+remove.packages("dplyr")
+install.packages("dplyr")
+# 我假设你的数据是一个列表，每个元素都是一个列表，它包含日期、值和代码
+# 其中代码是一个以逗号分隔的字符串，所以我们首先要对这个字符串进行分割
+# 导入必要的包
+library(dplyr)
+library(ggplot2)
+# 初始化一个空的数据框来存储结果
+df <- data.frame()
+# 遍历数据
+for(i in 1:length(result2)){
+date <- names(result2[[i]][["value"]]) # 获取日期
+code <- unlist(strsplit(result2[[i]][["value"]][[date]][["code"]], ",")) # 分割代码
+# 查找是否包含XaLG0
+if("XaLG0" %in% code){
+df <- rbind(df, data.frame(Date = as.Date(date), Year = as.numeric(format(as.Date(date),"%Y"))))
+}
+}
+# 确保Date是日期格式
+df$Date <- as.Date(df$Date)
+# 按年统计XaLG0出现的次数
+df_yearly <- df %>%
+group_by(Year) %>%
+summarise(count = n())
+# 使用ggplot2创建图
+ggplot(df_yearly, aes(x = Year, y = count)) +
+geom_line() +
+labs(x = "Year", y = "Count of XaLG0", title = "Yearly Count of XaLG0") +
+theme_minimal()
+# 初始化一个空的数据框来存储结果
+df <- data.frame()
+# 遍历数据
+for(i in 1:length(result2)){
+date <- names(result2[[i]][["value"]]) # 获取日期
+code <- unlist(strsplit(result2[[i]][["value"]][[date]][["code"]], ",")) # 分割代码
+# 查找是否包含XaLG0
+if("XaLG0" %in% code){
+df <- rbind(df, data.frame(Date = as.Date(date), Year = as.numeric(format(as.Date(date),"%Y"))))
+}
+}
+# 确保Date是日期格式
+df$Date <- as.Date(df$Date)
+# 按年统计XaLG0出现的次数
+yearly_counts <- table(df$Year)
+# 使用基本的R绘图函数创建图
+plot(yearly_counts, type = "l", xlab = "Year", ylab = "Count of XaLG0", main = "Yearly Count of XaLG0")
+result2[[1]][["key"]]
+result2[[1]][["value"]]
+# 假设你的数据存储在一个名为result2的列表中
+library(ggplot2)
+# 将列表转换为数据框并添加年份列
+df <- do.call(rbind, result2)
+df$Year <- as.numeric(format(df$date, "%Y"))
+# 找出包含"XaLG0"的行
+df_XaLG0 <- df[grep("XaLG0", df$code), ]
+# 以年为单位对数据进行分组和计数
+df_XaLG0_year <- aggregate(df_XaLG0$code, list(df_XaLG0$Year), length)
+colnames(df_XaLG0_year) <- c("Year", "Count")
+# 使用ggplot2进行绘图
+ggplot(df_XaLG0_year, aes(x=Year, y=Count)) +
+geom_bar(stat="identity") +
+labs(title="Yearly Counts of 'XaLG0'", x="Year", y="Count")
+filtered_years <- sapply(result2[[1]][["value"]], function(x) {
+if("XaLG0" %in% strsplit(x[["code"]], ",")[[1]]) {
+return(as.integer(format(as.Date(names(x)), "%Y")))
+} else {
+return(NA)
+}
+}, USE.NAMES = FALSE)
+filtered_years <- na.omit(filtered_years)
+filtered_years <- sapply(names(result2[[1]][["value"]]), function(x) {
+codes <- strsplit(result2[[1]][["value"]][[x]][["code"]], ",")[[1]]
+if("XaLG0" %in% codes) {
+return(as.integer(format(as.Date(x), "%Y")))
+} else {
+return(NA)
+}
+})
+filtered_years <- na.omit(filtered_years)
+filtered_years <- na.omit(filtered_years)
+years_count <- table(filtered_years)
+barplot(years_count, main="Occurrences of 'XaLG0' by Year", xlab="Year", ylab="Count")
+time <- list()
+for (i in seq_along(new_list4)) {
+# 获取所有的日期并转换为日期格式
+all_dates <- as.Date(names(new_list4[[i]]))
+# 确保日期已排序
+all_dates <- sort(all_dates)
+# 计算第一个日期和最后一个日期之间的差距
+time[i] <- all_dates[[1]]
+}
+View(time)
+View(new_list4)
+View(new_list4)
+new_list4[["1075927"]][["2011-01-01"]]
+# 从列表中提取所有的第一个元素的名字（日期）
+dates <- sapply(new_list4, function(x) names(x[[1]]))
+# 转换日期为年份
+years <- format(as.Date(dates), "%Y")
+# 计算每年的频率
+year_counts <- table(years)
+# 创建一个条形图
+barplot(year_counts, main = "Frequency of Dates by Year", xlab = "Year", ylab = "Frequency")
+dates <- sapply(new_list4, function(x) names(x[[1]]))
+# 检查并转换日期格式
+years <- sapply(dates, function(date) {
+tryCatch({
+format(as.Date(date), "%Y")
+}, error = function(e) {
+NA
+})
+})
+# 过滤掉NA值
+years <- na.omit(years)
+View(result)
+df <- df[df$year >= times <- as.Date(sapply(new_list4, function(x) x[[2]]))
+# 提取每个日期的年份
+years <- year(times)
+# 计算每年的频率
+frequency <- table(years)
+# 创建一个数据框来存储你的数据
+df <- data.frame(year = as.numeric(names(frequency)), frequency = as.numeric(frequency))
+# 使用ggplot2绘制折线图
+library(ggplot2)
+ggplot(df, aes(x = year, y = frequency)) +
+geom_line() & df$year <= 2023, ]
+times <- as.Date(sapply(new_list4, function(x) x[[2]]))
+first_elements = [sublist[0] for sublist in new_list4]
+print(first_elements)
+first_elements <- sapply(new_list4, `[`, 1)
+print(first_elements)
+View(first_elements)
+first_elements[["1506951.2006-05-01"]]
+# 假设你的数据框如下：
+first_elements <- data.frame(elements = c("1075927.2011-01-01", "1506951.2006-05-01", "1203984.2010-09-15"))
+# 提取日期
+first_elements$date <- sub(".*\\.(\\d{4}-\\d{2}-\\d{2}).*", "\\1", first_elements$elements)
+# 转换为日期类型
+first_elements$date <- as.Date(first_elements$date)
+# 提取年份
+first_elements$year <- format(first_elements$date, "%Y")
+# 加载ggplot2包
+library(ggplot2)
+# 绘制频率图
+ggplot(first_elements, aes(year)) +
+geom_histogram(binwidth = 1, fill = "blue", col = "black") +
+scale_x_continuous(breaks = seq(min(first_elements$year), max(first_elements$year), by = 1)) +
+xlab("Year") +
+ylab("Frequency") +
+ggtitle("Frequency of Elements by Year")
+column_names <- names(first_elements)
+first_elements <- sapply(new_list4, `[`, 1)
+print(first_elements)
+column_names <- names(first_elements)
+years <- list()
+first_elements$date <- sapply(strsplit(as.character(first_elements$elements), split = "\\."), "[", 2)
+View(first_elements)
+column_names$date <- sapply(strsplit(as.character(column_names$elements), split = "\\."), "[", 2)
+split_elements <- strsplit(column_names, split = "\\.")   # 字符串分割
+years <- sapply(split_elements, function(x) substr(x[2], 1, 4))
+library(ggplot2)
+# 创建一个数据框，包含年份和频率信息
+data <- data.frame(year = years)
+# 绘制频率图
+ggplot(data, aes(x = year)) +
+geom_bar(fill = "blue") +
+xlab("Year") +
+ylab("Frequency") +
+ggtitle("Frequency of Years")
+library(ggplot2)
+# 创建一个数据框，包含年份和频率信息
+data <- data.frame(year = years)
+# 筛选从2000年开始的数据
+data_filtered <- subset(data, year >= 2000)
+# 绘制频率图
+ggplot(data_filtered, aes(x = year)) +
+geom_bar(fill = "blue") +
+xlab("Year") +
+ylab("Frequency") +
+ggtitle("Frequency of Years (Starting from 2000)")
+library(ggplot2)
+# 创建一个数据框，包含年份和频率信息
+data <- data.frame(year = years)
+# 按年份计算频率
+frequency <- table(data$year)
+# 将数据转换为数据框形式
+data_plot <- data.frame(year = as.numeric(names(frequency)), frequency)
+# 绘制折线图
+ggplot(data_plot, aes(x = year, y = frequency)) +
+geom_line() +
+geom_point() +
+xlab("Year") +
+ylab("Frequency") +
+ggtitle("Frequency of Years")
+library(ggplot2)
+# 创建一个数据框，包含年份和频率信息
+data <- data.frame(year = years)
+# 筛选从2000年开始的数据
+data_filtered <- subset(data, year >= 2000)
+# 绘制频率图
+ggplot(data_filtered, aes(x = year)) +
+geom_bar(fill = "blue") +
+xlab("Year") +
+ylab("Frequency") +
+ggtitle("Frequency of Years (Starting from 2000)")
+library(ggplot2)
+# 创建一个数据框，包含年份和频率信息
+data <- data.frame(year = years)
+# 绘制频率图
+ggplot(data, aes(x = year)) +
+geom_bar(fill = "blue") +
+xlab("Year") +
+ylab("Frequency") +
+ggtitle("Frequency of Years")
+time_diffs
+install.packages("igraph")
+install.packages(c("readxl", "purrr"))
+install.packages(c("readxl", "purrr"))
+library(readxl)
+library(purrr)
+path <- "/Users/apple/Library/Containers/com.tencent.xinWeChat/Data/Library/Application Support/com.tencent.xinWeChat/2.0b4.0.9/22a937bde3df902cd404d613acdd71c5/Message/MessageTemp/d94b1e9a0587c68c10e677842dd2b4a5/File/Data_HCY_20230614(2).xlsx" # 把这里替换成你的Excel文件的路径
+sheet_names <- excel_sheets(path)
+# 提取第7-16个sheet的名字
+target_sheets <- sheet_names[7:16]
+# 使用map函数读取这些sheets，并保存到一个list中
+# 在read_excel函数中，skip = 1用来跳过第一行，col_names = FALSE用来忽略列名
+list_of_data <- map(target_sheets, ~read_excel(path, sheet = .x, skip = 1, col_names = FALSE))
+# 把每个数据框转化为一个矩阵
+list_of_matrices <- map(list_of_data, as.matrix)
+View(list_of_data)
+View(list_of_matrices)
+list_of_cor <- map(list_of_matrices, cor)
+# 使用purrr包
+library(purrr)
+# 创建一个函数，它会移除第一列（即文本列）
+remove_first_column <- function(df) {
+df[,-1]
+}
+# 首先，移除每个数据框的第一列
+list_of_data_numeric <- map(list_of_data, remove_first_column)
+# 然后，把每个数据框转化为一个矩阵
+list_of_matrices <- map(list_of_data_numeric, as.matrix)
+# 创建一个函数，用来计算行的相关系数
+# 这个函数首先会把矩阵转置，然后计算相关系数
+cor_of_rows <- function(mat) {
+t_mat <- t(mat)
+cor(t_mat)
+}
+# 计算每个矩阵行的相关系数
+list_of_cor <- map(list_of_matrices, cor_of_rows)
+View(list_of_cor)
+list_of_cor[[1]]
+View(list_of_data_numeric)
+list_of_data_numeric[[1]]
+install.packages("psych")
+View(list_of_cor)
+View(list_of_cor)
+list_of_cor[[1]]
+View(list_of_data)
+View(list_of_data_numeric)
+View(list_of_data_numeric[[1]])
+list_of_data_numeric[[1]][["...2"]]
+list_of_data_numeric[[1]]
+otu <- list_of_data_numeric[[1]]
+library(igraph)
+library(psych)
+install.packages("igraph")
+install.packages("~/Downloads/igraph_1.4.3.tgz", repos = NULL, type = .Platform$pkgType)
+install.packages("cpp11")
+install.packages("igraph")
+library(igraph)
+version
+load("/Users/apple/Library/Containers/com.tencent.xinWeChat/Data/Library/Application Support/com.tencent.xinWeChat/2.0b4.0.9/22a937bde3df902cd404d613acdd71c5/Message/MessageTemp/04d6bcf07f8400e3dec21dcf43407c9c/File/dep_tpp_ctv.rda")
+View(dep_tpp_ctv_clinical)
+View(dep_tpp_ctv_clinical)
+View(dep_tpp_ctv_clinical)
+library(openxlsx)
+install.packages("openxlsx")
+library(openxlsx)
+# 创建一个新的Excel工作簿
+wb <- createWorkbook()
+# 循环遍历列表
+for (i in seq_along(dep_tpp_ctv_clinical)) {
+# 将每个元素添加到一个新的工作表中
+addWorksheet(wb, sheetName = paste("Sheet", i))
+writeData(wb, sheet = i, dep_tpp_ctv_clinical[[i]])
+}
+# 保存工作簿到一个.xlsx文件中
+saveWorkbook(wb, "/Users/apple/Desktop/UKB/ctv3_all.xlsx/dep_tpp_ctv.xlsx", overwrite = TRUE)
+# 创建一个新的Excel工作簿
+wb <- createWorkbook()
+# 循环遍历列表
+for (i in seq_along(dep_tpp_ctv_clinical)) {
+# 将每个元素添加到一个新的工作表中
+addWorksheet(wb, sheetName = paste("Sheet", i))
+writeData(wb, sheet = i, dep_tpp_ctv_clinical[[i]])
+}
+# 保存工作簿到一个.xlsx文件中
+saveWorkbook(wb, "/Users/apple/Desktop/UKB/dep_tpp_ctv.xlsx", overwrite = TRUE)
+library(igraph)
+library(psych)
+install.packages("psych")
+install.packages("psych")
+install.packages("mnormt")
+install.packages("psych")
+install.packages("mnormt", type="binary")
+install.packages("psych", type="binary")
+library(psych)
+occor = corr.test(otu,use="pairwise",method="spearman",adjust="fdr",alpha=.05)
+View(occor)
+View(occor)
+occor = corr.test(t(otu),use="pairwise",method="spearman",adjust="fdr",alpha=.05)
+# 获取文件夹中的所有txt文件名
+files <- list.files(path = "/Users/apple/Desktop/chunyu/", pattern = "*.txt", full.names = TRUE)
+# 读取每个文件
+data_list <- lapply(files, function(file) {
+data <- read.table(file, header = TRUE, row.names = 1)
+return(data)
+})
+# 将数据框的名字设置为文件名（去掉路径和后缀）
+names(data_list) <- gsub("\\.[^.]+$", "", basename(files))
+View(data_list)
+data_list[["CK_D"]]
+occor_ = corr.test(data_list[["CK_D"]],use="pairwise",method="spearman",adjust="fdr",alpha=.05)
+View(occor_)
+occor_[["r"]]
+occor1= corr.test(t(data_list[["CK_D"]]),use="pairwise",method="spearman",adjust="fdr",alpha=.05)
+View(occor1)
+occor1[["r"]]
+occor1.r = occor1$r # 取相关性矩阵R值
+occor1.p = occor1$p # 取相关性矩阵p值
+occor1.r[occor1.p>0.05|abs(occor1.r)<0.6] = 0
+igraph = graph_from_adjacency_matrix(occor1.r,mode="undirected",weighted=TRUE,diag=FALSE)
+igraph
+library(igraph)
+igraph = graph_from_adjacency_matrix(occor1.r,mode="undirected",weighted=TRUE,diag=FALSE)
+igraph
+remove.packages("igraph")
+install.packages("igraph")
+remove.packages("igraph")
+install.packages("igraph")
+install.packages("dbparser")
+system("git pull origin main")
+setwd("/Users/apple/Desktop/Statsupai/statsupai.github.io")
+system("git pull origin main")
+system("git fetch origin")
+system("git reset --hard origin/main")
+system("git config --global http.version HTTP/1.1")
+system("git fetch origin")
+system("git add .")
+system("git commit -m 'S6interview'")
+system("git push origin main")
+system("git push origin main")
