@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interview with Award-Winning Dr. Xu Shi on the interface between statistics and AI</title>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://statsupai.com/pages/S5_interview_award.html">
+    <meta property="og:title" content="Interview with Dr. Xu Shi">
+    <meta property="og:description" content="Interview with Award Winners for the Interface of Statistics and Al">
+    <meta property="og:image" content="s5_award.png">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            line-height: 1.6;
+        }
+
+        .header-image {
+            width: 100%; /* 设置宽度为文本宽度的 80% */
+            max-width: 1400px; /* 设置图片的最大宽度，与文本区域匹配 */
+            height: auto; /* 确保图片比例不失真 */
+            display: block; /* 使图片成为块级元素 */
+            margin: 20px auto; /* 居中对齐，增加上下间距 */
+            border-radius: 8px; /* 圆角处理，增加柔和感 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 轻微阴影，减轻视觉重量 */
+            border: 3px solid #ddd; /* 边框颜色与页面风格统一 */
+        }
+
+        .interview {
+            margin: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .answer-section {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #ccc;
+        }
+
+        .question-title {
+            font-size: 1.2rem;
+            color: #003366;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .answer-paragraph {
+            margin-bottom: 15px;
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+            line-height: 1.8;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .answer-paragraph:last-child {
+            margin-bottom: 0;
+        }
+
+        .edit-info {
+            color: #808080;
+            font-size: 15px;
+            text-align: right;
+            padding: 20px 0;
+            margin-top: 20px;
+            border-top: 1px solid #ccc;
+        }
+
+        .article-link {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .article-link p {
+            margin: 0;
+            color: #003366;
+            font-weight: bold;
+        }
+
+        .article-link a {
+            display: inline-block;
+            background-color: #003366;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 18px;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .article-link a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <img class="header-image" src="s5_award.png" alt="Interview Image">
+        
+        <div class="interview">
+            <div class="answer-section">
+                <p class="question-title">1. Can you summarize your award-winning research and its significance for statistics and AI?</p>
+                <div class="answer-paragraph">
+                    Thank you for the opportunity to discuss my research. I am honored to receive the 2025 IMS Thelma and Marvin Zelen Emerging Women Leaders in Data Science Award. My research focuses on developing statistical methods for electronic health record (EHR) data. Routinely collected EHR data are rich but come with unique challenges because they are collected for clinical and administrative purposes, not specifically designed for research studies. As such, traditional statistical and causal assumptions often break down. I think about novel ways to utilize information from EHR data and develop better designs and methods to provide robust and efficient analysis. Real-world healthcare data constantly reveal new complexities, and I am privileged to work with interdisciplinary collaborators who bring diverse expertise to make such data more trustworthy for decision-making.
+                </div>
+            </div>
+            
+            <div class="answer-section">
+                <p class="question-title">2. How does your work address challenges at the intersection of statistics and AI?</p>
+                <div class="answer-paragraph">
+                    In causal inference, skepticism about the interpretation of observational studies often stems from the potential of unmeasured confounding bias. My team develops negative control and proximal causal inference methods, which utilize variables without a direct causal relationship with either the exposure or outcome to identify and correct unmeasured confounding bias, and ultimately improve the reliability of observational studies. They are particularly beneficial in EHR-based studies because unmeasured confounding typically exists while candidate negative controls abound. These methods have been applied to post-market effectiveness and safety surveillance studies for medical products using EHR and claims data and are now part of the FDA’s PDUFA VII (Prescription Drug User Fee Act) commitment, which aims to improve the rigor of real-world evidence in regulatory decisions.
+                </div>
+                <div class="answer-paragraph">
+                    We also address the challenge of EHR data heterogeneity across different healthcare institutions, which is essential for improving data quality and enabling more accurate and transferable statistical analyses in multi-institutional studies. For example, by leveraging natural language processing techniques, we develop statistical methods that help translate medical codes between institutions, thus minimizing the differences in how clinical concepts are captured across different healthcare systems.
+                </div>
+            </div>
+
+            
+            <div class="answer-section">
+                <p class="question-title">3. What impact do you foresee your research having on the future of AI systems?</p>
+                <div class="answer-paragraph">
+                    I hope our work will make incremental progress in integrating quality checks into data analysis pipelines to enhance the validity and reproducibility of scientific research. For example, prior to any statistical analysis, our automated data quality checks and harmonization methods tackle the inherent heterogeneity in EHR data. This long-standing issue traditionally consumes 90% of the time in EHR-based research, especially in multi-institutional studies with data sharing constraints. After completing an analysis, we envision utilizing negative controls— essentially knowing that certain pairs of variables shouldn’t have a causal relationship—to run falsification checks on the results. This approach can help identify hidden biases, including unmeasured confounding, measurement error, and selection bias. Together, these efforts aim to advance data science by ensuring that the conclusions drawn from analyses are more reliable in real-world scenarios.
+                </div>
+            </div>
+            
+            <div class="answer-section">
+                <p class="question-title">4. What emerging trends in statistics do you believe are crucial for advancing AI?</p>
+                <div class="answer-paragraph">
+                    An emerging trend is the effort to close the gap between statistical innovation and real-world implementation, as evidenced by the increasing number of tutorials and communications on advancements in statistics published in medical journals. Such efforts are crucial because, while statistical methods and theories rapidly evolve in academia, their adoption in regulatory and clinical settings remains limited. For example, breakthroughs in AI/ML algorithmic bias are published daily, however, these issues are rarely reflected in FDA approved AI/ML-based medical devices. The challenge is no longer about developing new methods but ensuring that existing ones are validated, understood, trusted, and integrated into practice. Therefore, our field could benefit from prioritizing the translation of advancements into ethical, reliable, and impactful solutions for real-world problems, as well as redefining incentives to reward implementation science.
+                </div>
+                <div class="answer-paragraph">
+                    Another notable trend is the shift in statistician’s role from “playing in everyone’s backyard” to leading in the forefront of data science and scientific initiatives. This is reflected in the growing number of scientific publications led by statisticians and the trend of statisticians becoming more involved in data collection rather than merely adopting existing data. This is critical because leading interdisciplinary research enables statisticians to enhance the rigor and quality of scientific innovation, ensure the responsible use of data, and drive meaningful changes across diverse fields.
+                </div>
+            </div>
+            
+            
+        </div>
+        
+        <div class="edit-info">
+            Edited by: Shan Gao<br>
+            Proofread by: Hongtu Zhu, Jian Kang
+        </div>
+        
+<div style="display: flex; align-items: center; color: #8E8E8E; font-size: 13px; font-family: Arial, sans-serif;">Page Views: <div class="statcounter" style="margin-left: 10px;"> <!-- Add this line for styling -->
+<!-- Default Statcounter code for s3_award
+https://statsupai.org/pages/S3_interview_award.html -->
+<script type="text/javascript">
+var sc_project=13102957; 
+var sc_invisible=0; 
+var sc_security="7de75672"; 
+var scJsHost = "https://";
+document.write("<sc"+"ript type='text/javascript' src='" +
+scJsHost+
+"statcounter.com/counter/counter.js'></"+"script>");
+</script>
+<noscript><div class="statcounter"><a title="Web Analytics
+Made Easy - Statcounter" href="https://statcounter.com/"
+target="_blank"><img class="statcounter"
+src="https://c.statcounter.com/13102957/0/7de75672/0/"
+alt="Web Analytics Made Easy - Statcounter"
+referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+<!-- End of Statcounter Code -->
+</body>
+</html>
