@@ -1,0 +1,51 @@
+---
+title: "Statistical and AI Methods for Health Data Science Seminars"
+image: figures/Health Data Science Seminars copy.png
+author:
+  - name: "Bangyao Zhao"
+  - affiliation: "University of Michigan"
+categories:
+  - Announcements
+  - Events
+date: "2025-04-01"
+---
+
+The **Stats Up AI** group is excited to announce the **“Statistical and AI Methods for Health Data Science”** seminar series. This online seminar series will feature topics in various domains of health data science, including data in **neuroimaging**, **genomics**, **EHRs**, etc. Data analysis in these fields poses significant challenges, encompassing the breadth of **statistics**, **machine learning**, and **AI**. Our series, led by experts in these areas, aims to introduce these challenges, as well as current solutions and data analysis workflows.
+
+### Upcoming Seminars
+
+Our first few seminars will be related to **neuroimaging data analysis**. We are thrilled to have **Martin Lindquist** give our first presentation.
+
+---
+
+**Talk:** *Elements of Functional Neuroimaging*  
+**Time:** Apr 9, 2025 — 12:00 PM Eastern Time  
+**Zoom Meeting (requires registration):** [https://upenn.zoom.us/j/94227327976](https://upenn.zoom.us/j/94227327976)
+
+---
+
+### Abstract
+The field of neuroimaging, particularly **functional magnetic resonance imaging (fMRI)**, is rapidly growing, with over 1,000 new publications annually and widespread use across diverse academic disciplines. As fMRI becomes a core tool for **psychologists**, **neuroscientists**, **physicians**, **economists**, **lawyers**, and **engineers**, understanding its intricacies has never been more critical.
+
+However, the interdisciplinary nature of neuroimaging presents challenges due to its combination of necessary biological, computational, statistical, and psychological expertise. This talk seeks to provide an accessible overview of how fMRI works, focusing on its underlying principles, and explain the variety of techniques used to analyze fMRI data. We will focus on essential conceptual tools to **critically evaluate fMRI studies**, **avoid common pitfalls**, and **deepen the understanding** of this powerful imaging technique.
+
+Our aim is to empower researchers to navigate and assess the complexities of neuroimaging in a rapidly evolving field.
+
+---
+
+### Bio
+[Martin Lindquist](https://publichealth.jhu.edu/faculty/2760/martin-a-lindquist) is a **Professor of Biostatistics** at **Johns Hopkins University**. His research focuses on mathematical and statistical problems relating to **functional Magnetic Resonance Imaging (fMRI)**. Dr. Lindquist is actively involved in developing new analysis methods to enhance our ability to understand brain function using human neuroimaging.
+
+He has published over 100 articles and serves on the editorial boards of several scientific journals both in statistics and neuroimaging. He is a **fellow of the American Statistical Association**. In 2018, he was awarded the **Organization for Human Brain Mapping's 'Education in Neuroimaging Award'** for teaching statistical issues to the neuroimaging community and for developing online classes that have taught fMRI methods to more than **100,000 students worldwide**.
+
+---
+
+**Hope to see many of you!**
+
+Best,  
+*Panpan Zhang, Yi Zhao, and Edgar Dobriban*  
+On behalf of the **Stats Up AI Program Committee** & **Data Science Seminar Organizing Committee**
+
+### Upcoming Seminar Flyer
+
+![](figures/Health%20Data%20Science%20Seminars.png)
