@@ -92,7 +92,22 @@
     </section>
 
 <!-- Announcement Section with Animation -->
-<div style="margin: 20px 0; padding: 20px; background-color: #E0F7F7; border-radius: 12px; text-align: center; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
+
+<style>
+    @keyframes colorful-flash {
+      0% { color: #FF5733; }
+      25% { color: #FFC300; }
+      50% { color: #28A745; }
+      75% { color: #007BFF; }
+      100% { color: #D63384; }
+    }
+    @keyframes scale-up-one {
+      from { transform: scale(1); }
+      to { transform: scale(1.05); }
+    }
+  </style>
+  
+  <div style="margin: 20px 0; padding: 20px; background-color: #E0F7F7; border-radius: 12px; text-align: center; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
     <h2 style="
         font-size: 28px; 
         font-weight: 700; 
@@ -102,35 +117,39 @@
     ">
         🎉 Exciting News! 🎉
     </h2>
-
-    <style>
-        @keyframes colorful-flash {
-            0% { color: #FF5733; }   /* Vibrant Orange */
-            25% { color: #FFC300; }  /* Bright Yellow */
-            50% { color: #28A745; }  /* Green */
-            75% { color: #007BFF; }  /* Blue */
-            100% { color: #D63384; } /* Pink */
-        }
-    </style>
-
-
-    <p style="font-size: 18px; font-weight: 500; color: #000000; margin-bottom: 20px;">
-        We are thrilled to announce that <strong>Stats Up AI</strong> has been officially recognized as an ASA Interest Group!
+  
+    <p style="font-size: 18px; font-weight: 500; color: #000000; margin-bottom: 10px;">
+      We are thrilled to announce that <strong>Stats Up AI</strong> has been officially recognized as an ASA Interest Group! 
+      <a href="pages/ASAIGBlog/ASAIGannouncement.html" style="
+          font-size: 18px; 
+          font-weight: bold; 
+          text-decoration: none; 
+          color: #ffffff;
+          margin-left: 12px;
+          padding: 6px 16px; 
+          background: linear-gradient(180deg, #00A3A3, #007777);
+          border-radius: 6px;
+          animation: scale-up-one 1.5s infinite alternate;
+          display: inline-block;
+      ">Read More</a>
     </p>
-    <a href="pages/ASAIGBlog/ASAIGannouncement.html" style="
-        font-size: 24px; 
-        font-weight: bold; 
-        text-decoration: none; 
-        color: #ffffff;
-        display: inline-block; 
-        padding: 10px 25px; 
-        background: linear-gradient(180deg, #00A3A3, #007777);
-        border-radius: 8px;
-        animation: scale-up-one 1.5s infinite alternate;
-    ">
-        Read More
-    </a>
-</div>
+
+    <p style="font-size: 18px; font-weight: 500; color: #000000; margin-bottom: 10px;">
+        We are excited to announce the <strong>“Statistical and AI Methods for Health Data Science”</strong> seminar series! 
+        <a href="quarto_web/site/posts/StatsUP-AI Statistical and AI Methods for Health Data Science Seminars.html" style="
+            font-size: 18px; 
+            font-weight: bold; 
+            text-decoration: none; 
+            color: #ffffff;
+            margin-left: 12px;
+            padding: 6px 16px; 
+            background: linear-gradient(180deg, #00A3A3, #007777);
+            border-radius: 6px;
+            animation: scale-up-one 1.5s infinite alternate;
+            display: inline-block;
+        ">Read More</a>
+      </p>
+  </div>
 
 <!-- Embedded Animation Style -->
 <style>
