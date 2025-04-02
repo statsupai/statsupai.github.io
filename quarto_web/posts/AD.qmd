@@ -7,6 +7,7 @@ author:
 categories:
   - Events
   - Videos
+  - Webinars
 date: "2024-10-05"
 ---
 <!-- JavaScript Redirect to the target URL -->
