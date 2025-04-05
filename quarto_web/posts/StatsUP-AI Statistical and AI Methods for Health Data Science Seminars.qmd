@@ -13,7 +13,15 @@ date: "2025-04-01"
 
 The **Stats Up AI** group is excited to announce the **“Statistical and AI Methods for Health Data Science”** seminar series. This online seminar series will feature topics in various domains of health data science, including data in **neuroimaging**, **genomics**, **EHRs**, etc. Data analysis in these fields poses significant challenges, encompassing the breadth of **statistics**, **machine learning**, and **AI**. Our series, led by experts in these areas, aims to introduce these challenges, as well as current solutions and data analysis workflows.
 
-### Upcoming Seminars
+**Hope to see many of you!**
+
+Best,  
+*Panpan Zhang, Yi Zhao, and Edgar Dobriban*  
+On behalf of the **Stats Up AI Program Committee** & **Data Science Seminar Organizing Committee**
+
+::: {.panel-tabset}
+
+## Upcoming Seminars
 
 Our first few seminars will be related to **neuroimaging data analysis**. We are thrilled to have **Martin Lindquist** give our first presentation.
 
@@ -41,15 +49,33 @@ He has published over 100 articles and serves on the editorial boards of several
 
 ---
 
-**Hope to see many of you!**
 
-Best,  
-*Panpan Zhang, Yi Zhao, and Edgar Dobriban*  
-On behalf of the **Stats Up AI Program Committee** & **Data Science Seminar Organizing Committee**
 
-### Upcoming Seminar Flyer
+### Seminar Flyer
 
 ![](figures/Health%20Data%20Science%20Seminars.png)
+
+## 🎥 Recorded Seminars
+
+With speaker permission, we record seminars and upload them to our [YouTube channel](https://www.youtube.com/@StatsUpAI) for public access.
+
+Recordings from the *Statistical and AI Methods for Health Data Science* seminar series will be made available on our channel as they become ready.
+
+<div style="text-align: center; margin-top: 1em;">
+  <a href="https://www.youtube.com/@StatsUpAI" target="_blank">
+    <img src="https://www.gstatic.com/youtube/img/branding/youtubelogo/svg/youtubelogo.svg" alt="Stats Up AI YouTube" width="180">
+    <p style="font-size: 14px; margin-top: 0.5em;">Visit the Stats Up AI YouTube Channel</p>
+  </a>
+</div>
+
+<!-- <div style="text-align: center; margin-top: 1em;"> -->
+<!--   <iframe width="100%" height="405" src="https://www.youtube.com/embed/videoseries?list=PLA_E7IjY9cw4GIN2T6DAvKtpvH8drbtrm" -->
+<!--     title="Stats Up AI Seminar Recordings" -->
+<!--     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" -->
+<!--     allowfullscreen></iframe> -->
+<!-- </div> -->
+
+:::
 
 <div style="display: flex; align-items: center; color: #8E8E8E; font-size: 13px; font-family: Arial, sans-serif;">Page Views: <div class="statcounter" style="margin-left: 10px;">
 <!-- Default Statcounter code for seminar1
