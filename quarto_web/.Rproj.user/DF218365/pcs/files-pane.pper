@@ -1,12 +1,12 @@
 {
     "sortOrder": [
         {
-            "columnIndex": 2,
+            "columnIndex": 4,
             "ascending": false
         },
         {
-            "columnIndex": 4,
-            "ascending": true
+            "columnIndex": 2,
+            "ascending": false
         }
     ],
     "path": "C:/Users/zhaob/Desktop/statsupai.github.io/quarto_web/posts"
