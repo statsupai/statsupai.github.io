@@ -1,0 +1,262 @@
+---
+title: "Decoding Tumor Heterogeneity: GBCD on Transforming Single-Cell Cancer Analysis"
+image: figures/GBCD2.png
+author:
+  - name: "Shan Gao"
+  - affiliation: "Yunnan University"
+categories:
+  - Interviews
+date: "2025-04-25"
+---
+
+```{=html}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decoding Tumor Heterogeneity: GBCD on Transforming Single-Cell Cancer Analysis</title>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://statsupai.org/pages/Syusha.html">
+    <meta property="og:title" content="Decoding Tumor Heterogeneity">
+    <meta property="og:description" content="GBCD on Transforming Single-Cell Cancer Analysis">
+    <meta property="og:image" content="figures/GBCD2.png">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif; 
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            line-height: 1.6; /* 增加行距 */
+        }
+        .large-text {
+            font-size: larger; /* 或你想要的任何大小 */
+        }
+
+        .interviewee-introduction {
+            display: flex;
+            align-items: center;
+            background-color: #f8f8f8; /* 轻灰色背景 */
+            border-radius: 8px; /* 边角圆润 */
+            padding: 20px;
+            margin-bottom: 20px; /* 和问答部分保持一定距离 */
+        }
+
+        .interviewee-photo {
+            width: 150px; /* 根据需要调整 */
+            height: 150px; /* 根据需要调整 */
+            border-radius: 50%; /* 创建圆形图片 */
+            object-fit: cover; /* 确保图片内容适应尺寸 */
+            margin-right: 20px;
+        }
+
+        .interviewee-details h2 {
+            margin-top: 0;
+            color: #082653; /* 深蓝色，你可以根据网站主题更改 */
+        }
+
+        .interviewee-details p {
+            color: #333; /* 深灰色文本 */
+            line-height: 1.6; /* 增加行距 */
+        }
+        .edit-info {
+            color: #808080; /* 设置为灰色字体 */
+            font-size: 15px; /* 设置字体大小，根据需要调整 */
+            text-align: right; /* 右对齐文本 */
+            padding: 20px 0; /* 在内容上下添加一些空间 */
+            margin-top: 20px; /* 与问答内容保持一定距离 */
+            border-top: 1px solid #ccc; /* 如果需要，可以添加一条分隔线 */
+        }
+
+        .header-image {
+            width: 97%;
+            height: auto;
+            display: block; /* 使图片成为块级元素 */
+            margin: 0 auto; /* 水平居中 */
+        }
+        .fixed-counter {
+            position: fixed; /* 固定定位，使元素不随页面滚动 */
+            left: 0; /* 距离页面左边界的距离 */
+            bottom: 0; /* 距离页面底部边界的距离 */
+            background-color: transparent; /* 可以根据需要设置背景颜色 */
+            z-index: 1000; /* 确保计数器显示在其他元素之上 */
+        }
+
+        .interview {
+        margin: 20px;
+        background-color: rgba(255, 255, 255, 0.7); /* 白色背景，70%不透明度（即30%透明度） */
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 标题和子标题 */
+        h1, h2 {
+            font-weight: bold;
+            color: #7469B6; /* 深蓝色 */
+            margin-bottom: 20px;
+        }
+
+        /* 问题样式 */
+        .question {
+            color: #213c64; /* 深蓝色 */
+            font-weight: bold;
+            margin-bottom: 10px; /* 问题与回答之间的空间 */
+            font-size: larger; /* 突出问题 */
+        }
+        .image {
+            display: block; /* 使图像成为块级元素 */
+            max-width: 60%; /* 设置图像的最大宽度为60%以确保响应式 */
+            height: auto; /* 设置图像的高度自动调整以保持图片比例 */
+            margin: 10px auto; /* 上下边距为20px，左右自动，实现水平居中 */
+            border: 5px solid #808080; /* 添加蓝色的边框，宽度为5px */
+            border-radius: 8px; /* 如果您想要圆角边框，可以添加这个属性 */
+        }
+
+        .answer {
+            background-color: #f8f8f8; /* 轻微的背景色增加对比 */
+            padding: 15px; /* 内边距增加可读性 */
+            border-left: 4px solid #213c64; /* 左侧边框作为视觉提示 */
+            margin-bottom: 20px; /* 增加回答间的空间 */
+            color: #264653; /* 适中的文字颜色 */
+            font-size: medium; /* 适合阅读的字号 */
+            line-height: 1.6; /* 行间距增加可读性 */
+            border-radius: 4px; /* 轻微的圆角 */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* 轻微的阴影增加层次感 */
+        }
+        ul.custom-list {
+        padding-left: 20px; /* 调整以适应项目符号和首行缩进 */
+        }
+        ul.custom-list li {
+            text-indent: 2em; /* 首行缩进 */
+            margin-left: -2em; /* 调整项目符号位置 */
+        }
+
+        .background-image {
+            position: fixed; /* 或absolute，取决于你的需求 */
+            right: 0;
+            bottom: 0;
+            width: 800px; /* 根据你的背景图尺寸调整 */
+            height: 300px; /* 根据你的背景图尺寸调整 */
+            background-image: url('12.jpg'); /* 替换为你的图片名称 */
+            background-size: cover;
+            opacity: 0.4; /* 设置透明度为40% */
+            z-index: -1; /* 确保背景图不会覆盖其他内容 */
+        }
+        .article-link {
+            background-color: #f4f4f4; /* 背景色 */
+            padding: 10px; /* 内边距 */
+            border-radius: 8px; /* 边角圆滑 */
+            text-align: center; /* 文本居中 */
+            margin: 20px 0; /* 上下外边距 */
+        }
+    
+        .article-link p {
+            margin: 0; /* 移除默认边距 */
+            color: #003366; /* 文本颜色 */
+            font-weight: bold; /* 字体加粗 */
+        }
+    
+        .article-link a {
+            display: inline-block; /* 可以设置宽度和高度 */
+            background-color: #213c64; /* 链接背景色 */
+            color: white; /* 链接文字颜色 */
+            padding: 10px 20px; /* 链接内边距 */
+            border-radius: 5px; /* 链接边角圆滑 */
+            text-decoration: none; /* 去掉下划线 */
+            font-size: 18px; /* 字体大小 */
+            margin-top: 10px; /* 与段落之间的距离 */
+            transition: background-color 0.3s; /* 过渡动画 */
+        }
+    
+        .article-link a:hover {
+            background-color: #082653; /* 鼠标悬停时的背景色 */
+        }
+        
+
+    </style>
+
+</head>
+<body>
+    <img class="header-image" src="figures/GBCD2.png" alt="Interview Image">
+
+    <div class="article-link">
+    <p>The Article Link:</p><a href="https://www.nature.com/articles/s41588-024-01997-z" target="_blank">Dissecting tumor transcriptional heterogeneity from single-cell RNA-seq data by generalized binary covariance decomposition</a>
+    </div>
+
+    <div class="interviewee-introduction">
+    <img src="figures/yusha.jpg" alt="Interviewee Name" class="interviewee-photo">
+    <div class="interviewee-details">
+        <h2>Dr. Yusha Liu</h2>
+        <p>Dr. Yusha Liu received her PhD in Statistics from Rice University in 2019 and postdoctoral training from the Department of Human Genetics at the University of Chicago prior to joining UNC. Yusha’s research interests lie at the intersection of statistics and biology, and she is particularly interested in developing and applying flexible and scalable statistical approaches to analyze large-scale and complex genomics data, such as single cell data, and ultimately contributing to the understanding of complex diseases like cancer and the development of targeted therapy and prevention strategies.
+        </p>
+        </div>
+    </div>
+
+    
+    <div class="interview">
+        <p class="question">Regarding the research background and significance, does this work discover new knowledge or solve existing problems within the field? Please elaborate in detail.</p>
+        <p class="answer">Profiling tumors with single-cell RNA sequencing has the potential to identify recurrent patterns of transcription variation related to cancer progression, and to produce therapeutically relevant insights. However, strong inter-tumor heterogeneity can obscure more subtle patterns that are shared across tumors. In this work, we introduce a statistical method, generalized binary covariance decomposition (GBCD), to address this problem. We show that GBCD can decompose transcriptional heterogeneity into interpretable components—including patient-specific, dataset-specific and shared components relevant to disease subtypes—and that, in the presence of strong inter-tumor heterogeneity, it can produce more interpretable results than existing methods. Applied to data on pancreatic ductal adenocarcinoma, GBCD produced a refined characterization of existing tumor subtypes, and identified a gene expression program prognostic of poor survival independent of tumor stage and subtype. This gene expression program is enriched for genes involved in stress responses, and suggests a role for the integrated stress response in pancreatic ductal adenocarcinoma.</p>
+
+        <p class="question">How did the reviewers evaluate (praise) it?</p>
+        <p class="answer">The review process for this paper was quite smooth and involved just one round of revision. The reviewers recognized the importance and potential impact of our work, which aimed to identify shared gene expression patterns that could reveal valuable insights about cancer etiology from multi-tumor scRNA-seq data dominated by inter-tumor heterogeneity. Quotes from the reviewers include: “There have been numerous publications describing matrix decomposition approaches to analyzing scRNA-seq data. What is unique about the method is its ability to simultaneously identify signatures that explain both inter- and intra-sample variation in gene expression, which can be particularly powerful for subtyping patient cohorts.”
+        </p>
+
+
+        <p class="question">If this achievement has potential applications, what are some specific applications it might have in a few years?</p>
+        <p class="answer">GBCD is a new computational tool to perform unified analysis of multi-tumor scRNA-seq data, whose integration is much more challenging than that of non-tumor tissue samples due to the extensive inter-patient heterogeneity. This powerful tool is readily available for use to jointly analyze the vast amount of available scRNA-seq data from curated cancer cell atlas to extract recurrent gene expression programs that represent biologically relevant cell subtypes or states in a particular type of cancer.</p>
+        <p class="answer">To date, multiple scRNA-seq studies have been conducted for a given cancer type, contributing to a rich resource of scRNA-seq data. While these studies revealed much more structure in tumor transcriptional landscape than what we used to observe with bulk transcriptomics, they often reported non-replicable or even divergent findings from each other. For example, in pancreatic ductal adenocarcinoma (PDAC), although consensus has coalesced around two major PDAC subtypes, classical and basal-like, different studies provided further subclassifications beyond classical/basal that were inconsistent with one another. Such inconsistencies across studies can be attributed, at least in part, to the following two reasons. (1) The number of tumors sequenced per study is usually very limited due to the high cost of scRNA-seq. (2) Even in a single study, an appropriate approach to identifying common cell types and states by integrating scRNA-seq data across multiple tumors is lacking in the literature. Our work filled up this methodological gap. By integrating scRNA-seq data of a particular type of cancer from various studies and patients, we expect GBCD to provide an in-depth analysis of transcriptional heterogeneity and to identify biologically relevant transcriptional states that are also replicable across studies. These analyses will greatly advance our understanding of cancer biology and have the potential to motivate novel therapeutic strategies.</p>
+
+        <p class="question">Can you recount the specific steps or stages from setting the research topic to the successful completion of the research?</p>
+        <p class="answer">I started to work on this project when I was a postdoc at Dr. Matthew Stephens’ lab. I personally have a long-standing interest in cancer research and Matthew has extensive expertise in statistical modeling of scRNA-seq data, so he suggested that I perform a literature review of existing challenges of single-cell transcriptomic data modeling in cancer. I immediately realized the lack of computational methods for unified analysis of scRNA-seq data collected from multiple patients and studies, and thus set this as the research topic. To separate the shared patterns of gene expression variation from the strong patient effects, we considered many modeling strategies but they were either overly complicated or did not work well. After many attempts, we landed on the unique set of modeling assumptions of GBCD, a key feature of which is that it assumes gene expression programs to be orthogonal to one another, which helps avoid absorbing shared components of expression variability into patient-specific expression programs. This approach is simple and mathematically elegant, yet it has superior performance in simulation studies and leads to biologically interesting and clinically relevant findings when applied to real data. Throughout this process, we overcame many challenges in model development and refinement. We also engaged with cancer researchers at the University of Chicago, who helped interpret our results and significantly enhanced the impact of this work.</p>
+
+
+        <p class="question">Were there any memorable events during the research? You can tell a story about anything related to people, events, or objects.</p>
+        <p class="answer">The discussion of GBCD results with our collaborators from the pancreas working group at the University of Chicago was particularly memorable. Our analyses identified a gene expression program that is recurrent among multiple PDAC patients and remains significantly prognostic of patients’ overall survival after accounting for known prognostic factors of PDAC, including tumor stage and subtype. When we presented this result to our collaborators, we were excited to learn that this gene program is related to integrated stress response and many driving genes are validated targets of a transcriptional factor called ATF4, which is exactly the research focus of our collaborators’ labs. This pleasant coincidence led to the most exciting biological discovery and the most interesting case study in this work.
+        </p>
+        
+
+        <p class="question">Is there a follow-up plan based on this research? If so, please elaborate.</p>
+        <p class="answer">We will use this powerful computational tool to analyze the human PDAC scRNA-seq atlas to identify biologically relevant gene expression programs that are replicable across studies in PDAC. We have limited our analyses to gene expression data from malignant cells so far. Notably, malignant cells usually constitute a minority of PDAC tumors; the diverse populations of cancer-associated fibroblasts and immune cells from the immunosuppressive tumor microenvironment also play a crucial role in driving the aggressiveness and therapy resistance of PDAC. Thus, we will conduct integrative analysis separately for neoplastic, stromal and immune compartments to identify the biologically meaningful and replicable transcriptional states in each compartment, and further study the between-compartment crosstalk patterns and their prognostic relevance. Our PDAC collaborators will conduct follow-up experiments to validate the prognostic significance of ATF4 in mouse models.</p>
+
+        <p class="question">Without a doubt, AI is one of the hot topics of 2024, requiring extensive data support in its development. What assistance can biostatistics offer to the development of AI?</p>
+        <p class="answer">In my understanding, AI tools are often black boxes that offer excellent performance in prediction (e.g., predicting the presence of cancer from a patient’s sample) but are less interpretable than traditional statistical models (e.g., identifying the key genomic and epigenomic drivers of cancer initiation and progression). As biostatisticians, our statistical modeling expertise and computing skills uniquely position us to integrate statistical ideas and AI techniques to fully realize the potential of AI in advancing biomedical research.
+        </p>
+
+        <!-- 添加更多问题和答案 -->
+
+    </div>
+    <div class="edit-info">
+        Edited by: Shan Gao<br>
+        Proofread by: Hongtu Zhu
+    </div>
+<div class="background-image"></div>
+<!-- Default Statcounter code for Interview_peiwang
+https://statsupai.com/pages/interview_weipeng.html -->
+<div style="display: flex; align-items: center; color: #8E8E8E; font-size: 13px; font-family: Arial, sans-serif;">Page Views: <div class="statcounter" style="margin-left: 10px;"> <!-- Add this line for styling -->
+<!-- Default Statcounter code for s13
+https://statsupai.org/pages/Syusha.html -->
+<script type="text/javascript">
+var sc_project=13131082; 
+var sc_invisible=0; 
+var sc_security="762d4e65"; 
+var scJsHost = "https://";
+document.write("<sc"+"ript type='text/javascript' src='" +
+scJsHost+
+"statcounter.com/counter/counter.js'></"+"script>");
+</script>
+<noscript><div class="statcounter"><a title="Web Analytics"
+href="https://statcounter.com/" target="_blank"><img
+class="statcounter"
+src="https://c.statcounter.com/13131082/0/762d4e65/0/"
+alt="Web Analytics"
+referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+<!-- End of Statcounter Code -->
+</body>
+</html>
+
+```
