@@ -21,9 +21,65 @@ On behalf of the **Stats Up AI Program Committee** & **Data Science Seminar Orga
 
 ::: {.panel-tabset}
 
-## Upcoming Seminars
+## Upcoming Seminars {.tabset}
 
-Our first few seminars will be related to **neuroimaging data analysis**. We are thrilled to have **Martin Lindquist** give our first presentation.
+### Ying Guo: *Exploring Brain Function and Connectivity with fMRI*
+
+**Date:** Thursday, May 8, 2025  
+**Time:** 3:00 PM – 4:00 PM EST  
+**Zoom Registration:** [https://upenn.zoom.us/j/99182616852](https://upenn.zoom.us/j/99182616852)
+
+**Talk Summary:**  
+This talk introduces key analytical and statistical methods for studying brain function and connectivity using fMRI, with a focus on **brain networks** and **connectome analysis** through **statistical and AI-based approaches**. It aims to familiarize researchers with theanalysisunique characteristics of fMRl data, commonworkflows, and key challenges, encouraging greatercontributions from the statistics community.
+
+
+#### Abstract
+
+Neuroimaging technology has played a central role in advancing scientific understanding of normal brain function in humans, as well as in investigating the neural basis of psychiatric and neurological disorders. Among the various neuroimaging techniques, functional magnetic resonance imaging (fMRI) is one of the most commonly used tools in current neuroscience studies.  This talk aims to introduce analytical techniques and statistical methods for investigating brain function and connectivity using fMRI. We will begin with a discussion of the background and key characteristics of fMRI data that are relevant to statistical modeling. This will be followed by an overview of fMRI analysis, with a focus on brain network and connectome analysis using statistical and AI-based approaches. The goal of the talk is to help familiarize researchers with data considerations, analysis procedures, and challenges in fMRI studies, thereby enabling more statisticians to contribute advanced and well-suited analytical tools for the field.
+
+#### Bio
+
+Dr. [Ying Guo](https://www.yingguo.us/) is Professor in the Department of Biostatistics and Bioinformatics at Emory University, an appointed Graduate Faculty of the Emory Neuroscience Program and an Associate Faculty in Emory Department of Computer Science. She is a founding member and the current Director of the Center for Biomedical Imaging Statistics (CBIS) at Emory University.  Dr. Guo’s research focuses on developing analytical methods for neuroimaging and mental health studies. Her main research areas include blind source separation (BSS) methods such as independent component analysis (ICA), brain network and connectome methods, multimodal imaging, longitudinal imaging modeling, and imaging-based prediction methods. Dr. Guo is a Fellow of the American Statistical Association (ASA) and served as the 2023 Chair of the ASA Statistics in Imaging Section. She has served on the editorial boards of several scientific journals in statistics and psychiatry, and also served as a standing member of the NIH Emerging Imaging Technologies in Neuroscience (EITN) study section.
+
+#### Seminar Flyer
+
+![](figures/yingguoseminar.png)
+
+---
+
+### Hernando Ombao
+**Date:** Friday, June 6, 2025  
+**Time:** 11:00 AM – 12:00 PM EST  
+**Affiliation:** King Abdullah University of Science and Technology (KAUST)  
+**Zoom:** [Registration](https://upenn.zoom.us/meeting/register/9eXF51T7SjiXZ3zz_76qzg?_x_zm_rtaid=zFIovyfFRpec9pFOAigDIg.1745958573095.3935a54450ac212c84d00b795863b044&_x_zm_rhtaid=316#/registration)
+
+Details to be announced.
+
+---
+
+### Dana Tudorascu
+**Date:** Wednesday, July 16, 2025  
+**Time:** 12:00 PM – 1:00 PM EST  
+**Affiliation:** University of Pittsburgh  
+**Zoom:** [Registration](https://upenn.zoom.us/meeting/register/ucStTTtNTTWxFCamXtt9Fw?_x_zm_rtaid=zFIovyfFRpec9pFOAigDIg.1745958573095.3935a54450ac212c84d00b795863b044&_x_zm_rhtaid=316#/registration) 
+
+Details to be announced.
+
+---
+
+### 🧠 Zhengwu Zhang
+**Date:** September 2025  
+**Time:** TBA  
+**Affiliation:** University of North Carolina at Chapel Hill  
+**Zoom:** TBA
+
+Details to be announced.
+
+## Past Seminars {.tabset}
+
+### Martin Lindquist: *Elements of Functional Neuroimaging*
+
+We are thrilled to have **Martin Lindquist** give our first presentation.
 
 ---
 
@@ -33,7 +89,8 @@ Our first few seminars will be related to **neuroimaging data analysis**. We are
 
 ---
 
-### Abstract
+#### Abstract
+
 The field of neuroimaging, particularly **functional magnetic resonance imaging (fMRI)**, is rapidly growing, with over 1,000 new publications annually and widespread use across diverse academic disciplines. As fMRI becomes a core tool for **psychologists**, **neuroscientists**, **physicians**, **economists**, **lawyers**, and **engineers**, understanding its intricacies has never been more critical.
 
 However, the interdisciplinary nature of neuroimaging presents challenges due to its combination of necessary biological, computational, statistical, and psychological expertise. This talk seeks to provide an accessible overview of how fMRI works, focusing on its underlying principles, and explain the variety of techniques used to analyze fMRI data. We will focus on essential conceptual tools to **critically evaluate fMRI studies**, **avoid common pitfalls**, and **deepen the understanding** of this powerful imaging technique.
@@ -42,7 +99,7 @@ Our aim is to empower researchers to navigate and assess the complexities of neu
 
 ---
 
-### Bio
+#### Bio
 [Martin Lindquist](https://publichealth.jhu.edu/faculty/2760/martin-a-lindquist) is a **Professor of Biostatistics** at **Johns Hopkins University**. His research focuses on mathematical and statistical problems relating to **functional Magnetic Resonance Imaging (fMRI)**. Dr. Lindquist is actively involved in developing new analysis methods to enhance our ability to understand brain function using human neuroimaging.
 
 He has published over 100 articles and serves on the editorial boards of several scientific journals both in statistics and neuroimaging. He is a **fellow of the American Statistical Association**. In 2018, he was awarded the **Organization for Human Brain Mapping's 'Education in Neuroimaging Award'** for teaching statistical issues to the neuroimaging community and for developing online classes that have taught fMRI methods to more than **100,000 students worldwide**.
@@ -51,9 +108,10 @@ He has published over 100 articles and serves on the editorial boards of several
 
 
 
-### Seminar Flyer
+#### Seminar Flyer
 
 ![](figures/Health%20Data%20Science%20Seminars.png)
+
 
 ## 🎥 Recorded Seminars
 
