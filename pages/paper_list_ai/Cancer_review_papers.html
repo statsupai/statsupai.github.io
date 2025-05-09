@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cancer Review Papers</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #eaeaea;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        table {
+            width: 90%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        a {
+            color: #0645ad;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .no-content {
+            color: #999;
+        }
+        .bold {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cancer Review Papers</h1>
+    <table id="zotero-items">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>First Author</th>
+                <th>Journal</th>
+                <th>Link</th>
+                <th>DOI</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Zotero items will be added here -->
+        </tbody>
+    </table>
+
+    <script type="text/javascript">
+    const apiKey = 'qsheeavQ163JkXS3DxE9KQYU'; // 请替换为你的Zotero API密钥
+    const groupID = '5407414'; // 你的Zotero Group ID
+    const collectionID = '6PVIT4IP'; // Your Zotero Collection ID
+    const url = `https://api.zotero.org/groups/${groupID}/collections/${collectionID}/items?key=${apiKey}&sort=date&direction=desc`;
+
+    function renderCell(cell, content, isLink = false, isBold = false) {
+        if (isLink && content) {
+            const link = document.createElement('a');
+            link.href = content;
+            link.textContent = 'URL';
+            link.target = '_blank';
+            cell.appendChild(link);
+        } else {
+            cell.textContent = content || '—';
+            if (isBold) {
+                cell.classList.add('bold');
+            }
+        }
+        if (content === undefined || content === '') {
+            cell.classList.add('no-content');
+        }
+    }
+
+    fetch(url)
+      .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        const tableBody = document.querySelector('#zotero-items tbody');
+        data.forEach(item => {
+          if (item.data.itemType !== 'attachment') {
+            const row = tableBody.insertRow();
+            const cellTitle = row.insertCell();
+            const cellAuthor = row.insertCell();
+            const cellJournal = row.insertCell();
+            const cellLink = row.insertCell();
+            const cellDOI = row.insertCell();
+
+            renderCell(cellTitle, item.data.title, false, true); // Set title bold
+            const firstAuthor = item.data.creators && item.data.creators[0] ? item.data.creators[0].lastName + (item.data.creators[0].firstName ? ', ' + item.data.creators[0].firstName : '') : '—';
+            renderCell(cellAuthor, firstAuthor);
+            renderCell(cellJournal, item.data.publicationTitle);
+            renderCell(cellLink, item.data.url, true);
+            renderCell(cellDOI, item.data.DOI);
+          }
+        });
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+        const tableBody = document.querySelector('#zotero-items tbody');
+        const row = tableBody.insertRow();
+        const cellError = row.insertCell(0);
+        cellError.textContent = 'There was an error loading the Zotero items.';
+        cellError.colSpan = 5;
+      });
+    </script>
+</body>
+</html>
