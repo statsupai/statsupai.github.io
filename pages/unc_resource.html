@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Advanced Deep Learning Resources & Courses</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #f5f7fa;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+        
+        .course-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .course-meta {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .course-meta span {
+            background: #f8f9fa;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+
+        .instructor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .instructor {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .instructor .name {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .instructor .affiliation {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .register-button {
+            display: inline-block;
+            background: #4a90e2;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: background 0.3s ease;
+        }
+
+        .register-button:hover {
+            background: #357abd;
+        }
+
+        .course-image {
+            margin: 20px auto;
+            max-width: 60%;
+            text-align: center;
+        }
+
+        .image-wrapper {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .course-image img {
+            max-width: 100%;
+            height: auto;
+            display: inline-block;
+            object-fit: cover;
+        }
+
+        .hero h1 {
+            font-size: 2.2em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .subtitle {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .subtitle span {
+            background: rgba(255,255,255,0.7);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 1.1em;
+            color: #4a5568;
+        }
+
+        .image-wrapper a {
+            display: block;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .image-wrapper:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        /* 添加一个微妙的点击提示 */
+        .image-wrapper::after {
+            content: '🔗 Click to view syllabus';
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .image-wrapper:hover::after {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <h1>UNC Course Resources & JSM 2025 Short Course</h1>
+        </div>
+
+        <div class="course-card">
+            <h2>🧬 Deep Learning Methods in Biomedical Sciences with PyTorch</h2>
+            <h3>Free Course Materials Now Available!</h3>
+            <ul>
+                <li>Complete lecture slides (PPT)</li>
+                <li>Homework assignments</li>
+                <li>Comprehensive coverage: CNN, RNN, GNN, Transformer, GAN, BioBERT</li>
+                <li>Focus on medical imaging, genomics, and clinical text analysis</li>
+            </ul>
+
+            <div class="course-image">
+                <div class="image-wrapper">
+                    <a href="https://bios740.github.io/syllabus/" target="_blank">
+                        <img src="/Users/gs/Desktop/青牛帮/课程.jpg" alt="Course Content Overview" />
+                        <div class="image-overlay"></div>
+                    </a>
+                </div>
+            </div>
+
+            <p>📚 Access materials at: <a href="https://bios740.github.io">https://bios740.github.io</a></p>
+            <p>Instructors: Prof. Hongtu Zhu & TA Runpeng Dai</p>
+            
+            <div class="course-image">
+                    <img src="/Users/gs/Desktop/青牛帮/bios740.jpg" alt="BIOS740 Course Overview" />
+                    <div class="image-overlay"></div>
+            </div>
+        </div>
+
+        <div class="course-card">
+            <h2>📊 Deep Learning Methods in Advanced Statistical Problems</h2>
+            <div class="course-header">
+                <div class="course-meta">
+                    <span class="date">🗓️ Sunday, August 3, 2025</span>
+                    <span class="time">⏰ 8:30 AM - 5:00 PM</span>
+                    <span class="code">📝 Course Code: CE_01</span>
+                </div>
+            </div>
+
+            <div class="course-image">
+                <img src="/Users/gs/Desktop/青牛帮/短课.jpg" alt="Short Course Overview" />
+            </div>
+
+            <div class="instructors">
+                <h3>🎓 Expert Instructors</h3>
+                <div class="instructor-grid">
+                    <div class="instructor">
+                        <span class="name">Hongtu Zhu</span>
+                        <span class="affiliation">UNC</span>
+                    </div>
+                    <div class="instructor">
+                        <span class="name">Xiao Wang</span>
+                        <span class="affiliation">Purdue University</span>
+                    </div>
+                    <div class="instructor">
+                        <span class="name">Runpeng Dai</span>
+                        <span class="affiliation">UNC</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-description">
+                <h3>📚 Course Overview</h3>
+                <p>This intensive one-day course is specifically designed for researchers in statistics and data analysis who are eager to explore the cutting-edge applications of deep learning in statistical problems.</p>
+                
+                <h3>🎯 What You'll Learn</h3>
+                <ul>
+                    <li>Latest trends in deep learning for statistical analysis</li>
+                    <li>Practical applications in complex statistical problems</li>
+                    <li>Hands-on experience with deep learning methodologies</li>
+                </ul>
+            </div>
+
+            <div class="registration-cta">
+                <a href="https://ww2.amstat.org/meetings/jsm/2025/pdfs/JSM2025-RegistrationGuide.pdf" class="register-button">
+                    Register Now
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
