@@ -1,0 +1,198 @@
+---
+title: "Statistical and AI Methods for Health Data Science Seminars (3)"
+image: figures/Health Data Science Seminars copy.png
+author:
+  - name: "Shan Gao"
+  - affiliation: "Yunnan University"
+categories:
+  - Announcements
+  - Events
+  - Webinars
+date: "2025-05-26"
+---
+
+The **Stats Up AI** group is excited to announce the **“Statistical and AI Methods for Health Data Science”** seminar series. This online seminar series will feature topics in various domains of health data science, including data in **neuroimaging**, **genomics**, **EHRs**, etc. Data analysis in these fields poses significant challenges, encompassing the breadth of **statistics**, **machine learning**, and **AI**. Our series, led by experts in these areas, aims to introduce these challenges, as well as current solutions and data analysis workflows.
+
+**Hope to see many of you!**
+
+Best,  
+*Panpan Zhang, Yi Zhao, and Edgar Dobriban*  
+On behalf of the **Stats Up AI Program Committee** & **Data Science Seminar Organizing Committee**
+
+::: {.panel-tabset}
+
+## Upcoming Seminars 3 {.tabset}
+
+### Hernando Ombao: *Overview of Methods for Characterizing Brain Functional Connectivity*
+
+**Date:** Thursday, June 6, 2025  
+**Time:** 11:00 AM – 12:00 PM EST  
+**Zoom Registration:** [https://upenn.zoom.us/j/91348715596](https://upenn.zoom.us/j/91348715596)
+
+#### Abstract
+
+Abstract: Modeling dependence between nodes in a brain network is central to understanding underlying neural mechanisms such as perception, action, and memory. In this talk, we present a broad range of statistical methods for characterizing dependence in a brain network. We first review a general framework which decomposes each signal into various frequency components and then characterize the dependence properties through these oscillatory activities. The unifying theme across the talk is to explore the strength of dependence and possible lead-lag dynamics through filtering. The proposed framework is capable of representing both linear and non-linear dependencies that could occur instantaneously or after some delay (lagged dependence).
+
+**In the first part** of the talk, some of the most prominent frequency domain measures such as coherence, partial coherence, and dual-frequency coherence can be derived as special cases under this general framework. Coherence can be viewed  in the proposed framework as the maximal squared correlation between oscillations from a pair of nodes. It gives a more specific information that correlation because it identifies the frequency bands that drive the dependence between nodes.
+
+**In the second part** of the talk, we will discuss methods for characterizing dependence between a pair of communities (of nodes) under the high dimensional setting. Here, we will introduce our proposed Kendall’s Canonical Coherence (KenCoh). The classical method of Canonical Correlation Analysis (CCA) is limited to capturing linear associations, cross-sectional studies, and is sensitive to heavy-tailed observations. The proposed KenCoh method mitigates the limitations by using a rank-based approach under elliptic symmetry. It captures non-linear associations and is robust against outliers. The work presented here is limited to multiple independent trials of multivariate time-series, although this is the usual set-up of experimental studies. Future direction of this work will look into potential Markovian dependence of trials which is applicable when trials has sequencing.
+
+**In the third and final part** of the talk, we will briefly describe current work on information-theoretic measures of connectivity. This class of measures are based on joint (and conditional) distributions rather than just the first two moments. The proposed spectral transfer entropy (STE) quantifies the magnitude and direction of information flow from a certain frequency-band oscillation of a channel to an oscillation of another channel. The main advantage of our proposed approach is that it allows adjustments for multiple comparisons to control family-wise error rate. Another novel contribution is a simple yet efficient estimation method based on vine copula theory that enables estimates to capture zero (boundary point) without the need for bias adjustments. With the vine copula representation, a null copula model, which exhibits zero STE, is defined, making significance testing for STE straightforward through a standard resampling approach. Lastly, we illustrate the advantage of our proposed measure through some numerical experiments and provide interesting and novel findings on the analysis of EEG recordings linked to a visual task.
+
+#### Bio
+
+Dr. [Hernando Ombao](https://cemse.kaust.edu.sa/profiles/hernando-ombao) is a professor in the Statistics Program and the principal investigator of the Biostatistics Group at KAUST. His research focuses on developing time series models and novel data science methods for analyzing high-dimensional complex biological processes. He leads a group of researchers specializing in spectral and time-series analysis, functional data analysis, state-space models, and signal processing for brain signals and images. His group collaborates closely with neuroscientists to model the associations between neurophysiology, cognition and animal behavior. Ombao is an elected fellow of the American Statistical Association. He has been awarded several grants as a principal investigator by the U.S. National Science Foundation. In 2017, he received the UC Irvine School of Information Sciences Mid-Career Award for Research. He has served as a panel member of the Biostatistics Study Section at the U.S. National Institutes of Health and as an associate editor of leading statistical journals. He is co-editor of the book Handbook of Statistical Methods for Neuroimaging (CRC Press, 2016) and co-editor of a special issue of the Journal of Time Series Analysis.
+
+At KAUST, he holds secondary appointments in the Applied Mathematics and Computational Sciences (AMCS) and the Bioengineering Programs. He also serves as chair of the Institutional Biosafety and Bioethics Committee. Ombao actively collaborates with researchers across the campus and is a co-founder of the interdisciplinary KAUST Neuro-AI Laboratory (NAIL).
+
+#### Seminar Flyer
+
+![](figures/ombao.png)
+
+---
+
+### Dana Tudorascu
+**Date:** Wednesday, July 16, 2025  
+**Time:** 12:00 PM – 1:00 PM EST  
+**Affiliation:** University of Pittsburgh  
+**Zoom:** [Registration](https://upenn.zoom.us/meeting/register/ucStTTtNTTWxFCamXtt9Fw?_x_zm_rtaid=zFIovyfFRpec9pFOAigDIg.1745958573095.3935a54450ac212c84d00b795863b044&_x_zm_rhtaid=316#/registration) 
+
+Details to be announced.
+
+---
+
+### Zhengwu Zhang
+**Date:** September 2025  
+**Time:** TBA  
+**Affiliation:** University of North Carolina at Chapel Hill  
+**Zoom:** TBA
+
+Details to be announced.
+
+## Past Seminars {.tabset}
+
+### No.1 Martin Lindquist: *Elements of Functional Neuroimaging*
+
+<details>
+<summary>Click to view seminar details</summary>
+
+<br>
+
+**Talk:** *Elements of Functional Neuroimaging*  
+**Time:** April 9, 2025, 12:00–1:00 PM ET  
+**Zoom Meeting (registration required):** [https://upenn.zoom.us/j/94227327976](https://upenn.zoom.us/j/94227327976)
+
+---
+
+#### Abstract
+
+The field of neuroimaging, particularly **functional magnetic resonance imaging (fMRI)**, is rapidly growing, with over 1,000 new publications annually and widespread use across diverse academic disciplines. As fMRI becomes a core tool for **psychologists**, **neuroscientists**, **physicians**, **economists**, **lawyers**, and **engineers**, understanding its intricacies has never been more critical.
+
+However, the interdisciplinary nature of neuroimaging presents challenges due to its combination of biological, computational, statistical, and psychological expertise. This talk provides an accessible overview of how fMRI works, focusing on its underlying principles and techniques for analyzing fMRI data. Emphasis will be placed on key conceptual tools to **critically evaluate fMRI studies**, **avoid common pitfalls**, and **gain deeper insight** into this powerful imaging technique.
+
+The goal is to equip researchers with the tools needed to navigate and interpret the complexities of neuroimaging in a rapidly evolving field.
+
+---
+
+#### Bio
+
+[Martin Lindquist](https://publichealth.jhu.edu/faculty/2760/martin-a-lindquist) is a **Professor of Biostatistics** at **Johns Hopkins University**. His research focuses on mathematical and statistical challenges in **functional Magnetic Resonance Imaging (fMRI)**. He develops new analysis methods to enhance our ability to study brain function using human neuroimaging.
+
+He has published over 100 papers and serves on editorial boards of several journals in both statistics and neuroimaging. Dr. Lindquist is a **Fellow of the American Statistical Association**, and in 2018, he received the **Organization for Human Brain Mapping's Education in Neuroimaging Award** for teaching statistical principles to the neuroimaging community and for creating online courses that have reached over **100,000 students worldwide**.
+
+---
+
+#### Seminar Flyer
+
+![](figures/Health%20Data%20Science%20Seminars.png)
+
+</details>
+
+---
+
+### No.2 Ying Guo: *Exploring Brain Function and Connectivity with fMRI*
+
+<details>
+<summary>Click to view seminar details</summary>
+
+<br>
+
+**Date:** Thursday, May 8, 2025  
+**Time:** 3:00 PM – 4:00 PM ET  
+**Zoom Registration:** [https://upenn.zoom.us/j/99182616852](https://upenn.zoom.us/j/99182616852)
+
+---
+
+#### Talk Summary
+
+This talk introduces core statistical and analytical methods for studying brain function and connectivity using fMRI, with emphasis on **brain networks** and **connectome analysis** powered by **statistical and AI-based approaches**. It aims to familiarize researchers with the unique characteristics of fMRI data, standard workflows, and analytical challenges, encouraging contributions from the statistics and data science communities.
+
+---
+
+#### Abstract
+
+Neuroimaging has been instrumental in enhancing our understanding of healthy brain function and in exploring the neural underpinnings of psychiatric and neurological disorders. Among the many neuroimaging modalities, functional magnetic resonance imaging (fMRI) is one of the most widely used in contemporary neuroscience.
+
+This talk introduces key analytical techniques and statistical methods for exploring brain function and connectivity through fMRI. It begins with an overview of the nature and structure of fMRI data relevant to modeling, followed by a discussion of modern fMRI analysis techniques—particularly **network and connectome analysis** using statistical and AI tools. The aim is to prepare researchers to engage in fMRI research with a strong understanding of its modeling demands and research opportunities.
+
+---
+
+#### Bio
+
+Dr. [Ying Guo](https://www.yingguo.us/) is a Professor in the Department of Biostatistics and Bioinformatics at Emory University. She is a Graduate Faculty member in the Emory Neuroscience Program and an Associate Faculty member in the Emory Department of Computer Science. She is the founding Director of the Center for Biomedical Imaging Statistics (CBIS) at Emory.
+
+Dr. Guo's research focuses on the development of analytical tools for neuroimaging and mental health studies. Her areas of expertise include **blind source separation (BSS)** methods like **independent component analysis (ICA)**, **brain network analysis**, **multimodal imaging**, **longitudinal modeling**, and **prediction based on neuroimaging data**. She is a **Fellow of the American Statistical Association (ASA)** and served as the **2023 Chair of the ASA Statistics in Imaging Section**. She has served on editorial boards of scientific journals and on the NIH **Emerging Imaging Technologies in Neuroscience (EITN)** study section.
+
+---
+
+#### Seminar Flyer
+
+![](figures/yingguoseminar.png)
+
+</details>
+
+---
+
+
+## 🎥 Recorded Seminars
+
+With speaker permission, we record seminars and upload them to our [YouTube channel](https://www.youtube.com/@StatsUpAI) for public access.
+
+Recordings from the *Statistical and AI Methods for Health Data Science* seminar series will be made available on our channel as they become ready.
+
+<div style="text-align: center; margin-top: 1em;">
+  <a href="https://www.youtube.com/@StatsUpAI" target="_blank">
+    <img src="https://www.gstatic.com/youtube/img/branding/youtubelogo/svg/youtubelogo.svg" alt="Stats Up AI YouTube" width="180">
+    <p style="font-size: 14px; margin-top: 0.5em;">Visit the Stats Up AI YouTube Channel</p>
+  </a>
+</div>
+
+<!-- <div style="text-align: center; margin-top: 1em;"> -->
+<!--   <iframe width="100%" height="405" src="https://www.youtube.com/embed/videoseries?list=PLA_E7IjY9cw4GIN2T6DAvKtpvH8drbtrm" -->
+<!--     title="Stats Up AI Seminar Recordings" -->
+<!--     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" -->
+<!--     allowfullscreen></iframe> -->
+<!-- </div> -->
+
+:::
+
+<div style="display: flex; align-items: center; color: #8E8E8E; font-size: 13px; font-family: Arial, sans-serif;">Page Views: <div class="statcounter" style="margin-left: 10px;">
+<!-- Default Statcounter code for seminar1
+https://statsupai.org/quarto_web/site/posts/StatsUP-AI%20Statistical%20and%20AI%20Methods%20for%20He
+-->
+<script type="text/javascript">
+var sc_project=13110735; 
+var sc_invisible=0; 
+var sc_security="92556aa5"; 
+var scJsHost = "https://";
+document.write("<sc"+"ript type='text/javascript' src='" +
+scJsHost+
+"statcounter.com/counter/counter.js'></"+"script>");
+</script>
+<noscript><div class="statcounter"><a title="Web Analytics"
+href="https://statcounter.com/" target="_blank"><img
+class="statcounter"
+src="https://c.statcounter.com/13110735/0/92556aa5/0/"
+alt="Web Analytics"
+referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+<!-- End of Statcounter Code -->
