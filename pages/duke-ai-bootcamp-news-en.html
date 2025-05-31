@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duke & Chen Institute Joint AI Boot Camp 2025 Concludes Successfully</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .news-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin: 40px 0;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #fff, #e0e7ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            font-weight: 300;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .date-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+        }
+
+        .disclaimer-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .content-section {
+            padding: 50px 40px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #1e3c72;
+            margin-bottom: 30px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 30px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .highlight-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .highlight-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .highlight-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .highlight-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1e3c72;
+            margin-bottom: 8px;
+        }
+
+        .highlight-desc {
+            color: #64748b;
+            line-height: 1.5;
+            font-size: 0.9rem;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding: 20px 0 20px 80px;
+            margin-bottom: 20px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 21px;
+            top: 30px;
+            width: 20px;
+            height: 20px;
+            background: #667eea;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 0 0 2px #667eea;
+        }
+
+        .timeline-day {
+            font-weight: 600;
+            color: #1e3c72;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .timeline-content {
+            color: #64748b;
+        }
+
+        .quote-section {
+            background: linear-gradient(135deg, #fef7cd 0%, #fef3c7 100%);
+            padding: 40px;
+            border-radius: 15px;
+            margin: 40px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .quote-text {
+            font-size: 1.3rem;
+            font-style: italic;
+            color: #92400e;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .quote-author {
+            font-weight: 600;
+            color: #78350f;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 30px 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        .faculty-section {
+            background: #f8fafc;
+            padding: 40px;
+            border-radius: 15px;
+            margin: 40px 0;
+        }
+
+        .faculty-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .faculty-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid #667eea;
+        }
+
+        .faculty-name {
+            font-weight: 600;
+            color: #1e3c72;
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        .faculty-title {
+            color: #667eea;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .faculty-desc {
+            color: #64748b;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .resource-box {
+            background: linear-gradient(135deg, #e0f2fe 0%, #b3e5fc 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border-left: 4px solid #0288d1;
+        }
+
+        .resource-box h4 {
+            color: #01579b;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .resource-box a {
+            color: #0277bd;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .resource-box a:hover {
+            text-decoration: underline;
+        }
+
+        .disclaimer-section {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            padding: 40px;
+            border-radius: 15px;
+            margin: 40px 0;
+            border-left: 4px solid #ff9800;
+        }
+
+        .disclaimer-section h3 {
+            color: #e65100;
+            margin-bottom: 15px;
+        }
+
+        .disclaimer-section p {
+            color: #bf360c;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .content-section {
+                padding: 30px 20px;
+            }
+            
+            .timeline-item {
+                padding-left: 60px;
+            }
+
+            .highlight-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <article class="news-card">
+            <!-- Hero Section -->
+            <header class="hero-section">
+                <div class="hero-content">
+                    <h1 class="hero-title">Duke & Chen Institute Joint AI Boot Camp 2025 Concludes Successfully</h1>
+                    <p class="hero-subtitle">Five-day intensive program explores cutting-edge applications of AI in healthcare and medical research</p>
+                    <div class="date-badge">May 12-16, 2025 · Duke University</div>
+                    <!-- <div class="disclaimer-badge">Third-Party Educational Report</div> -->
+                </div>
+            </header>
+
+            <!-- Main Content -->
+            <section class="content-section">
+                <h2 class="section-title">Event Overview</h2>
+                <p style="font-size: 1.1rem; color: #64748b; margin-bottom: 30px;">
+                    The Duke & Chen Institute Joint Boot Camp for AI & AI Accelerated Medical Research concluded successfully on May 16, 2025, after five intensive days of cutting-edge presentations and discussions. The program, hosted by <strong>Prof. Jian Pei</strong>, brought together distinguished faculty and participants to explore the latest developments in medical artificial intelligence.
+                </p>
+
+                <h2 class="section-title">Key Technical Innovations Presented</h2>
+                <div class="highlight-grid">
+                    <div class="highlight-card">
+                        <div class="highlight-icon">🏥</div>
+                        <h3 class="highlight-title">pHealth Framework</h3>
+                        <p class="highlight-desc">Predictive, Personalized, Participatory, and Precision Health paradigm with foundation models and adaptive learning</p>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="highlight-icon">🧠</div>
+                        <h3 class="highlight-title">Causal Generalist Medical AI</h3>
+                        <p class="highlight-desc">CGM-AI integrating biomedical data, knowledge graphs, EHR foundation models, and causal decision-making</p>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="highlight-icon">📊</div>
+                        <h3 class="highlight-title">Real-World Evidence & Clinical Trials</h3>
+                        <p class="highlight-desc">Target-trial emulation, federated learning, and multi-agent systems for automated clinical analysis</p>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="highlight-icon">🔬</div>
+                        <h3 class="highlight-title">Foundation Models for Genomics</h3>
+                        <p class="highlight-desc">DNABERT-2, scBERT for genomics, RNA/protein analysis, and 3D chromatin organization models</p>
+                    </div>
+                </div>
+
+                <h2 class="section-title">Daily Program Schedule</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-day">Day 1 (May 12)</div>
+                        <div class="timeline-content">
+                            <strong>Challenges & Opportunities in Translating AI to Healthcare</strong><br>
+                            Prof. May Dongmei Wang (Georgia Tech) on pHealth paradigm and foundation models; Prof. Wei Wang (UCLA) on medical information retrieval in the LLM era, CliBench benchmarking, and medical information extraction models.
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-day">Day 2 (May 13)</div>
+                        <div class="timeline-content">
+                            <strong>Causal Generalist Medical Artificial Intelligence (CGM-AI)</strong><br>
+                            Prof. Hongtu Zhu on CGM-AI integration and biomedical knowledge graphs; Prof. Huaxiu Yao on CGM-LLMs and multi-agent systems; Prof. Qiao Liu on omics foundation models; Prof. Xin Wang on medical imaging foundation models.
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-day">Day 3 (May 14)</div>
+                        <div class="timeline-content">
+                            <strong>Harnessing Real World Evidence for Better Clinical Trials with AI</strong><br>
+                            Prof. Fei Wang (Weill Cornell) on real-world evidence, target-trial emulation, and federated learning; Prof. Bang Liu (University of Montreal) on intelligent medical agents and multi-agent system design.
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-day">Day 4 (May 15)</div>
+                        <div class="timeline-content">
+                            <strong>Scalable and Responsible Natural Language Processing to Transform Healthcare</strong><br>
+                            Prof. Monica Agrawal (Duke) on LLMs in healthcare, EHR information extraction, and responsible AI deployment; Additional sessions on advanced machine learning for imaging-omics analysis and federated learning.
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-day">Day 5 (May 16)</div>
+                        <div class="timeline-content">
+                            <strong>Foundation Models and Knowledge Graphs for Human Genome and Multi-Modal Data</strong><br>
+                            Comprehensive sessions on foundation models for human genome research, knowledge graphs for multi-modal biomedical data, 3D chromatin organization, and causal inference using large-scale datasets.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Participants</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">10+</div>
+                        <div class="stat-label">Faculty Members</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">20+</div>
+                        <div class="stat-label">Technical Talks</div>
+                    </div>
+                </div>
+
+
+                <h2 class="section-title">Key Research Insights</h2>
+                <p style="color: #64748b; margin-bottom: 30px;">
+                    The program highlighted several groundbreaking research directions, including the evolution from traditional Generalist Medical AI to Causal Generalist Medical AI (CGM-AI), which incorporates causal inference capabilities for more robust medical decision-making. Topics covered advanced areas such as federated learning, target trial emulation, and multimodal integration techniques.
+                </p>
+
+                <div class="resource-box">
+                    <h4>📚 Course Materials & Resources</h4>
+                    <p><strong>Comprehensive Course Notes:</strong> <a href="https://patriciaxiao.github.io/www/files/Duke_AI_Boot_Camp_2025_Course_Note.pdf" target="_blank">Detailed notes by Patricia Xiao</a> provide insights into presentations and discussions.</p>
+                    <p><strong>Official Program:</strong> <a href="https://ai-bootcamp.cs.duke.edu/" target="_blank">ai-bootcamp.cs.duke.edu</a></p>
+                    <p><em>Note: Participant notes reflect personal understanding and should not be considered an official record of the event.</em></p>
+                </div>
+
+                <h2 class="section-title">Looking Forward</h2>
+                <p style="color: #64748b;">
+                    The success of this boot camp demonstrates the growing importance of interdisciplinary collaboration in advancing medical AI. The program's focus on both technical innovation and practical implementation challenges positions participants to contribute meaningfully to the evolving landscape of healthcare technology.
+                </p>
+            </section>
+
+        </article>
+    </div>
+
+    <script>
+        // Add scroll animation effects
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements that need animation
+        document.querySelectorAll('.highlight-card, .stat-card, .faculty-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html> 
