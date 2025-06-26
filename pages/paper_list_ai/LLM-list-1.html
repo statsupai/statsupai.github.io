@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>LLM Review Papers</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #eaeaea;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #1f1c1a9c;
+    }
+    .zotero-list {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .item {
+      background: #fff;
+      margin: 15px 0;
+      padding: 15px;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+    .item-title {
+      font-weight: bold;
+      font-size: 1.1em;
+      color: #2c2321;
+      margin-bottom: 5px;
+    }
+    .item-meta {
+      color: #483f3c;
+      margin-bottom: 3px;
+    }
+    a {
+      color: #0645ad;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .no-content {
+      color: #999;
+    }
+    .authors {
+      color: #222;  /* Darker than default #555 */
+      font-weight: 500;
+    }
+    
+
+    .toggle-abstract {
+      margin-left: 10px;
+      padding: 2px 4px;
+      background-color: #f8f8f8;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      color: #0c1a5fcb;
+      font-size: 0.80em;
+      font-family: inherit;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .toggle-abstract:hover {
+      background-color: #e0e0e0;
+      border-color: #999;
+    }
+    .abstract-text {
+      color: #777;
+      font-size: 0.9em;  /* Or try 0.85em or 13px */
+      line-height: 1.4;
+    }
+    .abstract-container {
+      margin-top: 5px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>LLM Techniques & Architectures</h1>
+  <div id="zotero-list" class="zotero-list">
+    <!-- Zotero items will be inserted here -->
+  </div>
+  <body>
+
+  
+
+  <script type="text/javascript">
+    const apiKey = 'qsheeavQ163JkXS3DxE9KQYU'; // Replace with your API key
+    const groupID = '5407414';
+    const collectionID = 'AA8HVZ8M';
+    const url = `https://api.zotero.org/groups/${groupID}/collections/${collectionID}/items?key=${apiKey}&sort=date&direction=desc`;
+
+    function safeText(value) {
+      return value || '<span class="no-content">—</span>';
+    }
+
+    fetch(url)
+      .then(response => {
+        if (!response.ok) throw new Error('Network error');
+        return response.json();
+      })
+      .then(data => {
+        const container = document.getElementById('zotero-list');
+        data.forEach(item => {
+          if (item.data.itemType !== 'attachment') {
+            const div = document.createElement('div');
+            div.className = 'item';
+
+            const title = safeText(item.data.title);
+            const firstAuthor = item.data.creators?.[0]
+              ? `${item.data.creators[0].lastName}, ${item.data.creators[0].firstName || ''}`
+              : '—';
+            const journal = safeText(item.data.publicationTitle);
+            const doi = safeText(item.data.DOI);
+            const doilink = item.data.url ? `<a href="${item.data.url}" target="_blank">${doi}</a>` : '<span class="no-content">—</span>';
+            const titlelink = item.data.url ? `<a href="${item.data.url}" target="_blank" title="${item.data.url}">[Link]</a>` : '<span class="no-content">—</span>';
+
+            const creators = item.data.creators || [];
+            const authors = creators
+              .filter(c => c.creatorType === 'author')
+              .map(c => `${c.lastName}${c.firstName ? ', ' + c.firstName : ''}`)
+              .join('; ') || '—';
+            const abstract = safeText(item.data.abstractNote);
+
+            const isLong = abstract.length > 300;
+            const preview = isLong ? abstract.slice(0, 300) + '…' : abstract;
+            const abstractID = `abstract-${item.key}`;
+
+            const abstractHTML = `
+              <div class="item-meta abstract-container">
+                <span class="abstract-text" id="${abstractID}"><strong>Abstract:</strong>
+                  ${preview}</span>
+                ${isLong ? `<button class="toggle-abstract" data-id="${abstractID}" data-full="${encodeURIComponent(abstract)}">Show more</button>` : ''}
+              </div>
+            `;
+
+            div.innerHTML = `
+            <div class="item-title">${title} ${titlelink ? `${titlelink}` : ''}</div>
+            <div class="item-meta authors"><strong>Authors:</strong> ${authors}</div>
+            <div class="item-meta"><strong>DOI:</strong> ${doilink}</div>
+            ${abstractHTML}
+            `;
+
+            const toggleButton = div.querySelector('.toggle-abstract');
+            if (toggleButton) {
+              toggleButton.addEventListener('click', function () {
+                const span = div.querySelector(`#${this.dataset.id}`);
+                const fullText = decodeURIComponent(this.dataset.full);
+                const isCollapsed = this.textContent === 'Show more';
+
+                if (isCollapsed) {
+                  span.textContent = fullText;
+                  this.textContent = 'Show less';
+                } else {
+                  span.textContent = fullText.slice(0, 300) + '…';
+                  this.textContent = 'Show more';
+                }
+              });
+            }
+
+            container.appendChild(div);
+          }
+        });
+      })
+      .catch(err => {
+        const container = document.getElementById('zotero-list');
+        container.innerHTML = `<p style="color: red;">Error loading Zotero items.</p>`;
+        console.error(err);
+      });
+  </script>
+</body>
+</html>

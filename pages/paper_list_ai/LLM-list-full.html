@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>LLM Review Papers</title>
+  <style>
+    /* ****************************************************************************** 
+                                          STYLE                               
+       ****************************************************************************** */ 
+    /* --------------------------- CSS: Responsive Design --------------------------- */
+    @media screen and (max-width: 768px) {
+        .layout-container {
+            flex-direction: column;
+        }
+
+        .floating-sidebar {
+            position: static;
+            width: 100%;
+            max-width: none;
+            margin-bottom: 20px;
+            box-shadow: none;
+        }
+
+        .main-content {
+            width: 100%;
+        }
+    }
+
+    /* --------------------------- CSS: Layout --------------------------- */
+    .layout-container {
+        display: flex;
+        flex-direction: row;
+        /* align-items: flex-start; */
+        align-items: stretch; /* make columns align top to bottom */
+        gap: 40px;
+        padding: 40px;
+        max-width: 1200px;
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+
+    /* --------------------------- CSS: Sidebar --------------------------- */
+    .floating-sidebar {
+        flex: 1;
+        max-width: 300px;
+        /* background: white; */
+        /* padding: 200px 20px 200px 20px; */
+        padding: 0 20px 0 20px;
+        box-shadow: 2px 0 0 0 rgba(0,0,0,0.1);
+        font-size: 1.05em;
+        line-height: 1.5;
+        z-index: 1000;
+        max-height: calc(100vh - 100px);
+        overflow-y: auto;
+        position: sticky;
+        align-content: top;
+        top: 100px;
+    }
+
+    .floating-sidebar h2 {
+        font-size: 1.2em;
+        color: #007072;
+        margin-bottom: 10px;
+    }
+
+    .floating-sidebar ul {
+        list-style: disc;
+        padding-left: 20px;
+        margin-bottom: 15px;
+    }
+
+    .floating-sidebar ul ul {
+        list-style: circle;
+        padding-left: 20px;
+    }
+
+    .floating-sidebar a {
+        color: #007072e8;
+        text-decoration: none;
+    }
+
+    .floating-sidebar a:hover {
+        text-decoration: underline;
+    }
+
+    .sidebar-desc {
+        color: #555;
+        font-size: 1.00em;
+        margin-top: 20px;
+    }
+
+    /* --------------------------- CSS: Main Content --------------------------- */
+    .main-content {
+        flex: 3;
+        min-width: 0;
+        padding-left: 0px;
+    }
+
+    /* --------------------------- CSS: General Styles --------------------------- */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #eaeaea;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: left;
+      color: #015e5f;
+      margin-bottom: 30px;
+      margin-top: 45px;
+    }
+    h2 {
+      border-bottom: #0070721e solid 2px;
+      padding-bottom: 5px;
+      margin-bottom: 2px;
+      padding-left: 4px;
+    }
+    h3 {
+      margin-top: 20px;
+      margin-bottom: 2px;
+      padding-left: 4px;
+    }
+
+    .zotero-list {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* --------------------------- CSS: Zotero Items --------------------------- */
+    .item {
+      background: #ffffffc4;
+      margin: 1px 0;
+      padding: 20px 10px 2px 10px;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+
+    .item-title-container {
+      position: relative;
+      /* display: block; */
+    }
+    .item-title {
+        font-weight: bold;
+        white-space: normal;
+        font-size: 1.1em;
+        padding-bottom: 2px;
+        align: left;
+        position: relative;  /* so .title-popup anchors to this */
+        display: inline-block;  
+    }
+    .item-title a {
+        color: #17447f;
+    }
+    .item-title:hover .link-badge {
+        background-color: #e0e0e0;
+        border-color: #999;
+        }
+
+
+    .title-popup {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 100%;  /* appears directly to the right of .item-title */
+      margin-left: 10px;
+      background: #11111193;
+      color: #fff;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 0.7em;
+      font-weight: normal;
+      white-space: normal;
+      z-index: 10;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+      align: top;
+    }
+
+    .item-title-container:hover .title-popup {
+      display: block;
+    }
+
+    .item-meta {
+      color: #483f3c;
+      margin-bottom: 3px;
+    }
+
+    /* --------------------------- CSS: Links --------------------------- */
+    a {
+      color: #0645ad;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .no-content {
+      color: #999;
+    }
+
+    .authors {
+      color: #222;  /* Darker than default #555 */
+      font-weight: 100;
+      padding-bottom: 5px;
+    }
+    .authors-text {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-height: 1.4em;
+      max-height: calc(1.4em * 3); /* limit to 3 lines */
+    }
+
+    .doi-link {
+        white-space: normal;
+        }
+
+    
+    /* --------------------------- CSS: Link Badge --------------------------- */
+    .link-badge-container {
+      position: relative;
+      display: inline-block;
+      color: inherit;
+    }
+
+    .link-popup {
+      display: none;
+      position: absolute;
+      bottom: 100%;
+      left: 0;
+      transform: translateY(-6px);
+      background: #333;
+      color: #fff;
+      padding: 5px 8px;
+      border-radius: 4px;
+      font-size: 0.8em;
+      white-space: normal;
+      z-index: 10;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .link-badge-container:hover .link-popup {
+      display: block;
+      color: inherit; 
+    }
+    .link-badge {
+      display: inline-block;
+      font-family: 'Courier New', monospace;  /* or 'JetBrains Mono', 'Fira Code', etc. */
+      font-size: 0.60em;
+      margin-left: 4px;
+      margin-top: 2px;
+      padding: 0px 5px;
+      border: 1px solid #bbb;
+      border-radius: 4px;
+      background-color: #f1f1f1;
+      color: #09090988;
+      vertical-align: text-top;
+      cursor: pointer;
+      }
+    .link-badge a {
+      color: inherit;  /* inherit color from .link-badge */
+    }
+
+    /* --------------------------- CSS: Abstract Text --------------------------- */
+    .abstract-container {
+      margin-top: 5px;
+      margin-bottom: 10px;
+    }
+    .abstract-text {
+      color: #777;
+      font-size: 0.9em;  /* Or try 0.85em or 13px */
+      line-height: 1.4;
+      /* white-space: normal; */
+    }
+    
+    .clamp-abstract {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-height: 1.4em;
+      max-height: calc(1.4em * 3); /* 3 lines max */
+    }
+    /* --------------------------- CSS: Abstract Toggle --------------------------- */
+    .toggle-abstract {
+      margin-left: 0px;
+      margin-top: 0px;
+      padding: 2px 4px;
+      background-color: #f8f8f8;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      color: #0c1a5fcb;
+      font-size: 0.50em;
+      font-family: inherit;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .toggle-line {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 6px;
+    }
+
+    .toggle-note {
+        font-size: 0.85em;
+        color: #888;
+        font-weight: normal;
+    }
+
+    .toggle-abstract:hover {
+      background-color: #e0e0e0;
+      border-color: #999;
+    }
+
+    .toggle-abstract strong {
+        font-size: 1.2em;     /* slightly larger than surrounding text */
+        font-weight: bold;
+    }
+
+    /* ------------------------------ CSS: Scrolling --------------------------- */
+    html {
+        scroll-behavior: smooth;
+        }
+    section:target {
+        scroll-margin-top: 30px; /* offsets scrolling to leave room for sticky header */
+        }
+    .floating-sidebar a.active {
+        font-weight: bold;
+        color: #054748;
+        }
+    #back-to-top {
+        font-family: 'Courier New', monospace;  /* or 'JetBrains Mono', 'Fira Code', etc. */
+        font-size: 0.60em;
+        font-weight: bold;
+        padding: 2px 8px 3px 7px;
+        border: 1px solid #bbbbbbbb;
+        border-radius: 3px;
+        background-color: #bbbbbb30;
+        color: #3a3a3aec;
+        position: absolute; /* Change to absolute positioning */
+        right: 0; /* Align to the right of the sidebar */
+        margin-top: 50px; /* Add spacing from the sidebar content */
+        margin-right: 20px; /* Add spacing from the right edge */
+        box-shadow: 3px 2px 5px rgba(0, 0, 0, 0.05);
+        transition: background 0.3s ease;
+        display: none;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    #back-to-top:hover {
+        background: #007072b6;
+        color: #ffffff;
+    }
+    
+  </style>
+</head>
+<!-- ************************************************************************** -->
+<!--                              HTML: PAGE CONTENT                            -->
+<!-- ************************************************************************** -->
+<body>
+<div class="layout-container">
+
+  <!-- --------------------------- HTML: Sidebar --------------------------- -->
+  <aside class="floating-sidebar">
+  <h2><a href="#top">LLM Review Papers</a></h2>
+    <p class="sidebar-desc">
+        This section focuses on the development, applications, and challenges of <strong>Large Language Models</strong> (LLMs) with an emphasis on their implications for <strong>statistical</strong> research and practice.
+    </p>
+    <ul>
+        <li><strong><a href="#collection1">LLM Techniques & Architectures</a></strong>
+        <ul>
+            <li><a href="#collection1-surveys">Survey Articles <em>2023–2025</em></a></li>
+            <li><a href="#collection1-reports">Technical Reports <em>2025</em></a></li>
+        </ul>
+        </li>
+        <li><a href="#collection2"><strong>Designing Trustworthy LLMs</strong></a></li>
+        <li><a href="#collection3"><strong>LLM-Empowered Statistical Analysis</strong></a></li>
+    </ul>
+    <button id="back-to-top" onclick="window.scrollTo({ top: 10, behavior: 'smooth' });"> ▲ Top </button>
+  </aside>
+
+  <!-- ============================= HTML: Main Content ============================= -->
+  <main class="main-content">
+    <h1>Large Language Models (LLM) Overview</h1>
+  
+    <!-- --------------------------- HTML: Collection 1 --------------------------- -->
+    <section id="collection1">
+        <h2>LLM Techniques & Architectures</h2>
+        <div class="zotero-list" id="zotero-list-1"></div>
+        <h3 id="collection1-surveys" class="spy-anchor">Survey Articles <em>2023–2025</em></h3>
+        <div class="zotero-list" id="zotero-list-1-surveys"></div>
+        <h3 id="collection1-reports" class="spy-anchor">Technical Reports <em>2025</em></h3>
+        <div class="zotero-list" id="zotero-list-1-reports"></div>
+    </section>
+  
+    <!-- --------------------------- HTML: Collection 2 --------------------------- -->
+    <section id="collection2">
+        <h2>Designing Trustworthy LLMs</h2>
+        <div class="zotero-list" id="zotero-list-2"></div>
+    </section>
+
+    <!-- --------------------------- HTML: Collection 3 --------------------------- -->
+    <section id="collection3">
+        <h2>LLM-Empowered Statistical Analysis</h2>
+        <div class="zotero-list" id="zotero-list-3"></div>
+    </section>
+  </main>
+</div>
+
+  
+
+
+<!-- ************************************************************************** -->
+<!--                                   SCRIPT                                   -->
+<!-- ************************************************************************** -->
+
+  <script type="text/javascript">
+    // --------------------------- JS: API Configuration --------------------------- 
+    const apiKey = 'qsheeavQ163JkXS3DxE9KQYU'; // Replace with your API key
+    const groupID = '5407414';
+
+    // --------------------------- JS: Utility Functions --------------------------- 
+    function safeText(value) {
+        return value || '<span class="no-content">—</span>';
+    }
+
+    // --------------------------- JS: Load Zotero Collection --------------------------- 
+    function loadZoteroCollection(containerId, collectionID) {
+        const url = `https://api.zotero.org/groups/${groupID}/collections/${collectionID}/items?key=${apiKey}&sort=date&direction=desc`;
+        const container = document.getElementById(containerId);
+
+        fetch(url)
+        .then(response => {
+            if (!response.ok) throw new Error('Network error');
+            return response.json();
+        })
+        .then(data => {
+            const container = document.getElementById(containerId);
+            data.forEach(item => {
+            if (item.data.itemType !== 'attachment') {
+                const div = document.createElement('div');
+                div.className = 'item';
+
+                // --------------------------- JS: Item Rendering --------------------------- 
+                const title = safeText(item.data.title);
+                const doi = safeText(item.data.DOI);
+                const titlelink = item.data.url ? `<a href="${item.data.url}" target="_blank" title="${item.data.url}>${title}</a>` : '<span class="no-content">—</span>';
+                const doilink = item.data.url ? `<a href="${item.data.url}" target="_blank" title="${item.data.url}">${doi}</a>` : '<span class="no-content">—</span>';
+
+                const creators = item.data.creators || [];
+                const authors = creators
+                .filter(c => c.creatorType === 'author')
+                .map(c => `${c.lastName}${c.firstName ? ', ' + c.firstName : ''}`)
+                .join('; ') || '—';
+                const abstract = safeText(item.data.abstractNote);
+
+                const isLong = abstract.length > 300;
+                const preview = isLong ? abstract.slice(0, 300) + '…' : abstract;
+                const abstractID = `abstract-${item.key}`;
+
+                // Abstract text -> Toggle button -> DOI link
+                const abstractHTML = `
+                <div class="item-meta abstract-container">
+                    <div class="abstract-text clamp-abstract" id="${abstractID}">
+                      <strong>Abstract:</strong>
+                      ${abstract}
+                    </div>
+                  ${isLong ? `<div class="toggle-line">
+                    <button class="toggle-abstract" data-id="${abstractID}" data-full="${encodeURIComponent(abstract)}">
+                        <span class="toggle-label"><strong>Show more</strong></span>
+                        </button>
+                    <span class="toggle-note">
+                        DOI:${doilink ? `${doilink}` : ''}
+                        </span>
+                    </div>` : ''}
+                </div>
+                `;
+
+                // ****************************************************************************** 
+                //                                 JS: Item Content                               
+                // ******************************************************************************
+                div.innerHTML = `
+                    <div class="item-title-container">
+                      <div class="item-title">
+                      ${item.data.url
+                        ? `<a href="${item.data.url}" target="_blank">${title}</a>`
+                        : title}
+                      <span class="link-badge-container">
+                        <a href="${item.data.url}" target="_blank" class="link-badge">&#9654;link</a>
+                        <span class="title-popup">${item.data.url}</span>
+                      </span>
+                    </div>
+                    </div>
+                    <div class="item-meta authors"><div class="authors-text">${authors}</div></div>
+                    ${abstractHTML}
+                `;
+
+                // ============================ JS: Toggle Abstract Functionality ============================ 
+                const toggleButton = div.querySelector('.toggle-abstract');
+                if (toggleButton) {
+                toggleButton.addEventListener('click', function () {
+                    const button = this;  // lock in reference
+                    const abstractBlock = div.querySelector(`#${this.dataset.id}`);
+                    const label = this.querySelector('.toggle-label');
+                    const fullText = decodeURIComponent(this.dataset.full);
+                    // --------------------------- JS: Toggle Abstract Text ---------------------------
+                    abstractBlock.innerHTML = '<strong>Abstract:</strong> ' + fullText;
+
+                    const isCollapsed = label.textContent.trim() === 'Show more';
+                    if (isCollapsed) {
+                        abstractBlock.classList.remove('clamp-abstract');
+                        label.innerHTML = `
+                            <strong>Show less</strong>
+                        `;
+                    } else {
+                        abstractBlock.classList.add('clamp-abstract');
+                        label.innerHTML = `
+                            <strong>Show more</strong>
+                        `;
+                    }
+                });
+                }
+
+                container.appendChild(div);
+            }
+            });
+        })
+        .catch(err => {
+            // --------------------------- JS: Error Handling --------------------------- 
+            const container = document.getElementById('zotero-list');
+            container.innerHTML = `<p style="color: red;">Error loading Zotero items.</p>`;
+            console.error(err);
+        });
+    }
+
+    // --------------------------- JS: Load Collections --------------------------- 
+    // loadZoteroCollection('zotero-list-1', 'AA8HVZ8M');  // LLM Techniques
+    loadZoteroCollection('zotero-list-1-surveys', 'AA8HVZ8M');  // LLM Surveys
+    loadZoteroCollection('zotero-list-1-reports', 'N2PSJFMY');  // LLM Technical Reports
+    loadZoteroCollection('zotero-list-2', 'PKBWUAU9');  // Trustworthy LLMs
+    loadZoteroCollection('zotero-list-3', 'CYNWXVJ3');  // Statistical Analysis
+  
+  // --------------------------- JS: Scroll Spy ---------------------------
+  const sections = document.querySelectorAll('section, .spy-anchor');
+  const navLinks = document.querySelectorAll('.floating-sidebar a[href^="#"]');
+
+  window.addEventListener('scroll', () => {
+    let scrollPos = window.scrollY + window.innerHeight * 2/3; // lower 1/3 of the viewport
+    // --------------------------- JS: Highlight Active Section ---------------------------
+    sections.forEach(section => {
+      if (
+        // scrollPos >= section.offsetTop &&
+        // scrollPos < section.offsetTop + section.offsetHeight
+        scrollPos >= section.offsetTop
+      ) {
+        navLinks.forEach(link => link.classList.remove('active'));
+        const activeLink = document.querySelector(`.floating-sidebar a[href="#${section.id}"]`);
+        if (activeLink) activeLink.classList.add('active');
+      }
+    });
+
+    // --------------------------- JS: Back to Top Button ---------------------------
+    const backToTop = document.getElementById('back-to-top');
+    if (scrollPos > 500) {
+      backToTop.style.display = 'block';
+    } else {
+      backToTop.style.display = 'none';
+    }
+  });
+</script>
+
+</body>
+</html>
