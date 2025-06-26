@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <!-- ************************************************************************** -->
+  <!--                       HEAD: Custom List Attributes                             -->
+  <!-- ************************************************************************** -->
+  <title>LLM Review Papers</title>
+  <script>
+    // TO-DO: Change this to a unique name for the tab
+    window.name = 'LLMTab'; 
+  </script>
+  <script>
+    window.zoteroConfig = {
+      groupID: '5407414',
+      apiKey: 'qsheeavQ163JkXS3DxE9KQYU',
+      collections: {        
+        // TO-DO: Change these to your actual collection IDs
+        'zotero-list-1-surveys': 'AA8HVZ8M',
+        'zotero-list-1-reports': 'N2PSJFMY',
+        'zotero-list-2': 'PKBWUAU9',
+        'zotero-list-3': 'CYNWXVJ3'
+      }
+    };
+    window.pageSections = [
+    {
+      id: "zotero-list-1",
+      title: "LLM Techniques & Architectures",
+      subcollections: [
+        { id: "zotero-list-1-surveys", title: "Survey Articles <em>2023–2025</em>" },
+        { id: "zotero-list-1-reports", title: "Technical Reports <em>2025</em>" }
+      ]
+    },
+    {
+      id: "zotero-list-2",
+      title: "Designing Trustworthy LLMs",
+      subcollections: []  // no children
+    },
+    {
+      id: "zotero-list-3",
+      title: "LLM-Empowered Statistical Analysis",
+      subcollections: []
+    }
+    ];
+  </script>
+  <!-- __________________________________________________________________________ -->
+  <!-- _____________________ [End] Custom List Attributes _______________________ -->
+
+
+  <!-- ************************************************************************** -->
+  <!-- _________________________ HEAD: Shared Scripts ___________________________ -->
+  <script>
+    // ------------------------- JS: Scroll Restoration ---------------------------
+    // Disable scroll restoration to prevent jumping back to the top on page load
+    if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+    }
+  </script>
+  <script defer src="inject.js"></script>
+  <script defer src="utilities.js"></script>
+  <script defer src="render-content.js"></script>
+  <script defer src="load-zotero.js"></script>
+  <link rel="stylesheet" href="style-list-AI.css" />
+  <!-- __________________________________________________________________________ -->
+  <!-- _________________________ [End] Shared Scripts ___________________________ -->
+</head>
+
+
+
+<body>
+<div class="layout-container">
+  <!-- ************************************************************************** -->
+  <!--                             BODY: Page Content                             -->
+  <!-- ************************************************************************** -->
+
+  <!-- --------------------------- HTML: Sidebar --------------------------- -->
+  <aside class="floating-sidebar">
+  <h2><a href='../../article_list_ai.html' target="aiListTab">
+    <!-- TO-DO: Change this to the title of your list -->
+    LLM Review Papers 
+  </a></h2>
+    <p class="sidebar-desc">
+        <!-- TO-DO: Change this to the description of your list -->
+        This section focuses on the development, applications, and challenges of <strong>Large Language Models</strong> (LLMs) with an emphasis on their implications for <strong>statistical</strong> research and practice.
+    </p>
+    <ul>
+      <!-- TO-DO: Change these to your actual collection IDs and names -->
+      <li><strong><a href="#list-1">LLM Techniques & Architectures</a></strong>
+        <ul>
+          <li><a href="#list-1-surveys">Survey Articles <em>2023–2025</em></a></li>
+          <li><a href="#list-1-reports">Technical Reports <em>2025</em></a></li>
+        </ul>
+      </li>
+      <li><a href="#list-2"><strong>Designing Trustworthy LLMs</strong></a></li>
+      <li><a href="#list-3"><strong>LLM-Empowered Statistical Analysis</strong></a></li>
+    </ul>
+    <button id="back-to-top" onclick="window.scrollTo({ top: 10, behavior: 'smooth' });"> ▲ Top </button>
+  </aside>
+
+  <!-- ============================= HTML: Main Content ============================= -->
+  <main class="main-content" id="main-content"></main>
+
+  <!-- __________________________________________________________________________ -->
+  <!-- _____________________________ [End] Main Content _________________________ -->
+</div>
+
+
+
+<!-- ************************************************************************** -->
+<!-- _______________________________ BODY: Shared Footer ______________________ -->
+<!-- <div data-include="footer.html"></div> -->
+<!-- __________________________________________________________________________ -->
+<!-- _______________________________ [End] Shared Footer ______________________ -->
+</body>
+</html>
