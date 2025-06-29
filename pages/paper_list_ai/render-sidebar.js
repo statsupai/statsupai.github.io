@@ -5,7 +5,8 @@ function renderSidebar() {
     return;
   }
   // --------------------------- JS: Set Page Meta Data ---------------------------
-  // Set the back link to the article page - might be different from the preview site
+  // Set the back link to the article page 
+  // Note: Might be different from the preview site!
   window.sidebarMeta.backLink = "../../article.html"; 
 
   // --------------------------- JS: Initialize Sidebar Meta and Sections ---------------------------
