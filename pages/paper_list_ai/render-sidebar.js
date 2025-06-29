@@ -4,7 +4,12 @@ function renderSidebar() {
     console.error("Sidebar navigation element not found.");
     return;
   }
-  
+  // --------------------------- JS: Set Page Meta Data ---------------------------
+  // Set the back link to the article page - might be different from the preview site
+  window.sidebarMeta.backLink = "../../article.html"; 
+
+  // --------------------------- JS: Initialize Sidebar Meta and Sections ---------------------------
+  // Ensure meta and sections are defined
   const meta = window.sidebarMeta || {};
   const sections = window.pageSections || [];
 
