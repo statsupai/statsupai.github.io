@@ -1,0 +1,57 @@
+---
+title: "Introducing the NIH 2025–2030 Strategic Plan for Data Science"
+description: "A fresh look at NIH’s evolving data science vision—what it means for statistical researchers"
+image: figures/nih_logo.jpg
+author:
+  - name: "Yulin Li"
+  - affiliation: "Rutgers University"
+categories:
+  - Resources
+date: 2025-06-30
+---
+
+## NIH 2025–2030 Strategic Plan for Data Science: A Guided Introduction
+
+**Featured Resource:** [Director’s Blog – What Researchers Need to Know](https://datascience.nih.gov/director/directors-blog-introducing-2025-2030-nih-strategic-plan-for-data-science)\
+**Author:** Dr. Susan Gregurick, Associate Director for Data Science, National Institutes of Health (NIH)\
+**Published:** June 4, 2025\
+**For context:** [Official Strategic Plan Overview Page](https://datascience.nih.gov/nih-strategic-plan-data-science)
+
+The **NIH Office of Data Science Strategy (ODSS)** has released the **2025–2030 Strategic Plan for Data Science**, and it’s more than a routine update—this version signals a major turning point for how biomedical data will be managed, shared, analyzed, and ethically governed.
+
+To help statistical researchers navigate what’s new and why it matters, Dr. Susan Gregurick has written a concise [introductory blog post](https://datascience.nih.gov/director/directors-blog-introducing-2025-2030-nih-strategic-plan-for-data-science) that breaks down the plan’s **five core goals** with practical relevance for those working with biomedical data.
+
+### 🧭 What’s in the Plan? (Quick Glance at the Five Goals)
+
+1.  **Improve Data Management and Sharing Capabilities**\
+    Expanded support for FAIR+CARE practices, new data stewardship tools, and governance frameworks that respect Indigenous and sensitive data contexts.
+
+2.  **Enhance Human-Derived Data for Research**\
+    Greater interoperability across real-world clinical and lifestyle data, with standards like FHIR® and TEFCA™, and governance for informed consent and data linkage.
+
+3.  **Advance Software, Computational Methods, and AI**\
+    Continued support for open tools, reproducibility, and innovation—including digital twins, privacy-preserving analytics, and sustainable research software.
+
+4.  **Support a Federated Research Infrastructure**\
+    Connecting platforms like CRDC, BioData Catalyst®, and dbGaP under a secure, searchable, and interoperable framework using programs like NCPI and RAS.
+
+5.  **Strengthen the Data Science Community**\
+    Broader workforce development, expanded training, and inclusive partnerships such as NARCH and DATA Scholars to grow national capacity in data science.
+
+### 🔍 Why This Matters to the Statistical Community
+
+This new plan builds on NIH’s first-ever Data Science Strategic Plan from 2018 ([read here](https://datascience.nih.gov/sites/default/files/NIH_Strategic_Plan_for_Data_Science_Final_508.pdf)), but with sharper emphasis on **sustainability**, **interoperability**, and **ethical stewardship**.
+
+> "As we look boldly to the future, we will build on that foundation to advance new, sustainable, trustworthy capabilities and enable a strong workforce community that leverages data science to inform discovery and care for all."\
+> — *Dr. Susan Gregurick, NIH Office of Data Science Strategy*
+
+The accompanying blog post provides a **researcher-centered tour** of what’s changing and how it affects day-to-day data science practice—from metadata quality and federated governance to computational infrastructure and AI tool support.
+
+It’s a helpful lens for statisticians and data scientists across academia, government, and industry to **align their practices with NIH’s vision** and prepare for collaborative, reproducible, and policy-aligned research.
+
+------------------------------------------------------------------------
+
+👉 **Start here:**\
+🔗 [Introducing the NIH 2025–2030 Strategic Plan for Data Science (Director’s Blog)](https://datascience.nih.gov/director/directors-blog-introducing-2025-2030-nih-strategic-plan-for-data-science)\
+📄 [2025–2030 NIH Strategic Plan for Data Science (HTML)](https://datascience.nih.gov/strategicplan)\
+📄 [2018–2023 NIH Strategic Plan for Data Science (PDF)](https://datascience.nih.gov/sites/default/files/NIH_Strategic_Plan_for_Data_Science_Final_508.pdf)
