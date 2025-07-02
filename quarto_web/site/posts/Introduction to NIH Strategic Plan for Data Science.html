@@ -172,6 +172,32 @@ Broader workforce development, expanded training, and inclusive partnerships suc
 </section>
 
 </main> <!-- /main -->
+<!-- GoatCounter Tracker -->
+<script data-goatcounter="https://statsupai.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
+
+<!-- Per-Page View Counter (Footer Style) -->
+<style>
+#goatcounter-footer {
+  font-size: 0.85em;
+  color: #AAA;
+  text-align: center;
+  margin-top: 1em;
+  margin-bottom: 3em;
+  font-family: sans-serif;
+}
+</style>
+<!-- GoatCounter Tracker -->
+<div id="goatcounter-footer">Loading views...</div>
+<script>
+  const path = window.location.pathname;
+  fetch(`https://statsupai.goatcounter.com/api/v0/count${path}`)
+    .then(res => res.json())
+    .then(data => {
+      const display = document.getElementById("goatcounter-display");
+      if (display) {
+        display.textContent = `<span style="font-family: 'Courier New', monospace; color: #0033cc;">Views: ${data.count}</span>`;
+      }    });
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
