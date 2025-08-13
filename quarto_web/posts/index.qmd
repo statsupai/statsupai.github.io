@@ -1,7 +1,7 @@
 ---
 format: 
   html:
-    page-layout: full
+    page-layout: article
 listing:
   filter-ui: true
   categories: numbered
@@ -10,7 +10,7 @@ listing:
   sort:
   - "date desc"
   - "title desc"
-  page-size: 5
+  page-size: 10
 ---
 
 ```{=html}

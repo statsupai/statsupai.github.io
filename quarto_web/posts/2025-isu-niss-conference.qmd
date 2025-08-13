@@ -1,0 +1,69 @@
+---
+title: "Upcoming Event: 2025 ISU–NISS Conference on AI and Statistics"
+description: "Join us Sept 12–14 at Iowa State for the ISU–NISS AI & Statistics Conference — register and submit posters by Aug 22!"
+image: figures/isu-niss-banner.png
+author:
+  - name: "Yulin Li"
+  - affiliation: "Rutgers University"
+categories:
+  - Events
+date: 2025-08-13
+---
+::: {.callout-note title="**Register by August 22**️"}
+
+📍 September 12–14, 2025 | Iowa State University
+
+🧠 **2025 ISU–NISS Conference on AI and Statistics**
+
+**→** [**Click Here to Register**](https://www.regcytes.extension.iastate.edu/isu-niss-ai-stat/) (reduced rate through August 22)
+:::
+
+## 2025 ISU–NISS Conference on AI and Statistics: Registration and Poster Call
+
+**Event Website:** [2025 Conference Homepage](https://www.regcytes.extension.iastate.edu/isu-niss-ai-stat/)\
+**Dates:** September 12–14, 2025\
+**Location:** Memorial Union, Iowa State University, Ames, Iowa\
+**Organizers:** Department of Statistics at Iowa State University, National Institute of Statistical Sciences (NISS)\
+**Co-sponsor:** Stats Up AI
+
+The **2025 ISU–NISS Conference on AI and Statistics** is a collaborative three-day event hosted on the Iowa State University campus from **September 12 to 14, 2025**.
+The event brings together academics, industry professionals, and students at the intersection of **artificial intelligence and statistical science** to explore both theoretical and applied advances across a wide range of fields.
+
+
+### 📌 Program Highlights
+
+-   **Invited plenary sessions**
+-   **Poster presentations**
+-   Topics include:
+    -   Causal reasoning
+    -   Online inference and streaming data
+    -   Sequential decision-making
+    -   Image and shape analysis
+    -   Geospatial AI
+    -   Applications of machine learning and AI in forensic science and survey statistics
+
+🎤 A special public event will feature a **moderated conversation with** [**Nate Silver**](https://www.lectures.iastate.edu/event/risk-statistics-and-future-use-ai) on statistics, modeling, and AI.
+
+### 🧪 Poster Abstract Submission
+
+Researchers, students, and practitioners are encouraged to submit abstracts for poster presentations. Please consider showcasing your work to conference attendees by presenting a poster on some aspect of **AI, statistics, or their intersection**.
+
+-   **Submission deadline:** August 22, 2025
+
+🖼️ [Submit a Poster Abstract](https://www.regcytes.extension.iastate.edu/isu-niss-ai-stat/poster-abstract-submission/)
+
+### 📝 Registration 
+
+-   **Reduced-rate registration deadline:** August 22, 2025\
+-   **Final registration deadline:** August 31, 2025
+
+🔗 [Register and Learn More](https://www.regcytes.extension.iastate.edu/isu-niss-ai-stat/)
+
+------------------------------------------------------------------------
+
+👉 **Quick Links:**\
+📅 [Program Schedule](https://www.regcytes.extension.iastate.edu/isu-niss-ai-stat/program-schedule/)\
+🎤 [List of Speakers](https://www.regcytes.extension.iastate.edu/isu-niss-ai-stat/)\
+🖼 [Abstract Submission Form](https://forms.office.com/r/etrg8SF4Wz)
+
+

@@ -230,7 +230,6 @@ function filterListingCategory(category) {
         // filter to this category
         list.filter(function (item) {
           const itemValues = item.values();
-          console.log("itemValues.categories =", itemValues.categories); 
           if (Array.isArray(itemValues.categories)) {
             return itemValues.categories.includes(category);
           } else if (typeof itemValues.categories === "string") {

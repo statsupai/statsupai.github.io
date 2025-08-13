@@ -13,15 +13,20 @@
   font-family: sans-serif;
 }
 </style>
-<!-- GoatCounter Tracker -->
+
 <div id="goatcounter-footer">Loading views...</div>
 <script>
   const path = window.location.pathname;
   fetch(`https://statsupai.goatcounter.com/api/v0/count${path}`)
-    .then(res => res.json())
+    .then(res => res.ok ? res.json() : Promise.reject())
     .then(data => {
-      const display = document.getElementById("goatcounter-display");
+      const display = document.getElementById("goatcounter-footer");
       if (display) {
-        display.textContent = `<span style="font-family: 'Courier New', monospace; color: #0033cc;">Views: ${data.count}</span>`;
-      }    });
+        display.innerHTML = `<span style="font-family: 'Courier New', monospace; color: #0033cc;">Views: ${data.count}</span>`;
+      }
+    })
+    .catch(() => {
+      const display = document.getElementById("goatcounter-footer");
+      if (display) display.innerHTML = "Page views unavailale.";  // hide on failure
+    });
 </script>
