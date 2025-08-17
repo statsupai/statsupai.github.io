@@ -259,7 +259,7 @@ function filterListingCategory(category) {
         const decodedCats = simpleDecodeCategories(item.values().categories);
         // Debugging output
         console.log(">>> category =", category);
-        console.log("    decodedCategory =", decodedCategory);
+        console.log(".   decodedCategory =", decodedCategory);
         console.log("    item.values().categories =", item.values().categories); 
         console.log("    decodedCats =", decodedCats); 
         // Check if the decoded category is in the decoded categories

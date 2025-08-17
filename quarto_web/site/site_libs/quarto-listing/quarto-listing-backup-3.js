@@ -208,7 +208,7 @@ function activateCategory(category) {
 
   // Activate this category
   const categoryEl = window.document.querySelector(
-    `.quarto-listing-category .category[data-category='${category}']`
+    `.quarto-listing-category .category[data-category='${category}'`
   );
   if (categoryEl) {
     categoryEl.classList.add("active");
@@ -222,72 +222,27 @@ function filterListingCategory(category) {
   const listingIds = Object.keys(window["quarto-listings"]);
   for (const listingId of listingIds) {
     const list = window["quarto-listings"][listingId];
-    if (!list) continue;
-
-    if (category === "") {
-      // Reset the filter
-      list.filter(); 
-    } else {
-      // Filter to this category
-      list.filter(function (item) { 
-        // Decode the categories from the item
-        const cats = simpleDecodeCategories(item.values().categories);
-        console.log(">>> category =", category);
-        console.log("    item.values().categories =", item.values().categories); 
-        console.log("    simpleDecodeCategories(item.values().categories) =", cats); 
-        return cats.includes(category);
-      });
+    if (list) {
+      if (category === "") {
+        // resets the filter
+        list.filter();
+      } else {
+        // filter to this category
+        list.filter(function (item) {
+          const itemValues = item.values();
+          console.log(">>> category =", category);
+          console.log("    item.values().categories =", item.values().categories);
+          console.log("    Array.isArray(itemValues.categories) =", Array.isArray(itemValues.categories)); 
+          console.log("    typeof itemValues.categories === 'string' =", typeof itemValues.categories === "string"); 
+          if (Array.isArray(itemValues.categories)) {
+            return itemValues.categories.includes(category);
+          } else if (typeof itemValues.categories === "string") {
+            return itemValues.categories === category;
+          } else {
+            return false;
+          }
+        });
+      }
     }
   }
-}
-
-function filterListingCategory(category) {
-  const decodedCategory = atob(category).trim();  // decode sidebar category
-  const listingIds = Object.keys(window["quarto-listings"]);
-
-  for (const listingId of listingIds) {
-    const list = window["quarto-listings"][listingId];
-    if (!list) continue;
-
-    if (category === "") {
-      // Reset the filter
-      list.filter(); 
-    } else {
-      // Filter to this category
-      list.filter(function (item) {
-        // Decode the categories from the item
-        const decodedCats = simpleDecodeCategories(item.values().categories);
-        // Debugging output
-        console.log(">>> category =", category);
-        console.log("    decodedCategory =", decodedCategory);
-        console.log("    item.values().categories =", item.values().categories); 
-        console.log("    decodedCats =", decodedCats); 
-        // Check if the decoded category is in the decoded categories
-        return decodedCats.includes(decodedCategory);
-      });
-    }
-  }
-}
-
-function simpleDecodeCategories(raw) {
-  if (!raw) return [];
-
-  // Always treat as an array (normalize)
-  const raws = Array.isArray(raw) ? raw : [raw];
-
-  return raws.flatMap(r => {
-    try {
-      // 1. Base64 decode
-      const b64 = atob(r);
-
-      // 2. URL decode (turn %2C back into commas, etc.)
-      const urlDecoded = decodeURIComponent(b64);
-
-      // 3. Split on commas → multiple categories
-      return urlDecoded.split(",").map(c => c.trim()).filter(Boolean);
-    } catch (e) {
-      console.warn("Failed to decode category:", r, e);
-      return [];
-    }
-  });
 }

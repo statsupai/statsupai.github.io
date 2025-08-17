@@ -63,7 +63,6 @@ Researchers, students, and practitioners are encouraged to submit abstracts for 
 
 👉 **Quick Links:**\
 📅 [Program Schedule](https://www.regcytes.extension.iastate.edu/isu-niss-ai-stat/program-schedule/)\
-🎤 [List of Speakers](https://www.regcytes.extension.iastate.edu/isu-niss-ai-stat/)\
+🎤 [List of Speakers](https://www.regcytes.extension.iastate.edu/isu-niss-ai-stat#maincontent)\
 🖼 [Abstract Submission Form](https://forms.office.com/r/etrg8SF4Wz)
-
 
