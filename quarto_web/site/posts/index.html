@@ -188,7 +188,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     </div>
 </div>
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="RXZlbnRzJTJDVmlkZW9z" data-listing-date-sort="1755576000000" data-listing-file-modified-sort="1755615229007" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="15" data-listing-word-count-sort="2983">
+<div class="quarto-post image-right" data-index="0" data-categories="RXZlbnRzJTJDVmlkZW9z" data-listing-date-sort="1755576000000" data-listing-file-modified-sort="1755619346347" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="15" data-listing-word-count-sort="2983">
 <div class="thumbnail"><a href="../posts/2025-birs-workshop-day-1.html" class="no-external">
 
 <img loading="lazy" src="../posts/figures/2025-birs.png" class="thumbnail-image">
@@ -220,7 +220,7 @@ Shan Gao
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="RXZlbnRz" data-listing-date-sort="1755057600000" data-listing-file-modified-sort="1755312262958" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="290">
+<div class="quarto-post image-right" data-index="1" data-categories="RXZlbnRz" data-listing-date-sort="1755057600000" data-listing-file-modified-sort="1755620285956" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="290">
 <div class="thumbnail"><a href="../posts/2025-isu-niss-conference.html" class="no-external">
 
 <img loading="lazy" src="../posts/figures/isu-niss-banner.png" class="thumbnail-image">
@@ -2057,9 +2057,7 @@ Shan Gao
   // Fetch the page view count from GoatCounter API
   const path = window.location.pathname;
   
-  // fetch(`https://statsupai.goatcounter.com/api/v0/stats/hits?path=/quarto_web/site/posts/2025-isu-niss-conference.html`, {
-  fetch(`https://statsupai.goatcounter.com/api/v0/stats/hits/63708656`, {
-  // fetch(`https://statsupai.goatcounter.com/api/v0/stats/hits`, {
+  fetch(`https://statsupai.goatcounter.com/api/v0/stats/hits`, {
     headers: { "Authorization": "Bearer auxp85q97cp69ebjpxnwl6po1kaj3megn0nej25li5q72yx3t" }
   })
     .then(res => res.json())
@@ -2067,8 +2065,23 @@ Shan Gao
       const display = document.getElementById("goatcounter-footer");
       if (display) {
         // API response is an array of hits per path
-        const views = data?.hits?.[0]?.count ?? 0;
+        console.log("Page views data:", data);
+        console.log("data.hits", data.hits);
+        console.log("path:", path);
+        // Trim path to remove everything before /quarto_web/site/
+        const trimmedPath = path.replace(/^.*\/quarto_web\/site\//, '\/quarto_web\/site\/');
+        console.log("trimmedPath:", trimmedPath);
+        // From the array data.hits, filter out the hits for the current path
+        const hit = data.hits.find(hit => hit.path === trimmedPath);
+        // const views = data.find(hit => hit.path === path)?.count || 0;
+        console.log("hit:", hit);
+        // If hit is found, get the count, otherwise default to 0
+        const views = hit.count || 0;
+        // If hit is found, get the count, otherwise default to 0
+        // const views = hit ? hit.count : 0; // WHY does this NOT work?
+        console.log("views:", views);
         display.innerHTML = `<span style="font-family: 'Courier New', monospace; color: #0033cc;">Views: ${views}</span>`;
+        console.log("Display updated with views:", views);
       }
     })
     .catch(() => {
@@ -2078,19 +2091,6 @@ Shan Gao
 </script>
 
 
-
-<!--curl https://statsupai.goatcounter.com/api/v0/count \-->
-<!--curl https://statsupai.goatcounter.com/api/v0/count/quarto_web/site/posts/Introduction%20to%20NIH%20Strategic%20Plan%20for%20Data%20Science.html \-->
-<!--curl https://statsupai.goatcounter.com/api/v0/me \-->
-<!--curl https://statsupai.goatcounter.com/api/v0/paths \-->
-<!--    -H 'Content-Type: application/json' \-->
-<!--    -H 'Authorization: Bearer auxp85q97cp69ebjpxnwl6po1kaj3megn0nej25li5q72yx3t'-->
-
-<!--curl -H "Authorization: Bearer auxp85q97cp69ebjpxnwl6po1kaj3megn0nej25li5q72yx3t" \-->
-<!--  "https://statsupai.goatcounter.com/api/v0/stats/hits?path=/quarto_web/site/posts/2025-isu-niss-conference.html"-->
-
-<!--curl -H "Authorization: Bearer auxp85q97cp69ebjpxnwl6po1kaj3megn0nej25li5q72yx3t" \-->
-<!--  https://statsupai.goatcounter.com/api/v0/stats/hits-->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

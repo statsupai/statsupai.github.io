@@ -1,0 +1,48 @@
+<!-- GoatCounter Tracker -->
+<script data-goatcounter="https://statsupai.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
+<!-- Per-Page View Counter (Footer Style) -->
+<style>
+#goatcounter-footer {
+  font-size: 0.85em;
+  color: #AAA;
+  text-align: center;
+  margin-top: 1em;
+  margin-bottom: 3em;
+  font-family: sans-serif;
+}
+</style>
+
+<div id="goatcounter-footer">Loading views...</div>
+<script>
+  (async function () {
+    const el = document.getElementById("goatcounter-footer");
+    const path = window.location.pathname;   // e.g., "/quarto_web/site/posts/2025-isu-niss-conference.html"
+
+    try {
+      const res = await fetch(`/api/pageviews?path=${encodeURIComponent(path)}`);
+      if (!res.ok) throw new Error("API error");
+      const data = await res.json();
+
+      // Basic display
+      el.innerHTML = `<span style="font-family: 'Courier New', monospace; color: #0033cc;">
+        Views: ${data.count}
+      </span>`;
+
+      // (Optional) show top referrer on hover
+      if (data.refs && data.refs.length) {
+        const top = data.refs
+          .filter(r => r.name)   // skip empty referrer
+          .sort((a, b) => b.count - a.count)[0];
+        if (top) {
+          el.title = `Top referrer: ${top.name} (${top.count})`;
+        }
+      }
+    } catch (e) {
+      el.textContent = "Page views not available...Try again later.";
+    }
+  })();
+</script>
+
+

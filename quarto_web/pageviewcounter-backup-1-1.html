@@ -19,7 +19,10 @@
   // Fetch the page view count from GoatCounter API
   const path = window.location.pathname;
   
-  fetch(`https://statsupai.goatcounter.com/api/v0/stats/hits`, {
+  // fetch(`https://statsupai.goatcounter.com/api/v0/stats/hits?path=/quarto_web/site/posts/2025-isu-niss-conference.html`, {
+  // fetch(`https://statsupai.goatcounter.com/api/v0/stats/hits/65054517`, {
+  // fetch(`https://statsupai.goatcounter.com/api/v0/stats/hits`, {
+  fetch(`https://statsupai.goatcounter.com/api/v0/stats/hits/63708656`, {
     headers: { "Authorization": "Bearer auxp85q97cp69ebjpxnwl6po1kaj3megn0nej25li5q72yx3t" }
   })
     .then(res => res.json())
@@ -27,23 +30,9 @@
       const display = document.getElementById("goatcounter-footer");
       if (display) {
         // API response is an array of hits per path
+        const views = data?.hits?.[0]?.count ?? 0;
         console.log("Page views data:", data);
-        console.log("data.hits", data.hits);
-        console.log("path:", path);
-        // Trim path to remove everything before /quarto_web/site/
-        const trimmedPath = path.replace(/^.*\/quarto_web\/site\//, '\/quarto_web\/site\/');
-        console.log("trimmedPath:", trimmedPath);
-        // From the array data.hits, filter out the hits for the current path
-        const hit = data.hits.find(hit => hit.path === trimmedPath);
-        // const views = data.find(hit => hit.path === path)?.count || 0;
-        console.log("hit:", hit);
-        // If hit is found, get the count, otherwise default to 0
-        const views = hit.count || 0;
-        // If hit is found, get the count, otherwise default to 0
-        // const views = hit ? hit.count : 0; // WHY does this NOT work?
-        console.log("views:", views);
         display.innerHTML = `<span style="font-family: 'Courier New', monospace; color: #0033cc;">Views: ${views}</span>`;
-        console.log("Display updated with views:", views);
       }
     })
     .catch(() => {

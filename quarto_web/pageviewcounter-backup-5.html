@@ -19,6 +19,9 @@
   // Fetch the page view count from GoatCounter API
   const path = window.location.pathname;
   
+  // fetch(`https://statsupai.goatcounter.com/api/v0/stats/hits?path=/quarto_web/site/posts/2025-isu-niss-conference.html`, {
+  // fetch(`https://statsupai.goatcounter.com/api/v0/stats/hits/65054517`, {
+  // fetch(`https://statsupai.goatcounter.com/api/v0/stats/hits/63708656`, {
   fetch(`https://statsupai.goatcounter.com/api/v0/stats/hits`, {
     headers: { "Authorization": "Bearer auxp85q97cp69ebjpxnwl6po1kaj3megn0nej25li5q72yx3t" }
   })
@@ -38,9 +41,7 @@
         // const views = data.find(hit => hit.path === path)?.count || 0;
         console.log("hit:", hit);
         // If hit is found, get the count, otherwise default to 0
-        const views = hit.count || 0;
-        // If hit is found, get the count, otherwise default to 0
-        // const views = hit ? hit.count : 0; // WHY does this NOT work?
+        const views = hit ? hit.count : 0;
         console.log("views:", views);
         display.innerHTML = `<span style="font-family: 'Courier New', monospace; color: #0033cc;">Views: ${views}</span>`;
         console.log("Display updated with views:", views);
