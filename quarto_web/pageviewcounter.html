@@ -16,17 +16,37 @@
 
 <div id="goatcounter-footer">Loading views...</div>
 <script>
+  // Fetch the page view count from GoatCounter API
   const path = window.location.pathname;
-  fetch(`https://statsupai.goatcounter.com/api/v0/count${path}`)
-    .then(res => res.ok ? res.json() : Promise.reject())
+  
+  // fetch(`https://statsupai.goatcounter.com/api/v0/stats/hits?path=/quarto_web/site/posts/2025-isu-niss-conference.html`, {
+  fetch(`https://statsupai.goatcounter.com/api/v0/stats/hits/63708656`, {
+  // fetch(`https://statsupai.goatcounter.com/api/v0/stats/hits`, {
+    headers: { "Authorization": "Bearer auxp85q97cp69ebjpxnwl6po1kaj3megn0nej25li5q72yx3t" }
+  })
+    .then(res => res.json())
     .then(data => {
       const display = document.getElementById("goatcounter-footer");
       if (display) {
-        display.innerHTML = `<span style="font-family: 'Courier New', monospace; color: #0033cc;">Views: ${data.count}</span>`;
+        // API response is an array of hits per path
+        const views = data?.hits?.[0]?.count ?? 0;
+        display.innerHTML = `<span style="font-family: 'Courier New', monospace; color: #0033cc;">Views: ${views}</span>`;
       }
     })
     .catch(() => {
       const display = document.getElementById("goatcounter-footer");
-      if (display) display.innerHTML = "Page views unavailale.";  // hide on failure
+      if (display) display.innerHTML = "Page views unavailable. Try again later.";
     });
 </script>
+
+
+
+<!--curl https://statsupai.goatcounter.com/api/v0/count \-->
+<!--curl https://statsupai.goatcounter.com/api/v0/count/quarto_web/site/posts/Introduction%20to%20NIH%20Strategic%20Plan%20for%20Data%20Science.html \-->
+<!--curl https://statsupai.goatcounter.com/api/v0/me \-->
+<!--curl https://statsupai.goatcounter.com/api/v0/paths \-->
+<!--    -H 'Content-Type: application/json' \-->
+<!--    -H 'Authorization: Bearer auxp85q97cp69ebjpxnwl6po1kaj3megn0nej25li5q72yx3t'-->
+
+<!--curl -H "Authorization: Bearer auxp85q97cp69ebjpxnwl6po1kaj3megn0nej25li5q72yx3t" \-->
+<!--  "https://statsupai.goatcounter.com/api/v0/stats/hits?path=/quarto_web/site/posts/2025-isu-niss-conference.html"-->
