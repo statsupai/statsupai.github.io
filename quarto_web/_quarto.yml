@@ -17,7 +17,7 @@ format:
     theme: cosmo
     css: styles.css
     toc: true
-    include-after-body: pageviewcounter.html
+    # include-after-body: pageviewcounter.html
 
 
 

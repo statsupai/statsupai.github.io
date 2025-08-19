@@ -412,8 +412,6 @@ ul.task-list li input[type="checkbox"] {
         console.log("hit:", hit);
         // If hit is found, get the count, otherwise default to 0
         const views = hit.count || 0;
-        // If hit is found, get the count, otherwise default to 0
-        // const views = hit ? hit.count : 0; // WHY does this NOT work?
         console.log("views:", views);
         display.innerHTML = `<span style="font-family: 'Courier New', monospace; color: #0033cc;">Views: ${views}</span>`;
         console.log("Display updated with views:", views);
