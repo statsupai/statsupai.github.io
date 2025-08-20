@@ -15,14 +15,24 @@ format:
     toc-depth: 4
 ---
 
+<div style="text-align: center; margin-top: 1em;">
+<a href="https://www.youtube.com/@StatsUpAI" target="_blank"> <img src="https://www.gstatic.com/youtube/img/branding/youtubelogo/svg/youtubelogo.svg" alt="Stats Up AI YouTube" width="180">
+<p style="font-size: 14px; margin-top: 0.5em;">
+Visit the <strong>Stats Up AI</strong> Channel for More
+</p>
+</a><p><a href="https://www.youtube.com/@StatsUpAI" target="_blank"></a></p>
+</div>
 
-## 2025 Workshop at BIRS: Overview
-### Foundation Models and Their Biomedical Applications: Bridging the Gap
-**Event Website:** [2025 Workshop Homepage](https://www.birs.ca/events/2025/5-day-workshops/25w5470)\
+## 🏁 2025 Workshop at BIRS: Overview
+### Foundation Models and Their Biomedical Applications:<br> Bridging the Gap
+<!--**Location:** -->
+📍 Banff International Research Station (BIRS), Banff, Alberta, Canada\
+**Event Website:** [2025 Workshop Homepage](https://www.birs.ca/events/2025/5-day-workshops/25w5470) ·
 **Dates:** Aug 17–22, 2025\
-**Location:** Banff International Research Station (BIRS), Banff, Alberta, Canada\
 
-## Day 1 Recordings
+
+
+## ▶️ Day 1 Recordings
 
 ### 🎤 Hongtu Zhu: *Causal Generalist Medical AI*
 📅 Monday, August 18, 2025 • 🕘 09:05 – 09:45  
