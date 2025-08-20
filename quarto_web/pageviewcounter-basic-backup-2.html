@@ -17,20 +17,22 @@
 </script>
 <script>
     const path = window.location.pathname
-    const trimmedPath = path.replace(/^.*\/quarto_web\/site\//, '\/quarto_web\/site\/');
+    // Trim path to remove everything before /quarto_web/site/ for easier local testing
+    const trimmedPath = path.replace(/^.*\/posts\//, '\/quarto_web\/site\/posts\/');
     console.log('trimmedPath:', trimmedPath);
     // setInterval to check every 100ms because GoatCounter may not be available immediately
     var t = setInterval(function() {
         console.log('Checking for GoatCounter availability...window.goatcounter:', window.goatcounter);
         // Check if GoatCounter is available
         if (window.goatcounter && window.goatcounter.visit_count) {
-            console.log('GoatCounter is available, updating display...');
             // GoatCounter is available, clear the timer
             clearInterval(t)
             // Update the display with the current visit count
             const display = document.getElementById("goatcounter-footer");
+            const urlPath = `https://statsupai.goatcounter.com/counter/${encodeURIComponent(trimmedPath)}.html?no_branding=1`;
             if (display) {
-              display.innerHTML = '<iframe src="https://statsupai.goatcounter.com/counter/${encodeURIComponent(trimmedPath)}.html?no_branding=1"></iframe>';
+              display.innerHTML = '<iframe src="' + urlPath + '" ></iframe>';
+              console.log('display.innerHTML:', display.innerHTML);
             }
         }
     }, 100)

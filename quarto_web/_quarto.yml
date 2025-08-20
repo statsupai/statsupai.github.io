@@ -17,10 +17,7 @@ format:
     theme: cosmo
     css: styles.css
     toc: true
-    include-after-body: pageviewcounter.html
-    # include-after-body: pageviewcounter-backup-5.html
-    # include-after-body: pageviewcounter-basic.html
-    # include-after-body: pageviewcounter-basic-backup-2.html
-
+    include-after-body: pageviewcounter.html # working, just delayed, and non-private
+    # include-after-body: pageviewcounter-basic.html # also working, just ugly
 
 

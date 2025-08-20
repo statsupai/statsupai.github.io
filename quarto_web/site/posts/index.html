@@ -188,7 +188,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     </div>
 </div>
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="RXZlbnRzJTJDVmlkZW9z" data-listing-date-sort="1755576000000" data-listing-file-modified-sort="1755619346347" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="15" data-listing-word-count-sort="2983">
+<div class="quarto-post image-right" data-index="0" data-categories="RXZlbnRzJTJDVmlkZW9z" data-listing-date-sort="1755576000000" data-listing-file-modified-sort="1755670278077" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="15" data-listing-word-count-sort="2983">
 <div class="thumbnail"><a href="../posts/2025-birs-workshop-day-1.html" class="no-external">
 
 <img loading="lazy" src="../posts/figures/2025-birs.png" class="thumbnail-image">
@@ -220,7 +220,7 @@ Shan Gao
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="RXZlbnRz" data-listing-date-sort="1755057600000" data-listing-file-modified-sort="1755620285956" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="290">
+<div class="quarto-post image-right" data-index="1" data-categories="RXZlbnRz" data-listing-date-sort="1755057600000" data-listing-file-modified-sort="1755660984456" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="290">
 <div class="thumbnail"><a href="../posts/2025-isu-niss-conference.html" class="no-external">
 
 <img loading="lazy" src="../posts/figures/isu-niss-banner.png" class="thumbnail-image">
@@ -2043,54 +2043,87 @@ Shan Gao
 <!-- Per-Page View Counter (Footer Style) -->
 <style>
 #goatcounter-footer {
-  font-size: 0.85em;
-  color: #AAA;
-  text-align: center;
-  margin-top: 1em;
-  margin-bottom: 3em;
-  font-family: sans-serif;
+  display: flex; 
+  align-items: center; 
+  color: #8E8E8E; 
+  font-size: 13px; 
+  font-family: Arial, sans-serif;
+}
+#goatcounter-footer .statcounter {
+  font-family: 'Courier New', monospace; 
+  color: #0033cc; 
+  font-weight: bold; 
+  margin-left: 3px; 
+  margin-bottom: -3px;
 }
 </style>
 
-<div id="goatcounter-footer">Loading views...</div>
+<div id="goatcounter-footer"><span style="margin-left: 3px;">Loading views...</span></div>
 <script>
   // Fetch the page view count from GoatCounter API
   const path = window.location.pathname;
-  
-  fetch(`https://statsupai.goatcounter.com/api/v0/stats/hits`, {
-    headers: { "Authorization": "Bearer auxp85q97cp69ebjpxnwl6po1kaj3megn0nej25li5q72yx3t" }
-  })
-    .then(res => res.json())
-    .then(data => {
-      const display = document.getElementById("goatcounter-footer");
-      if (display) {
-        // API response is an array of hits per path
-        console.log("Page views data:", data);
-        console.log("data.hits", data.hits);
-        console.log("path:", path);
-        // Trim path to remove everything before /quarto_web/site/
-        const trimmedPath = path.replace(/^.*\/quarto_web\/site\//, '\/quarto_web\/site\/');
-        console.log("trimmedPath:", trimmedPath);
-        // From the array data.hits, filter out the hits for the current path
-        const hit = data.hits.find(hit => hit.path === trimmedPath);
-        // const views = data.find(hit => hit.path === path)?.count || 0;
-        console.log("hit:", hit);
-        // If hit is found, get the count, otherwise default to 0
-        const views = hit.count || 0;
-        // If hit is found, get the count, otherwise default to 0
-        // const views = hit ? hit.count : 0; // WHY does this NOT work?
-        console.log("views:", views);
-        display.innerHTML = `<span style="font-family: 'Courier New', monospace; color: #0033cc;">Views: ${views}</span>`;
-        console.log("Display updated with views:", views);
-      }
+  console.log("Current path:", path);
+  // If at the root, skip fetching views for now
+  if (path.endsWith('index.html') || path.endsWith('/posts/')) {
+    const display = document.getElementById("goatcounter-footer");
+    if (display) {
+      display.innerHTML = "";
+      console.log("Skipping views for root path:", path);
+    }
+  } else {
+    fetch(`https://statsupai.goatcounter.com/api/v0/stats/hits`, {
+      headers: { "Authorization": "Bearer auxp85q97cp69ebjpxnwl6po1kaj3megn0nej25li5q72yx3t" }
     })
-    .catch(() => {
-      const display = document.getElementById("goatcounter-footer");
-      if (display) display.innerHTML = "Page views unavailable. Try again later.";
-    });
+      .then(res => res.json())
+      .then(data => {
+        const display = document.getElementById("goatcounter-footer");
+        if (display) {
+          // API response is an array of hits per path
+          // Trim path to remove everything before /quarto_web/site/ for easier local testing
+          const trimmedPath = path.replace(/^.*\/posts\//, '\/quarto_web\/site\/posts\/');
+          // From the array data.hits, filter out the hits for the current path
+          const hit = data.hits.find(hit => hit.path === trimmedPath);
+          // If hit is found, get the count, otherwise default to 0
+          const views = hit.count || 0;
+          display.innerHTML = `
+            <span>Page Views:
+            <span class='statcounter'> ${views}</span></span>
+          `;
+  
+          // Debugging log (optional)
+          console.log("Display updated with views:", views);
+        }
+      })
+      .catch(() => {
+        const display = document.getElementById("goatcounter-footer");
+        if (display) display.innerHTML = "Page views unavailable. Try again later.";
+      });
+  }
+  
+  
 </script>
 
-
+<!--<div style="display: flex; align-items: center; color: #8E8E8E; font-size: 13px; font-family: Arial, sans-serif;">-->
+<!--Page Views:-->
+<!--<div class="statcounter" style="margin-left: 10px;">-->
+<!-- Default Statcounter code for seminar1
+<!--https://statsupai.org/quarto_web/site/posts/StatsUP-AI%20Statistical%20and%20AI%20Methods%20for%20He-->
+<!---->
+<!--<script type="text/javascript">-->
+<!--var sc_project=13110735; -->
+<!--var sc_invisible=0; -->
+<!--var sc_security="92556aa5"; -->
+<!--var scJsHost = "https://";-->
+<!--document.write("<sc"+"ript type='text/javascript' src='" +-->
+<!--scJsHost+-->
+<!--"statcounter.com/counter/counter.js'></"+"script>");-->
+<!--</script>-->
+<!--<noscript>-->
+<!--<div class="statcounter">-->
+<!--<a title="Web Analytics" href="https://statcounter.com/" target="_blank"><img class="statcounter" src="https://c.statcounter.com/13110735/0/92556aa5/0/" alt="Web Analytics" referrerpolicy="no-referrer-when-downgrade"></a>-->
+<!--</div>-->
+<!--</noscript>-->
+<!-- End of Statcounter Code -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
