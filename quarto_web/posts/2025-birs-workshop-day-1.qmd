@@ -14,63 +14,12 @@ format:
     toc: true
     toc-depth: 4
 ---
-
-<style>
-  .yt-thumb-card{display:flex; align-items:center; justify-content: center; gap:12px;}
-  .yt-thumb-card .avatar{width:56px; height:56px; border-radius:50%;}
-  .yt-thumb-card .thumb{width:260px; aspect-ratio:16/9; object-fit:cover; border-radius:10px;}
-</style>
-
-<!--A minimal thumbnail:-->
-<div style="text-align: center; justify-content: center; margin-bottom: 2em;">
-  <a class="yt-thumb-card" href="https://www.youtube.com/@StatsUpAI" target="_blank">
-    <img 
-      class="avatar" 
-      src="https://yt3.googleusercontent.com/a9XnyV5aES9fTt4MOMrki6BGphDAUIZpDX1-6uebv03GovLZv4nLcyvgeU00atuLYlVuzEAtKcM=s160-c-k-c0x00ffffff-no-rj" 
-      alt="Stats Up AI" 
-      style="width: 20%; height: 20%;">
-  </a>
-  <a href="https://m.youtube.com/@StatsUpAI/videos?view=0&sort=p&shelf_id=3" target="_blank" style="justify-content: center; margin-bottom: 1em;">
-    <img 
-      src="https://www.gstatic.com/youtube/img/branding/youtubelogo/svg/youtubelogo.svg" 
-      alt="Stats Up AI YouTube" 
-      width="15%">
-    <p style="font-size: 14px; margin-top: 0.5em;">
-      Visit the <strong>Stats Up AI</strong> Channel for More
-    </p>
-  </a>
-<!--</div>-->
-
-<!--An inline frame (iframe) to embed the YouTube playlist:-->
-<!--<div style="text-align: center; margin-top: 1em;">-->
-<!--<iframe -->
-<!--  max-width="560px"-->
-<!--  width="100%"-->
-<!--  aspect-ratio="16/9"-->
-<!--  src="https://www.youtube.com/embed/videoseries?list=UU2VlJBtA_63CrXP0Sr99P8Q" -->
-<!--  title="Uploads playlist"-->
-<!--  frameborder="0"-->
-<!--  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" -->
-<!--  allowfullscreen>-->
-<!--</iframe>-->
-<!--</div>-->
-
-</div>
-
-<!--YouTube logo:-->
-<!--src="https://www.gstatic.com/youtube/img/branding/youtubelogo/svg/youtubelogo.svg" -->
-<!--Channel avatar:-->
-<!--src="https://yt3.googleusercontent.com/a9XnyV5aES9fTt4MOMrki6BGphDAUIZpDX1-6uebv03GovLZv4nLcyvgeU00atuLYlVuzEAtKcM=s160-c-k-c0x00ffffff-no-rj"-->
-
-## 🏁 2025 Workshop at BIRS: Overview
-### Foundation Models and Their Biomedical Applications:<br> Bridging the Gap
-<!--**Location:** -->
-📍 Banff International Research Station (BIRS), Banff, Alberta, Canada\
-**Event Website:** [2025 Workshop Homepage](https://www.birs.ca/events/2025/5-day-workshops/25w5470) ·
-**Dates:** Aug 17–22, 2025\
+{{< include ../youtube-header.html >}}
+{{< include ../2025-birs-workshop/2025-birs-workshop-overview.html >}}
 
 
-## ▶️ Day 1 Recordings
+
+## ▶️ Day 1 Recordings: Morning Session
 
 ### 🎤 Hongtu Zhu: *Causal Generalist Medical AI*
 📅 Monday, August 18, 2025 • 🕘 09:05 – 09:45  
@@ -167,6 +116,8 @@ format:
   </iframe>
 </div>
 [🎬Open the video directly](https://www.birs.ca/events/2025/5-day-workshops/25w5470/videos/watch/202508181123-Chen.html)\
+
+## ▶️ Day 1 Recordings: Afternoon Session
 
 ### 🎤 Ross Mitchell: *Applications of Foundational Models in Medical Imaging*
 📅 Monday, August 18, 2025 • 🕘 13:33 – 14:05  
@@ -336,6 +287,7 @@ format:
 - **BIRS Official Videos Page:** [2025 Workshop Videos](https://www.birs.ca/events/2025/5-day-workshops/25w5470/videos)
 - **Direct Video Downloads:** [BIRS Video Server](https://videos.birs.ca/2025/25w5470/)
 
----
+<!------->
+{{< include ../youtube-header.html >}}
 
 *AI is rapidly reshaping biomedical research by integrating diverse data, accelerating discovery, and supporting decision-making under uncertainty. With statisticians at the forefront, these applications gain the depth, rigor, and reliability needed to truly transform science and medicine.*
