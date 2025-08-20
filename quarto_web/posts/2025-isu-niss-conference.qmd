@@ -9,35 +9,6 @@ categories:
   - Events
 date: 2025-08-13
 ---
-<script>
-    const path = window.location.pathname
-    const trimmedPath = path.replace(/^.*\/quarto_web\/site\//, '\/quarto_web\/site\/');
-    console.log('trimmedPath:', trimmedPath);
-    <!--console.log('window.goatcounter && window.goatcounter.visit_count:', window.goatcounter && window.goatcounter.visit_count);-->
-    var t = setInterval(function() {
-        if (window.goatcounter && window.goatcounter.visit_count) {
-            clearInterval(t)
-            window.goatcounter.visit_count({
-            append: 'body', 
-            no_branding: true, 
-            path: trimmedPath,
-            attr: {
-                    <!--font-size: '0.85em';-->
-                    <!--color: '#AAA';-->
-                    <!--text-align: 'center';-->
-                    <!--margin-top: '1em';-->
-                    <!--margin-bottom: '3em';-->
-                    <!--font-family: 'sans-serif';-->
-                    <!--#gcvc-for {fontSize: '0.85em', color: '#AAA', textAlign: 'center', marginTop: '1em', marginBottom: '3em', fontFamily: 'sans-serif'}-->
-                  }
-            } )
-        }
-    }, 100)
-</script>
-<script data-goatcounter="https://statsupai.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
-
-
 
 ::: {.callout-note title="**Register by August 22**️"}
 

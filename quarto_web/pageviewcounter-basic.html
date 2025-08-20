@@ -1,0 +1,30 @@
+<!-- GoatCounter Tracker -->
+<script data-goatcounter="https://statsupai.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+<!--<div id="goatcounter-footer">Loading views...</div>-->
+<script>
+    const path = window.location.pathname;
+    console.log('window.location.pathname:', path);
+    const trimmedPath = path.replace(/^.*\/quarto_web\/site\//, '\/quarto_web\/site\/');
+    console.log('trimmedPath:', trimmedPath);
+    // Set a timer to check if GoatCounter is available
+    // var t = setInterval(function() {
+    //     console.log('Checking for GoatCounter availability...window.goatcounter:', window.goatcounter);
+    //     // Check if GoatCounter is available
+    //     if (window.goatcounter && window.goatcounter.visit_count) {
+    //         clearInterval(t)
+    //         window.goatcounter.visit_count({
+    //         // Append to the <body>; can use a CSS selector to append somewhere else.
+    //         append: 'body',
+    //         no_branding: true, 
+    //         path: trimmedPath,
+    //         } )
+    //     }
+    // }, 100) // setInterval to check every 100ms because GoatCounter may not be available immediately
+</script>
+
+
+
+
+
+

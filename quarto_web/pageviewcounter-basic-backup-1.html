@@ -1,0 +1,29 @@
+<!-- GoatCounter Tracker -->
+<script>
+    const path = window.location.pathname
+    const trimmedPath = path.replace(/^.*\/quarto_web\/site\//, '\/quarto_web\/site\/');
+    console.log('trimmedPath:', trimmedPath);
+    // console.log('window.goatcounter && window.goatcounter.visit_count:', window.goatcounter && window.goatcounter.visit_count);
+    var t = setInterval(function() {
+        if (window.goatcounter && window.goatcounter.visit_count) {
+            clearInterval(t)
+            window.goatcounter.visit_count({
+            append: 'body', 
+            no_branding: true, 
+            path: trimmedPath,
+            } )
+        }
+    }, 100)
+</script>
+
+<!--<script>-->
+<!--    // Append to the <body>; can use a CSS selector to append somewhere else.-->
+<!--    window.goatcounter.visit_count({append: 'body'})-->
+<!--</script>-->
+<!--<script data-goatcounter="https://statsupai.goatcounter.com/count"-->
+<!--        async src="//gc.zgo.at/count.js"></script>-->
+
+<script data-goatcounter="https://statsupai.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
+

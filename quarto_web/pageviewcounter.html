@@ -27,8 +27,8 @@
       const display = document.getElementById("goatcounter-footer");
       if (display) {
         // API response is an array of hits per path
-        // Trim path to remove everything before /quarto_web/site/
-        const trimmedPath = path.replace(/^.*\/quarto_web\/site\//, '\/quarto_web\/site\/');
+        // Trim path to remove everything before /quarto_web/site/ for easier local testing
+        const trimmedPath = path.replace(/^.*\/posts\//, '\/quarto_web\/site\/posts\/');
         // From the array data.hits, filter out the hits for the current path
         const hit = data.hits.find(hit => hit.path === trimmedPath);
         // If hit is found, get the count, otherwise default to 0
