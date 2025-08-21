@@ -178,8 +178,8 @@ title="Training-Free Multi-Agent Language Models"
 date="Tuesday, August 19, 2025"
 time="15:56 - 16:22" 
 org="University of California, Los Angeles" 
-summary="..." 
-keywords="..."
+summary="A training-free game-theoretic framework (Peer Elicitation Games) aligns LLMs through multi-agent interaction, achieving provably truthful equilibria and improved factual accuracy without supervision." 
+keywords="multi-agent systems, peer elicitation, game theory, truthful equilibrium"
 video_src="https://videos.birs.ca/2025/25w5470/202508191556-Dai.mp4"
 video_link="https://www.birs.ca/events/2025/5-day-workshops/25w5470/videos/watch/202508191556-Dai.html"}
 
