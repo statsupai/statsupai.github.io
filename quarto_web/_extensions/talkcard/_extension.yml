@@ -1,0 +1,6 @@
+name: talkcard
+title: Talk Card
+version: 0.0.1
+contributes:
+  filters:
+    - talkcard.lua

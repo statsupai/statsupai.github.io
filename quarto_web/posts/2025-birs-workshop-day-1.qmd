@@ -117,7 +117,7 @@ format:
 </div>
 [🎬Open the video directly](https://www.birs.ca/events/2025/5-day-workshops/25w5470/videos/watch/202508181123-Chen.html)\
 
-## ▶️ Day 1 Recordings: Afternoon Session
+## ▶️ Day 1 Recordings: Afternoon Session 1
 
 ### 🎤 Ross Mitchell: *Applications of Foundational Models in Medical Imaging*
 📅 Monday, August 18, 2025 • 🕘 13:33 – 14:05  
@@ -189,6 +189,8 @@ format:
   </iframe>
 </div>
 [🎬Open the video directly](https://www.birs.ca/events/2025/5-day-workshops/25w5470/videos/watch/202508181427-Li.html)\
+
+## ▶️ Day 1 Recordings: Afternoon Session 2
 
 ### 🎤 Peter Song: *Challenges in Calculating Epigenetic Age*
 📅 Monday, August 18, 2025 • 🕘 15:31 – 16:00  

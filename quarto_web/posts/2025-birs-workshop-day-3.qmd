@@ -1,0 +1,118 @@
+---
+title: "2025 Workshop at BIRS: Day 3 Recordings"
+description: "Wednesday, August 20 · Day 3 of the 2025 BIRS Workshop **\"Foundation Models and Their Biomedical Applications: Bridging the Gap\"**"
+image: figures/2025-birs.png
+author:
+  - name: "Yulin Li"
+  - affiliation: "Rutgers University"
+categories:
+  - Events
+  - Videos
+date: 2025-08-20
+filters:
+  - ../_extensions/talkcard/talkcard.lua
+metadata-files:
+  - ../2025-birs-workshop/talks-day-3.yml
+---
+{{< include ../youtube-header.html >}}
+{{< include ../2025-birs-workshop/2025-birs-workshop-overview.html >}}
+
+
+## ▶️ Day 3 Recordings
+
+::: {.talks}
+:::
+
+::: {.talk
+speaker="Sheng Yu"
+title="Taming EHRs for Statistical Readiness through Large Language Models and Knowledge Graphs"
+date="Wednesday, August 20, 2025"
+time="08:49 - 09:15" 
+org="Tsinghua University" 
+summary="LLMs and knowledge graphs can transform unstructured EHR narratives into standardized, statistically ready data, overcoming the challenges of medical terminology variability in biomedical research data."
+keywords="clinical text processing, ontology alignment, data standardization"
+video_src="https://videos.birs.ca/2025/25w5470/202508200849-Yu.mp4"
+video_link="https://www.birs.ca/events/2025/5-day-workshops/25w5470/videos/watch/202508200849-Yu.html"}
+
+**Introduction:** 
+Biomedicine has long been one of the most important application areas of statistics. With the widespread adoption of electronic health records (EHRs) over the past decade, these records should, in theory, provide a vast amount of data for analysis. However, in practice, they remain underutilized, as effectively extracting information from EHRs is still a challenging and specialized natural language processing task, due to the substantial medical knowledge required and the variability of medical terminology. In this talk, we will briefly review fundamental concepts for analyzing EHRs, explain the challenges that make EHR analysis difficult, and introduce how we developed large language models and knowledge graphs to convert EHR narratives into structured and standardized data ready for analysis—opening up new frontiers for statistical research and accelerating progress in biomedicine.
+
+:::
+
+::: {.talk
+speaker="Jian Kang"
+title="Scalable Bayesian inference for heat kernel Gaussian processes on manifolds"
+date="Wednesday, August 20, 2025"
+time="09:45 - 10:15" 
+org="University of Michigan" 
+summary="A scalable and general method is proposed for nonparametric regression on manifolds, making it feasible to analyze large neuroimaging datasets and broadly applicable manifold learning problems." 
+keywords="heat kernel methods, manifold regression, neuroimaging analysis"
+video_src="https://videos.birs.ca/2025/25w5470/202508200945-Kang.mp4"
+video_link="https://www.birs.ca/events/2025/5-day-workshops/25w5470/videos/watch/202508200945-Kang.html"}
+
+**Introduction:** 
+We introduce a scalable and general method for nonparametric regression on manifolds, motivated by the challenge of modeling complex brain activation patterns in large neuroimaging studies such as the Human Connectome Project (HCP). Our approach leverages heat kernel techniques to capture the intrinsic geometric structure of the data and incorporates a novel approximation strategy that dramatically reduces computational cost—-making it feasible to analyze datasets with thousands of subjects. Although inspired by neuroimaging applications, the method is broadly applicable to manifold learning problems across scientific domains. Numerical experiments demonstrate both its efficiency and accuracy in uncovering meaningful patterns in high-dimensional, structured data. This is joint work with Junhui He, Guoxuan Ma, and Ying Yang. 
+
+:::
+
+::: {.talk
+speaker="Huaxiu Yao"
+title="From Evaluation to Actionability: Closing Factuality Gaps in Medical Large Vision–Language Models"
+date="Wednesday, August 20, 2025"
+time="10:33 - 11:05" 
+org="University of North Carolina at Chapel Hill" 
+summary="A layered framework is introduced to improve factual reliability in medical vision–language models, progressing from evaluation benchmarks to clinically grounded alignment, domain-aware retrieval, and agentic reinforcement learning for more trustworthy and actionable clinical decision support." 
+keywords="factuality evaluation, multimodal preference optimization, retrieval-augmented generation, agent-based reasoning"
+video_src="https://videos.birs.ca/2025/25w5470/202508201033-Yao.mp4"
+video_link="https://www.birs.ca/events/2025/5-day-workshops/25w5470/videos/watch/2025082010333-Yao.html"}
+
+**Introduction:** 
+Medical large vision–language models (Med-LVLMs) have advanced rapidly, yet their clinical deployment remains constrained by persistent factuality gaps, especially in high-stakes settings where even rare hallucinations are unacceptable. This talk outlines a layered pathway from evaluation to actionability. We begin with CARES, a benchmark that systematically identifies failure modes in Med-LVLMs by evaluating deficiencies in factuality, robustness, and uncertainty estimation. Building on these insights, MMedPO introduces clinically grounded multimodal preference optimization, enhancing factual alignment through counterfactual supervision and lesion-aware training to reduce clinically harmful errors. However, alignment alone cannot keep pace with evolving medical knowledge. To address this, MMed-RAG incorporates domain-aware retrieval across modalities and specialties, employing adaptive context selection and retrieval-guided pre-tuning to dynamically balance reliance on internal model knowledge versus external information. For complex clinical scenarios requiring multi-step reasoning and interdisciplinary collaboration, we present MMedAgent-RL, which implements a generalist-to-specialist agentic workflow and uses reinforcement learning to optimize collaborative decision-making, enabling more faithful and interpretable end-to-end reasoning. Together, these components form a practical and extensible framework that improves factual reliability and clinical decision quality while maintaining transparency. The talk concludes with strategies for integration and a discussion of open challenges in scaling this framework to real-world clinical applications.
+
+:::
+
+::: {.talk
+speaker="Bang Liu"
+title="From Recall to Reason: Unlocking the Cognitive Core of Foundation Agents"
+date="Wednesday, August 20, 2025"
+time="11:05 - 11:33" 
+org="University of Montreal" 
+summary="This talk presents a cognitive-inspired framework for foundation agents that advances long-term memory and adaptive reasoning, introducing reversible memory compression and hybrid fast–slow reasoning to build scalable, human-aligned agents." 
+keywords="long-term memory compression, hybrid reasoning, cognitive agent design"
+video_src="https://videos.birs.ca/2025/25w5470/202508201105-Liu.mp4"
+video_link="https://www.birs.ca/events/2025/5-day-workshops/25w5470/videos/watch/202508201105-Liu.html"}
+
+**Introduction:** 
+Foundation agents, built on the backbone of large language models, are evolving from passive responders to active thinkers—autonomously remembering, reasoning, and improving across tasks and domains. Yet two cognitive capabilities remain crucial bottlenecks: how they remember and how they think. In this talk, I present a cognitive-inspired framework for understanding and architecting foundation agents, with an emphasis on two core pillars—memory and reasoning—through the lens of our recent advances. 1) R3Mem introduces reversible memory compression to balance long-term retention with precise retrieval, enabling LLM agents to recall extended histories and interact coherently across long horizons. 2) System-1.5 Reasoning breaks the dichotomy between fast heuristics and slow deliberation by creating dynamic shortcuts in latent space. It achieves CoT-level reasoning with up to 20× faster inference, bridging System-1 speed and System-2 depth. These systems pave the way for scalable, human-aligned foundation agents with enduring memory and adaptive reasoning. Lastly, I'll briefly discuss the scientific significance and connection with AI agents and statistics.
+
+:::
+
+
+
+<!--Talk Card Template (Blank)-->
+
+<!--::: {.talk-->
+<!--speaker="..."-->
+<!--title="..."-->
+<!--date="Wednesday, August 20, 2025"-->
+<!--time="..." -->
+<!--org="..." -->
+<!--summary="..." -->
+<!--keywords="..."-->
+<!--video_src="https://videos.birs.ca/2025/25w5470/20250820[].mp4"-->
+<!--video_link="https://www.birs.ca/events/2025/5-day-workshops/25w5470/videos/watch/20250820[].html"}-->
+
+<!--**Introduction:** -->
+<!--...-->
+<!--:::-->
+
+
+## 📌 Watch All Recordings
+- **StatsUpAI YouTube Channel:** [Subscribe for updates](https://www.youtube.com/@StatsUpAI)
+- **BIRS Official Videos Page:** [2025 Workshop Videos](https://www.birs.ca/events/2025/5-day-workshops/25w5470/videos)
+- **Direct Video Downloads:** [BIRS Video Server](https://videos.birs.ca/2025/25w5470/)
+
+<!------->
+{{< include ../youtube-header.html >}}
+
+*AI is rapidly reshaping biomedical research by integrating diverse data, accelerating discovery, and supporting decision-making under uncertainty. With statisticians at the forefront, these applications gain the depth, rigor, and reliability needed to truly transform science and medicine.*
