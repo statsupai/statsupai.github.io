@@ -49,12 +49,12 @@ Reinforcement Learning (RL) has emerged as a powerful paradigm for sequential de
 speaker="Linjun Zhang"
 title="Statistical Perspectives on Emerging Challenges in Large Language Models"
 date="Thursday, August 21, 2025"
-time="09:30 - 10:00" 
+time="09:35 - 10:11" 
 org="Rutgers University, New Brunswick" 
 summary="Statistical approaches are proposed to detect data misappropriation in LLM outputs and to post-process models for safety and alignment, framing a broader agenda for statisticians in AI." 
-keywords="data attribution, statistical post-processing, safety alignment, methodology for LLMs"}
-<!--video_src="https://videos.birs.ca/2025/25w5470/20250821[]-Zhang.mp4"-->
-<!--video_link="https://www.birs.ca/events/2025/5-day-workshops/25w5470/videos/watch/20250821[]-Zhang.html"}-->
+keywords="data attribution, statistical post-processing, safety alignment, methodology for LLMs"
+video_src="https://videos.birs.ca/2025/25w5470/202508210935-Zhang.mp4"
+video_link="https://www.birs.ca/events/2025/5-day-workshops/25w5470/videos/watch/202508210935-Zhang.html"}
 
 **Introduction:** 
 Large Language Models (LLMs) have transformed the landscape of artificial intelligence, yet they raise a host of new methodological, ethical, and practical challenges that are fundamentally statistical in nature. In this talk, I will highlight how statistical thinking can contribute to understanding and improving LLMs, focusing on two concrete problems: detecting data misappropriation in model outputs, and post-processing LLMs to ensure safety and alignment. I will also offer broader reflections on the role of statisticians in shaping the future of LLMs and AI, and suggest potential directions for impactful research at this interface.
@@ -65,12 +65,12 @@ Large Language Models (LLMs) have transformed the landscape of artificial intell
 speaker="Heping Zhang"
 title="Change Point-Based Regional Association Scoring in Genome-wide Association Studies"
 date="Thursday, August 21, 2025"
-time="10:30 - 11:00" 
+time="10:31 - 11:04" 
 org="Yale University" 
 summary="A change point detection framework improves regional association testing in GWAS, boosting power under sparse causal variants and lowering false positives compared with existing methods." 
-keywords="regional association, change point detection, GWAS, statistical power"}
-<!--video_src="https://videos.birs.ca/2025/25w5470/20250821[]-Zhang.mp4"-->
-<!--video_link="https://www.birs.ca/events/2025/5-day-workshops/25w5470/videos/watch/20250821[]-Zhang.html"}-->
+keywords="regional association, change point detection, GWAS, statistical power"
+video_src="https://videos.birs.ca/2025/25w5470/202508211031-Zhang.mp4"
+video_link="https://www.birs.ca/events/2025/5-day-workshops/25w5470/videos/watch/202508211031-Zhang.html"}
 
 **Introduction:** 
 Genome-wide association studies are essential for uncovering single nucleotide polymorphisms (SNPs) associated with complex diseases. However, current approaches often struggle to detect regional associations, especially when individual variant effects are small and widely dispersed, leading to limited statistical power and inflated type I error rates. We propose a novel and powerful method that addresses these challenges by first quantifying the regional association strength at each single nucleotide polymorphism. These values are then transformed into a time series, allowing us to apply change point detection techniques to identify significant genomic regions. Through extensive simulations, our method consistently outperforms existing approaches, showing over a 20% improvement in power under difficult scenarios—particularly when causal variants are sparse and multiple association regions co-exist. It also achieves a notably lower false positive rate across all tested conditions. We further demonstrate the effectiveness of our approach using data from the Adolescent Brain Cognitive Development℠ (ABCD®) study, identifying genomic regions associated with the Brief Problem Monitor. This work is a collaboration with Dr. Yiran Jiang.
