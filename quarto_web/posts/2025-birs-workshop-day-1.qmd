@@ -17,7 +17,16 @@ format:
 {{< include ../youtube-header.html >}}
 {{< include ../2025-birs-workshop/2025-birs-workshop-overview.html >}}
 
+<small>
 
+- 📖 **2025 Workshop at BIRS: Day 1** Recordings (Monday, Aug 18) 👈\
+- 🔗 [**2025 Workshop at BIRS: Day 2** Recordings](2025-birs-workshop-day-2.qmd) (Tuesday, Aug 19)\
+- 🔗 [**2025 Workshop at BIRS: Day 3** Recordings](2025-birs-workshop-day-3.qmd) (Wednesday, Aug 20)\
+- 🔗 [**2025 Workshop at BIRS: Day 4** Recordings](2025-birs-workshop-day-4.qmd) (Thursday, Aug 21)
+
+</small>
+
+{{< include ../footer-read-more-community-news.html >}}
 
 ## ▶️ Day 1 Recordings: Morning Session
 

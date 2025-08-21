@@ -1,0 +1,187 @@
+---
+title: "2025 Workshop at BIRS: Day 4 Recordings"
+description: "Wednesday, August 21 · Day 4 of the 2025 BIRS Workshop **\"Foundation Models and Their Biomedical Applications: Bridging the Gap\"**"
+image: figures/2025-birs.png
+author:
+  - name: "Yulin Li"
+  - affiliation: "Rutgers University"
+categories:
+  - Events
+  - Videos
+date: 2025-08-21
+filters:
+  - ../_extensions/talkcard/talkcard.lua
+---
+{{< include ../youtube-header.html >}}
+{{< include ../2025-birs-workshop/2025-birs-workshop-overview.html >}}
+
+<small>
+
+- 🔗 [**2025 Workshop at BIRS: Day 1** Recordings](2025-birs-workshop-day-1.qmd) (Monday, Aug 18)\
+- 🔗 [**2025 Workshop at BIRS: Day 2** Recordings](2025-birs-workshop-day-2.qmd) (Tuesday, Aug 19)\
+- 🔗 [**2025 Workshop at BIRS: Day 3** Recordings](2025-birs-workshop-day-3.qmd) (Wednesday, Aug 20)\
+- 📖 **2025 Workshop at BIRS: Day 4** Recordings (Thursday, Aug 21) 👈
+
+</small>
+
+{{< include ../footer-read-more-community-news.html >}}
+
+## ▶️ Day 4 Recordings: Morning Session
+
+::: {.talk
+speaker="Chengchun Shi"
+title="Reinforcement Learning Methodologies and Applications: A Selective Overview"
+date="Thursday, August 21, 2025"
+time="09:00 - 09:30" 
+org="London School of Economics and Political Science" 
+summary="A selective overview of reinforcement learning highlights recent advances in policy optimization, causal RL, and RL from human feedback, with applications spanning AI and healthcare." 
+keywords="policy optimization, causal reinforcement learning, human feedback, healthcare applications"}
+<!--video_src="https://videos.birs.ca/2025/25w5470/20250821[]-Shi.mp4"-->
+<!--video_link="https://www.birs.ca/events/2025/5-day-workshops/25w5470/videos/watch/20250821[]-Shi.html"-->
+<!--}-->
+
+**Introduction:** 
+Reinforcement Learning (RL) has emerged as a powerful paradigm for sequential decision-making, enabling agents to learn optimal policies through interaction with their environments. Over the past decade, it has been one of the most popular research directions in machine learning and AI. This talk provides a selective overview of RL methodologies, including policy optimization, policy evaluation, model validation, causal RL, RL from human feedback, along with their applications in AI and healthcare. The goal is to equip the audience with both a conceptual understanding of the diverse ways RL can be leveraged in real practice.
+
+:::
+
+::: {.talk
+speaker="Linjun Zhang"
+title="Statistical Perspectives on Emerging Challenges in Large Language Models"
+date="Thursday, August 21, 2025"
+time="09:30 - 10:00" 
+org="Rutgers University, New Brunswick" 
+summary="Statistical approaches are proposed to detect data misappropriation in LLM outputs and to post-process models for safety and alignment, framing a broader agenda for statisticians in AI." 
+keywords="data attribution, statistical post-processing, safety alignment, methodology for LLMs"}
+<!--video_src="https://videos.birs.ca/2025/25w5470/20250821[]-Zhang.mp4"-->
+<!--video_link="https://www.birs.ca/events/2025/5-day-workshops/25w5470/videos/watch/20250821[]-Zhang.html"}-->
+
+**Introduction:** 
+Large Language Models (LLMs) have transformed the landscape of artificial intelligence, yet they raise a host of new methodological, ethical, and practical challenges that are fundamentally statistical in nature. In this talk, I will highlight how statistical thinking can contribute to understanding and improving LLMs, focusing on two concrete problems: detecting data misappropriation in model outputs, and post-processing LLMs to ensure safety and alignment. I will also offer broader reflections on the role of statisticians in shaping the future of LLMs and AI, and suggest potential directions for impactful research at this interface.
+
+:::
+
+::: {.talk
+speaker="Heping Zhang"
+title="Change Point-Based Regional Association Scoring in Genome-wide Association Studies"
+date="Thursday, August 21, 2025"
+time="10:30 - 11:00" 
+org="Yale University" 
+summary="A change point detection framework improves regional association testing in GWAS, boosting power under sparse causal variants and lowering false positives compared with existing methods." 
+keywords="regional association, change point detection, GWAS, statistical power"}
+<!--video_src="https://videos.birs.ca/2025/25w5470/20250821[]-Zhang.mp4"-->
+<!--video_link="https://www.birs.ca/events/2025/5-day-workshops/25w5470/videos/watch/20250821[]-Zhang.html"}-->
+
+**Introduction:** 
+Genome-wide association studies are essential for uncovering single nucleotide polymorphisms (SNPs) associated with complex diseases. However, current approaches often struggle to detect regional associations, especially when individual variant effects are small and widely dispersed, leading to limited statistical power and inflated type I error rates. We propose a novel and powerful method that addresses these challenges by first quantifying the regional association strength at each single nucleotide polymorphism. These values are then transformed into a time series, allowing us to apply change point detection techniques to identify significant genomic regions. Through extensive simulations, our method consistently outperforms existing approaches, showing over a 20% improvement in power under difficult scenarios—particularly when causal variants are sparse and multiple association regions co-exist. It also achieves a notably lower false positive rate across all tested conditions. We further demonstrate the effectiveness of our approach using data from the Adolescent Brain Cognitive Development℠ (ABCD®) study, identifying genomic regions associated with the Brief Problem Monitor. This work is a collaboration with Dr. Yiran Jiang.
+
+:::
+
+::: {.talk
+speaker="Kaixian Yu"
+title="Constructing a Large-Scale Biomedical Knowledge Graph and Its Applications in Drug Discovery"
+date="Thursday, August 21, 2025"
+time="11:00 - 11:30" 
+org="Insilicom LLC, Tallahassee, FL, USA" 
+summary="A large-scale biomedical knowledge graph (iKraph) built from PubMed abstracts and integrated databases achieves human-level accuracy in knowledge extraction and supports applications from drug repurposing to causal inference." 
+keywords="knowledge graph construction, information extraction, causal inference, drug discovery"}
+<!--video_src="https://videos.birs.ca/2025/25w5470/20250821[]-Yu.mp4"-->
+<!--video_link="https://www.birs.ca/events/2025/5-day-workshops/25w5470/videos/watch/20250821[]-Yu.html"}-->
+
+**Introduction:** 
+The exponential growth of biomedical literature necessitates advanced tools for efficient knowledge integration and discovery. Knowledge graphs (KGs) have emerged as a powerful solution, yet transforming unstructured text into accurate, structured representations remains a major challenge. In this talk, we present iKraph, a large-scale biomedical KG constructed using an award-winning information extraction pipeline applied to all PubMed abstracts. Our approach achieves human-level accuracy in knowledge extraction, surpassing manually curated databases in coverage. To enhance comprehensiveness, we integrated relations from 40 public databases and high-throughput genomics data, enabling rigorous evaluation of automated knowledge discovery. We further developed an interpretable, probabilistic inference method to identify indirect causal relationships, demonstrating its utility in real-time COVID-19 drug repurposing. To facilitate broader use, we provide a cloud-based platform (https://biokde.insilicom.com) offering access to this structured knowledge and analytical tools. This work highlights the transformative potential of high-accuracy KGs in accelerating biomedical research and drug discovery.
+
+:::
+
+## ▶️ Day 4 Recordings: Afternoon Session
+
+::: {.talk
+speaker="Jeffrey Zhang"
+title="Agentic AI for Healthcare Scheduling — A Use Case on Optimizing Anesthesiology Staff Scheduling in Surgery Rooms"
+date="Thursday, August 21, 2025"
+time="13:20 - 13:40" 
+org="Yale University" 
+summary="An agentic AI system optimizes anesthesiology staff scheduling across operating rooms, reducing idle time, cutting costs, and improving adaptability to real-time hospital constraints." 
+keywords="agentic AI, healthcare operations, staff scheduling, optimization"}
+<!--video_src="https://videos.birs.ca/2025/25w5470/20250821[]-Zhang.mp4"-->
+<!--video_link="https://www.birs.ca/events/2025/5-day-workshops/25w5470/videos/watch/20250821[]-Zhang.html"}-->
+
+**Introduction:** 
+We present ongoing work for the development of an agentic AI system to optimize anesthesiology staff scheduling across Yale-New Haven Hospital’s multi-site operating rooms. Manual scheduling processes currently consume significant clinical and administrative time, contribute to inefficiencies, and limit adaptability to real-time changes. By automating daily assignments, forecasting Certified Registered Nurse Anesthetist (CRNA) availability, and optimizing long-horizon staffing plans, this system could reduce OR idle time, cut locum costs, and reclaim over $1M annually in clinician time. Our agentic AI framework consists of coordinated modules each functioning as a decision-making agent that dynamically forecasts demand, assigns staff, and adapts schedules in real-time based on constraints and availability.
+
+:::
+
+::: {.talk
+speaker="Elena Tuzhilina"
+title="Statistical Curve Models for Inferring 3D Chromatin Architecture"
+date="Thursday, August 21, 2025"
+time="13:40 - 14:00" 
+org="University of Toronto" 
+summary="Spline-based statistical curve models combined with distribution-based metric scaling more accurately reconstruct 3D chromatin architecture from Hi-C data, including sparse single-cell assays." 
+keywords="chromatin architecture, spline models, Hi-C data, distribution-based scaling"}
+<!--video_src="https://videos.birs.ca/2025/25w5470/20250821[]-Tuzhilina.mp4"-->
+<!--video_link="https://www.birs.ca/events/2025/5-day-workshops/25w5470/videos/watch/20250821[]-Tuzhilina.html"}-->
+
+**Introduction:** 
+Reconstructing three-dimensional (3D) chromatin structure from conformation capture assays (such as Hi-C) is a critical task in computational biology, since chromatin spatial architecture plays a vital role in numerous cellular processes and direct imaging is challenging. Most existing algorithms that operate on Hi-C contact matrices produce reconstructed 3D configurations in the form of a polygonal chain. However, none of the methods exploit the fact that the target solution is a (smooth) curve in 3D: this contiguity attribute is either ignored or indirectly addressed by imposing spatial constraints that are challenging to formulate. In this paper we develop both B-spline and smoothing spline techniques for directly capturing this potentially complex 1D curve. We subsequently combine these techniques with a Poisson model for contact counts and compare their performance on a real data example. In addition, motivated by the sparsity of Hi-C contact data, especially when obtained from single-cell assays, we appreciably extend the class of distributions used to model contact counts. We build a general distribution-based metric scaling ( DBMS ) framework from which we develop zero-inflated and Hurdle Poisson models as well as negative binomial applications. Illustrative applications make recourse to bulk Hi-C data from IMR90 cells and single-cell Hi-C data from mouse embryonic stem cells.
+
+:::
+
+::: {.talk
+speaker="Xin Wang"
+title="Medical Image Foundation Models and Their Applications"
+date="Thursday, August 21, 2025"
+time="14:00 - 14:20" 
+org="University at Albany, State University of New York" 
+summary="Medical image foundation models enable scalable segmentation and registration, driving advances in precision diagnosis and clinical decision-making across diverse imaging tasks." 
+keywords="foundation models, medical image segmentation, image registration, precision diagnosis"}
+<!--video_src="https://videos.birs.ca/2025/25w5470/20250821[]-Wang.mp4"-->
+<!--video_link="https://www.birs.ca/events/2025/5-day-workshops/25w5470/videos/watch/20250821[]-Wang.html"}-->
+
+**Introduction:** 
+Foundation models are revolutionizing medical artificial intelligence (AI) by enabling scalable, adaptable, and generalizable solutions across a broad spectrum of clinical tasks. This talk will explore recent advances in Medical Image Foundation Models, with a particular focus on two core tasks: medical image segmentation and medical image registration. I will begin by introducing the concept of foundation models within the medical imaging domain, emphasizing their ability to learn rich, transferable representations from large and heterogeneous datasets. The presentation will conclude with real-world applications of these models, highlighting their role in AI-driven heart disease diagnosis and analysis, and their potential to support precision medicine and clinical decision-making.
+
+:::
+
+::: {.talk
+speaker="Edgar Dobriban"
+title="Synthetic-Powered Predictive Inference"
+date="Thursday, August 21, 2025"
+time="14:20 - 14:40" 
+org="University of Pennsylvania" 
+summary="Synthetic-powered predictive inference (SPI) leverages synthetic data and quantile score transport to tighten conformal prediction sets while preserving finite-sample coverage in data-scarce settings." 
+keywords="predictive inference, conformal prediction, synthetic data, score transport"}
+<!--video_src="https://videos.birs.ca/2025/25w5470/20250821[]-Dobriban.mp4"-->
+<!--video_link="https://www.birs.ca/events/2025/5-day-workshops/25w5470/videos/watch/20250821[]-Dobriban.html"}-->
+
+**Introduction:** 
+Synthetic data, for instance generated by foundation models, may offer great opportunities to boost sample sizes in statistical analysis. However, the distribution of synthetic data may not be exactly the same as that of the real data, thus incurring the risk of faulty inferences. Motivated by these observations, we study how to use synthetic data in a fundamental statistical setting, that of predictive inference, i.e., predicting future classes or outcomes with prediction sets. The standard approach in the field, conformal prediction, tends to provide uninformative prediction sets when calibration data are scarce. This paper introduces Synthetic-powered predictive inference (SPI), a novel framework that incorporates synthetic data---e.g., from a generative model---to improve sample efficiency. At the core of our method is a score transporter: an empirical quantile mapping that aligns nonconformity scores from trusted, real data with those from synthetic data. By carefully integrating the score transporter into the calibration process, SPI provably achieves finite-sample coverage guarantees without making any assumptions about the real and synthetic data distributions. When the score distributions are well aligned, SPI yields substantially tighter and more informative prediction sets than standard conformal prediction. Experiments on image classification---augmenting data with synthetic diffusion-model generated images---and on the medical expenditure panel survey (MEPS) dataset demonstrate notable improvements in predictive efficiency in data-scarce settings.
+
+:::
+
+::: {.talk
+speaker="Bingxin Zhao"
+title="AI Co-scientist in Protein-disease Reasoning"
+date="Thursday, August 21, 2025"
+time="14:40 - 15:00" 
+org="University of Pennsylvania" 
+summary="An AI co-scientist framework integrates LLMs with domain-specific tools to automate protein–disease reasoning, scaling literature synthesis and pathway analysis for biomedical discovery." 
+keywords="AI co-scientist, protein–disease associations, knowledge synthesis, pathway reasoning"}
+<!--video_src="https://videos.birs.ca/2025/25w5470/20250821[]-Zhao.mp4"-->
+<!--video_link="https://www.birs.ca/events/2025/5-day-workshops/25w5470/videos/watch/20250821[]-Zhao.html"}-->
+
+**Introduction:** 
+The rapid expansion of large-scale proteomic resources has enabled the discovery of thousands of protein-phenotype associations. Yet, the scientific bottleneck lies in translating these vast summary-level statistics into structured biological insight and actionable knowledge. This talk introduces an AI co-scientist framework designed to scale the human reasoning process of protein-disease interpretation. Drawing inspiration from the way human researchers integrate statistical findings with prior scientific knowledge, our agentic system performs a multi-stage workflow: planning report sections, querying curated knowledge bases, reasoning over pathway enrichment and literature evidence, and generating text-based summaries. The system combines domain-specific tools with large language models in a united paradigm to automate knowledge synthesis at scale. We demonstrate applications across various diseases, highlighting how AI co-scientists can accelerate biomedical discovery, enhance reproducibility, and support drug development through more systematic and scalable scientific writing.
+
+:::
+
+
+## 📌 Watch All Recordings
+- **StatsUpAI YouTube Channel:** [Subscribe for updates](https://www.youtube.com/@StatsUpAI)
+- **BIRS Official Videos Page:** [2025 Workshop Videos](https://www.birs.ca/events/2025/5-day-workshops/25w5470/videos)
+- **Direct Video Downloads:** [BIRS Video Server](https://videos.birs.ca/2025/25w5470/)
+
+<!------->
+{{< include ../youtube-header.html >}}
+
+*AI is rapidly reshaping biomedical research by integrating diverse data, accelerating discovery, and supporting decision-making under uncertainty. With statisticians at the forefront, these applications gain the depth, rigor, and reliability needed to truly transform science and medicine.*
