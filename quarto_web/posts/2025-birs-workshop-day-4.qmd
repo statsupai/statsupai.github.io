@@ -32,13 +32,13 @@ filters:
 speaker="Chengchun Shi"
 title="Reinforcement Learning Methodologies and Applications: A Selective Overview"
 date="Thursday, August 21, 2025"
-time="09:00 - 09:30" 
+time="09:03 - 09:33" 
 org="London School of Economics and Political Science" 
 summary="A selective overview of reinforcement learning highlights recent advances in policy optimization, causal RL, and RL from human feedback, with applications spanning AI and healthcare." 
-keywords="policy optimization, causal reinforcement learning, human feedback, healthcare applications"}
-<!--video_src="https://videos.birs.ca/2025/25w5470/20250821[]-Shi.mp4"-->
-<!--video_link="https://www.birs.ca/events/2025/5-day-workshops/25w5470/videos/watch/20250821[]-Shi.html"-->
-<!--}-->
+keywords="policy optimization, causal reinforcement learning, human feedback, healthcare applications"
+video_src="https://videos.birs.ca/2025/25w5470/202508210903-Shi.mp4"
+video_link="https://www.birs.ca/events/2025/5-day-workshops/25w5470/videos/watch/202508210903-Shi.html"
+}
 
 **Introduction:** 
 Reinforcement Learning (RL) has emerged as a powerful paradigm for sequential decision-making, enabling agents to learn optimal policies through interaction with their environments. Over the past decade, it has been one of the most popular research directions in machine learning and AI. This talk provides a selective overview of RL methodologies, including policy optimization, policy evaluation, model validation, causal RL, RL from human feedback, along with their applications in AI and healthcare. The goal is to equip the audience with both a conceptual understanding of the diverse ways RL can be leveraged in real practice.
