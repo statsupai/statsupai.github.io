@@ -26,7 +26,7 @@ format:
 🏛️ The University of North Carolina at Chapel Hill  
 
 **Keywords:** Causal inference, generalist AI, medical decision-making, interpretability, robustness, generalizability, multimodal datasets, causal discovery, counterfactual reasoning, domain adaptation, clinical reliability\
-**Summary:** Introduce Causal Generalist Medical AI that integrates causal reasoning with generalist AI models to improve interpretability, robustness, and generalizability in medical decision-making.
+**What It Does:** Introducing Causal Generalist Medical AI, which integrates causal reasoning with generalist AI models to improve interpretability, robustness, and generalizability in medical decision-making.
 <details>
   <summary><u>📖 Read more</u></summary>
   **Introduction:**
@@ -49,7 +49,7 @@ format:
 🏛️ North Carolina State University  
 
 **Keywords:** Clinical trials, real-world data, precision medicine, evidence integration, statistical framework, 21st Century Cures Act, FDA, causal inference, bias assessment, hybrid trial designs, conformal prediction\
-**Summary:** Present a systematic framework for integrating randomized clinical trials and real-world data to enhance precision medicine development.
+**What It Does:** Presenting a systematic framework for integrating randomized clinical trials and real-world data to enhance precision medicine development.
 <details>
   <summary><u>📖 Read more</u></summary>
   **Introduction:**
@@ -72,7 +72,7 @@ format:
 🏛️ The Hong Kong Polytechnic University  
 
 **Keywords:** Large-scale machine learning, foundation models, statistical challenges, contemporary methods, conditional generative learning, functional protein sequence generation, synthetic data augmentation, code-free data analysis\
-**Summary:** Examine how large-scale machine learning models, including foundation models, can address contemporary statistical challenges with illustrative examples.
+**What It Does:** Examining how large-scale machine learning models, including foundation models, can address contemporary statistical challenges with illustrative examples.
 <details>
   <summary><u>📖 Read more</u></summary>
   **Introduction:**
@@ -95,7 +95,7 @@ format:
 🏛️ University of Pennsylvania  
 
 **Keywords:** Causal inference, negative control calibration, federated learning, randomized controlled trials, unmeasured confounding, NCOs, privacy-preserving, vaccine safety surveillance, drug repurposing, oncology research\
-**Summary:** Propose a framework using negative control calibration and federated learning to strengthen causal inference beyond randomized controlled trials.
+**What It Does:** Proposing a framework using negative control calibration and federated learning to strengthen causal inference beyond randomized controlled trials.
 <details>
   <summary><u>📖 Read more</u></summary>
   **Introduction:**
@@ -124,7 +124,7 @@ format:
 🏛️ University of Alberta  
 
 **Keywords:** Foundational models, medical imaging, classification, segmentation, uncertainty modeling, Microsoft MII, self-supervised learning, multi-modal training, probabilistic 3D U-Net, organs-at-risk segmentation, cone-beam CT\
-**Summary:** Demonstrate applications of foundational models in medical imaging for classification, segmentation, and uncertainty modeling across large-scale datasets.
+**What It Does:** Demonstrating applications of foundational models in medical imaging for classification, segmentation, and uncertainty modeling across large-scale datasets.
 <details>
   <summary><u>📖 Read more</u></summary>
   **Introduction:**
@@ -149,7 +149,7 @@ format:
 🏛️ Michigan State University  
 
 **Keywords:** Spatial transcriptomics, spatial deconvolution, gene variability, domain detection, statistical methods, 10x Visium, spatially variable genes, cell type-specific SVGs, linear mixed-effect model, tumor progression, deep learning\
-**Summary:** Develop statistical and deep learning methods to address challenges in spatial transcriptomics, including deconvolution, gene variability, and domain detection.
+**What It Does:** Developing statistical and deep learning methods to address challenges in spatial transcriptomics, including deconvolution, gene variability, and domain detection.
 <details>
   <summary><u>📖 Read more</u></summary>
   **Introduction:**
@@ -172,7 +172,7 @@ format:
 🏛️ Hong Kong Polytechnic University  
 
 **Keywords:** Principal component analysis, geodesic space, complex data structures, neuroimaging, Geodesic-PCA, G-PCA, brain corpus callosum, task-fMRI, Riemannian manifolds\
-**Summary:** Extend principal component analysis into geodesic spaces to analyze complex data structures such as neuroimaging.
+**What It Does:** Extending principal component analysis into geodesic spaces to analyze complex data structures such as neuroimaging.
 <details>
   <summary><u>📖 Read more</u></summary>
   **Introduction:**
@@ -197,7 +197,7 @@ format:
 🏛️ University of Michigan  
 
 **Keywords:** Epigenetic age, predictive models, high-resolution data, uncertainty quantification, multiple clocks, DNA methylation, epigenetic clocks, convolutional neural networks, conformal prediction, aging research\
-**Summary:** Address challenges in calculating epigenetic age by refining predictive models with high-resolution data, uncertainty quantification, and multiple clocks.
+**What It Does:** Addressing challenges in calculating epigenetic age by refining predictive models with high-resolution data, uncertainty quantification, and multiple clocks.
 <details>
   <summary><u>📖 Read more</u></summary>
   **Introduction:**
@@ -220,7 +220,7 @@ format:
 🏛️ University of Washington  
 
 **Keywords:** Multimodal AI, atrial fibrillation, heart failure, ECG, cardiac MRI, deep learning, cardiovascular risk stratification, UK Biobank, shared representations, modality-specific representations, disease prevention\
-**Summary:** Introduce a multimodal deep learning framework that integrates ECG and cardiac MRI to improve prediction of atrial fibrillation and heart failure.
+**What It Does:** Introducing a multimodal deep learning framework that integrates ECG and cardiac MRI to improve prediction of atrial fibrillation and heart failure.
 <details>
   <summary><u>📖 Read more</u></summary>
   **Introduction:**
@@ -243,7 +243,7 @@ format:
 🏛️ The University of North Carolina at Chapel Hill  
 
 **Keywords:** Representation learning, generative models, VAEs, brain networks, neuroimaging, Variational Auto-Encoders, GATE, motion-invariant VAE, inv-VAE, brain connectivity, cognitive trait prediction\
-**Summary:** Demonstrate how representation learning with VAEs and generative models can extract meaningful embeddings from brain networks to advance neuroimaging.
+**What It Does:** Demonstrating how representation learning with VAEs and generative models can extract meaningful embeddings from brain networks to advance neuroimaging.
 <details>
   <summary><u>📖 Read more</u></summary>
   **Introduction:**
@@ -266,7 +266,7 @@ format:
 🏛️ Peking University  
 
 **Keywords:** Physics-informed transfer learning, multi-source ocean data, 3D current fields, real-time field campaigns, geostrophic balance, Navier-Stokes equations, GLORYS reanalysis, Kuroshio Extension, underwater gliders, ADCP observations\
-**Summary:** Apply a physics-informed transfer learning framework to integrate multi-source ocean data for reconstructing 3D current fields and guiding real-time field campaigns.
+**What It Does:** Applying a physics-informed transfer learning framework to integrate multi-source ocean data for reconstructing 3D current fields and guiding real-time field campaigns.
 <details>
   <summary><u>📖 Read more</u></summary>
   **Introduction:**
