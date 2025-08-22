@@ -1,6 +1,6 @@
 ---
 title: "2025 Workshop at BIRS: Day 4 Recordings"
-description: "Wednesday, August 21 · Day 4 of the 2025 BIRS Workshop **\"Foundation Models and Their Biomedical Applications: Bridging the Gap\"**"
+description: "Thursday, August 21 · Day 4 of the 2025 BIRS Workshop **\"Foundation Models and Their Biomedical Applications: Bridging the Gap\"**"
 image: figures/2025-birs.png
 author:
   - name: "Yulin Li"
@@ -99,12 +99,12 @@ The exponential growth of biomedical literature necessitates advanced tools for 
 speaker="Jeffrey Zhang"
 title="Agentic AI for Healthcare Scheduling — A Use Case on Optimizing Anesthesiology Staff Scheduling in Surgery Rooms"
 date="Thursday, August 21, 2025"
-time="13:20 - 13:40" 
+time="13:24 - 13:40" 
 org="Yale University" 
 summary="An agentic AI system optimizes anesthesiology staff scheduling across operating rooms, reducing idle time, cutting costs, and improving adaptability to real-time hospital constraints." 
-keywords="agentic AI, healthcare operations, staff scheduling, optimization"}
-<!--video_src="https://videos.birs.ca/2025/25w5470/20250821[]-Zhang.mp4"-->
-<!--video_link="https://www.birs.ca/events/2025/5-day-workshops/25w5470/videos/watch/20250821[]-Zhang.html"}-->
+keywords="agentic AI, healthcare operations, staff scheduling, optimization"
+video_src="https://videos.birs.ca/2025/25w5470/202508211324-Zhang.mp4"
+video_link="https://www.birs.ca/events/2025/5-day-workshops/25w5470/videos/watch/202508211324-Zhang.html"}
 
 **Introduction:** 
 We present ongoing work for the development of an agentic AI system to optimize anesthesiology staff scheduling across Yale-New Haven Hospital’s multi-site operating rooms. Manual scheduling processes currently consume significant clinical and administrative time, contribute to inefficiencies, and limit adaptability to real-time changes. By automating daily assignments, forecasting Certified Registered Nurse Anesthetist (CRNA) availability, and optimizing long-horizon staffing plans, this system could reduce OR idle time, cut locum costs, and reclaim over $1M annually in clinician time. Our agentic AI framework consists of coordinated modules each functioning as a decision-making agent that dynamically forecasts demand, assigns staff, and adapts schedules in real-time based on constraints and availability.
@@ -115,12 +115,12 @@ We present ongoing work for the development of an agentic AI system to optimize 
 speaker="Elena Tuzhilina"
 title="Statistical Curve Models for Inferring 3D Chromatin Architecture"
 date="Thursday, August 21, 2025"
-time="13:40 - 14:00" 
+time="13:45 - 14:06" 
 org="University of Toronto" 
 summary="Spline-based statistical curve models combined with distribution-based metric scaling more accurately reconstruct 3D chromatin architecture from Hi-C data, including sparse single-cell assays." 
-keywords="chromatin architecture, spline models, Hi-C data, distribution-based scaling"}
-<!--video_src="https://videos.birs.ca/2025/25w5470/20250821[]-Tuzhilina.mp4"-->
-<!--video_link="https://www.birs.ca/events/2025/5-day-workshops/25w5470/videos/watch/20250821[]-Tuzhilina.html"}-->
+keywords="chromatin architecture, spline models, Hi-C data, distribution-based scaling"
+video_src="https://videos.birs.ca/2025/25w5470/202508211345-Tuzhilina.mp4"
+video_link="https://www.birs.ca/events/2025/5-day-workshops/25w5470/videos/watch/202508211345-Tuzhilina.html"}
 
 **Introduction:** 
 Reconstructing three-dimensional (3D) chromatin structure from conformation capture assays (such as Hi-C) is a critical task in computational biology, since chromatin spatial architecture plays a vital role in numerous cellular processes and direct imaging is challenging. Most existing algorithms that operate on Hi-C contact matrices produce reconstructed 3D configurations in the form of a polygonal chain. However, none of the methods exploit the fact that the target solution is a (smooth) curve in 3D: this contiguity attribute is either ignored or indirectly addressed by imposing spatial constraints that are challenging to formulate. In this paper we develop both B-spline and smoothing spline techniques for directly capturing this potentially complex 1D curve. We subsequently combine these techniques with a Poisson model for contact counts and compare their performance on a real data example. In addition, motivated by the sparsity of Hi-C contact data, especially when obtained from single-cell assays, we appreciably extend the class of distributions used to model contact counts. We build a general distribution-based metric scaling ( DBMS ) framework from which we develop zero-inflated and Hurdle Poisson models as well as negative binomial applications. Illustrative applications make recourse to bulk Hi-C data from IMR90 cells and single-cell Hi-C data from mouse embryonic stem cells.
@@ -131,12 +131,12 @@ Reconstructing three-dimensional (3D) chromatin structure from conformation capt
 speaker="Xin Wang"
 title="Medical Image Foundation Models and Their Applications"
 date="Thursday, August 21, 2025"
-time="14:00 - 14:20" 
+time="14:09 - 14:36" 
 org="University at Albany, State University of New York" 
 summary="Medical image foundation models enable scalable segmentation and registration, driving advances in precision diagnosis and clinical decision-making across diverse imaging tasks." 
-keywords="foundation models, medical image segmentation, image registration, precision diagnosis"}
-<!--video_src="https://videos.birs.ca/2025/25w5470/20250821[]-Wang.mp4"-->
-<!--video_link="https://www.birs.ca/events/2025/5-day-workshops/25w5470/videos/watch/20250821[]-Wang.html"}-->
+keywords="foundation models, medical image segmentation, image registration, precision diagnosis"
+video_src="https://videos.birs.ca/2025/25w5470/202508211409-Wang.mp4"
+video_link="https://www.birs.ca/events/2025/5-day-workshops/25w5470/videos/watch/202508211409-Wang.html"}
 
 **Introduction:** 
 Foundation models are revolutionizing medical artificial intelligence (AI) by enabling scalable, adaptable, and generalizable solutions across a broad spectrum of clinical tasks. This talk will explore recent advances in Medical Image Foundation Models, with a particular focus on two core tasks: medical image segmentation and medical image registration. I will begin by introducing the concept of foundation models within the medical imaging domain, emphasizing their ability to learn rich, transferable representations from large and heterogeneous datasets. The presentation will conclude with real-world applications of these models, highlighting their role in AI-driven heart disease diagnosis and analysis, and their potential to support precision medicine and clinical decision-making.
@@ -163,12 +163,12 @@ Synthetic data, for instance generated by foundation models, may offer great opp
 speaker="Bingxin Zhao"
 title="AI Co-scientist in Protein-disease Reasoning"
 date="Thursday, August 21, 2025"
-time="14:40 - 15:00" 
+time="14:39 - 15:06" 
 org="University of Pennsylvania" 
 summary="An AI co-scientist framework integrates LLMs with domain-specific tools to automate protein–disease reasoning, scaling literature synthesis and pathway analysis for biomedical discovery." 
-keywords="AI co-scientist, protein–disease associations, knowledge synthesis, pathway reasoning"}
-<!--video_src="https://videos.birs.ca/2025/25w5470/20250821[]-Zhao.mp4"-->
-<!--video_link="https://www.birs.ca/events/2025/5-day-workshops/25w5470/videos/watch/20250821[]-Zhao.html"}-->
+keywords="AI co-scientist, protein–disease associations, knowledge synthesis, pathway reasoning"
+video_src="https://videos.birs.ca/2025/25w5470/202508211439-Zhao.mp4"
+video_link="https://www.birs.ca/events/2025/5-day-workshops/25w5470/videos/watch/202508211439-Zhao.html"}
 
 **Introduction:** 
 The rapid expansion of large-scale proteomic resources has enabled the discovery of thousands of protein-phenotype associations. Yet, the scientific bottleneck lies in translating these vast summary-level statistics into structured biological insight and actionable knowledge. This talk introduces an AI co-scientist framework designed to scale the human reasoning process of protein-disease interpretation. Drawing inspiration from the way human researchers integrate statistical findings with prior scientific knowledge, our agentic system performs a multi-stage workflow: planning report sections, querying curated knowledge bases, reasoning over pathway enrichment and literature evidence, and generating text-based summaries. The system combines domain-specific tools with large language models in a united paradigm to automate knowledge synthesis at scale. We demonstrate applications across various diseases, highlighting how AI co-scientists can accelerate biomedical discovery, enhance reproducibility, and support drug development through more systematic and scalable scientific writing.
