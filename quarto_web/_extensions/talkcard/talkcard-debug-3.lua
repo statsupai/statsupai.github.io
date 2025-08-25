@@ -199,15 +199,6 @@ local META = pandoc.Meta({})
 
 local function meta_handler(m)
   META = m
-  -- DEBUG: confirm what we got right when metadata is captured
-  quarto.log.output("[Meta] handler called")
-  if m.talks then
-    local t = m.talks
-    local tag = (type(t) == "table" and t.t) and ("."..t.t) or ""
-    quarto.log.output("[Meta] talks exists (type=" .. type(t) .. tag .. "), #=" .. tostring(#t))
-  else
-    quarto.log.output("[Meta] talks is NIL at capture")
-  end
   return nil
 end
 

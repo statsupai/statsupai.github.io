@@ -1,41 +1,10 @@
--- ---- DEBUG HOOKS -----------------------------------------------------------
-local log = (quarto and quarto.log) or { info=function(...) print(...) end,
-                                        warn=function(...) print(...) end }
-log.info("[talkcard] filter loaded")
-
-local function meta_type(x)
-  -- Return a friendly type string for MetaValues
-  if type(x) ~= "table" then return type(x) end
-  return x.t or (getmetatable(x) and getmetatable(x).__name) or "table"
+local function dbg(label, val)
+  -- Pretty-print to the Quarto console
+  quarto.log.output(label, val)
+  -- Also show something in the doc if you like:
+  return pandoc.RawBlock("html",
+    string.format("<div style='color:#B72'>%s</div>", label))
 end
-
-local function dump_meta_keys(m)
-  local keys = {}
-  for k, v in pairs(m) do
-    table.insert(keys, string.format("%s(%s)", k, meta_type(v)))
-  end
-  table.sort(keys)
-  log.info("[talkcard] meta keys: " .. table.concat(keys, ", "))
-end
-
-local function dump_talks(list)
-  if not list then
-    log.info("[talkcard] talks = nil")
-    return
-  end
-  log.info(string.format("[talkcard] talks type=%s, length=%s", meta_type(list), tostring(#list)))
-  local first = list[1]
-  if first then
-    local function mstr(x) return (pandoc.utils and pandoc.utils.stringify(x)) or tostring(x or "") end
-    log.info(string.format(
-      "[talkcard] talks[1]: speaker=%s; title=%s; session=%s",
-      mstr(first.speaker), mstr(first.title), mstr(first.session)
-    ))
-  end
-end
-
-
-
 
 -- Minimal, Markdown-first talk card filter.
 -- - Titles are real Header(3) nodes => appear in ToC, get stable anchors.
@@ -43,10 +12,14 @@ end
 -- - Only <details> and <iframe> are emitted as Raw HTML.
 
 local u = pandoc.utils
+
 local includes = u.includes or function(list, val)
   for _, v in ipairs(list) do if v == val then return true end end
   return false
 end
+
+-- Quarto merges project + page metadata for you here:
+local META = quarto.doc and quarto.doc.metadata or pandoc.MetaMap({})
 
 -- ---------- helpers ----------
 local function mstr(x) return x and u.stringify(x) or "" end
@@ -57,6 +30,22 @@ local function slugify(...)
   s = s:gsub("%s+", "-"):gsub("%-+", "-"):gsub("^%-", ""):gsub("%-$", "")
   if s == "" then s = "talk" end
   return s
+end
+
+-- Convert a MetaList of MetaMaps to a plain Lua array of plain tables
+local function meta_list_to_lua(meta, key)
+  local v = meta[key]
+  if not v or v.t ~= "MetaList" then return {} end
+  local out = {}
+  for _, item in ipairs(v) do
+    local row = {}
+    for k, mv in pairs(item) do
+      -- Strings / inlines → Lua strings; other types keep as-is
+      row[k] = (type(mv) == "table") and mstr(mv) or mv
+    end
+    table.insert(out, row)
+  end
+  return out
 end
 
 local function make_title_header(speaker, title, id_hint)
@@ -85,9 +74,22 @@ local function kv_plain(label, value)
   return pandoc.Plain({
     pandoc.Strong({ pandoc.Str(label .. ":") }),
     pandoc.Space(),
-    pandoc.Str(value)
+    pandoc.Str(value),
+    pandoc.LineBreak()
   })
 end
+
+-- local function kv_plain(label, value)
+--   if value == "" then return nil end
+--   local val_inl = (label == "Keywords") and pandoc.Emph({ pandoc.Str(value) })   -- italic only for Keywords
+--   else pandoc.Str(value)
+--   return pandoc.Plain({
+--     pandoc.Strong({ pandoc.Str(label .. ":") }),
+--     pandoc.Space(),
+--     val_inl,
+--     pandoc.LineBreak()
+--   })
+-- end
 
 local function details_block_from_md(md_string)
   if md_string == "" then return nil end
@@ -184,33 +186,41 @@ local DOC_META = pandoc.Meta({})
 
 local function meta_handler(m)
   DOC_META = m
-  log.info("[talkcard] Meta captured")
-  dump_meta_keys(m)
-  dump_talks(m.talks)
   return nil
 end
 
 local function div_handler(div)
-  -- Inline one-off card
-  if includes(div.classes, "talk") then
-    return render_talk_div(div)
-  end
-
-  -- Data-driven list: ::: {.talks session="morning"} :::
+  -- ::: {.talks session="morning"} :::
   if includes(div.classes, "talks") then
-    local list = DOC_META.talks
-    if not list or type(list) ~= "table" then
-      return pandoc.Null()
-    end
-    local want_session = (div.attributes and (div.attributes.session or div.attributes["session"])) or nil
-    local out = {}
-    for _, t in ipairs(list) do
-      if want_session == nil or mstr(t.session) == want_session then
-        local blocks = render_talk_tbl(t)
-        for _, b in ipairs(blocks) do table.insert(out, b) end
+    local blocks = {}
+
+    -- Get talks list either from page/project metadata...
+    local talks = meta_list_to_lua(META, "talks")
+
+    -- ...or from an external YAML if you prefer:
+    -- if #talks == 0 then
+    --   local y = quarto.utils.read_yaml("talks.yml") or {}
+    --   talks = y.talks or {}
+    -- end
+
+    table.insert(blocks, dbg("DOC_META.talks length: " .. tostring(#talks)))
+
+    local want_session = div.attributes and (div.attributes.session or div.attributes["session"]) or nil
+
+    for _, t in ipairs(talks) do
+      -- t is now a plain Lua table: t.speaker, t.title, t.session are strings
+      if (not want_session) or (t.session == want_session) then
+        local rendered = render_talk_tbl(t)  -- your function returns a list of Blocks
+        for _, b in ipairs(rendered) do table.insert(blocks, b) end
       end
     end
-    return out
+
+    return blocks
+  end
+
+  -- ::: {.talk} ... one-off card with inline attrs :::
+  if includes(div.classes, "talk") then
+    return render_talk_div(div)
   end
 
   return nil

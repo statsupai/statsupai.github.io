@@ -18,7 +18,6 @@ format:
     css: styles.css
     toc: true
     toc-depth: 4
-    include-after-body: pageviewcounter.html # working, just delayed, and non-private
-    # include-after-body: pageviewcounter-basic.html # also working, just ugly
+    include-after-body: my-modules/pageviewcounter-final.html # working, instant, and private
 
 

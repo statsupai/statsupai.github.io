@@ -1,8 +1,28 @@
+<!-- GoatCounter Tracker -->
+<script data-goatcounter="https://statsupai.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
 <!-- Per-Page View Counter (Footer Style) -->
 <style>
+/*#goatcounter-footer {*/
+/*  display: flex; */
+/*  justify-content: left;*/
+/*  column-gap: 5px;*/
+/*  color: #8E8E8E; */
+/*  font-size: 13px; */
+/*  font-family: Arial, sans-serif;*/
+/*}*/
+/*#goatcounter-footer .statcounter {*/
+/*  font-family: 'Courier New', monospace; */
+/*  color: #0033cc; */
+/*  font-weight: bold; */
+/*  margin-left: 3px; */
+/*}*/
+
 #goatcounter-footer {
   display: flex; 
   align-items: center; 
+  column-gap: 5px;
   color: #8E8E8E; 
   font-size: 13px; 
   font-family: Arial, sans-serif;
@@ -12,7 +32,6 @@
   color: #0033cc; 
   font-weight: bold; 
   margin-left: 3px; 
-  margin-bottom: -3px;
 }
 </style>
 
@@ -40,20 +59,44 @@
           trimmedPath = '/quarto_web/site/posts/index.html';
       }
       console.log('trimmedPath:', trimmedPath);
+      
       // setInterval to check every 100ms because GoatCounter may not be available immediately
       var t = setInterval(function() {
           console.log('Checking for GoatCounter availability...window.goatcounter:', window.goatcounter);
           // Check if GoatCounter is available
           if (window.goatcounter && window.goatcounter.visit_count) {
+
               // GoatCounter is available, clear the timer
               clearInterval(t)
               // Update the display with the current visit count
               const display = document.getElementById("goatcounter-footer");
-              const urlPath = `https://statsupai.goatcounter.com/counter/${trimmedPath}.html?no_branding=1`;
               if (display) {
-                display.innerHTML = '<iframe src="' + urlPath + '" style=""></iframe>';
+                display.innerHTML = '<span">Page Views: </span>';
                 console.log('display.innerHTML:', display.innerHTML);
               }
+              
+              
+              goatcounter.visit_count({
+                no_branding: true,
+                path: trimmedPath,
+                append: '#goatcounter-footer', 
+                style: `
+                  div { 
+                    border-width: 0px;
+                    display: flex;
+                  }
+                  #gcvc-for {
+                    font-size: 0px;
+                  }
+                  #gcvc-views { 
+                      font-family: 'Courier New', monospace; 
+                      font-size: 13px;
+                      color: #0033cc; 
+                      font-weight: bold; 
+                      margin-top: 29px;
+                  }`
+              })
+
           }
       }, 100)
       
@@ -62,7 +105,6 @@
 
 
 
-<script data-goatcounter="https://statsupai.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
+
 
 

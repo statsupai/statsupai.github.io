@@ -1,18 +1,9 @@
-local function dbg(label, val)
-  -- Pretty-print to the Quarto console
-  quarto.log.output(label, val)
-  -- Also show something in the doc if you like:
-  return pandoc.RawBlock("html",
-    string.format("<div style='color:#B72'>%s</div>", label))
-end
-
 -- Minimal, Markdown-first talk card filter.
 -- - Titles are real Header(3) nodes => appear in ToC, get stable anchors.
 -- - Body is mostly Markdown AST (Paras/Emph/Strong/LineBreak), not raw HTML.
 -- - Only <details> and <iframe> are emitted as Raw HTML.
 
 local u = pandoc.utils
-
 local includes = u.includes or function(list, val)
   for _, v in ipairs(list) do if v == val then return true end end
   return false
@@ -27,38 +18,6 @@ local function slugify(...)
   s = s:gsub("%s+", "-"):gsub("%-+", "-"):gsub("^%-", ""):gsub("%-$", "")
   if s == "" then s = "talk" end
   return s
-end
-
--- Convert a MetaList/table of MetaMaps to a plain Lua array of plain tables
-local function meta_list_to_lua(meta, key)
-  local v = meta[key]
-  if not v then return {} end
-
-  local function normalize_row(row)
-    local out = {}
-    for k, mv in pairs(row) do
-      out[k] = (type(mv) == "table") and pandoc.utils.stringify(mv) or mv
-    end
-    return out
-  end
-
-  -- Case 1: Pandoc MetaList
-  if type(v) == "table" and v.t == "MetaList" then
-    local out = {}
-    for _, item in ipairs(v) do table.insert(out, normalize_row(item)) end
-    return out
-  end
-
-  -- Case 2: already a plain Lua array of tables
-  if type(v) == "table" then
-    local out = {}
-    for _, item in ipairs(v) do
-      if type(item) == "table" then table.insert(out, normalize_row(item)) end
-    end
-    return out
-  end
-
-  return {}
 end
 
 local function make_title_header(speaker, title, id_hint)
@@ -195,43 +154,43 @@ local function render_talk_div(div)
 end
 
 -- ---------- metadata capture + dispatcher ----------
-local META = pandoc.Meta({})
+local DOC_META = pandoc.Meta({})
 
 local function meta_handler(m)
-  META = m
-  -- DEBUG: confirm what we got right when metadata is captured
-  quarto.log.output("[Meta] handler called")
-  if m.talks then
-    local t = m.talks
-    local tag = (type(t) == "table" and t.t) and ("."..t.t) or ""
-    quarto.log.output("[Meta] talks exists (type=" .. type(t) .. tag .. "), #=" .. tostring(#t))
-  else
-    quarto.log.output("[Meta] talks is NIL at capture")
-  end
+  DOC_META = m
   return nil
 end
 
 local function div_handler(div)
-  -- ::: {.talks session="morning"} :::
+  
+  -- Data-driven list: ::: {.talks session="morning"} :::
   if includes(div.classes, "talks") then
+    -- Debugging only
     local blocks = {}
-  
-    local talks = meta_list_to_lua(META, "talks")
-    table.insert(blocks, dbg(
-      "META.talks len=" .. tostring(#talks) ..
-      "  (type=" .. type(META.talks) .. (META.talks and (", .t=" .. tostring(META.talks.t)) or "") .. ")"
-    ))
-  
-    local want_session = div.attributes and (div.attributes.session or div.attributes["session"]) or nil
-    for _, t in ipairs(talks) do
-      if (not want_session) or (t.session == want_session) then
-        for _, b in ipairs(render_talk_tbl(t)) do table.insert(blocks, b) end
-      end
-    end
+    local inner_html = pandoc.write(pandoc.Pandoc(div.content), "html")
+    local det = pandoc.RawBlock("html", "Debugging line")
+    table.insert(blocks, det)
+    
+    -- ✅ use .metadata
+    local list = DOC_META.talks
+    table.insert(blocks, pandoc.RawBlock("html", ("DOC_META: %s"):format(type(DOC_META))))
+    -- if not list or type(list) ~= "table" then
+    --   return pandoc.Null()
+    -- end
+    local want_session = (div.attributes and (div.attributes.session or div.attributes["session"])) or nil
+    local out = {}
+    -- for _, t in ipairs(list) do
+    --   if want_session == nil or mstr(t.session) == want_session then
+    --     local blocks = render_talk_tbl(t)
+    --     for _, b in ipairs(blocks) do table.insert(out, b) end
+    --   end
+    -- end
+    -- -- return out
+    
     return blocks
   end
-
-  -- ::: {.talk} ... one-off card with inline attrs :::
+    
+  -- Inline one-off card
   if includes(div.classes, "talk") then
     return render_talk_div(div)
   end

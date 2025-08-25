@@ -552,9 +552,25 @@ Visit the <strong>Stats Up AI</strong> Channel for More
 
 <!-- Per-Page View Counter (Footer Style) -->
 <style>
+/*#goatcounter-footer {*/
+/*  display: flex; */
+/*  justify-content: left;*/
+/*  column-gap: 5px;*/
+/*  color: #8E8E8E; */
+/*  font-size: 13px; */
+/*  font-family: Arial, sans-serif;*/
+/*}*/
+/*#goatcounter-footer .statcounter {*/
+/*  font-family: 'Courier New', monospace; */
+/*  color: #0033cc; */
+/*  font-weight: bold; */
+/*  margin-left: 3px; */
+/*}*/
+
 #goatcounter-footer {
   display: flex; 
   align-items: center; 
+  column-gap: 5px;
   color: #8E8E8E; 
   font-size: 13px; 
   font-family: Arial, sans-serif;
@@ -564,76 +580,82 @@ Visit the <strong>Stats Up AI</strong> Channel for More
   color: #0033cc; 
   font-weight: bold; 
   margin-left: 3px; 
-  margin-bottom: -3px;
 }
 </style>
 
+<!-- GoatCounter Tracker -->
 <div id="goatcounter-footer"><span style="margin-left: 3px;">Loading views...</span></div>
 <script>
-  // Fetch the page view count from GoatCounter API
-  const path = window.location.pathname;
-  console.log("Current path:", path);
-  // If at the root, skip fetching views for now
-  if (path.endsWith('index.html') || path.endsWith('/posts/')) {
-    const display = document.getElementById("goatcounter-footer");
-    if (display) {
-      display.innerHTML = "";
-      console.log("Skipping views for root path:", path);
+    const path = window.location.pathname;
+    console.log('window.location.pathname:', path);
+    // If at the root, skip fetching views for now
+    if (path.endsWith('index.html') || path.endsWith('/posts/')) {
+      
+      const display = document.getElementById("goatcounter-footer");
+      if (display) {
+        display.innerHTML = "";
+        console.log("Skipping views for root path:", path);
+      }
+      
+    } else {
+      
+      // Trim path to remove everything before /quarto_web/site/ for easier local testing
+      var trimmedPath = path.replace(/^.*\/posts\//, '\/quarto_web\/site\/posts\/');
+      // If the path is exactly /posts/, set trimmedPath to the index.html file
+      if (path === '\/posts\/') {
+          console.log('Path is exactly /posts/, setting trimmedPath to index.html');
+          trimmedPath = '/quarto_web/site/posts/index.html';
+      }
+      console.log('trimmedPath:', trimmedPath);
+      
+      // setInterval to check every 100ms because GoatCounter may not be available immediately
+      var t = setInterval(function() {
+          console.log('Checking for GoatCounter availability...window.goatcounter:', window.goatcounter);
+          // Check if GoatCounter is available
+          if (window.goatcounter && window.goatcounter.visit_count) {
+
+              // GoatCounter is available, clear the timer
+              clearInterval(t)
+              // Update the display with the current visit count
+              const display = document.getElementById("goatcounter-footer");
+              if (display) {
+                display.innerHTML = '<span">Page Views: </span>';
+                console.log('display.innerHTML:', display.innerHTML);
+              }
+              
+              
+              goatcounter.visit_count({
+                no_branding: true,
+                path: trimmedPath,
+                append: '#goatcounter-footer', 
+                style: `
+                  div { 
+                    border-width: 0px;
+                    display: flex;
+                  }
+                  #gcvc-for {
+                    font-size: 0px;
+                  }
+                  #gcvc-views { 
+                      font-family: 'Courier New', monospace; 
+                      font-size: 13px;
+                      color: #0033cc; 
+                      font-weight: bold; 
+                      margin-top: 29px;
+                  }`
+              })
+
+          }
+      }, 100)
+      
     }
-  } else {
-    fetch(`https://statsupai.goatcounter.com/api/v0/stats/hits`, {
-      headers: { "Authorization": "Bearer auxp85q97cp69ebjpxnwl6po1kaj3megn0nej25li5q72yx3t" }
-    })
-      .then(res => res.json())
-      .then(data => {
-        const display = document.getElementById("goatcounter-footer");
-        if (display) {
-          // API response is an array of hits per path
-          // Trim path to remove everything before /quarto_web/site/ for easier local testing
-          const trimmedPath = path.replace(/^.*\/posts\//, '\/quarto_web\/site\/posts\/');
-          // From the array data.hits, filter out the hits for the current path
-          const hit = data.hits.find(hit => hit.path === trimmedPath);
-          // If hit is found, get the count, otherwise default to 0
-          const views = hit.count || 0;
-          display.innerHTML = `
-            <span>Page Views:
-            <span class='statcounter'> ${views}</span></span>
-          `;
-  
-          // Debugging log (optional)
-          console.log("Display updated with views:", views);
-        }
-      })
-      .catch(() => {
-        const display = document.getElementById("goatcounter-footer");
-        if (display) display.innerHTML = "Page views unavailable. Try again later.";
-      });
-  }
-  
-  
 </script>
 
-<!--<div style="display: flex; align-items: center; color: #8E8E8E; font-size: 13px; font-family: Arial, sans-serif;">-->
-<!--Page Views:-->
-<!--<div class="statcounter" style="margin-left: 10px;">-->
-<!-- Default Statcounter code for seminar1
-<!--https://statsupai.org/quarto_web/site/posts/StatsUP-AI%20Statistical%20and%20AI%20Methods%20for%20He-->
-<!---->
-<!--<script type="text/javascript">-->
-<!--var sc_project=13110735; -->
-<!--var sc_invisible=0; -->
-<!--var sc_security="92556aa5"; -->
-<!--var scJsHost = "https://";-->
-<!--document.write("<sc"+"ript type='text/javascript' src='" +-->
-<!--scJsHost+-->
-<!--"statcounter.com/counter/counter.js'></"+"script>");-->
-<!--</script>-->
-<!--<noscript>-->
-<!--<div class="statcounter">-->
-<!--<a title="Web Analytics" href="https://statcounter.com/" target="_blank"><img class="statcounter" src="https://c.statcounter.com/13110735/0/92556aa5/0/" alt="Web Analytics" referrerpolicy="no-referrer-when-downgrade"></a>-->
-<!--</div>-->
-<!--</noscript>-->
-<!-- End of Statcounter Code -->
+
+
+
+
+
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

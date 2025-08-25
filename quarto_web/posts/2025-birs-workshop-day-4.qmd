@@ -12,8 +12,8 @@ date: 2025-08-21
 filters:
   - ../_extensions/talkcard/talkcard.lua
 ---
-{{< include ../youtube-header.html >}}
-{{< include ../2025-birs-workshop/2025-birs-workshop-overview.html >}}
+{{< include ../my-modules/youtube-header.html >}}
+{{< include ../my-modules/2025-birs-workshop/2025-birs-workshop-overview.html >}}
 
 <small>
 
@@ -24,7 +24,7 @@ filters:
 
 </small>
 
-{{< include ../footer-read-more-community-news.html >}}
+{{< include ../my-modules/footer-read-more-community-news.html >}}
 
 ## ▶️ Day 4 Recordings: Morning Session
 
@@ -182,6 +182,6 @@ The rapid expansion of large-scale proteomic resources has enabled the discovery
 - **Direct Video Downloads:** [BIRS Video Server](https://videos.birs.ca/2025/25w5470/)
 
 <!------->
-{{< include ../youtube-header.html >}}
+{{< include ../my-modules/youtube-header.html >}}
 
 *AI is rapidly reshaping biomedical research by integrating diverse data, accelerating discovery, and supporting decision-making under uncertainty. With statisticians at the forefront, these applications gain the depth, rigor, and reliability needed to truly transform science and medicine.*
