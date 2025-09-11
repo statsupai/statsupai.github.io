@@ -28,9 +28,6 @@ filters:
 
 ## ▶️ Day 3 Recordings
 
-::: {.talks}
-:::
-
 ::: {.talk
 speaker="Sheng Yu"
 title="Taming EHRs for Statistical Readiness through Large Language Models and Knowledge Graphs"
