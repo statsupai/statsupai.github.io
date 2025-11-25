@@ -1,7 +1,6 @@
 ---
 title: "LAMBDA: A Large Model Based Data Agent"
-description: "A research team from The Hong Kong Polytechnic University has developed and open-sourced LAMBDA (LArge Model Based Data Agent), employing a dual-agent architecture to enable natural language-driven data analysis."
-image: figures/Lambda1.png
+image: figures/Lambda13.png
 author:
   - name: "Shan Gao"
   - affiliation: "UNC"
