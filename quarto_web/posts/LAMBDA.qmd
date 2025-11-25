@@ -1,0 +1,513 @@
+---
+title: "LAMBDA: A Large Model Based Data Agent"
+description: "A research team from The Hong Kong Polytechnic University has developed and open-sourced LAMBDA (LArge Model Based Data Agent), employing a dual-agent architecture to enable natural language-driven data analysis."
+image: figures/Lambda1.png
+author:
+  - name: "Shan Gao"
+  - affiliation: "UNC"
+categories:
+  - Interviews
+date: "2025-11-24"
+format: 
+  html:
+    toc: true
+    toc-depth: 3
+---
+
+
+
+
+```{=html}
+<style>
+/* 整体样式 */
+.lambda-content {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.8;
+    color: #333;
+}
+
+/* 引言高亮框 - 高级设计 */
+.intro-box {
+    position: relative;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e8cc4 100%);
+    color: white;
+    padding: 50px 45px;
+    border-radius: 20px;
+    margin: 40px 0;
+    box-shadow: 0 20px 60px rgba(30, 60, 114, 0.3), 
+                0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+    overflow: hidden;
+}
+
+.intro-box::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    animation: shimmer 8s ease-in-out infinite;
+}
+
+.intro-box::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, 
+        rgba(255, 255, 255, 0.8) 0%, 
+        rgba(255, 255, 255, 0.4) 50%, 
+        rgba(255, 255, 255, 0.8) 100%);
+    border-radius: 20px 20px 0 0;
+}
+
+@keyframes shimmer {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(-10%, -10%) rotate(180deg); }
+}
+
+.intro-box h2 {
+    color: white;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.3;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 1;
+    letter-spacing: -0.5px;
+}
+
+.intro-box p {
+    font-size: 19px;
+    margin-bottom: 0;
+    line-height: 1.8;
+    position: relative;
+    z-index: 1;
+    font-weight: 400;
+    opacity: 0.98;
+}
+
+/* 出版物信息框 */
+.publication-box {
+    background-color: #f8f9fa;
+    border-left: 5px solid #667eea;
+    padding: 20px;
+    margin: 25px 0;
+    border-radius: 5px;
+    font-style: italic;
+}
+
+/* 特性卡片 */
+.feature-card {
+    background: white;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 25px;
+    margin: 20px 0;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.feature-card h3 {
+    color: #667eea;
+    margin-top: 0;
+    font-size: 22px;
+    border-bottom: 2px solid #667eea;
+    padding-bottom: 10px;
+}
+
+.feature-card ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.feature-card li {
+    padding: 10px 0;
+    padding-left: 30px;
+    position: relative;
+}
+
+.feature-card li:before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: #667eea;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* 专家评论卡片 */
+.expert-card {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    border-radius: 12px;
+    padding: 25px;
+    margin: 25px 0;
+    border-left: 5px solid #667eea;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.expert-card h4 {
+    color: #213c64;
+    margin-top: 0;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.expert-card h4:before {
+    content: "👤";
+    margin-right: 10px;
+    font-size: 24px;
+}
+
+.expert-card .affiliation {
+    color: #666;
+    font-size: 14px;
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+.expert-card p {
+    margin: 10px 0;
+    line-height: 1.7;
+}
+
+/* 性能展示框 */
+.performance-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.performance-item {
+    background: white;
+    border: 2px solid #667eea;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+
+.performance-item strong {
+    display: block;
+    color: #667eea;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* 链接按钮 */
+.link-button {
+    display: inline-block;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    margin: 10px 10px 10px 0;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.link-button:hover {
+    color: white;
+    text-decoration: none;
+}
+
+/* 开源部分 */
+.opensource-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 40px;
+    border-radius: 12px;
+    margin: 40px 0;
+    text-align: center;
+}
+
+.opensource-section h2 {
+    color: white;
+    margin-top: 0;
+}
+
+.opensource-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+/* 结论框 */
+.conclusion-box {
+    background: #f8f9fa;
+    border: 2px solid #667eea;
+    border-radius: 10px;
+    padding: 30px;
+    margin: 30px 0;
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+/* 图片样式 */
+.lambda-image {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    display: block;
+    margin: 30px auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+}
+
+/* 在 image-row 内的图片必须并排 - 高优先级样式 */
+.image-row {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    gap: 20px !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+    margin: 25px 0 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+.image-row img.lambda-image,
+.image-row .lambda-image {
+    max-width: calc(50% - 10px) !important;
+    width: calc(50% - 10px) !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    flex: 0 0 calc(50% - 10px) !important;
+    display: block !important;
+    float: none !important;
+    clear: none !important;
+    box-sizing: border-box !important;
+}
+
+
+
+.image-container {
+    text-align: center;
+    margin: 30px 0;
+}
+
+/* 响应式设计 */
+@media (min-width: 769px) {
+    .image-row {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+    }
+    
+    .image-row .lambda-image {
+        max-width: 48% !important;
+        width: 48% !important;
+        flex: 0 0 48% !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .performance-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .intro-box, .expert-card, .feature-card {
+        padding: 20px;
+    }
+    
+    .lambda-image {
+        max-width: 100%;
+    }
+    
+    .image-row {
+        flex-direction: column !important;
+    }
+    
+    .image-row .lambda-image {
+        max-width: 100% !important;
+        width: 100% !important;
+        flex: 1 1 100% !important;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .performance-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+</style>
+
+<div class="lambda-content">
+```
+
+## Introduction
+
+<div class="intro-box">
+<h2>🚀 LAMBDA: Revolutionizing Data Analysis with AI Agents</h2>
+<p>To address the high technical barriers and tedious debugging processes inherent in data analysis, a research team from <strong>The Hong Kong Polytechnic University</strong> has developed and open-sourced <strong>LAMBDA</strong> (LArge Model Based Data Agent). LAMBDA employs a dual-agent architecture ("Programmer" and "Inspector") to enable natural language-driven data analysis. The system supports human-in-the-loop intervention and custom knowledge integration, aiming to reconstruct the interaction paradigm in scientific research and data science education.</p>
+</div>
+
+<div class="image-container">
+<img src="figures/lambda1.png" alt="LAMBDA System Overview" class="lambda-image">
+</div>
+
+<div class="publication-box">
+<strong>📄 Publication:</strong><br>
+Maojun, Sun; Ruijian, Han; Binyan, Jiang; Houduo, Qi; Defeng, Sun; Yancheng, Yuan; Jian, Huang. Lambda: A large model based data agent. <em>Journal of the American Statistical Association</em>. 2025 Jul 16:1-3.
+</div>
+
+## Bridging the Gap Between Statistical Logic and Code Implementation
+
+<div class="feature-card">
+<p>Despite the rise of AI, a significant gap remains between "knowing what to analyze" and "writing the code to do it". For many researchers, students, and domain experts, complex data cleaning and iterative model debugging consume disproportionate amounts of time. LAMBDA is designed not to replace human reasoning, but to serve as an intelligent interface. It allows users to focus on hypotheses and analytical logic, while the AI agents handle the translation into executable code and the resolution of runtime errors.</p>
+</div>
+
+## System Architecture: Dual-Agent Collaboration with Self-Correction
+
+<div class="feature-card">
+<h3>🤖 Dual-Agent Collaboration Mechanism</h3>
+<p>Unlike simple "prompt-to-code" tools, LAMBDA utilizes a robust <strong>Dual-Agent Collaboration Mechanism</strong>:</p>
+<ul>
+<li><strong>The Programmer Agent:</strong> Interprets user instructions, analyzes data characteristics, and generates the initial analysis code.</li>
+<li><strong>The Inspector Agent:</strong> Monitors execution. Upon encountering errors, it analyzes the traceback, generates specific modification suggestions, and guides the Programmer to iteratively refine the code until execution is successful. This process mimics human debugging workflows, ensuring high success rates in complex tasks while allowing users to view and intervene in the code at any stage.</li>
+</ul>
+
+<div class="image-container" style="margin-top: 25px;">
+<img src="figures/lambda2.png" alt="Dual-Agent Collaboration Mechanism" class="lambda-image">
+</div>
+</div>
+
+## The Knowledge Integration Mechanism
+
+<div class="feature-card">
+<h3>🧠 Knowledge Integration Mechanism</h3>
+<p>A major challenge for general LLMs is accurately invoking specialized domain algorithms. LAMBDA addresses this via a <strong>Knowledge Integration Mechanism</strong>. Users can encapsulate custom models and algorithms as key-value pairs within a knowledge base. The system supports two integration modes:</p>
+<ul>
+<li><strong>Full Mode:</strong> Injects complete code into the context for comprehensive model understanding.</li>
+<li><strong>Core Mode:</strong> Injects only function descriptions while executing complex logic on the backend, preventing context overflow. This allows LAMBDA to align generated code with specific user intents (e.g., correcting loss function discrepancies) more effectively than standard plugin-based systems.</li>
+</ul>
+
+<div class="image-container" style="margin-top: 25px;">
+<img src="figures/lambda3.png" alt="Knowledge Integration Mechanism" class="lambda-image">
+</div>
+</div>
+
+## Versatility and Performance
+
+<div class="performance-grid">
+<div class="performance-item">
+<strong>📊 Tabular Data</strong>
+<p>Achieves modeling performance comparable to human experts in classification and regression tasks.</p>
+<div class="image-container" style="margin-top: 15px;">
+<img src="figures/lambda4.png" alt="Tabular Data Performance" class="lambda-image" style="max-width: 100%; border-radius: 8px;">
+</div>
+</div>
+<div class="performance-item">
+<strong>🖼️ Unstructured Data</strong>
+<p>Automated invocation of CNNs and Transformers for image classification (e.g., MNIST) and text analysis.</p>
+<div class="image-container" style="margin-top: 15px;">
+<img src="figures/lambda5.png" alt="Unstructured Data - Image Classification" class="lambda-image" style="max-width: 100%; border-radius: 8px; margin-bottom: 10px;">
+<img src="figures/lambda6.png" alt="Unstructured Data - Text Analysis" class="lambda-image" style="max-width: 100%; border-radius: 8px;">
+</div>
+</div>
+<div class="performance-item">
+<strong>🧬 Complex Scenarios</strong>
+<p>Effective handling of high-dimensional genomic data and missing value imputation.</p>
+<div class="image-container" style="margin-top: 15px;">
+<img src="figures/lambda7.png" alt="Complex Scenarios - Genomic Data" class="lambda-image" style="max-width: 100%; border-radius: 8px; margin-bottom: 10px;">
+<img src="figures/lambda8.png" alt="Complex Scenarios - Missing Value Imputation" class="lambda-image" style="max-width: 100%; border-radius: 8px;">
+</div>
+</div>
+<div class="performance-item">
+<strong>🔧 Knowledge Integration</strong>
+<p>LAMBDA can actively correct the code of the knowledge base to align with human intent, which is difficult for existing plugin-based agent systems to achieve.</p>
+<div class="image-container" style="margin-top: 15px;">
+<img src="figures/lambda9.png" alt="Knowledge Integration - Code Correction" class="lambda-image" style="max-width: 100%; border-radius: 8px; margin-bottom: 10px;">
+<img src="figures/lambda10.png" alt="Knowledge Integration - Human Intent Alignment" class="lambda-image" style="max-width: 100%; border-radius: 8px;">
+</div>
+</div>
+</div>
+
+## Value in Education and Research
+
+<div class="feature-card">
+<p>LAMBDA transforms "code" from a barrier into a transparent utility. It supports the export of complete analysis reports and <code>.ipynb</code> files, making it an ideal tool for reproducible research. In educational settings, it allows students to focus on statistical concepts and problem-solving logic rather than syntax errors, fostering a "Problem-Modeling-Explanation" learning approach.</p>
+
+<div style="display: flex; flex-direction: row; gap: 20px; width: 100%; margin: 25px 0;">
+<img src="figures/lambda11.png" alt="Value in Education and Research - Reproducible Research" style="width: 48%; max-width: 48%; margin: 0; flex-shrink: 0; border-radius: 12px; box-shadow: 0 8px 16px rgba(0,0,0,0.15);">
+<img src="figures/lambda12.png" alt="Value in Education and Research - Learning Approach" style="width: 48%; max-width: 48%; margin: 0; flex-shrink: 0; border-radius: 12px; box-shadow: 0 8px 16px rgba(0,0,0,0.15);">
+</div>
+</div>
+
+## Discussions: Perspectives and Future Directions
+
+<p>We invited several prominent scholars in statistics and data science to provide comments and engage in a brainstorming discussion. Their perspectives are summarized below.</p>
+
+<div class="expert-card">
+<h4>Professor David Donoho</h4>
+<div class="affiliation">Stanford University</div>
+<p>Professor Donoho describes the release of LAMBDA as arriving at a "pivotal moment" for the discipline. This is an "impressive academic project" that shows how far agentic AI has come in replicating routine data analysis tasks, effectively setting a new standard for academic contribution in a space often dominated by commercial tech giants.</p>
+<p>Professor Donoho suggests that academia can build upon this foundation by establishing rigorous "Chatbot Arena-style" benchmarks specifically designed to evaluate the scientific validity and reproducibility of such agents.</p>
+</div>
+
+<div class="expert-card">
+<h4>Professor Xiao-Li Meng</h4>
+<div class="affiliation">Harvard University</div>
+<p>Professor Meng welcomes LAMBDA as a "refreshing article" for a statistical journal, noting its broad relevance to "systems thinking" in data science. He highlights the system's potential to democratize data analysis, comparing it to a powerful "DIY" tool that empowers domain experts to conduct analysis on their own. Meng specifically appreciates the "Human-in-the-Loop" design, noting that it correctly positions AI not as a replacement, but as a partner that can help "build and enhance our mindware" (our own data intelligence).</p>
+<p>He proposes the development of a "Data Minder" agent—a specialized persona dedicated to data quality and provenance—to further augment the user's statistical thinking and ensure rigorous analysis planning.</p>
+</div>
+
+<div class="expert-card">
+<h4>Professor Fan Zhou and Professor Bang Liu</h4>
+<div class="affiliation">Shanghai University of Finance and Economics / University of Montreal</div>
+<p>Professors Zhou and Liu commend the LAMBDA for "substantially lowering the barrier to entry" for advanced analytics, effectively democratizing access for users with little to no programming background. They highlight that LAMBDA is "poised to transform data science education" by offering interactive, hands-on learning experiences that were previously inaccessible to non-coders.</p>
+<p>They envision a Self-Evolving Agent with long-term memory that can accumulate successful code snippets and problem-solving strategies over time, becoming increasingly proficient with every task it completes.</p>
+</div>
+
+<div class="expert-card">
+<h4>Professor Xihong Lin</h4>
+<div class="affiliation">Harvard University</div>
+<p>Professor Lin lauds LAMBDA for its "significant advancement" over previous systems, specifically highlighting its practical utility for both practitioners and educators. They emphasize that the dual-agent architecture is not just a theoretical novelty but a "practically useful tool." They further praise the system's versatility across diverse datasets (genomic, image, text), noting that it "empowers non-technical domain scientists to perform various data analyses with ease."</p>
+<p>She suggests extending the framework with an "Analysis-Planning Agent" to collaborate with users on scientifically valid study designs, ensuring the analysis aligns with community standards before any code is written.</p>
+</div>
+
+<div class="expert-card">
+<h4>Dr. Sammy Tan</h4>
+<div class="affiliation">Vice President, Global Head of Biometrics at Servier Pharmaceuticals</div>
+<p>Dr. Tan is particularly impressed by the system's openness and flexibility compared to "black-box" commercial alternatives. Sammy specifically values the "Knowledge Integration Mechanism" as one of the "most scientifically compelling features," enabling a level of domain adaptability that standard LLM agents lack.</p>
+<p>Dr. Tan recommends expanding the system's versatility by integrating support for the R programming language and further refining the retrieval mechanism to support complex, domain-specific methodologies like sparse PCA for high-dimensional data.</p>
+</div>
+
+<div class="conclusion-box">
+<h2 style="color: #667eea; margin-top: 0;">Conclusion</h2>
+<p>LAMBDA represents a foundational step toward intelligent, collaborative data analysis. However, the commentaries suggest its true potential lies not just in automating code, but in evolving into a system that plans, reasons, and teaches—transforming AI from a mere tool into a genuine partner in scientific inquiry.</p>
+</div>
+
+<div class="opensource-section">
+<h2>🌐 Open Source and Collaboration</h2>
+<p>LAMBDA is now fully open-source. We invite researchers, educators, and developers to explore the system and contribute to its development.</p>
+<div class="opensource-links">
+<a href="https://github.com/AMA-CMFAI/LAMBDA" class="link-button" target="_blank">📦 GitHub Repository</a>
+<a href="https://doi.org/10.1080/01621459.2025.2510000" class="link-button" target="_blank">📄 Research Paper</a>
+<a href="https://www.polyu.edu.hk/ama/cmfai/lambda.html" class="link-button" target="_blank">🎥 Demonstration Videos</a>
+</div>
+</div>
+
+</div>
+
+{{< include ../my-modules/footer-read-more-community-news.html >}}
+
