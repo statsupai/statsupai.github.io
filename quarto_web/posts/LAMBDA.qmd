@@ -485,10 +485,17 @@ Maojun, Sun; Ruijian, Han; Binyan, Jiang; Houduo, Qi; Defeng, Sun; Yancheng, Yua
 </div>
 
 <div class="expert-card">
-<h4>Dr. Sammy Tan</h4>
-<div class="affiliation">Vice President, Global Head of Biometrics at Servier Pharmaceuticals</div>
-<p>Dr. Tan is particularly impressed by the system's openness and flexibility compared to "black-box" commercial alternatives. Sammy specifically values the "Knowledge Integration Mechanism" as one of the "most scientifically compelling features," enabling a level of domain adaptability that standard LLM agents lack.</p>
-<p>Dr. Tan recommends expanding the system's versatility by integrating support for the R programming language and further refining the retrieval mechanism to support complex, domain-specific methodologies like sparse PCA for high-dimensional data.</p>
+<h4>Mr. Mert Yuksekgonul and Professor James Zou</h4>
+<div class="affiliation">Stanford University</div>
+<p>Mr. Yuksekgonul and Prof. Zou frame the development of LAMBDA as an "important shift" in scientific inquiry, moving from passive chat interfaces to systems capable of handling broader aspects of the scientific workflow. They praise LAMBDA for "illustrating further progress" in agentic capabilities, specifically noting how its open-source model and Programmer-Inspector loop effectively address concerns about reliability and privacy by providing "interpretable outputs and reducing data exposure risks." They also highlight that LAMBDA fits naturally into the "Design of Experiments" phase, helping to tighten the loop between hypothesis and evidence.</p>
+<p>They emphasize that current LLMs are often "optimized to directly answer queries rather than to engage in multi-term collaboration." They propose a research agenda focused on Collaborative Agents (like "CollabLLM") that are explicitly trained to ask clarifying questions when faced with ambiguity, rather than making assumptions. They further suggest that agents could serve a dual purpose as educational simulators, guiding learners through the scientific process by surfacing statistical assumptions and offering alternative interpretations.</p>
+</div>
+
+<div class="expert-card">
+<h4>Dr. Sammi Tang (Senior Vice President) and Dr. Xuewei Wang</h4>
+<div class="affiliation">Astellas Cambridge Life Science</div>
+<p>Dr. Tang and Dr. Wang are particularly impressed by the system's openness and flexibility compared to "black-box" commercial alternatives. Sammy specifically values the "Knowledge Integration Mechanism" as one of the "most scientifically compelling features," enabling a level of domain adaptability that standard LLM agents lack.</p>
+<p>Dr. Tang and Dr. Wang recommend expanding the system's versatility by integrating support for the R programming language and further refining the retrieval mechanism to support complex, domain-specific methodologies like sparse PCA for high-dimensional data.</p>
 </div>
 
 <div class="conclusion-box">
