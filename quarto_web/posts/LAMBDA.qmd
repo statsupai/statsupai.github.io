@@ -493,7 +493,7 @@ Maojun, Sun; Ruijian, Han; Binyan, Jiang; Houduo, Qi; Defeng, Sun; Yancheng, Yua
 
 <div class="expert-card">
 <h4>Dr. Sammi Tang (Senior Vice President) and Dr. Xuewei Wang</h4>
-<div class="affiliation">Astellas Cambridge Life Science</div>
+<div class="affiliation">Astellas Pharma</div>
 <p>Dr. Tang and Dr. Wang are particularly impressed by the system's openness and flexibility compared to "black-box" commercial alternatives. Sammy specifically values the "Knowledge Integration Mechanism" as one of the "most scientifically compelling features," enabling a level of domain adaptability that standard LLM agents lack.</p>
 <p>Dr. Tang and Dr. Wang recommend expanding the system's versatility by integrating support for the R programming language and further refining the retrieval mechanism to support complex, domain-specific methodologies like sparse PCA for high-dimensional data.</p>
 </div>
