@@ -1,0 +1,16 @@
+<div class="timeline-item">
+  <div class="timeline-marker"></div>
+  <div class="timeline-content">
+    <h2 class="webinar-title">{{ include.t.title }}</h2>
+
+    <p class="webinar-meta">
+      <strong>{{ include.t.date | date: "%b %-d, %Y" }}</strong>
+      · {{ include.t.time_et }} ET
+      · {{ include.t.speaker }} ({{ include.t.affiliation }})
+    </p>
+
+    <div class="webinar-abstract">
+      {{ include.t.abstract | markdownify }}
+    </div>
+  </div>
+</div>

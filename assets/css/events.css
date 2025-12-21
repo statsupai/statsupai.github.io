@@ -1,0 +1,55 @@
+:root{
+  --statsupai-accent: #12b3a8; /* replace later with your signature bluish-green */
+}
+
+.timeline{
+  position: relative;
+  margin: 1.25rem 0 1rem 0;
+  padding-left: 1.5rem;
+}
+.timeline:before{
+  content:"";
+  position:absolute;
+  left: .45rem;
+  top: .2rem;
+  bottom: .2rem;
+  width: 2px;
+  background: var(--statsupai-accent);
+}
+
+.timeline-item{
+  position: relative;
+  margin: 0 0 1.25rem 0;
+}
+.timeline-marker{
+  position:absolute;
+  left: .15rem;
+  top: .45rem;
+  width: .65rem;
+  height: .65rem;
+  border-radius: 999px;
+  background: white;
+  border: 2px solid var(--statsupai-accent);
+}
+
+.timeline-content{
+  padding-left: .75rem;
+}
+
+.webinar-title{
+  margin: 0 0 .35rem 0;
+  border-left: 4px solid var(--statsupai-accent);
+  padding-left: .6rem;
+}
+
+.webinar-meta{
+  margin: 0 0 .75rem 0;
+  opacity: .85;
+}
+
+.last-updated{
+  margin-top: 2rem;
+  font-size: .9rem;
+  opacity: .75;
+  font-style: italic;
+}
