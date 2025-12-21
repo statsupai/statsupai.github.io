@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StatsUpAI 2025 Annual Newsletter</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <!-- 
+        Color Scheme: "Academic Trust"
+        Primary Color (Slate 900): Authority, Professional
+        Accent Color (Blue 600): Technology, Data
+        Background Color (Slate 50): Clean, Readable
+    -->
+
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #F8FAFC; color: #0F172A; }
+        h1, h2, h3 { font-family: 'Merriweather', serif; }
+        .chart-container { position: relative; width: 100%; height: 300px; }
+        .timeline-line::before {
+            content: ''; position: absolute; top: 0; bottom: 0; left: 24px; width: 2px; background: #E2E8F0; z-index: 0;
+        }
+        .stat-card { transition: all 0.3s ease; }
+        .stat-card:hover { transform: translateY(-4px); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1); }
+        
+        /* Custom scrollbar styling */
+        .overflow-y-auto::-webkit-scrollbar {
+            width: 6px;
+        }
+        .overflow-y-auto::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .overflow-y-auto::-webkit-scrollbar-thumb {
+            background: rgba(148, 163, 184, 0.3);
+            border-radius: 3px;
+        }
+        .overflow-y-auto::-webkit-scrollbar-thumb:hover {
+            background: rgba(148, 163, 184, 0.5);
+        }
+        /* Firefox scrollbar */
+        .overflow-y-auto {
+            scrollbar-width: thin;
+            scrollbar-color: rgba(148, 163, 184, 0.3) transparent;
+        }
+        
+        /* Custom color overrides for #183948 theme - exclude Short Courses section */
+        .bg-blue-50:not(#short-courses *),
+        .bg-indigo-50:not(#short-courses *),
+        .bg-teal-50:not(#short-courses *),
+        .bg-cyan-50:not(#short-courses *) { background-color: rgba(24, 57, 72, 0.05) !important; }
+        .bg-blue-100:not(#short-courses *),
+        .bg-indigo-100:not(#short-courses *),
+        .bg-teal-100:not(#short-courses *),
+        .bg-cyan-100:not(#short-courses *) { background-color: rgba(24, 57, 72, 0.1) !important; }
+        .bg-blue-200:not(#short-courses *),
+        .bg-indigo-200:not(#short-courses *),
+        .bg-teal-200:not(#short-courses *),
+        .bg-cyan-200:not(#short-courses *) { background-color: rgba(24, 57, 72, 0.2) !important; }
+        .bg-blue-300:not(#short-courses *),
+        .bg-indigo-300:not(#short-courses *),
+        .bg-teal-300:not(#short-courses *),
+        .bg-cyan-300:not(#short-courses *) { background-color: rgba(24, 57, 72, 0.3) !important; }
+        .bg-blue-400:not(#short-courses *),
+        .bg-indigo-400:not(#short-courses *),
+        .bg-teal-400:not(#short-courses *),
+        .bg-cyan-400:not(#short-courses *) { background-color: rgba(24, 57, 72, 0.5) !important; }
+        .bg-blue-500:not(#short-courses *),
+        .bg-indigo-500:not(#short-courses *),
+        .bg-teal-500:not(#short-courses *),
+        .bg-cyan-500:not(#short-courses *) { background-color: rgba(24, 57, 72, 0.7) !important; }
+        .bg-blue-600:not(#short-courses *),
+        .bg-indigo-600:not(#short-courses *),
+        .bg-teal-600:not(#short-courses *),
+        .bg-cyan-600:not(#short-courses *) { background-color: #183948 !important; }
+        .bg-blue-700:not(#short-courses *),
+        .bg-indigo-700:not(#short-courses *),
+        .bg-teal-700:not(#short-courses *),
+        .bg-cyan-700:not(#short-courses *) { background-color: #0f252f !important; }
+        
+        /* Regular light colors for light backgrounds */
+        .text-blue-50, .text-indigo-50, .text-teal-50, .text-cyan-50 { color: rgba(24, 57, 72, 0.05) !important; }
+        .text-blue-100, .text-indigo-100, .text-teal-100, .text-cyan-100 { color: rgba(24, 57, 72, 0.1) !important; }
+        
+        /* Light text colors for dark backgrounds - override for dark gradient cards */
+        [class*="from-blue-600"][class*="to-indigo-700"] .text-blue-50,
+        [class*="from-blue-600"][class*="to-indigo-700"] .text-blue-100 {
+            color: rgba(255, 255, 255, 0.9) !important;
+        }
+        .text-blue-200, .text-indigo-200, .text-teal-200, .text-cyan-200 { color: rgba(24, 57, 72, 0.2) !important; }
+        .text-blue-300, .text-indigo-300, .text-teal-300, .text-cyan-300 { color: rgba(24, 57, 72, 0.3) !important; }
+        .text-blue-400, .text-indigo-400, .text-teal-400, .text-cyan-400 { color: rgba(24, 57, 72, 0.5) !important; }
+        .text-blue-500, .text-indigo-500, .text-teal-500, .text-cyan-500 { color: rgba(24, 57, 72, 0.7) !important; }
+        .text-blue-600, .text-indigo-600, .text-teal-600, .text-cyan-600 { color: #183948 !important; }
+        .text-blue-700, .text-indigo-700, .text-teal-700, .text-cyan-700 { color: #0f252f !important; }
+        
+        .border-blue-50, .border-indigo-50, .border-teal-50, .border-cyan-50 { border-color: rgba(24, 57, 72, 0.05) !important; }
+        .border-blue-100, .border-indigo-100, .border-teal-100, .border-cyan-100 { border-color: rgba(24, 57, 72, 0.1) !important; }
+        .border-blue-200, .border-indigo-200, .border-teal-200, .border-cyan-200 { border-color: rgba(24, 57, 72, 0.2) !important; }
+        .border-blue-300, .border-indigo-300, .border-teal-300, .border-cyan-300 { border-color: rgba(24, 57, 72, 0.3) !important; }
+        .border-blue-400, .border-indigo-400, .border-teal-400, .border-cyan-400 { border-color: rgba(24, 57, 72, 0.5) !important; }
+        .border-blue-500, .border-indigo-500, .border-teal-500, .border-cyan-500 { border-color: rgba(24, 57, 72, 0.7) !important; }
+        .border-blue-600, .border-indigo-600, .border-teal-600, .border-cyan-600 { border-color: #183948 !important; }
+        .border-blue-700, .border-indigo-700, .border-teal-700, .border-cyan-700 { border-color: #0f252f !important; }
+        
+        /* Lighter border for ASA Interest Group section */
+        #asa-events .border-blue-500 { border-color: #5f8796 !important; }
+        
+        .hover\:bg-blue-700:hover, .hover\:bg-indigo-700:hover, .hover\:bg-teal-700:hover, .hover\:bg-cyan-700:hover { background-color: #0f252f !important; }
+        .hover\:text-blue-600:hover, .hover\:text-indigo-600:hover, .hover\:text-teal-600:hover, .hover\:text-cyan-600:hover { color: #183948 !important; }
+        .hover\:border-blue-300:hover, .hover\:border-indigo-300:hover, .hover\:border-teal-300:hover, .hover\:border-cyan-300:hover { border-color: rgba(24, 57, 72, 0.3) !important; }
+        
+        /* Gradient overrides - using more specific selectors */
+        [class*="bg-gradient-to-r"][class*="from-blue-600"][class*="to-indigo-600"]:not([class*="bg-clip-text"]) {
+            background: linear-gradient(to right, #183948, #0f252f) !important;
+        }
+        /* Lighter version for ASA Interest Group section - brighter for celebratory feel */
+        #asa-events [class*="bg-gradient-to-br"][class*="from-blue-600"][class*="to-indigo-700"]:not([class*="bg-clip-text"]) {
+            background: linear-gradient(to bottom right, #3d6170, #4f7584) !important;
+        }
+        /* Keep darker version for other sections */
+        [class*="bg-gradient-to-br"][class*="from-blue-600"][class*="to-indigo-700"]:not([class*="bg-clip-text"]):not(#asa-events *) {
+            background: linear-gradient(to right, #183948, #0f252f) !important;
+        }
+        [class*="bg-gradient-to-br"][class*="from-blue-50"][class*="to-indigo-50"],
+        [class*="bg-gradient-to-br"][class*="from-teal-50"][class*="to-cyan-50"] {
+            background: linear-gradient(to bottom right, rgba(24, 57, 72, 0.05), rgba(24, 57, 72, 0.05)) !important;
+        }
+        [class*="bg-gradient-to-br"][class*="via-blue-50"][class*="to-indigo-50"] {
+            background: linear-gradient(to bottom right, #f8fafc, rgba(24, 57, 72, 0.05), rgba(24, 57, 72, 0.05)) !important;
+        }
+        [class*="bg-gradient-to-r"][class*="from-blue-400"][class*="to-transparent"],
+        [class*="bg-gradient-to-r"][class*="via-blue-400"][class*="to-transparent"],
+        [class*="bg-gradient-to-r"][class*="via-blue-500"][class*="to-transparent"] {
+            background: linear-gradient(to right, transparent, rgba(24, 57, 72, 0.5), transparent) !important;
+        }
+        [class*="bg-gradient-to-br"][class*="from-blue-200"][class*="via-indigo-200"][class*="to-blue-300"] {
+            background: linear-gradient(to bottom right, rgba(24, 57, 72, 0.2), rgba(24, 57, 72, 0.2), rgba(24, 57, 72, 0.3)) !important;
+        }
+        [class*="bg-gradient-to-br"][class*="from-blue-400"][class*="via-indigo-400"][class*="to-blue-500"] {
+            background: linear-gradient(to bottom right, rgba(24, 57, 72, 0.5), rgba(24, 57, 72, 0.5), rgba(24, 57, 72, 0.7)) !important;
+        }
+        [class*="bg-gradient-to-br"][class*="from-blue-400"][class*="to-indigo-500"],
+        [class*="bg-gradient-to-br"][class*="from-indigo-400"][class*="to-blue-500"] {
+            background: linear-gradient(to bottom right, rgba(24, 57, 72, 0.5), rgba(24, 57, 72, 0.7)) !important;
+        }
+        [class*="bg-gradient-to-br"][class*="from-white"][class*="to-blue-50"] {
+            background: linear-gradient(to bottom right, white, rgba(24, 57, 72, 0.05)) !important;
+        }
+        /* Text gradient - only for elements with bg-clip-text */
+        [class*="bg-gradient-to-r"][class*="from-blue-600"][class*="to-indigo-600"][class*="bg-clip-text"][class*="text-transparent"] {
+            background: linear-gradient(to right, #183948, #0f252f) !important;
+            -webkit-background-clip: text !important;
+            background-clip: text !important;
+        }
+        
+        /* Reset colors for Short Courses section to keep original Tailwind colors */
+        #short-courses .bg-blue-50 { background-color: #eff6ff !important; }
+        #short-courses .bg-blue-100 { background-color: #dbeafe !important; }
+        #short-courses .bg-blue-200 { background-color: #bfdbfe !important; }
+        #short-courses .bg-blue-300 { background-color: #93c5fd !important; }
+        #short-courses .bg-blue-400 { background-color: #60a5fa !important; }
+        #short-courses .bg-blue-500 { background-color: #3b82f6 !important; }
+        #short-courses .bg-blue-600 { background-color: #2563eb !important; }
+        #short-courses .bg-blue-700 { background-color: #1d4ed8 !important; }
+        
+        #short-courses .bg-indigo-50 { background-color: #eef2ff !important; }
+        #short-courses .bg-indigo-100 { background-color: #e0e7ff !important; }
+        #short-courses .bg-indigo-200 { background-color: #c7d2fe !important; }
+        #short-courses .bg-indigo-300 { background-color: #a5b4fc !important; }
+        #short-courses .bg-indigo-400 { background-color: #818cf8 !important; }
+        #short-courses .bg-indigo-500 { background-color: #6366f1 !important; }
+        #short-courses .bg-indigo-600 { background-color: #4f46e5 !important; }
+        #short-courses .bg-indigo-700 { background-color: #4338ca !important; }
+        
+        #short-courses .bg-teal-50 { background-color: #f0fdfa !important; }
+        #short-courses .bg-teal-100 { background-color: #ccfbf1 !important; }
+        #short-courses .bg-teal-200 { background-color: #99f6e4 !important; }
+        #short-courses .bg-teal-300 { background-color: #5eead4 !important; }
+        #short-courses .bg-teal-400 { background-color: #2dd4bf !important; }
+        #short-courses .bg-teal-500 { background-color: #14b8a6 !important; }
+        #short-courses .bg-teal-600 { background-color: #0d9488 !important; }
+        #short-courses .bg-teal-700 { background-color: #0f766e !important; }
+        
+        #short-courses .bg-cyan-50 { background-color: #ecfeff !important; }
+        #short-courses .bg-cyan-100 { background-color: #cffafe !important; }
+        #short-courses .bg-cyan-200 { background-color: #a5f3fc !important; }
+        #short-courses .bg-cyan-300 { background-color: #67e8f9 !important; }
+        #short-courses .bg-cyan-400 { background-color: #22d3ee !important; }
+        #short-courses .bg-cyan-500 { background-color: #06b6d4 !important; }
+        #short-courses .bg-cyan-600 { background-color: #0891b2 !important; }
+        #short-courses .bg-cyan-700 { background-color: #0e7490 !important; }
+        
+        #short-courses .text-blue-600 { color: #2563eb !important; }
+        #short-courses .text-indigo-600 { color: #4f46e5 !important; }
+        #short-courses .text-teal-600 { color: #0d9488 !important; }
+        #short-courses .text-cyan-600 { color: #0891b2 !important; }
+        
+        #short-courses .border-blue-100 { border-color: #dbeafe !important; }
+        #short-courses .border-blue-200 { border-color: #bfdbfe !important; }
+        #short-courses .border-indigo-100 { border-color: #e0e7ff !important; }
+        #short-courses .border-indigo-200 { border-color: #c7d2fe !important; }
+        #short-courses .border-teal-100 { border-color: #ccfbf1 !important; }
+        #short-courses .border-teal-200 { border-color: #99f6e4 !important; }
+        #short-courses .border-cyan-100 { border-color: #cffafe !important; }
+        #short-courses .border-cyan-200 { border-color: #a5f3fc !important; }
+        
+        #short-courses .hover\:bg-blue-700:hover { background-color: #1d4ed8 !important; }
+        #short-courses .hover\:bg-indigo-700:hover { background-color: #4338ca !important; }
+        #short-courses .hover\:bg-teal-700:hover { background-color: #0f766e !important; }
+        #short-courses .hover\:bg-cyan-700:hover { background-color: #0e7490 !important; }
+        
+        #short-courses [class*="from-blue-50"][class*="to-indigo-50"] { background: linear-gradient(to bottom right, #eff6ff, #eef2ff) !important; }
+        #short-courses [class*="from-teal-50"][class*="to-cyan-50"] { background: linear-gradient(to bottom right, #f0fdfa, #ecfeff) !important; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation Bar -->
+    <nav class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center gap-2">
+                    <img src="img/logo.svg" alt="StatsUpAI Logo" class="h-10 w-auto">
+                    <span class="text-xl font-bold tracking-tight text-slate-900">StatsUpAI <span class="text-slate-400 font-normal">| 2025 Annual Review</span></span>
+                </div>
+                <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-600">
+                    <a href="#asa-events" class="hover:text-blue-600 transition">ASA Events</a>
+                    <a href="#seminars" class="hover:text-blue-600 transition">Seminars</a>
+                    <a href="#interviews" class="hover:text-blue-600 transition">Interviews</a>
+                    <a href="#short-courses" class="hover:text-blue-600 transition">Short Courses</a>
+                    <a href="#resources" class="hover:text-blue-600 transition">Resources</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 pt-20 pb-28 border-b border-slate-200">
+        <!-- Decorative background elements -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute -top-40 -right-40 w-80 h-80 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
+            <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-indigo-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse" style="animation-delay: 2s;"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 relative">
+                <!-- Logo background positioned behind the title area -->
+                <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-8 flex items-center justify-center opacity-5 pointer-events-none" style="width: 100%; max-width: 300px;">
+                    <img src="img/logo.svg" alt="" class="w-full h-auto object-contain">
+                </div>
+                <!-- StatsUpAI Brand -->
+                <div class="mb-6">
+                    <h1 class="text-4xl md:text-6xl font-bold text-slate-900 tracking-tight mb-3">
+                        <span class="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">StatsUpAI</span>
+            </h1>
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-white/60 backdrop-blur-sm rounded-full border border-blue-200/50">
+                        <span class="text-sm font-semibold text-slate-700">2025 Annual Newsletter</span>
+                    </div>
+                </div>
+                
+                <p class="text-2xl md:text-3xl text-slate-700 font-medium max-w-5xl mx-auto mb-4">
+                    Empowering statisticians to participate in AI research and leadership
+                </p>
+                
+                <p class="text-lg text-slate-600 max-w-4xl mx-auto">
+                    A year of milestones, innovation, and community growth
+                </p>
+            </div>
+
+            <!-- Message from the Chair - Letter Style -->
+            <div class="max-w-6xl mx-auto mb-16 relative">
+                <!-- Decorative corner elements -->
+                <div class="absolute -top-2 -left-2 w-8 h-8 border-t-2 border-l-2 border-blue-300 rounded-tl-lg"></div>
+                <div class="absolute -top-2 -right-2 w-8 h-8 border-t-2 border-r-2 border-blue-300 rounded-tr-lg"></div>
+                <div class="absolute -bottom-2 -left-2 w-8 h-8 border-b-2 border-l-2 border-blue-300 rounded-bl-lg"></div>
+                <div class="absolute -bottom-2 -right-2 w-8 h-8 border-b-2 border-r-2 border-blue-300 rounded-br-lg"></div>
+                
+                <div class="bg-white rounded-lg shadow-2xl border-2 border-slate-300 overflow-hidden relative" style="box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.9); background-image: repeating-linear-gradient(transparent, transparent 31px, rgba(0, 0, 0, 0.03) 31px, rgba(0, 0, 0, 0.03) 32px);">
+                    <!-- Letter Header with decorative line -->
+                    <div class="bg-gradient-to-r from-blue-50 to-indigo-50 px-8 md:px-12 py-6 border-b-2 border-slate-300 relative">
+                        <!-- Decorative header line -->
+                        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-blue-400 to-transparent opacity-50"></div>
+                        <!-- Right corner author image with decorative elements -->
+                        <div class="absolute top-4 right-4 md:top-6 md:right-6 z-10">
+                            <!-- Outer decorative glow ring -->
+                            <div class="absolute -inset-3 rounded-full bg-gradient-to-br from-blue-200/40 via-indigo-200/40 to-blue-300/40 blur-sm"></div>
+                            <!-- Middle decorative dashed ring -->
+                            <div class="absolute -inset-1.5 rounded-full border-2 border-dashed border-blue-400/50"></div>
+                            <!-- Main image container with gradient border -->
+                            <div class="relative w-24 h-24 md:w-32 md:h-32">
+                                <!-- Gradient border frame -->
+                                <div class="absolute inset-0 rounded-full bg-gradient-to-br from-blue-400 via-indigo-400 to-blue-500 p-[3px] shadow-lg">
+                                    <div class="w-full h-full rounded-full bg-gradient-to-br from-white to-blue-50"></div>
+                                </div>
+                                <!-- Author image -->
+                                <img src="img/zheng.jpg" alt="Tian Zheng" class="absolute inset-[3px] w-[calc(100%-6px)] h-[calc(100%-6px)] object-cover rounded-full shadow-2xl ring-2 ring-white/80">
+                                <!-- Decorative corner accents -->
+                                <div class="absolute -top-1.5 -left-1.5 w-5 h-5 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-full shadow-lg ring-2 ring-white/60"></div>
+                                <div class="absolute -bottom-1.5 -right-1.5 w-4 h-4 bg-gradient-to-br from-indigo-400 to-blue-500 rounded-full shadow-lg ring-2 ring-white/60"></div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between mb-2">
+                            <div>
+                                <h2 class="text-xl md:text-2xl font-serif text-slate-900 mb-1 tracking-wide">A Message from the Chair</h2>
+                                <p class="text-sm text-slate-600 font-serif italic">December 2025</p>
+                            </div>
+                            <!-- Decorative seal/stamp element -->
+                            <div class="hidden md:flex items-center justify-center w-16 h-16 rounded-full border-2 border-dashed border-blue-300 bg-white/50">
+                                <i class="ph ph-seal text-blue-400 text-2xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Letter Body with margin lines -->
+                    <div class="px-8 md:px-12 py-8 md:py-10 relative">
+                        <!-- Left margin line (like notebook paper) -->
+                        <div class="absolute left-4 top-0 bottom-0 w-0.5 bg-red-200 opacity-30" style="left: 2rem;"></div>
+                        
+                        <div class="space-y-5 text-slate-800 leading-relaxed text-base font-serif pl-2" style="font-family: 'Georgia', 'Times New Roman', serif;">
+                            <p class="indent-0">
+                                As we close out 2025, I want to take a moment to reflect on the mission of StatsUpAI — and what the name means to convey. It is an invitation to action: <strong class="text-blue-700 font-semibold">let's elevate the role of statistics in shaping the future of artificial intelligence</strong>. It's a nod to rigor, and to a vision of AI that is principled, transparent, and grounded in data-driven understanding.
+                            </p>
+                            <p class="indent-0">
+                                This year has been a remarkable one as you will learn from reading this newsletter. Each of these accomplishments reflects not just what we've built, but who has built it — <strong class="text-blue-700 font-semibold">a dedicated, generous, and vibrant network of researchers, students, educators, and practitioners</strong>.
+                            </p>
+                            <p class="indent-0">
+                                To all of you: thank you for being part of the StatsUpAI community. Your engagement, curiosity, and collaboration have been the foundation of everything we've achieved.
+                            </p>
+                            <p class="indent-0">
+                                And to the volunteers who have worked behind the scenes — building our website and social media contents, curating resources, and handling countless logistics — <strong class="text-blue-700 font-semibold">your quiet leadership has powered this momentum</strong>. We truly could not have done this without you.
+                            </p>
+                            <p class="indent-0">
+                                Looking ahead to 2026, we're excited to continue building, learning, and growing — together.
+                            </p>
+                        </div>
+                        
+                        <!-- Signature Block with decorative underline -->
+                        <div class="mt-12 pt-8 border-t-2 border-slate-400 relative">
+                            <!-- Decorative signature line -->
+                            <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-400 to-transparent"></div>
+                            
+                            <p class="text-slate-700 italic mb-8 font-serif" style="font-family: 'Georgia', 'Times New Roman', serif;">Warmest wishes for the new year,</p>
+                            <div class="mt-8 relative">
+                                <!-- Signature underline decoration -->
+                                <div class="mb-2">
+                                    <p class="text-lg font-bold text-slate-900 font-serif inline-block" style="font-family: 'Georgia', 'Times New Roman', serif;">Tian Zheng</p>
+                                    <div class="mt-1 w-32 h-0.5 bg-gradient-to-r from-blue-400 to-transparent"></div>
+                                </div>
+                                <p class="text-sm text-slate-600 font-serif" style="font-family: 'Georgia', 'Times New Roman', serif;">Chair, StatsUpAI</p>
+                                <p class="text-sm text-slate-600 font-serif" style="font-family: 'Georgia', 'Times New Roman', serif;">Columbia University</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Highlights -->
+            <div class="max-w-6xl mx-auto mb-12">
+                <div class="text-center mb-10">
+                    <h3 class="text-2xl md:text-3xl font-bold text-slate-800 mb-3">2025 By The Numbers</h3>
+                    <div class="w-24 h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent mx-auto rounded-full"></div>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-16 max-w-6xl mx-auto">
+                <div class="group text-center bg-white/60 backdrop-blur-sm rounded-xl p-6 border border-blue-100 hover:border-blue-300 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                    <div class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">ASA</div>
+                    <div class="text-xs text-slate-600 uppercase tracking-wide font-medium">Interest Group</div>
+                </div>
+                <div class="group text-center bg-white/60 backdrop-blur-sm rounded-xl p-6 border border-blue-100 hover:border-blue-300 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                    <div class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">9</div>
+                    <div class="text-xs text-slate-600 uppercase tracking-wide font-medium">Seminars</div>
+                </div>
+                <div class="group text-center bg-white/60 backdrop-blur-sm rounded-xl p-6 border border-blue-100 hover:border-blue-300 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                    <div class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">5</div>
+                    <div class="text-xs text-slate-600 uppercase tracking-wide font-medium">Interviews</div>
+                </div>
+                <div class="group text-center bg-white/60 backdrop-blur-sm rounded-xl p-6 border border-blue-100 hover:border-blue-300 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                    <div class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">5</div>
+                    <div class="text-xs text-slate-600 uppercase tracking-wide font-medium">Short Courses</div>
+                </div>
+                <div class="group text-center bg-white/60 backdrop-blur-sm rounded-xl p-6 border border-blue-100 hover:border-blue-300 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                    <div class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">100+</div>
+                    <div class="text-xs text-slate-600 uppercase tracking-wide font-medium">Resources</div>
+                </div>
+                <div class="group text-center bg-white/60 backdrop-blur-sm rounded-xl p-6 border border-blue-100 hover:border-blue-300 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                    <div class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">700+</div>
+                    <div class="text-xs text-slate-600 uppercase tracking-wide font-medium">Webinar Participants</div>
+                </div>
+                <div class="group text-center bg-white/60 backdrop-blur-sm rounded-xl p-6 border border-blue-100 hover:border-blue-300 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                    <div class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">120+</div>
+                    <div class="text-xs text-slate-600 uppercase tracking-wide font-medium">ASA Members</div>
+                </div>
+                <div class="group text-center bg-white/60 backdrop-blur-sm rounded-xl p-6 border border-blue-100 hover:border-blue-300 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                    <div class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">370+</div>
+                    <div class="text-xs text-slate-600 uppercase tracking-wide font-medium">Google Groups</div>
+                </div>
+            </div>
+
+            <!-- Main Description - No box, direct on background -->
+            <div class="max-w-6xl mx-auto">
+                <div class="space-y-6 text-lg text-slate-700 leading-relaxed">
+                    <p class="text-left">
+                        The rapid expansion of artificial intelligence has fundamentally reshaped how data are generated, analyzed, and interpreted across scientific disciplines. In this evolving landscape, <strong class="text-blue-600 font-semibold">the role of statistics has never been more critical</strong>—not only to improve model performance, but to ensure reliability, interpretability, and principled decision-making in AI-driven research.
+                    </p>
+                    <p class="text-left">
+                        Against this backdrop, 2025 marked a defining year for StatsUpAI. <strong class="text-blue-600 font-semibold">Recognized as an official Interest Group by the American Statistical Association (ASA)</strong>, StatsUpAI has emerged as a growing community for advancing statistically grounded AI research. This milestone reflects a shared commitment within our community to place statistical rigor, uncertainty quantification, and methodological transparency at the core of modern AI development.
+                    </p>
+                    <p class="text-left">
+                        In 2025, our theme was <strong class="text-blue-600 font-semibold">AI in health data science</strong>. StatsUpAI highlighted research and collaboration spanning neuroimaging, genomics, electronic health records, and clinical trials. By highlighting statisticians who are leaders in these interdisciplinary fields, StatsUpAI promotes approaches that are not only powerful, but also <strong class="text-blue-600 font-semibold">trustworthy, reproducible, and clinically meaningful</strong>—demonstrating how statistics continues to shape the future of health data science in the AI era.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 1. ASA Events -->
+    <section id="asa-events" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-slate-900">ASA Community Events</h2>
+                <p class="mt-4 text-slate-600 max-w-6xl mx-auto leading-relaxed">
+                    2025 marked a major milestone for StatsUpAI within the American Statistical Association (ASA).
+                </p>
+            </div>
+
+            <!-- ASA Interest Group - Highlighted -->
+            <div class="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl shadow-xl border border-blue-500 overflow-hidden mb-8 text-white">
+                <div class="p-8 md:p-12">
+                    <div class="flex items-start justify-between mb-6">
+                        <div class="flex-1">
+                            <span class="inline-flex items-center rounded-full backdrop-blur-sm px-4 py-1.5 text-sm font-bold mb-4 shadow-lg" style="background: #e0e8f0; border: 1px solid rgba(224, 232, 240, 0.8); color: #183948;">
+                                <i class="ph ph-star-fill mr-1.5" style="color: #183948;"></i>
+                                Major Milestone
+                            </span>
+                            <h3 class="text-3xl md:text-4xl font-bold mb-3">
+                                StatsUpAI Officially Becomes an ASA Interest Group
+                            </h3>
+                            <p class="text-white/80 text-lg mb-4">
+                                On January 30, 2025, StatsUpAI was formally approved as an Interest Group of the American Statistical Association (ASA). This milestone marks StatsUpAI's integration into the ASA community as a dedicated forum for advancing statistical foundations, methodological rigor, and uncertainty-aware AI research—particularly in health and biomedical data science.
+                            </p>
+                        </div>
+                        <div class="hidden md:block ml-6 flex-shrink-0">
+                            <div class="bg-white/20 backdrop-blur-sm rounded-xl p-4 border border-white/30">
+                                <img src="img/ASA_logo.png" alt="ASA Logo" class="h-16 w-auto opacity-90">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Steering Committee -->
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 mb-6">
+                            <h4 class="text-lg font-bold mb-4 flex items-center gap-2">
+                                <i class="ph ph-users-three text-white/90 text-xl"></i>
+                                Steering Committee
+                            </h4>
+                            <p class="text-white text-sm mb-4 leading-relaxed">
+                                The Steering Committee brings together leading statisticians and data scientists across institutions to guide the mission, activities, and scientific direction of StatsUpAI within the ASA community.
+                            </p>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-sm">
+                            <div class="text-white/65">David Banks (Duke)</div>
+                            <div class="text-white/65">Edgar Dobriban (UPenn)</div>
+                            <div class="text-white/65">Jian Kang (Michigan)</div>
+                            <div class="text-white/65">Xihong Lin (Harvard)</div>
+                            <div class="text-white/65">Daniel Nettleton (Iowa State)</div>
+                            <div class="text-white/65">Wenyi Wang (MD Anderson)</div>
+                            <div class="text-white/65">Tian Zheng (Columbia)</div>
+                            <div class="text-white/65">Hongtu Zhu (UNC)</div>
+                    </div>
+                </div>
+
+                    <!-- Officers -->
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 mb-6">
+                            <h4 class="text-lg font-bold mb-4 flex items-center gap-2">
+                                <i class="ph ph-identification-badge text-white/90 text-xl"></i>
+                                Inaugural Officers
+                            </h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full border-2 flex items-center justify-center font-bold shadow-md" style="background: rgba(224, 232, 240, 0.6); border-color: rgba(224, 232, 240, 0.8); color: #183948;">C</div>
+                                <div>
+                                    <div class="font-semibold text-white">Chair: Tian Zheng</div>
+                                    <div class="text-xs text-white/65">Columbia University</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full border-2 flex items-center justify-center font-bold shadow-md" style="background: rgba(224, 232, 240, 0.6); border-color: rgba(224, 232, 240, 0.8); color: #183948;">P</div>
+                                <div>
+                                    <div class="font-semibold text-white">Program Chair: Edgar Dobriban</div>
+                                    <div class="text-xs text-white/65">University of Pennsylvania</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full border-2 flex items-center justify-center font-bold shadow-md" style="background: rgba(224, 232, 240, 0.6); border-color: rgba(224, 232, 240, 0.8); color: #183948;">O</div>
+                                <div>
+                                    <div class="font-semibold text-white">Outreach Chair: Wenyi Wang</div>
+                                    <div class="text-xs text-white/65">MD Anderson Cancer Center</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full border-2 flex items-center justify-center font-bold shadow-md" style="background: rgba(224, 232, 240, 0.6); border-color: rgba(224, 232, 240, 0.8); color: #183948;">S</div>
+                    <div>
+                                    <div class="font-semibold text-white">Secretary: Jian Kang</div>
+                                    <div class="text-xs text-white/65">University of Michigan</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Links -->
+                    <div class="flex flex-wrap gap-3">
+                        <a href="https://statsupai.org/pages/ASAIGBlog/ASAIGannouncement.html" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-blue-600 rounded-lg hover:bg-blue-50 transition font-medium">
+                            <i class="ph ph-link"></i>
+                            View Full Announcement
+                        </a>
+                        <a href="https://groups.google.com/g/stats-up-ai/" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 bg-white/20 backdrop-blur-sm text-white rounded-lg border border-white/30 hover:bg-white/30 transition font-medium">
+                            <i class="ph ph-users"></i>
+                            Join Google Groups
+                        </a>
+                        <a href="https://community.amstat.org/communities/community-home?CommunityKey=47facf85-a101-4b92-acf6-019637e3455c" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 bg-white/20 backdrop-blur-sm text-white rounded-lg border border-white/30 hover:bg-white/30 transition font-medium">
+                            <i class="ph ph-users-three"></i>
+                            Join ASA Community
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Important Conferences and Events -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+                <!-- ISU-NISS Conference -->
+                <div class="rounded-2xl shadow-lg border overflow-hidden" style="background: linear-gradient(to bottom right, rgba(224, 232, 240, 0.2), rgba(208, 216, 232, 0.2)); border-color: #c0c8d8;">
+                    <div class="p-6">
+                        <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold text-white mb-3" style="background: #5f8796;">
+                            Important Conference
+                        </span>
+                        <h3 class="text-xl font-bold mb-2" style="color: #183948;">
+                            2025 ISU-NISS Conference on AI and Statistics
+                        </h3>
+                        <p class="text-sm mb-4" style="color: #3d6170;">
+                            A three-day conference co-hosted with Iowa State University and the National Institute of Statistical Sciences, bringing together researchers at the intersection of AI and statistical science.
+                        </p>
+                        <div class="space-y-2 text-sm mb-4" style="color: #3d6170;">
+                            <div class="flex items-center gap-2">
+                                <i class="ph ph-calendar" style="color: #5f8796;"></i>
+                                <span><strong>Date:</strong> September 12-14, 2025</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i class="ph ph-map-pin" style="color: #5f8796;"></i>
+                                <span><strong>Location:</strong> Iowa State University</span>
+                            </div>
+                        </div>
+                        <a href="https://www.regcytes.extension.iastate.edu/isu-niss-ai-stat/" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 text-white rounded-lg transition text-sm font-medium" style="background: #5f8796;" onmouseover="this.style.background='#4f7584'" onmouseout="this.style.background='#5f8796'">
+                            <i class="ph ph-link"></i>
+                            View Conference Details
+                        </a>
+                    </div>
+                </div>
+
+                <!-- JSM Business Meeting -->
+                <div class="rounded-2xl shadow-lg border overflow-hidden" style="background: linear-gradient(to bottom right, rgba(224, 232, 240, 0.2), rgba(208, 216, 232, 0.2)); border-color: #c0c8d8;">
+                    <div class="p-6">
+                        <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold text-white mb-3" style="background: #5f8796;">
+                            Community Event
+                        </span>
+                        <h3 class="text-xl font-bold mb-2" style="color: #183948;">
+                            Stats Up AI Business Meeting @ JSM 2025
+                        </h3>
+                        <p class="text-sm mb-4" style="color: #3d6170;">
+                            A business meeting held during JSM 2025, including Steering Committee updates, discussion of future initiatives, and networking.
+                        </p>
+                        <div class="space-y-2 text-sm mb-4" style="color: #3d6170;">
+                            <div class="flex items-center gap-2">
+                                <i class="ph ph-calendar" style="color: #5f8796;"></i>
+                                <span><strong>Date:</strong> August 4, 2025</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i class="ph ph-clock" style="color: #5f8796;"></i>
+                                <span><strong>Time:</strong> 4:30 PM - 6:30 PM</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i class="ph ph-map-pin" style="color: #5f8796;"></i>
+                                <span><strong>Location:</strong> Music City Center, CC-101D</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Seminars Statistics and Timeline -->
+    <section id="seminars" class="py-20 bg-white border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-slate-900 mb-4">Seminar Overview</h2>
+                <p class="text-slate-600 max-w-6xl mx-auto leading-relaxed mb-4">
+                    In 2025, StatsUpAI organized nine online seminars focused on statistical and AI methods for health data science, with a particular emphasis on neuroimaging and the analysis of fMRI and EEG data. The seminar series attracted strong engagement from the community, with the inaugural session drawing over 120 participants.
+                </p>
+                <p class="text-slate-600 max-w-6xl mx-auto leading-relaxed">
+                    The Statistical and AI Methods for Health Data Science series featured speakers from leading institutions, including Johns Hopkins University, Emory University, KAUST, and Stanford University. Topics spanned functional neuroimaging, reproducible neuroscience, and data-driven methodological advances, fostering interdisciplinary exchange across statistics, AI, and biomedical research.
+                </p>
+            </div>
+
+            <!-- Topic Distribution Bar Chart -->
+            <div class="bg-slate-50 rounded-2xl p-8 mb-8 border border-slate-200">
+                <h3 class="text-lg font-bold text-slate-900 mb-6">Topic Distribution</h3>
+                <div class="chart-container" style="height: 200px;">
+                    <canvas id="topicChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Seminar List - Compact Card Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="seminar-list">
+                <!-- JS will auto-generate list -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Community News (Interviews) -->
+    <section id="interviews" class="py-20 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-slate-900">Interviews with Leaders Series</h2>
+                <p class="mt-4 text-slate-600 max-w-6xl mx-auto leading-relaxed mb-4">
+                    In 2025, StatsUpAI conducted a series of in-depth interviews with leading scholars and research teams, covering emerging topics such as tumor heterogeneity analysis, cross-disciplinary research in statistics and AI, and biomedical knowledge graphs.
+                </p>
+                <p class="text-slate-600 max-w-6xl mx-auto leading-relaxed">
+                    These interviews highlighted recent methodological and scientific advances while providing the community with first-hand perspectives on current research frontiers and future directions in data-driven biomedical science.
+                </p>
+            </div>
+
+            <!-- Interview Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8" id="interview-grid">
+                <!-- JS will auto-generate 5 cards -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Short Courses -->
+    <section id="short-courses" class="py-20 bg-white border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-slate-900">Short Courses</h2>
+                <p class="mt-4 text-slate-600 max-w-6xl mx-auto leading-relaxed">
+                    In 2025, StatsUpAI organized and supported high-quality short courses covering cutting-edge topics in statistics, AI, and their applications. These courses provide researchers and practitioners with opportunities to deepen their understanding of modern methodologies and their real-world applications.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 items-stretch">
+                <!-- Course 1: Decision Intelligence for Two-sided Marketplaces -->
+                <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl shadow-lg border border-blue-100 overflow-hidden flex flex-col">
+                    <div class="p-2.5 md:p-3 flex flex-col h-full" style="min-height: 200px;">
+                        <div class="mb-3 flex-shrink-0">
+                            <span class="inline-flex items-center rounded-full bg-blue-600 px-2 py-0.5 text-xs font-semibold text-white mb-0.5">
+                                Short Course
+                            </span>
+                            <h3 class="text-sm md:text-base font-serif font-semibold text-slate-900 mb-0.5 leading-tight">
+                                Decision Intelligence for Two-sided Marketplaces
+                            </h3>
+                            <p class="text-slate-600 text-xs leading-relaxed">
+                                An in-depth tutorial on decision intelligence in two-sided marketplaces, emphasizing reinforcement learning and sequential decision-making for long-term optimization.
+                            </p>
+                        </div>
+
+                        <!-- Course Topics -->
+                        <div class="bg-white/80 rounded-lg p-2 border border-blue-200 mb-3 flex-1 min-h-0 flex flex-col">
+                            <h4 class="text-xs font-bold text-slate-900 mb-1">Course Topics</h4>
+                            <div class="space-y-1 text-xs text-slate-700 flex-1">
+                                <div class="flex items-start gap-2">
+                                    <i class="ph ph-check-circle text-blue-600 mt-0.5 flex-shrink-0"></i>
+                                    <span>Fundamentals of Two-sided Marketplaces (35 min)</span>
+                                </div>
+                                <div class="flex items-start gap-2">
+                                    <i class="ph ph-check-circle text-blue-600 mt-0.5 flex-shrink-0"></i>
+                                    <span>Policy Optimization for Strategic Decisions (75 min)</span>
+                                </div>
+                                <div class="flex items-start gap-2">
+                                    <i class="ph ph-check-circle text-blue-600 mt-0.5 flex-shrink-0"></i>
+                                    <span>A/B Testing: Policy Evaluation and Experimental Design (75 min)</span>
+                                </div>
+                                <div class="flex items-start gap-2">
+                                    <i class="ph ph-check-circle text-blue-600 mt-0.5 flex-shrink-0"></i>
+                                    <span>Optimizing Markets with LLMs and Digital Twins (20 min)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Organizers -->
+                        <div class="mb-3 flex-shrink-0">
+                            <h4 class="text-xs font-semibold text-slate-700 mb-0">Organizers</h4>
+                            <p class="text-xs text-slate-600">Zhiwei (Tony) Qin, Chengchun Shi, Hongtu Zhu</p>
+                        </div>
+
+                        <!-- Resource Links -->
+                        <a href="https://twosidedm.github.io/" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition text-xs font-medium mt-auto">
+                            <i class="ph ph-link"></i>
+                            Visit Course Website
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Course 2: BIOS 740 -->
+                <div class="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl shadow-lg border border-indigo-100 overflow-hidden flex flex-col">
+                    <div class="p-2.5 md:p-3 flex flex-col h-full" style="min-height: 200px;">
+                        <div class="mb-3 flex-shrink-0">
+                            <span class="inline-flex items-center rounded-full bg-indigo-600 px-2 py-0.5 text-xs font-semibold text-white mb-1.5">
+                                Short Course
+                            </span>
+                            <h3 class="text-base md:text-lg font-serif font-semibold text-slate-900 mb-1.5 leading-tight">
+                                BIOS 740: Deep Learning Methods in Biomedical Sciences with PyTorch
+                            </h3>
+                            <p class="text-slate-600 text-xs leading-relaxed">
+                                A comprehensive course exploring modern deep learning architectures—including CNNs, RNNs, GANs, and Transformers—and their applications to challenging statistical problems in biomedical sciences.
+                            </p>
+                        </div>
+
+                        <!-- Course Highlights -->
+                        <div class="bg-white/80 rounded-lg p-2 border border-indigo-200 mb-1.5 flex-shrink-0">
+                            <h4 class="text-xs font-bold text-slate-900 mb-1">Course Highlights</h4>
+                            <div class="space-y-1 text-xs text-slate-700">
+                                <div class="flex items-start gap-2">
+                                    <i class="ph ph-check-circle text-indigo-600 mt-0.5 flex-shrink-0"></i>
+                                    <span>Deep Learning Architectures: CNNs, RNNs, GANs, Transformers</span>
+                                </div>
+                                <div class="flex items-start gap-2">
+                                    <i class="ph ph-check-circle text-indigo-600 mt-0.5 flex-shrink-0"></i>
+                                    <span>PyTorch Implementation and Hands-on Coding</span>
+                                </div>
+                                <div class="flex items-start gap-2">
+                                    <i class="ph ph-check-circle text-indigo-600 mt-0.5 flex-shrink-0"></i>
+                                    <span>Applications to Biomedical and Statistical Problems</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Course Info -->
+                        <div class="mb-1.5 flex-shrink-0">
+                            <h4 class="text-xs font-semibold text-slate-700 mb-0">Course Information</h4>
+                            <p class="text-xs text-slate-600">Spring 2026 Offering • UNC Biostatistics</p>
+                        </div>
+
+                        <!-- Resource Links -->
+                        <a href="https://bios740.github.io/" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition text-xs font-medium mt-auto">
+                            <i class="ph ph-link"></i>
+                            Visit Course Website
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Course 3: Duke & Chen Institute Joint AI Boot Camp -->
+                <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl shadow-lg border border-purple-100 overflow-hidden flex flex-col">
+                    <div class="p-2.5 md:p-3 flex flex-col h-full" style="min-height: 200px;">
+                        <div class="mb-3 flex-shrink-0">
+                            <span class="inline-flex items-center rounded-full bg-purple-600 px-2 py-0.5 text-xs font-semibold text-white mb-1.5">
+                                Short Course
+                            </span>
+                            <h3 class="text-base md:text-lg font-serif font-semibold text-slate-900 mb-1.5 leading-tight">
+                                Duke & Chen Institute Joint AI Boot Camp 2025
+                            </h3>
+                            <p class="text-slate-600 text-xs leading-relaxed">
+                                A five-day intensive program exploring cutting-edge applications of AI in healthcare and medical research, featuring distinguished faculty and cutting-edge presentations.
+                            </p>
+                        </div>
+
+                        <!-- Course Topics -->
+                        <div class="bg-white/80 rounded-lg p-2 border border-purple-200 mb-3 flex-shrink-0">
+                            <h4 class="text-xs font-bold text-slate-900 mb-1">Key Topics</h4>
+                            <div class="space-y-1 text-xs text-slate-700">
+                                <div class="flex items-start gap-2">
+                                    <i class="ph ph-check-circle text-purple-600 mt-0.5 flex-shrink-0"></i>
+                                    <span>Causal Generalist Medical AI (CGM-AI)</span>
+                                </div>
+                                <div class="flex items-start gap-2">
+                                    <i class="ph ph-check-circle text-purple-600 mt-0.5 flex-shrink-0"></i>
+                                    <span>Real-World Evidence & Clinical Trials</span>
+                                </div>
+                                <div class="flex items-start gap-2">
+                                    <i class="ph ph-check-circle text-purple-600 mt-0.5 flex-shrink-0"></i>
+                                    <span>Scalable NLP for Healthcare</span>
+                                </div>
+                                <div class="flex items-start gap-2">
+                                    <i class="ph ph-check-circle text-purple-600 mt-0.5 flex-shrink-0"></i>
+                                    <span>Foundation Models for Genomics</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Course Info -->
+                        <div class="mb-3 flex-shrink-0">
+                            <h4 class="text-xs font-semibold text-slate-700 mb-0">Event Details</h4>
+                            <p class="text-xs text-slate-600">May 12-16, 2025 • Duke University</p>
+                            <p class="text-xs text-slate-600">Hosted by Prof. Jian Pei</p>
+                        </div>
+
+                        <!-- Resource Links -->
+                        <a href="https://statsupai.org/quarto_web/site/posts/Duke.html" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition text-xs font-medium mt-auto">
+                            <i class="ph ph-link"></i>
+                            View Full Details
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Course 4 & 5: Linjun Zhang Courses - Stacked vertically -->
+                <div class="flex flex-col gap-2">
+                    <!-- Course 4: JCSDS 2025 - Linjun Zhang -->
+                    <div class="bg-gradient-to-br from-teal-50 to-cyan-50 rounded-xl shadow-lg border border-teal-100 overflow-hidden flex flex-col">
+                        <div class="p-2.5 md:p-3 flex flex-col h-full" style="min-height: 200px;">
+                            <div class="mb-1.5 flex-shrink-0">
+                                <span class="inline-flex items-center rounded-full bg-teal-600 px-2 py-0.5 text-xs font-semibold text-white mb-0.5">
+                                    Short Course
+                                </span>
+                                <h3 class="text-sm md:text-base font-serif font-semibold text-slate-900 mb-0.5 leading-tight">
+                                    JCSDS 2025: Large Language Models and AI
+                                </h3>
+                                <p class="text-slate-600 text-xs leading-relaxed mb-1">
+                                    An introduction to large language models and their applications in statistics and data science, covering foundational concepts and practical implementations.
+                                </p>
+                            </div>
+
+                            <!-- Instructor -->
+                            <div class="mb-0 flex-shrink-0 mt-auto">
+                            <h4 class="text-xs font-semibold text-slate-700 mb-0">Instructor</h4>
+                            <p class="text-xs text-slate-600">Linjun Zhang, Rutgers University</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Course 5: JSM 2025 - Linjun Zhang -->
+                    <div class="bg-gradient-to-br from-teal-50 to-cyan-50 rounded-xl shadow-lg border border-teal-100 overflow-hidden flex flex-col">
+                        <div class="p-2.5 md:p-3 flex flex-col h-full" style="min-height: 200px;">
+                            <div class="mb-1.5 flex-shrink-0">
+                                <span class="inline-flex items-center rounded-full bg-teal-600 px-2 py-0.5 text-xs font-semibold text-white mb-0.5">
+                                    Short Course
+                                </span>
+                                <h3 class="text-sm md:text-base font-serif font-semibold text-slate-900 mb-0.5 leading-tight">
+                                    JSM 2025: Large Language Models for Statisticians and Data Scientists: Opportunities and Research Topics
+                                </h3>
+                                <p class="text-slate-600 text-xs leading-relaxed mb-1">
+                                    Exploring opportunities and research topics in applying large language models to statistical and data science challenges.
+                                </p>
+                            </div>
+
+                            <!-- Instructor -->
+                            <div class="mb-0 flex-shrink-0 mt-auto">
+                            <h4 class="text-xs font-semibold text-slate-700 mb-0">Instructor</h4>
+                            <p class="text-xs text-slate-600">Linjun Zhang, Rutgers University</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Resources (Articles, Datasets, Pipeline) -->
+    <section id="resources" class="py-20 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-12">
+                <h2 class="text-3xl font-bold mb-4">Core Resources Statistics</h2>
+                <p class="text-slate-400 max-w-6xl leading-relaxed mb-4">
+                    StatsUpAI.org continuously provides high-quality open-source resources to the community. Our resource library encompasses review articles, dataset information resources, and processing pipelines, offering researchers comprehensive support from theory to practice.
+                </p>
+                <p class="text-slate-400 max-w-6xl leading-relaxed">
+                    Over the past year, we have continuously expanded our resource library, adding multiple review articles covering cancer research, electronic health records, genetics, medical imaging, and other fields. We have also curated information on 83 datasets across 9 major categories and 4 standardized processing pipelines, providing researchers with access to dataset metadata and resources for health data science research.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Articles -->
+                <div class="bg-slate-800/50 rounded-2xl p-8 border border-slate-700 stat-card flex flex-col h-full">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="p-3 bg-blue-500/10 rounded-lg text-blue-400"><i class="ph ph-article text-2xl"></i></div>
+                        <h3 class="text-xl font-bold">Review Articles</h3>
+                    </div>
+                    <div class="text-4xl font-bold text-white mb-2" id="total-articles">0</div>
+                    <p class="text-slate-400 text-sm mb-6">Total Review Articles</p>
+                    <div class="space-y-2 text-sm text-slate-300 mb-4 flex-1 min-h-0 overflow-y-auto max-h-64" id="article-list">
+                        <!-- JS will auto-generate list -->
+                    </div>
+                    <a href="https://statsupai.org/article.html" target="_blank" class="inline-flex items-center gap-2 text-sm text-blue-400 hover:text-blue-300 transition mt-auto">
+                        <i class="ph ph-arrow-right"></i>
+                        View All Articles
+                    </a>
+                </div>
+
+                <!-- Datasets -->
+                <div class="bg-slate-800/50 rounded-2xl p-8 border border-slate-700 stat-card flex flex-col h-full">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="p-3 bg-purple-500/10 rounded-lg text-purple-400"><i class="ph ph-database text-2xl"></i></div>
+                        <h3 class="text-xl font-bold">Dataset Resources</h3>
+                    </div>
+                    <div class="text-4xl font-bold text-white mb-2" id="total-datasets">0</div>
+                    <p class="text-slate-400 text-sm mb-6">Dataset Information Resources</p>
+                    <div class="space-y-2 text-sm text-slate-300 mb-4 flex-1 min-h-0 overflow-y-auto max-h-64" id="dataset-list">
+                        <!-- JS will auto-generate list -->
+                    </div>
+                    <a href="https://statsupai.org/datasets.html" target="_blank" class="inline-flex items-center gap-2 text-sm text-purple-400 hover:text-purple-300 transition mt-auto">
+                        <i class="ph ph-arrow-right"></i>
+                        Browse Dataset Resources
+                    </a>
+                </div>
+
+                <!-- Pipeline -->
+                <div class="bg-slate-800/50 rounded-2xl p-8 border border-slate-700 stat-card flex flex-col h-full">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="p-3 bg-emerald-500/10 rounded-lg text-emerald-400"><i class="ph ph-git-merge text-2xl"></i></div>
+                        <h3 class="text-xl font-bold">Pipeline</h3>
+                    </div>
+                    <div class="text-4xl font-bold text-white mb-2" id="total-pipelines">0</div>
+                    <p class="text-slate-400 text-sm mb-6">Processing Pipeline Categories</p>
+                    <div class="space-y-2 text-sm text-slate-300 mb-4 flex-1 min-h-0 overflow-y-auto max-h-64" id="pipeline-list">
+                        <!-- JS will auto-generate list -->
+                    </div>
+                    <a href="https://statsupai.org/pipeline.html" target="_blank" class="inline-flex items-center gap-2 text-sm text-emerald-400 hover:text-emerald-300 transition mt-auto">
+                        <i class="ph ph-arrow-right"></i>
+                        View All Pipelines
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Looking Forward -->
+    <section class="py-20 bg-gradient-to-br from-blue-50 to-indigo-50 border-t border-slate-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold text-slate-900 mb-6">Looking Forward</h2>
+            <div class="space-y-4 text-slate-700 leading-relaxed">
+                <p>
+                    Reflecting on 2025, StatsUpAI made substantial progress as a growing academic community. Key milestones—including recognition as an ASA Interest Group, the organization of academic events, and the development of shared resources—underscore our continued efforts to advance statistically grounded AI research.
+                </p>
+                <p>
+                    Looking ahead, we will continue to focus on:
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6 text-left">
+                    <div class="bg-white/80 rounded-xl p-6 border border-blue-100">
+                        <h3 class="font-bold text-slate-900 mb-2 flex items-center gap-2">
+                            <i class="ph ph-users text-blue-600"></i>
+                            Expanding Community Impact
+                        </h3>
+                        <p class="text-sm text-slate-600">
+                            Connecting researchers and practitioners worldwide through more seminars, conferences, and training workshops, fostering interdisciplinary collaboration and knowledge sharing.
+                        </p>
+                    </div>
+                    <div class="bg-white/80 rounded-xl p-6 border border-blue-100">
+                        <h3 class="font-bold text-slate-900 mb-2 flex items-center gap-2">
+                            <i class="ph ph-book-open text-blue-600"></i>
+                            Enriching Resource Library
+                        </h3>
+                        <p class="text-sm text-slate-600">
+                            Continuously updating and expanding review articles, datasets, and processing pipelines to provide the community with more comprehensive and cutting-edge research resources.
+                        </p>
+                    </div>
+                    <div class="bg-white/80 rounded-xl p-6 border border-blue-100">
+                        <h3 class="font-bold text-slate-900 mb-2 flex items-center gap-2">
+                            <i class="ph ph-lightbulb text-blue-600"></i>
+                            Advancing Innovative Research
+                        </h3>
+                        <p class="text-sm text-slate-600">
+                            Supporting cutting-edge research at the intersection of statistical methods, AI technologies, and emerging applications, driving theoretical breakthroughs and practical impact.
+                        </p>
+                    </div>
+                    <div class="bg-white/80 rounded-xl p-6 border border-blue-100">
+                        <h3 class="font-bold text-slate-900 mb-2 flex items-center gap-2">
+                            <i class="ph ph-graduation-cap text-blue-600"></i>
+                            Cultivating the Next Generation
+                        </h3>
+                        <p class="text-sm text-slate-600">
+                            Nurturing the next generation of statisticians and data scientists through educational programs and mentorship initiatives, passing on professional knowledge and innovative spirit.
+                        </p>
+                    </div>
+                </div>
+                <!-- Celebratory Closing Message -->
+                <div class="mt-12 relative">
+                    <!-- Decorative background elements -->
+                    <div class="absolute inset-0 bg-gradient-to-r from-blue-400/10 via-indigo-400/10 to-purple-400/10 rounded-2xl blur-xl"></div>
+                    
+                    <div class="relative bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 rounded-2xl p-8 md:p-10 border-2 border-blue-200/50 shadow-xl overflow-hidden">
+                        <!-- Decorative corner elements -->
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-400/20 to-transparent rounded-bl-full"></div>
+                        <div class="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-indigo-400/20 to-transparent rounded-tr-full"></div>
+                        
+                        <!-- Decorative lines -->
+                        <div class="absolute top-0 left-1/4 right-1/4 h-px bg-gradient-to-r from-transparent via-blue-300 to-transparent"></div>
+                        <div class="absolute bottom-0 left-1/4 right-1/4 h-px bg-gradient-to-r from-transparent via-indigo-300 to-transparent"></div>
+                        
+                        <!-- Content -->
+                        <div class="relative z-10">
+                            <div class="flex items-center justify-center gap-3 mb-4">
+                                <div class="w-12 h-0.5 bg-gradient-to-r from-transparent via-blue-500 to-blue-500"></div>
+                                <i class="ph ph-sparkle text-2xl text-blue-500"></i>
+                                <div class="w-12 h-0.5 bg-gradient-to-l from-transparent via-blue-500 to-blue-500"></div>
+                            </div>
+                            <p class="text-xl md:text-2xl font-semibold text-slate-800 leading-relaxed">
+                                Thank you to all community members for your support and participation. Let us look forward to even greater achievements for StatsUpAI in 2026!
+                            </p>
+                            <div class="flex items-center justify-center gap-3 mt-4">
+                                <div class="w-12 h-0.5 bg-gradient-to-r from-transparent via-indigo-500 to-indigo-500"></div>
+                                <i class="ph ph-sparkle text-2xl text-indigo-500"></i>
+                                <div class="w-12 h-0.5 bg-gradient-to-l from-transparent via-indigo-500 to-indigo-500"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Members -->
+    <section class="py-12 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-8">
+                <h2 class="text-2xl font-bold text-slate-900 mb-2">Stats Up AI Communication Team</h2>
+            </div>
+
+            <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-200">
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 text-sm">
+                    <div class="text-slate-700">
+                        <span class="font-semibold text-slate-900">Chen, Kevin</span> • <span class="text-slate-600">DeBakey High School</span>
+                    </div>
+                    <div class="text-slate-700">
+                        <span class="font-semibold text-slate-900">Dobriban, Edgar</span> • <span class="text-slate-600">University of Pennsylvania</span>
+                    </div>
+                    <div class="text-slate-700">
+                        <span class="font-semibold text-slate-900">Gao, Shan</span> • <span class="text-slate-600">Yunnan University, UNC-Chapel Hill</span>
+                    </div>
+                    <div class="text-slate-700">
+                        <span class="font-semibold text-slate-900">Geng, Yuhan</span> • <span class="text-slate-600">University of Michigan</span>
+                    </div>
+                    <div class="text-slate-700">
+                        <span class="font-semibold text-slate-900">Kang, Jian</span> • <span class="text-slate-600">University of Michigan</span>
+                    </div>
+                    <div class="text-slate-700">
+                        <span class="font-semibold text-slate-900">Liu, Xiaoqian</span> • <span class="text-slate-600">UC Riverside</span>
+                    </div>
+                    <div class="text-slate-700">
+                        <span class="font-semibold text-slate-900">Li, Ruonan</span> • <span class="text-slate-600">MD Anderson Cancer Center</span>
+                    </div>
+                    <div class="text-slate-700">
+                        <span class="font-semibold text-slate-900">Li, Yulin</span> • <span class="text-slate-600">Rutgers University</span>
+                    </div>
+                    <div class="text-slate-700">
+                        <span class="font-semibold text-slate-900">Qu, Annie</span> • <span class="text-slate-600">UC Irvine</span>
+                    </div>
+                    <div class="text-slate-700">
+                        <span class="font-semibold text-slate-900">Quazi, Mohammed</span> • <span class="text-slate-600">West Virginia University</span>
+                    </div>
+                    <div class="text-slate-700">
+                        <span class="font-semibold text-slate-900">Wang, Wenyi</span> • <span class="text-slate-600">MD Anderson Cancer Center</span>
+                    </div>
+                    <div class="text-slate-700">
+                        <span class="font-semibold text-slate-900">Ye, Hanwen</span> • <span class="text-slate-600">UC Irvine</span>
+                    </div>
+                    <div class="text-slate-700">
+                        <span class="font-semibold text-slate-900">Zhao, Yi</span> • <span class="text-slate-600">Indiana University</span>
+                    </div>
+                    <div class="text-slate-700">
+                        <span class="font-semibold text-slate-900">Zhao, Bangyao</span> • <span class="text-slate-600">University of Michigan</span>
+                    </div>
+                    <div class="text-slate-700">
+                        <span class="font-semibold text-slate-900">Zhang, Panpan</span> • <span class="text-slate-600">Vanderbilt University</span>
+                    </div>
+                    <div class="text-slate-700">
+                        <span class="font-semibold text-slate-900">Zhang, Linjun</span> • <span class="text-slate-600">Rutgers University</span>
+                    </div>
+                    <div class="text-slate-700">
+                        <span class="font-semibold text-slate-900">Zheng, Tian</span> • <span class="text-slate-600">Columbia University</span>
+                    </div>
+                    <div class="text-slate-700">
+                        <span class="font-semibold text-slate-900">Zhu, Hongtu</span> • <span class="text-slate-600">UNC Chapel Hill</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-950 text-slate-500 py-12 text-center border-t border-slate-900">
+        <div class="max-w-6xl mx-auto px-4">
+            <p class="mb-4">&copy; 2025 StatsUpAI. All rights reserved.</p>
+            <p class="text-sm text-slate-600">
+                StatsUpAI is an official Interest Group of the American Statistical Association (ASA)
+            </p>
+            <div class="mt-6 flex justify-center gap-6">
+                <a href="https://statsupai.org" target="_blank" class="text-slate-400 hover:text-white transition text-sm">Website</a>
+                <a href="https://groups.google.com/g/stats-up-ai/" target="_blank" class="text-slate-400 hover:text-white transition text-sm">Google Groups</a>
+                <a href="https://statsupai.org/article.html" target="_blank" class="text-slate-400 hover:text-white transition text-sm">Resources</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // 1. Seminars Data
+        const seminars = [
+            { date: "2025-04-09", speaker: "Martin Lindquist", affil: "Johns Hopkins", topic: "Elements of Functional Neuroimaging", cat: "Neuroimaging" },
+            { date: "2025-05-08", speaker: "Ying Guo", affil: "Emory University", topic: "Exploring Brain Function and Connectivity with fMRI", cat: "Neuroimaging" },
+            { date: "2025-06-06", speaker: "Hernando Ombao", affil: "KAUST", topic: "Overview of Methods for Characterizing Brain Functional Connectivity", cat: "Neuroimaging" },
+            { date: "2025-07-16", speaker: "Dana Tudorascu", affil: "U. Pittsburgh", topic: "PET imaging", cat: "Neuroimaging" },
+            { date: "2025-08-11", speaker: "Taki Shinohara", affil: "U. Pennsylvania", topic: "Data harmonization", cat: "Data Science" },
+            { date: "2025-09-17", speaker: "Zhengwu Zhang", affil: "UNC Chapel Hill", topic: "Diffusion Tensor Imaging", cat: "Neuroimaging" },
+            { date: "2025-10-08", speaker: "Russell Poldrack", affil: "Stanford", topic: "Reproducible neuroscience", cat: "Reproducibility" },
+            { date: "2025-11-05", speaker: "Brian Caffo", affil: "Johns Hopkins", topic: "Organoid data", cat: "Bio-Stats" },
+            { date: "2025-12-02", speaker: "Ani Eloyan", affil: "Brown University", topic: "Manifold Learning for Modeling Shapes in Alzheimer's Disease", cat: "Neuroimaging" }
+        ];
+
+        // 2. Interviews Data
+        const interviews = [
+            { name: "Dr. Yusha Liu", role: "Researcher", topic: "Decoding Tumor Heterogeneity: GBCD on Transforming Single-Cell Cancer Analysis", views: "591" },
+            { name: "Dr. Xu Shi", role: "Associate Professor", topic: "Award-Winning Research on Statistics and AI Interface", views: "57" },
+            { name: "Dr. Yuan Zhang et al.", role: "Research Team", topic: "Mining the Unseen: iKraph Transforms Literature into Biomedical Intelligence", views: "446" },
+            { name: "Dr. Irina Gaynanova", role: "Associate Professor", topic: "Award-Winning Research on Statistics and AI Interface", views: "208" },
+            { name: "Dr. Yize Zhao", role: "Associate Professor", topic: "Award Winner for Interface of Statistics and AI", views: "919" }
+        ];
+
+        // --- Render Seminar List ---
+        const listContainer = document.getElementById('seminar-list');
+        seminars.forEach(sem => {
+            const dateObj = new Date(sem.date);
+            const month = dateObj.toLocaleString('en-US', { month: 'short' });
+            const day = dateObj.getDate();
+            const year = dateObj.getFullYear();
+            
+            const item = document.createElement('div');
+            item.className = "bg-white rounded-xl p-5 border border-slate-200 hover:border-blue-300 hover:shadow-md transition-all group";
+            item.innerHTML = `
+                <div class="flex items-start justify-between mb-3">
+                    <div class="flex-1">
+                        <div class="text-xs font-semibold text-blue-600 uppercase tracking-wide mb-1">${month} ${day}, ${year}</div>
+                        <h4 class="text-base font-bold text-slate-900 group-hover:text-blue-600 transition mb-1">${sem.speaker}</h4>
+                        <p class="text-xs text-slate-500 mb-2">${sem.affil}</p>
+                    </div>
+                    <div class="ml-3 flex-shrink-0">
+                        <span class="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-blue-50 text-blue-700">${sem.cat}</span>
+                </div>
+                </div>
+                <p class="text-sm text-slate-700 leading-relaxed">"${sem.topic}"</p>
+            `;
+            listContainer.appendChild(item);
+        });
+
+        // --- Render Topic Chart (Bar Chart) ---
+        const topicCounts = {};
+        seminars.forEach(s => { topicCounts[s.cat] = (topicCounts[s.cat] || 0) + 1; });
+        
+        // Create gradient from #183948 to #e0e8f0 for different bars (top to bottom)
+        const chartElement = document.getElementById('topicChart');
+        const ctx = chartElement.getContext('2d');
+        
+        // Define the order of categories (top to bottom)
+        const categoryOrder = ['Neuroimaging', 'Data Science', 'Reproducibility', 'Bio-Stats'];
+        const labels = Object.keys(topicCounts);
+        
+        // Create color gradient from #183948 to #e0e8f0
+        const startColor = { r: 24, g: 57, b: 72 }; // #183948
+        const endColor = { r: 224, g: 232, b: 240 }; // #e0e8f0
+        
+        const getColorForIndex = (index, total, label) => {
+            const ratio = index / (total - 1);
+            const r = Math.round(startColor.r + (endColor.r - startColor.r) * ratio);
+            const g = Math.round(startColor.g + (endColor.g - startColor.g) * ratio);
+            const b = Math.round(startColor.b + (endColor.b - startColor.b) * ratio);
+            // Add transparency for Neuroimaging
+            if (label === 'Neuroimaging') {
+                return `rgba(${r}, ${g}, ${b}, 0.7)`;
+            }
+            return `rgb(${r}, ${g}, ${b})`;
+        };
+        
+        const colors = labels.map((label, index) => {
+            const categoryIndex = categoryOrder.indexOf(label);
+            return getColorForIndex(categoryIndex, categoryOrder.length, label);
+        });
+        
+        new Chart(chartElement, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Number of Seminars',
+                    data: Object.values(topicCounts),
+                    backgroundColor: colors,
+                    borderRadius: 8,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: 'y',
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                        padding: 12,
+                        titleFont: { size: 13 },
+                        bodyFont: { size: 13 },
+                        displayColors: false,
+                    }
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        ticks: {
+                            stepSize: 1,
+                            font: { size: 12 }
+                        },
+                        grid: {
+                            display: false
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            font: { size: 13, weight: '500' }
+                        },
+                        grid: {
+                            display: false
+                        }
+                    }
+                }
+            }
+        });
+
+        // --- Render Interview Cards ---
+        const interviewGrid = document.getElementById('interview-grid');
+        interviews.forEach((interview, index) => {
+            const card = document.createElement('div');
+            // Each interview gets a corresponding background image
+            const figureNumber = index + 1;
+            const figurePath = `img/figure${figureNumber}.jpg`;
+            
+            // First two cards span 3 columns each, remaining cards span 2 columns each
+            const colSpan = index < 2 ? "lg:col-span-3" : "lg:col-span-2";
+            
+            card.className = `relative rounded-xl p-6 shadow-lg border border-slate-200 hover:border-blue-300 transition group overflow-hidden ${colSpan}`;
+            card.style.backgroundImage = `url('${figurePath}')`;
+            card.style.backgroundSize = "cover";
+            card.style.backgroundPosition = "center";
+            card.innerHTML = `
+                <!-- Overlay for text readability -->
+                <div class="absolute inset-0 bg-gradient-to-br from-slate-900/70 via-slate-800/65 to-slate-900/70 rounded-xl"></div>
+                <!-- Content -->
+                <div class="relative z-10">
+                <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 rounded-full bg-white/30 backdrop-blur-sm flex items-center justify-center text-white font-bold border border-white/40 shadow-lg">
+                        ${interview.name.charAt(0)}
+                    </div>
+                    <div>
+                            <h4 class="font-bold text-white group-hover:text-blue-300 transition" style="text-shadow: 0 3px 6px rgba(0,0,0,0.7), 0 1px 3px rgba(0,0,0,0.5);">${interview.name}</h4>
+                            <p class="text-xs text-blue-100 uppercase tracking-wide font-medium" style="text-shadow: 0 2px 4px rgba(0,0,0,0.6);">${interview.role}</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-slate-50 mb-6" style="text-shadow: 0 2px 4px rgba(0,0,0,0.6);">Topic: <strong class="text-white" style="text-shadow: 0 3px 6px rgba(0,0,0,0.7), 0 1px 3px rgba(0,0,0,0.5);">${interview.topic}</strong></p>
+                    <div class="pt-4 border-t border-white/30">
+                        <span class="text-xs text-slate-100" style="text-shadow: 0 1px 3px rgba(0,0,0,0.5);">2025 Interview</span>
+                    </div>
+                </div>
+            `;
+            interviewGrid.appendChild(card);
+        });
+
+        // --- Render Datasets Statistics ---
+        const datasets = [
+            { name: "EHR Data", count: 10 },
+            { name: "Genomics", count: 15 },
+            { name: "Imaging", count: 8 },
+            { name: "Microbiome", count: 12 },
+            { name: "ClinicalTrial", count: 9 },
+            { name: "Biobank", count: 7 },
+            { name: "Spatial Transcriptomics", count: 5 },
+            { name: "Proteomics", count: 6 },
+            { name: "Bioinformatics", count: 11 }
+        ];
+
+        const totalDatasets = datasets.reduce((sum, d) => sum + d.count, 0);
+        document.getElementById('total-datasets').textContent = totalDatasets;
+
+        const datasetList = document.getElementById('dataset-list');
+        datasets.forEach(dataset => {
+            const item = document.createElement('div');
+            item.className = "flex items-center justify-between py-1.5 border-b border-slate-700/50 last:border-0";
+            item.innerHTML = `
+                <div class="flex items-center gap-2">
+                    <i class="ph ph-check-circle text-purple-400 text-xs"></i>
+                    <span class="text-slate-300">${dataset.name}</span>
+                </div>
+                <span class="text-purple-400 font-semibold">${dataset.count}</span>
+            `;
+            datasetList.appendChild(item);
+        });
+
+        // --- Render Articles Statistics ---
+        const articles = [
+            { name: "Cancer Research", count: 84 },
+            { name: "EHR", count: 9 },
+            { name: "Genetics", count: 49 },
+            { name: "Medical Imaging", count: 25 },
+            { name: "Microbiome & Metagenomics", count: 18 },
+            { name: "LLM Overview", count: 19 },
+            { name: "AI Safety & Fairness", count: 23 },
+            { name: "AGI & AI Agents", count: 9 }
+        ];
+
+        const totalArticles = articles.reduce((sum, a) => sum + a.count, 0);
+        document.getElementById('total-articles').textContent = totalArticles;
+
+        const articleList = document.getElementById('article-list');
+        articles.forEach(article => {
+            const item = document.createElement('div');
+            item.className = "flex items-center justify-between py-1.5 border-b border-slate-700/50 last:border-0";
+            item.innerHTML = `
+                <div class="flex items-center gap-2">
+                    <i class="ph ph-check-circle text-blue-400 text-xs"></i>
+                    <span class="text-slate-300">${article.name}</span>
+                </div>
+                <span class="text-blue-400 font-semibold">${article.count}</span>
+            `;
+            articleList.appendChild(item);
+        });
+
+        // --- Render Pipeline Statistics ---
+        const pipelines = [
+            { name: "EHR Data Pipeline", count: 1 },
+            { name: "Neuroimaging Processing", count: 1 },
+            { name: "Data Fusion Analysis", count: 1 },
+            { name: "Clinical Trials Processing", count: 1 }
+        ];
+
+        const totalPipelines = pipelines.length;
+        document.getElementById('total-pipelines').textContent = totalPipelines;
+
+        const pipelineList = document.getElementById('pipeline-list');
+        pipelines.forEach(pipeline => {
+            const item = document.createElement('div');
+            item.className = "flex items-center justify-between py-1.5 border-b border-slate-700/50 last:border-0";
+            item.innerHTML = `
+                <div class="flex items-center gap-2">
+                    <i class="ph ph-check-circle text-emerald-400 text-xs"></i>
+                    <span class="text-slate-300">${pipeline.name}</span>
+                </div>
+            `;
+            pipelineList.appendChild(item);
+        });
+
+    </script>
+</body>
+</html>
