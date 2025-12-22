@@ -1,0 +1,18 @@
+# Site settings
+title: Stats Up AI
+description: Statistics shaping the future of Artificial Intelligence
+baseurl: ""
+url: "https://statsupai.github.io"
+github_username: statsupai
+
+# Exclude files
+exclude:
+  - .gitignore
+  - Gemfile
+  - Gemfile.lock
+  - quarto_web/posts/
+  - quarto_web/site/posts/archived/
+  - pages/archived/
+  - S10_interview.qmd
+  - statsupai.github.io.Rproj
+  - README.md
