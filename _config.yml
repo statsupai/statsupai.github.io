@@ -1,8 +1,0 @@
-# Keep this minimal to avoid touching the rest of the site.
-exclude:
-  - quarto_web/
-  - pages/archived/
-  - .backup/
-  - _Rproj.user/
-  - .git/
-  - .DS_Store
