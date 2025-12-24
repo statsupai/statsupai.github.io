@@ -12,7 +12,7 @@
   --ev-maxw: 860px;
 }
 
-@media (prefers-color-scheme: dark){
+/* @media (prefers-color-scheme: dark){
   :root{
     --ev-bg: #0b1214;
     --ev-surface: #0f1b1e;
@@ -20,7 +20,7 @@
     --ev-text: rgba(255,255,255,.92);
     --ev-muted: rgba(255,255,255,.70);
   }
-}
+} */
 
 .ev-body{
   margin: 0;
@@ -49,7 +49,7 @@
   align-items: center;
   justify-content: space-between;
   padding-top: 14px;
-  padding-bottom: 12px;
+  /* padding-bottom: 12px; */
 }
 
 .ev-brand{
@@ -98,7 +98,7 @@
 
 /* Main */
 .ev-main{
-  padding: 22px 0 40px 0;
+  /* padding: 22px 0 40px 0; */
 }
 
 .ev-page-title{

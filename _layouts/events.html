@@ -2,24 +2,38 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>{{ page.title }} · StatsUpAI</title>
+  <title>StatsUpAI · {{ page.title }}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
+  <link href="/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="/css/style.css" rel="stylesheet" />
   <link rel="stylesheet" href="{{ '/assets/css/events.css' | relative_url }}">
 </head>
 
-<body class="ev-body">
+<body>
   {% include events_header.html %}
-
-  <main class="ev-main">
-    <div class="ev-wrap">
-      <h1 class="ev-page-title">{{ page.title }}</h1>
-      <div class="ev-content">
-        {{ content }}
+  <div class="ev-body">
+    <section>
+      <div class="ev-header">
+        <div class="ev-wrap">
+          <h3>{{ page.title }}</h3>
+          <nav class="ev-nav" aria-label="Events navigation">
+            <a href="{{ '/events/' | relative_url }}">All Events</a>
+            <a href="{{ '/events/webinars/' | relative_url }}">Webinars</a>
+          </nav>
+        </div>
       </div>
-    </div>
-  </main>
+      <main class="ev-main">
+        <div class="ev-wrap">
+          <!-- <h3>{{ page.title }}</h3> -->
+          <div class="ev-content">
+            {{ content }}
+          </div>
+        </div>
+      </main>
+    </section>
+  </div>  
 
-  {% include events_footer.html %}
+  <!-- {% include quick_load.html %} -->
 </body>
 </html>

@@ -1,11 +1,8 @@
 ---
 layout: events
-title: Webinars
+title: Webinars · 2026
 permalink: /events/webinars/
-last_updated: 2025-12-21
 ---
-
-← **[Back to Events]({{ '/events/' | relative_url }})**
 
 <div class="timeline">
   {% assign talks = site.data.webinars | sort: "date" %}
@@ -14,4 +11,4 @@ last_updated: 2025-12-21
   {% endfor %}
 </div>
 
-{% include last_updated.html %}
+{% include webinars_footer.html %}

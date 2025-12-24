@@ -1,3 +1,1 @@
-{% if page.last_updated %}
-  <p class="last-updated">Last updated: {{ page.last_updated | date: "%B %-d, %Y" }}</p>
-{% endif %}
+<span class="last-updated">Last updated: {{ site.time | date: "%B %d, %Y" }}</span>

@@ -1,8 +1,7 @@
 ---
+title: All Events · 2026
 layout: events
-title: Events
 permalink: /events/
-last_updated: 2025-12-21
 ---
 
 🚧 **Under construction.**
