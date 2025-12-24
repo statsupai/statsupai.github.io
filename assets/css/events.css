@@ -181,7 +181,7 @@
   margin: 0 0 10px 0;
   color: var(--ev-muted);
   font-weight: 600;
-  font-size: 0.98rem;
+  /* font-size: 0.98rem; */
 }
 
 .webinar-abstract p{
@@ -205,7 +205,7 @@
   gap: 12px;
   color: var(--ev-muted);
   font-weight: 600;
-  font-size: .95rem;
+  /* font-size: .95rem; */
 }
 
 @media (max-width: 520px){
