@@ -1,0 +1,15 @@
+nav_items:
+  - title: Home
+    url: index.html
+  - title: Datasets
+    url: datasets.html
+  - title: Review Articles
+    url: article.html
+  - title: Pipeline
+    url: pipeline.html
+  - title: Community News
+    url: community-news.html
+  - title: Team
+    url: team.html
+  - title: Events
+    url: events/
