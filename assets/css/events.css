@@ -172,12 +172,12 @@
 }
 
 /* Webinar Details */
-.webinar-heading {
+/* .webinar-heading {
   display: grid;
   grid-template-columns: auto 1fr;
   column-gap: 14px;
   align-items: center;
-}
+} */
 
 /* circular speaker photo on the left of the title block */
 .webinar-speaker-photo {
@@ -187,8 +187,8 @@
   height: 100px;
   border-radius: 50%;
   overflow: clip;
-  border: 2px solid var(--ev-primary);
-  box-shadow: 4px 2px 6px rgba(0,0,0,.12);
+  border: 2px solid color-mix(in srgb, var(--ev-muted) 40%, transparent);
+  box-shadow: -1px 2px 6px color-mix(in srgb, var(--ev-primary-2) 40%, transparent);
 }
 
 .webinar-speaker-photo img {
@@ -270,7 +270,7 @@
   border: inherit;
   border-radius: inherit;
   box-shadow: inherit;
-  background: color-mix(in srgb, var(--ev-bg) 63%, transparent);
+  background: color-mix(in srgb, var(--ev-bg) 80%, transparent);
   z-index: -1;                         /* send this behind the main text */
 }
 
