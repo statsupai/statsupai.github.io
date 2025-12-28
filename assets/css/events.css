@@ -2,7 +2,7 @@
   /* === THEME: tweak these later === */
   --ev-primary:     #458580;      /* teal vibe */
   --ev-primary-2: #54837fee;    /* grey-ish teal */
-  --ev-bg: #fffffff0;
+  --ev-bg: #fffffff5;
   --ev-surface: rgba(142, 159, 161, 0.08);      /* light teal-tinted surface */
   --ev-border: rgba(0,0,0,.10);
   --ev-text: #1e3b36;
@@ -49,7 +49,7 @@
   align-items: center;
   justify-content: space-between;
   padding-top: 14px;
-  /* padding-bottom: 12px; */
+  border-bottom: 1px solid color-mix(in srgb, transparent, var(--ev-primary) 15%);
 }
 
 .ev-brand{
@@ -85,7 +85,7 @@
 }
 
 .ev-nav a:hover{
-  background: var(--ev-surface);
+  background: color-mix(in srgb, transparent, var(--ev-primary-2) 5%);
   color: var(--ev-text);
 }
 
@@ -109,6 +109,10 @@
 
 @media (max-width: 420px){
   .ev-page-title{ font-size: 30px; }
+}
+
+.ev-content{
+  padding-top: 36px;
 }
 
 /* Links inside content */
@@ -144,6 +148,7 @@
   bottom: 8px;
   width: 2px;
   background: color-mix(in srgb, var(--ev-primary) 80%, transparent);
+  box-shadow: 1px 2px 4px rgba(0,0,0,.15);
 }
 
 .timeline-item{
@@ -169,6 +174,51 @@
   padding: 16px 16px 14px 16px; /* top right bottom left */
   box-shadow: 2px 6px 12px rgba(0,0,0,.08);  /* x-offset, y-offset, blur-radius, color */
   margin-bottom: 28px;
+}
+
+
+.webinar-watermark {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--ev-bg);
+}
+
+/* Base for all SVG layers */
+.webinar-watermark-svg {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.05; /* shared default opacity */
+  mix-blend-mode: multiply;  /* optional: helps remove any residual bg */
+}
+
+/* StatsUpAI Logo */
+.webinar-watermark-svg{
+  bottom: -20%;
+  right: -5%;
+  width: 50%;
+  height: auto;
+}
+/* Affiliation Logo */
+.webinar-affiliation-svg {
+  top: -20%;
+  left: -5%;
+  width: 50%;
+  height: auto;
+  opacity: 0.07;              /* tweak independently if desired */
+}
+/* Background pattern */
+.webinar-pattern-svg {
+  left: -20px;
+  bottom: -20px;
+  height: fit-content;
+  width: auto;
+  opacity: 0.15;              /* tweak independently if desired */
+}
+
+/* Regular content above all SVGs */
+.webinar-watermark > *:not(.webinar-watermark-svg) {
+  position: relative;
+  z-index: 2;
 }
 
 /* Webinar Details */
@@ -280,15 +330,15 @@
   margin-top: .3em;
   margin-left: -.4em;
   margin-bottom: -.3em;
-  border: var(--ev-border);
+  border: var(--ev-border) 2px solid;
   border-radius: calc(var(--ev-radius) * 2);
   background: var(--ev-primary-2);
   color: #ffffff;
-  padding: 0.4em 1em 0.6em 1em; /* top right bottom left */
+  padding: 0.3em .8em 0.5em .8em; /* top right bottom left */
   font-weight: 600;
   font-style: italic;
   text-decoration: underline;
-  box-shadow: 2px 2px 6px rgba(0,0,0,.20);
+  box-shadow: 1px 2px 6px rgba(0,0,0,.20);
 }
 
 /* Footer */

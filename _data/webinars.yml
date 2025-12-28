@@ -1,7 +1,7 @@
 - date: 2026-01-16
   time_et: "12:00 PM"
   speaker: "Mine Çetinkaya-Rundel"
-  affiliation: "Duke"
+  affiliation: "Duke University"
   title: "Leveraging LLMs for student feedback in introductory data science courses"
   abstract: |
     A considerable recent challenge for learners and teachers of data science courses is the increasing use of LLM-based tools in generating answers. In this talk, I will introduce an R package that leverages LLMs to produce immediate feedback on student work to motivate them to give it a try themselves first. I will discuss the technical details of augmenting models with course materials, as well as backend and user interface decisions, challenges surrounding evaluations that are not performed correctly by the LLM, and student feedback from the first set of users. Finally, I will discuss incorporating this tool into low-stakes assessments and address ethical considerations for the formal assessment structure of the course, which relies on LLMs.
@@ -10,11 +10,14 @@
   speaker_bio: |
     is a Professor of the Practice and Director of Undergraduate Studies in the Department of Statistical Science at Duke University, and Director of the First-Year Experience in Trinity College of Arts & Sciences. Her work focuses on innovation in statistics and data science pedagogy, with an emphasis on computing, reproducible research, student-centered learning, and open-source education. She is a contributor to the OpenIntro Statistics textbook and develops R packages and resources for data science education.
   personal_website: "https://mine-cr.com"
+  theme:
+    pattern: "/assets/img/pattern-polygon-1.svg"
+    affiliation_logo: "https://upload.wikimedia.org/wikipedia/en/thumb/c/ce/Duke_University_seal.svg/2560px-Duke_University_seal.svg.png"
 
 - date: 2026-02-11
   time_et: "1:00 PM"
   speaker: "James Zou"
-  affiliation: "Stanford"
+  affiliation: "Stanford University"
   title: "AI agents to accelerate scientific discoveries"
   abstract: |
     AI agents--large language models equipped with tools and reasoning capabilities--are emerging as powerful research enablers. This talk will explore how agentic AI can accelerate scientific discoveries. I’ll first introduce the Virtual Lab--a collaborative team of AI scientist agents conducting in silico research meetings to tackle open-ended research projects. As an example application, the Virtual Lab designed new nanobody binders to recent Covid variants that we experimentally validated. Then I will introduce Paper2Agent, a framework to automatically convert passive research papers into interactive AI agents. Finally I will discuss learnings from Agents4Science, the first conference where the authors and reviewers are primarily AI systems.
@@ -23,3 +26,6 @@
   speaker_bio: |
     is an Associate Professor of Biomedical Data Science and, by courtesy, Computer Science and Electrical Engineering at Stanford University. His research focuses on making AI more reliable and human-compatible, with particular interest in applications for human disease and health. He is a two-time Chan-Zuckerberg Investigator (2017, 2023), Faculty Director at the Stanford Data Science Institute, and a member of the Stanford AI Lab. He received the Overton Prize, NSF CAREER Award, and Sloan Fellowship, along with multiple best paper awards and faculty awards from Google, Amazon, Genentech, and Apple.
   personal_website: "https://www.james-zou.com"
+  theme:
+    pattern: "/assets/img/pattern-polygon-2.svg"
+    affiliation_logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Seal_of_Leland_Stanford_Junior_University.svg/2560px-Seal_of_Leland_Stanford_Junior_University.svg.png"
