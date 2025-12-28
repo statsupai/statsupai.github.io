@@ -2,7 +2,10 @@
   <!-- <div class="timeline-marker"></div> -->
   <div class="timeline-content">
 
-    <h2 class="webinar-title">{{ include.t.title }}</h2>
+    <div class="webinar-heading">
+      
+      <h2 class="webinar-title">{{ include.t.title }}</h2>
+    </div>
 
     <p class="webinar-meta">
       <a href="{{include.t.registration_link}}" target="_blank">
@@ -11,12 +14,15 @@
         · {{ include.t.speaker }} ({{ include.t.affiliation }})
       </a>
     </p>
-
     
-<div class="webinar-section speaker-bio">
-      <span class="webinar-label">Speaker Bio: </span>
+    <div class="webinar-section speaker-bio">
+      <div class="webinar-speaker-photo">
+        <img src="{{ include.t.speaker_image }}" alt="{{ include.t.speaker }}"/>
+      </div>
+      <span class="webinar-label">{{ include.t.speaker }}</span>
       {{ include.t.speaker_bio | markdownify }}
     </div>
+
     <div class="webinar-section">
       <span class="webinar-label">Abstract: </span>
       {{ include.t.abstract | markdownify }}

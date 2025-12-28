@@ -8,7 +8,7 @@
   registration_link: "https://upenn.zoom.us/meeting/register/7iwjCrS6Qia0EbrBodLyQw#/registration"
   speaker_image: "https://mine-cr.com/img/mine.png"
   speaker_bio: |
-    Mine Çetinkaya-Rundel is a Professor of the Practice and Director of Undergraduate Studies in the Department of Statistical Science at Duke University, and Director of the First-Year Experience in Trinity College of Arts & Sciences. Her work focuses on innovation in statistics and data science pedagogy, with an emphasis on computing, reproducible research, student-centered learning, and open-source education. She is a contributor to the OpenIntro Statistics textbook and develops R packages and resources for data science education.
+    is a Professor of the Practice and Director of Undergraduate Studies in the Department of Statistical Science at Duke University, and Director of the First-Year Experience in Trinity College of Arts & Sciences. Her work focuses on innovation in statistics and data science pedagogy, with an emphasis on computing, reproducible research, student-centered learning, and open-source education. She is a contributor to the OpenIntro Statistics textbook and develops R packages and resources for data science education.
   personal_website: "https://mine-cr.com"
 
 - date: 2026-02-11
@@ -21,5 +21,5 @@
   registration_link: "https://sfu.zoom.us/meeting/register/3MLcnkc9TJCYfHNrdVSbeQ#/registration"
   speaker_image: "https://static.wixstatic.com/media/0f3e8f_cfa7e327b97745ddb8c4a66454b5eb3e~mv2.jpg/v1/fill/w_398,h_557,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/46824428A5822_ForWeb.jpg"
   speaker_bio: |
-    James Zou is an Associate Professor of Biomedical Data Science and, by courtesy, Computer Science and Electrical Engineering at Stanford University. His research focuses on making AI more reliable and human-compatible, with particular interest in applications for human disease and health. He is a two-time Chan-Zuckerberg Investigator (2017, 2023), Faculty Director at the Stanford Data Science Institute, and a member of the Stanford AI Lab. He received the Overton Prize, NSF CAREER Award, and Sloan Fellowship, along with multiple best paper awards and faculty awards from Google, Amazon, Genentech, and Apple.
+    is an Associate Professor of Biomedical Data Science and, by courtesy, Computer Science and Electrical Engineering at Stanford University. His research focuses on making AI more reliable and human-compatible, with particular interest in applications for human disease and health. He is a two-time Chan-Zuckerberg Investigator (2017, 2023), Faculty Director at the Stanford Data Science Institute, and a member of the Stanford AI Lab. He received the Overton Prize, NSF CAREER Award, and Sloan Fellowship, along with multiple best paper awards and faculty awards from Google, Amazon, Genentech, and Apple.
   personal_website: "https://www.james-zou.com"

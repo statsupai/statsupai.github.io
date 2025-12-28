@@ -171,6 +171,40 @@
   margin-bottom: 14px;
 }
 
+/* Webinar Details */
+.webinar-heading {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 14px;
+  align-items: center;
+}
+
+/* circular speaker photo on the left of the title block */
+.webinar-speaker-photo {
+  float: inline-start;                 /* let text flow around the image */
+  margin: 0.2em 0.5em 0 0;          /* space between photo and text */
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: clip;
+  border: 2px solid var(--ev-primary);
+  box-shadow: 4px 2px 6px rgba(0,0,0,.12);
+}
+
+.webinar-speaker-photo img {
+  width: 120%;
+  height: 180%;
+  object-fit: cover;
+  transform: translate(-5%, -10%); 
+}
+
+@media (max-width: 520px){
+  .webinar-heading {
+    grid-template-columns: auto 1fr;
+    column-gap: 10px;
+  }
+}
+
 .webinar-title{
   margin: 0 0 8px 0;
   font-size: 22px;
