@@ -2,8 +2,8 @@
   /* === THEME: tweak these later === */
   --ev-primary: #0b7f7a;      /* teal vibe */
   --ev-primary-2: #096a66;    /* darker teal */
-  --ev-bg: #ffffff;
-  --ev-surface: #f5fbfa;      /* light teal-tinted surface */
+  --ev-bg: #fffffff0;
+  --ev-surface: rgba(0, 146, 149, 0.08);      /* light teal-tinted surface */
   --ev-border: rgba(0,0,0,.10);
   --ev-text: #0b1f23;
   --ev-muted: rgba(11,31,35,.70);
@@ -166,7 +166,9 @@
   background: var(--ev-surface);
   border: 1px solid var(--ev-border);
   border-radius: var(--ev-radius);
-  padding: 16px 16px 14px 16px;
+  padding: 16px 16px 14px 16px; /* top right bottom left */
+  box-shadow: 2px 4px 6px rgba(0,0,0,.08);  /* x-offset, y-offset, blur-radius, color */
+  margin-bottom: 14px;
 }
 
 .webinar-title{
@@ -184,12 +186,72 @@
   /* font-size: 0.98rem; */
 }
 
-.webinar-abstract p{
+.webinar-section {
+  margin: 0;         /* no default top/bottom margin */
+}
+
+/* spacing only between sections */
+.webinar-section + .webinar-section {
+  margin-top: 8px;
+}
+
+.webinar-label {
+  font-weight: 600;
+  font-size: larger;
+}
+
+.webinar-section p{
+  display: inline;
   margin: 0 0 10px 0;
 }
 
-.webinar-abstract p:last-child{
+.webinar-section p:last-child{
   margin-bottom: 0;
+}
+
+/* Speaker Bio Box */
+/* bottom box: grey-ish */
+.webinar-section.speaker-bio{
+  margin-top: 1em;
+  margin-left: 0.2em;
+  margin-bottom: 1.2em;
+  position: relative;
+  top: 0.5em;                             /* shift down */
+  border-radius: calc(var(--ev-radius) / 3);
+  border: #cfcfcf4d 1px solid;
+  box-shadow: 0 0 1em rgba(0,0,0,.04);  /* x-offset, y-offset, blur-radius, color */
+  padding: 0 1em 1.2em 0.2em;           /* top right bottom left */
+  background: rgba(191, 191, 191, 0.24);
+  z-index: 0;                             /* make sure this sits above ::before */
+}
+
+/* top box: white-ish, diagonally offset to top-left */
+.webinar-section.speaker-bio::before{
+  content: "";
+  position: absolute;   /* absolutely positioned inside speaker-bio */
+  top: -0.6em;          /* shift slightly upward */
+  left: -0.8em;         /* shift slightly to the left */
+  right: 0.6em;         /* inset a bit from the right edge */
+  bottom: 0.5em;        /* inset a bit from the bottom edge */
+  border: inherit;
+  border-radius: inherit;
+  box-shadow: inherit;
+  background: color-mix(in srgb, var(--ev-bg) 63%, transparent);
+  z-index: -1;                         /* send this behind the main text */
+}
+
+.webinar-section.registration-button a{
+  display: inline-block;
+  margin-top: .3em;
+  margin-left: -.4em;
+  margin-bottom: -.3em;
+  border-radius: calc(var(--ev-radius) * 2);
+  background: var(--ev-primary-2);
+  color: #ffffff;
+  padding: 0.4em 1em 0.6em 1em; /* top right bottom left */
+  font-weight: 600;
+  font-style: italic;
+  text-decoration: underline;
 }
 
 /* Footer */

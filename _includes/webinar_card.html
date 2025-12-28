@@ -12,9 +12,21 @@
       </a>
     </p>
 
-    <div class="webinar-abstract">
+    
+<div class="webinar-section speaker-bio">
+      <span class="webinar-label">Speaker Bio: </span>
+      {{ include.t.speaker_bio | markdownify }}
+    </div>
+    <div class="webinar-section">
+      <span class="webinar-label">Abstract: </span>
       {{ include.t.abstract | markdownify }}
     </div>    
+
+    <div class="webinar-section registration-button">
+      <a href="{{include.t.registration_link}}" target="_blank">Register! ↗
+      </a>
+    </div>
+
   </div>
 
 </div>
