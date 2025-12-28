@@ -17,7 +17,9 @@
     
     <div class="webinar-section speaker-bio">
       <div class="webinar-speaker-photo">
-        <img src="{{ include.t.speaker_image }}" alt="{{ include.t.speaker }}"/>
+        <a href="{{ include.t.personal_website }}" target="_blank">
+          <img src="{{ include.t.speaker_image }}" alt="{{ include.t.speaker }}"/>
+        </a>
       </div>
       <span class="webinar-label">{{ include.t.speaker }}</span>
       {{ include.t.speaker_bio | markdownify }}
