@@ -128,9 +128,10 @@
 /* "Last updated" */
 .last-updated{
   margin-top: 26px;
-  font-size: .92rem;
+  font-size: .92em;
   opacity: .75;
   font-style: italic;
+  font-weight: 200;
 }
 
 /* Timeline */
@@ -168,66 +169,78 @@
 }
 
 .timeline-content{
-  background: var(--ev-surface);
+  position: relative;     /* Creates stacking context */
+  overflow: clip;      /* Clip overflowing watermarks */
+  margin-bottom: 28px;
+  padding: 16px 16px 14px;
   border: 1px solid var(--ev-border);
   border-radius: var(--ev-radius);
-  padding: 16px 16px 14px 16px; /* top right bottom left */
-  box-shadow: 2px 6px 12px rgba(0,0,0,.08);  /* x-offset, y-offset, blur-radius, color */
-  margin-bottom: 28px;
+  background-color: var(--ev-surface);
+  box-shadow: 1px 6px 12px rgba(0,0,0,.08);
+  z-index: 0;             /* Create stacking context */
 }
 
-
+/* Base wrapper for all watermark layers */
 .webinar-watermark {
-  position: relative;
-  overflow: hidden;
-  background-color: var(--ev-bg);
+  position: absolute;   /* Position it to fill the parent */
+  inset: 0;             /* Top, right, bottom, left = 0 */
+  pointer-events: none;
+  z-index: -1;          /* Explicitly keep it in back */
+  mask-image: radial-gradient(ellipse at center, 
+    rgba(0,0,0,0.4) 50%,
+    rgba(0,0,0,1) 70%
+  );
 }
 
-/* Base for all SVG layers */
-.webinar-watermark-svg {
+.webinar-watermark img {
   position: absolute;
-  pointer-events: none;
-  opacity: 0.05; /* shared default opacity */
-  mix-blend-mode: multiply;  /* optional: helps remove any residual bg */
+  height: auto;
+  mix-blend-mode: multiply;
 }
 
 /* StatsUpAI Logo */
-.webinar-watermark-svg{
-  bottom: -20%;
-  right: -5%;
-  width: 50%;
-  height: auto;
+.webinar-logo-svg{
+  right: 0%;            /* offset by container width */
+  bottom: 0%;           /* offset by container height */
+  width: 50%;           /* scale relative to container */
+  transform: translate(10%, 25%);  /* shift by IMAGE width & height */
+  opacity: .08;
 }
+
 /* Affiliation Logo */
 .webinar-affiliation-svg {
-  top: -20%;
-  left: -5%;
-  width: 50%;
-  height: auto;
-  opacity: 0.07;              /* tweak independently if desired */
+  top: 0%;              /* offset by container width */
+  left: 0%;             /* offset by container height */
+  width: 50%;           /* scale relative to container */
+  transform: translate(-10%, -25%);  /* shift by IMAGE width & height */
+  opacity: .10;
 }
+
 /* Background pattern */
-.webinar-pattern-svg {
-  left: -20px;
-  bottom: -20px;
-  height: fit-content;
-  width: auto;
-  opacity: 0.15;              /* tweak independently if desired */
+.webinar-bg-pattern-svg {
+  left: 0%;
+  bottom: 0%;
+  width: 200%;
+  transform: translate(-30%, 20%);
+  opacity: .25;
 }
 
-/* Regular content above all SVGs */
-.webinar-watermark > *:not(.webinar-watermark-svg) {
-  position: relative;
-  z-index: 2;
+@media (max-width: 520px){
+  .webinar-logo-svg{
+    width: 80%;
+    transform: translate(10%, 20%);
+  }
+  .webinar-affiliation-svg {
+    width: 100%;
+    transform: translate(-15%, -10%);
+  }
+  .webinar-bg-pattern-svg {
+    width: auto;
+    transform: translate(0%, 0%);;
+  }
 }
 
-/* Webinar Details */
-/* .webinar-heading {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  column-gap: 14px;
-  align-items: center;
-} */
+/* Webinar Content */
 
 /* circular speaker photo on the left of the title block */
 .webinar-speaker-photo {
@@ -242,10 +255,10 @@
 }
 
 .webinar-speaker-photo img {
-  width: 120%;
-  height: 180%;
+  width: 110%;
+  height: auto;
   object-fit: cover;
-  transform: translate(-5%, -10%); 
+  transform: translate(0%, -5%);  /* center the image within the circle */
 }
 
 @media (max-width: 520px){
@@ -344,7 +357,7 @@
 /* Footer */
 .ev-footer{
   border-top: 1px solid var(--ev-border);
-  padding: 18px 0;
+  padding: 1em 0;
   background: var(--ev-bg);
 }
 
@@ -353,7 +366,7 @@
   justify-content: space-between;
   gap: 12px;
   color: var(--ev-muted);
-  font-weight: 600;
+  font-weight: 500;
   /* font-size: .95rem; */
 }
 
