@@ -1,8 +1,7 @@
 <footer class="ev-footer">
   <div class="ev-wrap">
-    <div class="ev-footer-row">
-      <span>{% include last_updated.html %} </span>
-      <span>↩︎ Back to <a href="{{ '/events/' | relative_url }}">All Events</a></span>
-    </div>
+    <div class="ev-footer-row" style="justify-items: center;">
+      {% include last_updated.html %}
+      {% include footer_read_more_community_news.html %}
+    </div>  
   </div>
-</footer>
