@@ -1,7 +1,7 @@
 :root{
   /* === THEME: tweak these later === */
-  --ev-primary:     #399d98;      /* teal vibe */
-  --ev-primary-2: #558582;    /* grey-ish teal */
+  --ev-primary:     #5d9e98;      /* teal vibe */
+  --ev-primary-2: #54837fee;    /* grey-ish teal */
   --ev-bg: #fffffff5;
   --ev-surface: rgba(142, 159, 161, 0.08);      /* light teal-tinted surface */
   --ev-border: rgba(0,0,0,.10);
