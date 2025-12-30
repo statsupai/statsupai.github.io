@@ -1,7 +1,7 @@
 :root{
   /* === THEME: tweak these later === */
-  --ev-primary:     #458580;      /* teal vibe */
-  --ev-primary-2: #54837fee;    /* grey-ish teal */
+  --ev-primary:     #399d98;      /* teal vibe */
+  --ev-primary-2: #558582;    /* grey-ish teal */
   --ev-bg: #fffffff5;
   --ev-surface: rgba(142, 159, 161, 0.08);      /* light teal-tinted surface */
   --ev-border: rgba(0,0,0,.10);
@@ -78,7 +78,7 @@
 
 .ev-nav a{
   text-decoration: none;
-  color: var(--ev-muted);
+  color: var(--ev-primary-2);
   font-weight: 600;
   padding: 8px 10px;
   border-radius: 10px;
@@ -86,7 +86,6 @@
 
 .ev-nav a:hover{
   background: color-mix(in srgb, transparent, var(--ev-primary-2) 5%);
-  color: var(--ev-text);
 }
 
 .ev-accent-line{
@@ -117,12 +116,16 @@
 
 /* Links inside content */
 .ev-content a{
-  color: var(--ev-primary);
+  color: var(--ev-primary-2);
   text-underline-offset: 3px;
 }
 
 .ev-content a:visited{
+  color: color-mix(in srgb, var(--ev-primary-2) 80%, var(--ev-muted) 20%);
+}
+.ev-content a:hover{
   color: var(--ev-primary);
+  text-decoration: underline;
 }
 
 /* "Last updated" */
@@ -148,7 +151,7 @@
   top: 8px;
   bottom: 8px;
   width: 2px;
-  background: color-mix(in srgb, var(--ev-primary) 80%, transparent);
+  background: color-mix(in srgb, var(--ev-primary-2) 80%, transparent);
   box-shadow: 1px 2px 4px rgba(0,0,0,.15);
 }
 
@@ -272,7 +275,7 @@
   margin: 0 0 8px 0;
   font-size: 22px;
   line-height: 1.2;
-  border-left: 4px solid var(--ev-primary);
+  border-left: 4px solid var(--ev-primary-2);
   padding-left: 10px;
 }
 
