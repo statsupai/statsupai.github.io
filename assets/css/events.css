@@ -357,7 +357,7 @@
 /* Footer */
 .ev-footer{
   border-top: 1px solid var(--ev-border);
-  padding: 1em 0;
+  padding: 0.5em 0;
   background: var(--ev-bg);
 }
 
@@ -367,10 +367,15 @@
   gap: 12px;
   color: var(--ev-muted);
   font-weight: 500;
-  /* font-size: .95rem; */
+  margin: 0 -1em;
 }
 
 @media (max-width: 520px){
   .ev-nav{ display:none; } /* keep it clean on mobile for now */
-  .ev-footer-row{ flex-direction: column; }
+  .ev-footer-row{ 
+    flex-direction: column; 
+    text-align: right;
+    gap: 1px;
+    margin: -.5em -1em;
+  }
 }
