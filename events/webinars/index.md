@@ -11,7 +11,7 @@ permalink: /events/webinars/
 </div>
 
 <div class="timeline">
-  {% assign talks = site.data.webinars | where: "series", "Stats×AI for Health Data Science" | sort: "date" %}
+  {% assign talks = site.data.webinars | where: "series", "Health" | sort: "date" %}
   {% for t in talks %}
     {% include webinar_card.html t=t %}
   {% endfor %}
@@ -25,7 +25,7 @@ permalink: /events/webinars/
 </div>
 
 <div class="timeline">
-  {% assign talks = site.data.webinars | where: "series", "GenAI × Statistics" | sort: "date" %}
+  {% assign talks = site.data.webinars | where: "series", "GenAI" | sort: "date" %}
   {% for t in talks %}
     {% include webinar_card.html t=t %}
   {% endfor %}

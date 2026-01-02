@@ -18,8 +18,10 @@
         <div class="ev-wrap">
           <h3>{{ page.title }}</h3>
           <nav class="ev-nav" aria-label="Events navigation">
-            <a href="{{ '/events/' | relative_url }}">All Events</a>
-            <a href="{{ '/events/webinars/' | relative_url }}">2026 Webinars</a>
+            <!-- <a href="{{ '/events/' | relative_url }}">All Events</a> -->
+            <a href="{{ '/events/webinars/#events' | relative_url }}" target="_self">2026 Webinars</a>
+            <a href="{{ '/events/webinars/#health-data-science-series' | relative_url }}" target="_self">Health Data Science Series</a>
+            <a href="{{ '/events/webinars/#genai-stats-series' | relative_url }}" target="_self">GenAI×Stats Series</a>
           </nav>
         </div>
       </div>

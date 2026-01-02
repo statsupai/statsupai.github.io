@@ -5,7 +5,7 @@
   affiliation: "Indiana University School of Medicine"
   title: "Deconstructing Alzheimer’s Disease and Related Dementias to Enable Precision Medicine: Challenges, Models, and Resources for Data Science"
   registration_link: "https://upenn.zoom.us/meeting/register/uA1Jh_J8T3Wez4q0rbpTLQ#/registration"
-  series: "Stats×AI for Health Data Science"
+  series: "Health"
   abstract: |
     Alzheimer’s disease (AD) and related dementia (ADRD) research has become increasingly big data-driven, relying on large, heterogeneous, and longitudinal datasets that span imaging, biomarkers, genetics, and clinical phenotyping. Experimental data from model systems and clinical trials now often include rich high dimensional data along with key outcomes. Although researchers have known about plaques and tangles, composed of amyloid beta and tau proteins for over a century, the underlying causes of most forms of AD/ADRD remain unknown. This lecture will discuss foundational questions and challenges in ADRD research including how data sciences/AI can help advance precision diagnostic and therapeutic strategies for ADRD and will introduce the growing ensemble of accessible data resources available for analysis in an open science framework. Major NIA-funded observational data resources such as the National Alzheimer’s Coordinating Center (NACC) and Alzheimer’s Disease Neuroimaging Initiative (ADNI) and affiliated neuroimaging, genetics, and multi-omics data repositories will be described, along with efforts at data harmonization. Future directions include increasing use of large-scale electronic health records and national databases providing a window to diagnoses, treatment and outcomes in real-world clinical healthcare settings. Finally, bottlenecks in advancing knowledge of causal mechanisms, early detection, and development of novel therapeutic strategies will be discussed.
   speaker_bio: |
@@ -22,7 +22,7 @@
   affiliation: "Duke University"
   title: "Leveraging LLMs for student feedback in introductory data science courses"
   registration_link: "https://upenn.zoom.us/meeting/register/7iwjCrS6Qia0EbrBodLyQw#/registration"
-  series: "GenAI × Statistics"
+  series: "GenAI"
   abstract: |
     A considerable recent challenge for learners and teachers of data science courses is the increasing use of LLM-based tools in generating answers. In this talk, I will introduce an R package that leverages LLMs to produce immediate feedback on student work to motivate them to give it a try themselves first. I will discuss the technical details of augmenting models with course materials, as well as backend and user interface decisions, challenges surrounding evaluations that are not performed correctly by the LLM, and student feedback from the first set of users. Finally, I will discuss incorporating this tool into low-stakes assessments and address ethical considerations for the formal assessment structure of the course, which relies on LLMs.
   speaker_bio: |
@@ -39,7 +39,7 @@
   affiliation: "Stanford University"
   title: "AI agents to accelerate scientific discoveries"
   registration_link: "https://sfu.zoom.us/meeting/register/3MLcnkc9TJCYfHNrdVSbeQ#/registration"
-  series: "GenAI × Statistics"
+  series: "GenAI"
   abstract: |
     AI agents--large language models equipped with tools and reasoning capabilities--are emerging as powerful research enablers. This talk will explore how agentic AI can accelerate scientific discoveries. I’ll first introduce the Virtual Lab--a collaborative team of AI scientist agents conducting in silico research meetings to tackle open-ended research projects. As an example application, the Virtual Lab designed new nanobody binders to recent Covid variants that we experimentally validated. Then I will introduce Paper2Agent, a framework to automatically convert passive research papers into interactive AI agents. Finally I will discuss learnings from Agents4Science, the first conference where the authors and reviewers are primarily AI systems.
   speaker_bio: |
