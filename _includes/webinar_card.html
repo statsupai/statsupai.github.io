@@ -1,4 +1,4 @@
-<div class="timeline-item">
+<div class="timeline-item" id="webinar-{{ include.t.date }}">
   <div class="timeline-content">
     <div class="webinar-watermark">
       <!-- Inline the external SVG logo as before -->
@@ -44,8 +44,16 @@
           <img src="{{ include.t.speaker_image }}" alt="{{ include.t.speaker }}"/>
         </a>
       </div>
-      <span class="webinar-label">{{ include.t.speaker }}</span>
-      {{ include.t.speaker_bio | markdownify }}
+      {% assign speaker_name_str = include.t.speaker_full_name | default: include.t.speaker %}
+      {% assign bio_str = include.t.speaker_bio %}
+      {% assign bio_first_char = bio_str | slice: 0, 1 %}
+
+      <a class="webinar-label"
+         href="{{ include.t.personal_website }}"
+         target="_blank">
+        {{ speaker_name_str }}</a>{% if bio_first_char == ',' %}{{ bio_str | markdownify }}
+        {% else %}
+        {{ bio_str | markdownify }}{% endif %}
     </div>
 
     <div class="webinar-section">
