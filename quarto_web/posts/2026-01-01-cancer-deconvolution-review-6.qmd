@@ -1,0 +1,262 @@
+---
+title: "A guide to transcriptomic deconvolution in cancer"
+subtitle: "A new Nature Reviews Cancer synthesis turns 43 methods into a practical decision tree"
+date: 2026-01-01
+categories:
+  - Community News
+  - Cancer Genomics
+  - Transcriptomics
+  - Bioinformatics
+  - Review
+author:
+  - name: "Yulin Li"
+    affiliation: "Rutgers University"
+toc: true
+toc-depth: 4
+format:
+  html:
+    anchor-sections: true
+    fig-cap-location: bottom
+    smooth-scroll: true
+    code-fold: true
+title-block-banner: "#0B1F3A"
+image: "images/cover-landscape.jpg"
+description: "Dai et al. (Nature Reviews Cancer) map transcriptomic deconvolution in cancer, explain what each class of methods can (and cannot) do, and offer a decision-tree workflow for choosing among 43 tools."
+# citation: true
+references:
+  - id: dai2025guide
+    type: article-journal
+    title: "A guide to transcriptomic deconvolution in cancer"
+    author:
+      - family: Dai
+        given: Yaoyi
+      - family: Guo
+        given: Shuai
+      - family: Pan
+        given: Yidan
+      - family: Castignani
+        given: Carla
+      - family: Montierth
+        given: Matthew D.
+      - family: Van Loo
+        given: Peter
+      - family: Wang
+        given: Wenyi
+    issued:
+      date-parts: [[2025, 12, 2]]
+    container-title: "Nature Reviews Cancer"
+    DOI: "10.1038/s41568-025-00886-9"
+---
+
+```{=html}
+<style>
+/* Optional: “deep background + landscape photo” cover treatment */
+.cover-wrap {
+  /* background: #0B1F3A; */
+  border-radius: 18px;
+  overflow: hidden;
+  margin: 1rem 0 1.25rem 0;
+  box-shadow: 0 10px 30px rgba(0,0,0,.18);
+}
+.cover-img {
+  width: 100%;
+  height: min(340px, 42vw);
+  object-fit: cover;
+  display: block;
+  filter: saturate(1.05) contrast(1.03);
+}
+.cover-caption {
+  padding: .8rem 1rem 1rem 1rem;
+  color: rgba(255,255,255,.92);
+  font-size: .95rem;
+}
+.cover-caption .kicker {
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  font-size: .78rem;
+  opacity: .85;
+  margin-bottom: .25rem;
+}
+</style>
+<div class="cover-wrap">
+  <!-- Replace the image path below with a real landscape photo (e.g., images/wenyi-yaoyi-landscape.jpg) -->
+  <!-- <img class="cover-img" src="images/cover-landscape.jpg" alt="Cover image placeholder (landscape photo)"/> -->
+  <div class="cover-caption">
+    <div class="kicker">StatsUpAI Community News</div>
+    A practical, cancer-specific roadmap to transcriptomic deconvolution—what it can do, what it can’t, and how to choose wisely.
+  </div>
+</div>
+```
+
+## Why this review matters (even if you’ve never heard the word “deconvolution”)
+
+When researchers sequence RNA from a tumor sample (bulk RNA-seq), they don’t get a clean readout from a single cell type. They get a *mixture*—tumor cells plus immune cells, stromal cells, and many intermediate or changing states. In other words, bulk RNA-seq is like recording a crowded room with one microphone: you capture *everything at once*, but you still want to know **who said what**.
+
+**Transcriptomic deconvolution** is the computational idea that we can “unmix” this signal—estimating *which cell types are present (and in what proportions)* and, in some settings, *what the cell-type-specific expression profiles look like*.
+
+In a newly published *Nature Reviews Cancer* article, **Dai et al.** provide a cancer-focused, practitioner-friendly guide to this entire landscape—**43 deconvolution methods**, plus a selection framework designed to help you pick tools based on your data and scientific goal rather than hype or habit [@dai2025guide].
+
+## Deconvolution 101: what people actually mean in practice
+
+In the wild, “deconvolution” can refer to at least three distinct goals:
+
+1. **Cell composition inference**
+   Estimate the fraction (or score) of immune/stromal/tumor-related cell types in each sample.
+
+2. **Cell-type-specific expression estimation**
+   Go beyond proportions and estimate expression profiles attributable to each component.
+
+3. **Downstream biology questions powered by (1) or (2)**
+   Examples: tumor immune surveillance, subtype discovery, prognosis, response prediction, biomarker discovery, and (increasingly) spatial architecture hypotheses [@dai2025guide].
+
+A key contribution of this review is that it treats deconvolution not as a single “best method” problem, but as a **method–question–data matching** problem.
+
+:::{.callout-note}
+
+### A friendly warning up front
+
+If you’ve ever asked “What’s the best deconvolution method?”, this review’s answer is essentially: **that question is underspecified**. Performance depends on your tissue, platform, reference quality, cell states present, and even what *output type* you need (absolute fractions vs relative scores vs profiles).
+:::
+
+## Why cancer makes deconvolution uniquely hard
+
+The authors emphasize three cancer-specific realities that make naive method transfer risky:
+
+### 1) Bulk data is still indispensable—but it’s a mixture
+
+Single-cell and spatial technologies are transformative, but **bulk RNA-seq remains the workhorse** for large cohorts, long-term clinical outcomes, and broad cancer-type coverage. That means the “mixture problem” isn’t going away soon.
+
+### 2) Tumors violate assumptions that hold in healthy tissue
+
+Many methods implicitly assume relatively stable, well-defined cell types and “reference” profiles that represent reality. Tumors are different: **plasticity, stress programs, malignant transformation, and microenvironment remodeling** produce signals that don’t match clean reference categories.
+
+### 3) The “missing reference” problem
+
+A recurring theme in the authors’ behind-the-paper commentary is what they call the **missing reference problem**: your sample may contain cell types/states that *aren’t represented* in your reference data (or are represented poorly), leading to systematic misassignment rather than random noise.
+
+This isn’t a minor edge case—it’s a central reason why two labs can apply two reputable pipelines and still tell different biological stories.
+
+## What this review contributes: a map + a method-selection compass
+
+According to the review, the goal is not just to list methods, but to give readers **a systematic framework** for selecting and applying them in cancer research [@dai2025guide]. The review:
+
+* **Catalogs 43 methods** and organizes them by assumptions, inputs, and outputs. [@dai2025guide]
+* Explains how approaches serve different applications (immune surveillance, subtype discovery, prognosis, treatment response, biomarkers, and spatial tumor architecture). [@dai2025guide]
+* Highlights emerging trends and future directions, especially for **dynamic cell states and tumor plasticity**. [@dai2025guide]
+* Provides practical, decision-tree-style guidance (the authors note this was a key “turning point” in making the review genuinely useful).
+
+## A simplified “decision tree” you can actually use
+
+The original paper provides a more detailed selection framework; here’s a simplified version to help you triage quickly.
+
+```{mermaid}
+flowchart TD
+  A["What is your primary goal?"] --> B{"Cell-type proportions only?"}
+
+  B -->|Yes| C{"Do you have a good reference?<br/>(sc/snRNA-seq or curated signatures)<br/>from matching tissue/context?"}
+  C -->|Yes| D["Reference-based methods<br/>(estimate fractions / scores)"]
+  C -->|No / uncertain| E["Reference-robust options<br/>(semi-reference / robust pipelines)<br/>+ extra validation"]
+
+  B -->|No, I need cell-type-specific expression| F{"Do you have matched reference<br/>and enough samples?"}
+  F -->|Yes| G["Methods that estimate profiles<br/>(profiles + proportions)"]
+  F -->|No| H["Consider redesign:<br/>collect reference, add orthogonal validation,<br/>or narrow the question"]
+```
+
+
+### How to interpret each branch (practically)
+
+**If you only need proportions:**
+
+* Your biggest risk is not “which algorithm,” but **reference mismatch** and **output misinterpretation** (fractions vs normalized scores vs arbitrary enrichment metrics).
+
+**If you need cell-type-specific expression:**
+
+* The bar is higher: you’re asking the method to reconstruct latent profiles, which amplifies mismatch and technical artifacts.
+* Plan for **stronger validation** (orthogonal assays, known markers, pathology estimates, or carefully constructed benchmarks).
+
+:::{.callout-tip}
+
+### A reliable workflow habit
+
+Before trusting any deconvolution output, do a quick “sanity panel”:
+
+* Do known marker genes behave sensibly across samples?
+* Do inferred cell types correlate with pathology estimates (if available)?
+* Are results stable to modest pipeline variations (normalization, filtering, reference choice)?
+:::
+
+## Common pitfalls the review helps you avoid
+
+Here are failure modes that show up repeatedly in real projects (and that this review is designed to preempt):
+
+* **Treating method output as ground truth.**
+  Some outputs are comparable *within a cell type across samples* but not comparable *between cell types*.
+
+* **Ignoring missing or context-shifted references.**
+  Tumor states, stressed immune states, or rare populations can be misrepresented.
+
+* **Over-reading rare cell signals.**
+  Rare cell detection is hard; many pipelines will “hallucinate” small fractions under mismatch.
+
+* **Benchmarking on unrealistic mixtures.**
+  The authors point out a community tendency to validate using peripheral blood/cell lines rather than tumor-realistic compositions (their emphasis is on cancer-specific realism).
+
+## What’s next: where the field is heading
+
+The review’s forward-looking message is optimistic but concrete: progress is shifting from “more methods” to **better applicability, better benchmarks, and better integration**.
+
+Themes highlighted in the paper and in the authors’ commentary include:
+
+* **Deconvolution for challenging sample types** (for example, clinical constraints like FFPE).
+* **Multi-omics informed deconvolution** (copy number, methylation, and other signals to resolve ambiguity).
+* **Spatial transcriptomics extension**: not only “what cell types are present,” but **where they are and how they interact**.
+* **Methods built explicitly for missing references** (the authors describe ongoing work and practical tutorials aimed at reference construction and interpretation).
+
+## Where biostatistics meets “AI”: evaluation, uncertainty, and realism
+
+In their Q&A, the authors underscore a perspective that resonates with the current AI moment: progress isn’t just about more powerful models—it’s about **evaluation discipline**.
+
+Biostatistical thinking helps the community:
+
+* distinguish real signal from simulation artifacts,
+* test generalization across cancer types and cohorts,
+* quantify uncertainty (and communicate it honestly),
+* detect systematic biases caused by mismatched references and skewed training sets.
+
+In short: if deconvolution is being used to support clinical or translational claims, uncertainty and robustness are not optional extras—they’re the product.
+
+## Behind the paper: a memorable turning point in writing
+
+One of the most telling behind-the-scenes moments the authors shared: they initially tried to produce simple “best method” rankings—then repeatedly ran into exceptions that made those rankings misleading. The pivot was to embrace complexity and build **scenario-based guidance** instead.
+
+That shift—away from leaderboards and toward *fit-for-purpose reasoning*—is exactly what makes this review feel unusually usable.
+
+## The authors (quick bios)
+
+*(Short, community-style sketches based on the authors’ provided bios.)*
+
+* **Yaoyi Dai** — Graduate researcher focused on transcriptomic deconvolution for cancer genomics, integrating bulk and single-cell data for tumor microenvironment characterization in translational settings.
+* **Shuai Guo** — Postdoctoral fellow (Emory); worked extensively on single-cell reference-based deconvolution and understanding biases in integrating single-cell and bulk RNA-seq.
+* **Yidan Pan** — Data scientist (MD Anderson Genetics), with interests spanning computational methods and tumor evolution (including malignant peripheral nerve sheath tumors).
+* **Carla Castignani** — Researcher (Francis Crick Institute) working on computational cancer genomics methods and applications.
+* **Matthew D. Montierth** — Data scientist contributing to approaches for modeling tumor heterogeneity in cancer transcriptomics.
+* **Peter Van Loo** — Professor and cancer genomics leader focused on tumor evolution, heterogeneity, and subclonal architecture using large-scale sequencing efforts.
+* **Wenyi Wang** — Professor of Bioinformatics and Computational Biology with extensive contributions in cancer genomics method development, and a focus on translating computational findings toward clinical impact.
+
+## Take-home message
+
+This review is best read as a **field guide**:
+
+* If you’re an **end user**, it helps you pick methods that match your data and question—and avoid overclaiming.
+* If you’re a **method developer**, it sharpens the real open problems: missing references, realistic benchmarking, rare populations, dynamic states, and spatial grounding.
+* If you’re a **clinical/translational researcher**, it clarifies what these tools can support today—and what still needs validation.
+
+If you’ve ever felt that deconvolution papers read like parallel universes, this is a rare attempt to put them on one map—and give you directions.
+
+---
+
+### Citation
+
+Dai Y, Guo S, Pan Y, Castignani C, Montierth MD, Van Loo P, Wang W. *A guide to transcriptomic deconvolution in cancer*. **Nature Reviews Cancer** (online ahead of print), 2025-12-02. DOI: 10.1038/s41568-025-00886-9. [@dai2025guide]
+
+

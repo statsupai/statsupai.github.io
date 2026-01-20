@@ -1,0 +1,136 @@
+---
+title: "Bridging Bulk & Single-Cell RNA-seq in Cancer: What Deconvolution Can (and Can’t) Do Yet"
+subtitle: "Inside a new review on tumor transcriptomic deconvolution—key themes, open problems, and what’s next"
+date: 2026-01-01
+categories: [Community News, Interviews, Cancer Genomics, Transcriptomics, Deconvolution]
+image: "images/cover.jpg"
+image-alt: "Portrait photo with deep background color (cover image)"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    page-layout: article
+    anchor-sections: true
+execute:
+  freeze: true
+---
+
+::: {.callout-tip title="TL;DR"}
+This review maps the current landscape of **tumor transcriptomic deconvolution**, focusing on the hard parts that are *specific to cancer*—plasticity, heterogeneity, and missing references—and on where these methods are already influencing clinical studies.
+:::
+
+## Why this review, why now?
+
+Single-cell RNA-seq is unmatched for resolving cellular heterogeneity—but in many clinical settings, **bulk RNA-seq is still the workhorse**: larger cohorts, longer follow-up, and more real-world samples. The catch is obvious: bulk data mixes signals from tumor cells and the microenvironment.
+
+This review was written to help cancer researchers answer a practical question:
+
+> **“Given my data and my biological question, what kind of deconvolution approach actually makes sense?”**
+
+Rather than ranking methods in the abstract, the review emphasizes **decision-making in context**: what you have, what you need, and what assumptions you can (or cannot) afford.
+
+---
+
+## Three themes reshaping cancer transcriptomics
+
+### 1) Bridging single-cell and bulk (instead of picking sides)
+
+Single-cell helps us see *who is there*; bulk helps us study *what happens over time and across large cohorts*. The review argues that the most useful workflows increasingly combine them:
+
+- using single-cell to inform references,
+- using bulk to scale to clinical cohorts,
+- and using deconvolution as the bridge.
+
+### 2) Cancer breaks “normal tissue” assumptions
+
+Tumors are not just “messier tissues.” They bring their own computational pain points:
+
+- **tumor cell plasticity** (states change; references go stale),
+- **strong heterogeneity** (between patients and within tumors),
+- and microenvironments that vary with treatment and evolution.
+
+Methods that behave nicely on healthy or blood-derived mixtures can fail quietly here.
+
+### 3) Deconvolution becomes clinically relevant when it’s interpretable
+
+The review highlights how deconvolution is already used as a **translation layer** from expression data to actionable signals:
+
+- tumor microenvironment composition for subtyping,
+- treatment response prediction (especially as immunotherapy expands),
+- and biomarker discovery that doesn’t require new wet-lab data.
+
+---
+
+## The biggest unresolved question: the “missing reference” problem
+
+A major open challenge is what the authors call the **missing reference** problem:
+
+- Tumor cells do not live in fixed expression categories.
+- If reference profiles don’t capture *dynamic tumor states*, deconvolution becomes fragile.
+
+::: {.callout-warning title="Open problems the field still owes us"}
+- **Matched bulk + single-cell from the same samples** is still rare (but crucial for validation).
+- Benchmarks often rely on blood or cell lines, not actual tumors.
+- We need methods that handle **rare populations**, **FFPE samples**, and **state transitions over treatment**.
+:::
+
+---
+
+## What peer feedback seemed to value most
+
+During review, the strongest positive response centered on two pragmatic contributions:
+
+- a **catalog of 43 deconvolution methods** with clear “where it applies / where it doesn’t” framing
+- and a **decision-tree style framework** that turns comparison into usable guidance
+
+In other words, less “winner picking,” more “here’s how to choose without fooling yourself.”
+
+---
+
+## How the article came together (behind the scenes)
+
+The writing process followed a very concrete sequence:
+
+1. **Define scope from real user pain:** cancer researchers repeatedly struggled with tool selection; normal-tissue methods failed in tumors.
+2. **Curate aggressively:** collect relevant methods and document inclusion/exclusion criteria transparently.
+3. **Synthesize for non-specialists:** iterate until a cancer biologist could follow the logic and act on it.
+4. **Build the conceptual scaffold:** organize by practical research questions (not only by algorithms).
+5. **Revise figures until they teach:** especially the method-selection decision tree.
+
+---
+
+## A memorable turning point: dropping the “best method” mindset
+
+Early drafts tried to rank methods. It didn’t survive contact with reality.
+
+Performance depends too strongly on context—reference availability, target cell types, platform, and the biological question. The shift to a decision tree wasn’t just stylistic; it was the only way to avoid misleading recommendations.
+
+---
+
+## What’s next
+
+The review is positioned as a starting point—not a final word. Immediate follow-ups include:
+
+- hands-on tutorials for building cancer-specific references and interpreting outputs,
+- collaborations to generate matched bulk + single-cell data for stronger benchmarking,
+- and extensions toward **spatial transcriptomic deconvolution** (including ongoing work like *DeMixNB* referenced by the team).
+
+---
+
+## Where biostatistics fits in “AI for cancer transcriptomics”
+
+One strong message is that biostatistics contributes what “scale-first” modeling often skips:
+
+- **benchmarks that reflect reality** (not just neat simulations),
+- **generalization checks** across cancer types and cohorts,
+- **uncertainty quantification** suitable for clinical decisions,
+- bias/batch-effect awareness so models don’t learn confounding structure,
+- and data curation standards that prevent “garbage in, confident out.”
+
+---
+
+## Photo
+
+```{figure} images/cover.jpg
+fig-cap: "Cover image (requested): landscape photo with a deep background color."
+fig-alt: "Cover image placeholder."

@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.30">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="StatsUpAI Editorial Team">
+<meta name="dcterms.date" content="2026-01-01">
+<meta name="keywords" content="deconvolution, tumor microenvironment, single-cell, bulk RNA-seq, benchmarks, FFPE, spatial transcriptomics">
+
+<title>From Bulk RNA-seq to Tumor Microenvironments: A Practical Guide to Cancer Transcriptomic Deconvolution</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-e864a8210d60d8ea5b3444310085fcd1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<style>
+  /* Subtle “journal-meets-blog” polish */
+  .quarto-title-block .quarto-title-banner {
+    background: linear-gradient(120deg, #0b1a35, #132a55 55%, #1a3b78);
+  }
+  .quarto-title-block .title, .quarto-title-block .subtitle {
+    color: #ffffff;
+  }
+  .quarto-title-block .description, .quarto-title-block .quarto-categories {
+    color: rgba(255,255,255,0.9);
+  }
+  .callout {
+    border-radius: 14px;
+  }
+  blockquote {
+    border-left: 4px solid #1a3b78;
+    padding-left: 1rem;
+    color: #2b2b2b;
+  }
+  .milestone {
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 14px;
+    padding: 1rem 1.1rem;
+    background: rgba(26,59,120,0.04);
+  }
+  .tagline {
+    font-size: 1.05em;
+    color: rgba(255,255,255,0.92);
+    margin-top: 0.25rem;
+  }
+</style>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="floating quarto-light">
+
+<div id="quarto-search-results"></div>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#why-this-review-exists-and-why-its-overdue" id="toc-why-this-review-exists-and-why-its-overdue" class="nav-link active" data-scroll-target="#why-this-review-exists-and-why-its-overdue">Why this review exists (and why it’s overdue)</a></li>
+  <li><a href="#the-core-problem-cancer-is-not-just-another-tissue" id="toc-the-core-problem-cancer-is-not-just-another-tissue" class="nav-link" data-scroll-target="#the-core-problem-cancer-is-not-just-another-tissue">The core problem: cancer is not “just another tissue”</a></li>
+  <li><a href="#the-milestone-that-changed-everything-stop-ranking-start-selecting" id="toc-the-milestone-that-changed-everything-stop-ranking-start-selecting" class="nav-link" data-scroll-target="#the-milestone-that-changed-everything-stop-ranking-start-selecting">The milestone that changed everything: stop ranking, start selecting</a></li>
+  <li><a href="#whats-inside-the-review-in-human-terms" id="toc-whats-inside-the-review-in-human-terms" class="nav-link" data-scroll-target="#whats-inside-the-review-in-human-terms">What’s inside the review (in human terms)</a>
+  <ul class="collapse">
+  <li><a href="#a-map-of-the-landscapewithout-pretending-its-tidy" id="toc-a-map-of-the-landscapewithout-pretending-its-tidy" class="nav-link" data-scroll-target="#a-map-of-the-landscapewithout-pretending-its-tidy">A map of the landscape—without pretending it’s tidy</a></li>
+  <li><a href="#a-framework-that-respects-the-readers-constraints" id="toc-a-framework-that-respects-the-readers-constraints" class="nav-link" data-scroll-target="#a-framework-that-respects-the-readers-constraints">A framework that respects the reader’s constraints</a></li>
+  <li><a href="#milestones-in-building-the-review-behind-the-scenes" id="toc-milestones-in-building-the-review-behind-the-scenes" class="nav-link" data-scroll-target="#milestones-in-building-the-review-behind-the-scenes">Milestones in building the review (behind the scenes)</a></li>
+  </ul></li>
+  <li><a href="#how-this-framework-may-change-day-to-day-research" id="toc-how-this-framework-may-change-day-to-day-research" class="nav-link" data-scroll-target="#how-this-framework-may-change-day-to-day-research">How this framework may change day-to-day research</a></li>
+  <li><a href="#whats-still-broken-and-what-comes-next" id="toc-whats-still-broken-and-what-comes-next" class="nav-link" data-scroll-target="#whats-still-broken-and-what-comes-next">What’s still broken (and what comes next)</a></li>
+  <li><a href="#a-quick-note-for-the-ai-era-where-biostatistics-matters-most" id="toc-a-quick-note-for-the-ai-era-where-biostatistics-matters-most" class="nav-link" data-scroll-target="#a-quick-note-for-the-ai-era-where-biostatistics-matters-most">A quick note for the AI era: where biostatistics matters most</a></li>
+  <li><a href="#meet-the-authors" id="toc-meet-the-authors" class="nav-link" data-scroll-target="#meet-the-authors">Meet the authors</a></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">From Bulk RNA-seq to Tumor Microenvironments: A Practical Guide to Cancer Transcriptomic Deconvolution</h1>
+<p class="subtitle lead">Why method rankings fail, what to do instead, and how a new cancer-specific review helps researchers choose tools that actually fit their data</p>
+  <div class="quarto-categories">
+    <div class="quarto-category">Cancer Genomics</div>
+    <div class="quarto-category">Transcriptomics</div>
+    <div class="quarto-category">Methodology</div>
+    <div class="quarto-category">Review</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>StatsUpAI Editorial Team </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">January 1, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+<div>
+  <div class="keywords">
+    <div class="block-title">Keywords</div>
+    <p>deconvolution, tumor microenvironment, single-cell, bulk RNA-seq, benchmarks, FFPE, spatial transcriptomics</p>
+  </div>
+</div>
+
+</header>
+
+
+<div class="tagline">
+<p>A social-blog walkthrough of a cancer-focused review that turns “Which method is best?” into the question we <em>should</em> be asking: “Which method is best <strong>for this dataset, in this setting, for this biological goal</strong>?”</p>
+</div>
+<section id="why-this-review-exists-and-why-its-overdue" class="level2">
+<h2 class="anchored" data-anchor-id="why-this-review-exists-and-why-its-overdue">Why this review exists (and why it’s overdue)</h2>
+<p>Single-cell RNA-seq changed what we believe is measurable: heterogeneity, rare populations, cellular states, trajectories. Yet when it comes to <strong>clinical-scale studies</strong>, bulk RNA-seq remains the workhorse—large cohorts, long-term outcomes, routine pipelines.</p>
+<p>That mismatch creates an everyday pain point:</p>
+<ul>
+<li>Bulk RNA-seq is everywhere (TCGA-scale, trial-scale, archive-scale).</li>
+<li>Single-cell is the map we wish we had for each sample.</li>
+<li><strong>Deconvolution</strong> is the bridge—turning a “blended signal” into interpretable cell-type or state-specific components.</li>
+</ul>
+<p>But in cancer, that bridge is shaky. Many tools validated on normal tissues break down when tumor plasticity, microenvironment complexity, and shifting expression programs violate the assumptions they quietly rely on.</p>
+<p>This is the motivation behind a new cancer-specific review: not a generic survey, but a <strong>field guide</strong> designed for researchers who need deconvolution to work <em>in tumor tissue, not just in principle</em>.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="At a glance">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+At a glance
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>What this article gives you</strong> - Why “best method” rankings are usually misleading in cancer deconvolution<br>
+- The review’s core shift: from ranking tables → <strong>decision-tree selection</strong><br>
+- A practical workflow for choosing methods based on <em>your</em> references, targets, and questions<br>
+- Where the field is heading next (FFPE, temporal models, spatial, and better benchmarks)</p>
+</div>
+</div>
+</section>
+<section id="the-core-problem-cancer-is-not-just-another-tissue" class="level2">
+<h2 class="anchored" data-anchor-id="the-core-problem-cancer-is-not-just-another-tissue">The core problem: cancer is not “just another tissue”</h2>
+<p>Cancer transcriptomes challenge deconvolution in three intertwined ways:</p>
+<ol type="1">
+<li><p><strong>Bridging single-cell and bulk</strong><br>
+Single-cell resolves heterogeneity, but bulk is where outcomes and scale live. The review treats deconvolution as the bridge between the two worlds—especially for clinical studies.</p></li>
+<li><p><strong>Tumor-specific complexity</strong><br>
+Tumor cells are not stable “cell types.” They can be plastic, evolving, and context-dependent—making fixed reference profiles a risky assumption.</p></li>
+<li><p><strong>Translation to impact</strong><br>
+The point isn’t only method development; it’s using deconvolution for tumor subtyping, response prediction, and biomarker discovery—without overpromising.</p></li>
+</ol>
+<p>A key unresolved question the review highlights is the <strong>“missing reference” problem</strong>: how do we build reference profiles that capture dynamic tumor states rather than pretending they’re static?</p>
+</section>
+<section id="the-milestone-that-changed-everything-stop-ranking-start-selecting" class="level2">
+<h2 class="anchored" data-anchor-id="the-milestone-that-changed-everything-stop-ranking-start-selecting">The milestone that changed everything: stop ranking, start selecting</h2>
+<p>One of the most memorable moments in writing the review was a realization that will feel familiar to anyone who has ever tried to “pick the best tool”:</p>
+<blockquote class="blockquote">
+<p>You can’t honestly rank methods as universally “best,” because performance depends on context—available reference data, target cell types, and the research question. Ranking tables collapse under exceptions.</p>
+</blockquote>
+<p>Instead of publishing rankings that mislead, the team pivoted to a <strong>decision-tree framework</strong>—a structured way to select methods based on what you <em>actually have</em> and what you <em>actually need</em>.</p>
+<p>This is a quiet but major philosophical shift:</p>
+<ul>
+<li>From <em>leaderboards</em> → to <em>decision support</em></li>
+<li>From “best overall” → to “best for your setting”</li>
+</ul>
+</section>
+<section id="whats-inside-the-review-in-human-terms" class="level2">
+<h2 class="anchored" data-anchor-id="whats-inside-the-review-in-human-terms">What’s inside the review (in human terms)</h2>
+<p>The review was built as a <strong>cancer-first guide</strong>. Rather than organizing around method families for their own sake, it’s organized around the biological questions cancer researchers walk in with.</p>
+<section id="a-map-of-the-landscapewithout-pretending-its-tidy" class="level3">
+<h3 class="anchored" data-anchor-id="a-map-of-the-landscapewithout-pretending-its-tidy">A map of the landscape—without pretending it’s tidy</h3>
+<p>The review includes a comprehensive catalog of methods (and just as importantly, clear criteria for inclusion/exclusion). Transparency is a theme: the team documents not only what they included, but also the methods they excluded and why.</p>
+</section>
+<section id="a-framework-that-respects-the-readers-constraints" class="level3">
+<h3 class="anchored" data-anchor-id="a-framework-that-respects-the-readers-constraints">A framework that respects the reader’s constraints</h3>
+<p>A big design constraint guided the writing:</p>
+<blockquote class="blockquote">
+<p>Could a cancer researcher <em>without</em> computational training understand the guidance and apply it responsibly?</p>
+</blockquote>
+<p>To make that possible, the review integrates expertise across: - single-cell reference-based approaches, - semi-reference approaches, - reference-free methods, - and clinical applications,</p>
+<p>then ties them together with a method-selection decision tree.</p>
+</section>
+<section id="milestones-in-building-the-review-behind-the-scenes" class="level3 milestone">
+<h3 class="anchored" data-anchor-id="milestones-in-building-the-review-behind-the-scenes">Milestones in building the review (behind the scenes)</h3>
+<ul>
+<li><strong>Problem observed in practice:</strong> cancer researchers struggled to choose methods; tools built for normal tissues often failed in tumors<br>
+</li>
+<li><strong>Intensive curation phase:</strong> systematic identification of relevant methods and explicit exclusion criteria<br>
+</li>
+<li><strong>Framework iteration:</strong> repeated revisions focused on clarity for non-computational readers<br>
+</li>
+<li><strong>Decision-tree pivot:</strong> abandoned simplistic “best method” rankings for context-aware selection<br>
+</li>
+<li><strong>Revision with reviewer feedback:</strong> strengthened cancer-specific emphasis and expanded clinical examples<br>
+</li>
+</ul>
+</section>
+</section>
+<section id="how-this-framework-may-change-day-to-day-research" class="level2">
+<h2 class="anchored" data-anchor-id="how-this-framework-may-change-day-to-day-research">How this framework may change day-to-day research</h2>
+<p>In the near term, the review’s promise is pragmatic: it can help researchers <strong>re-analyze existing bulk RNA-seq cohorts</strong> (including TCGA-scale data) to extract tumor microenvironment composition and tumor-specific signals—potentially uncovering biomarkers without collecting new data.</p>
+<p>In the next 3–5 years, the larger vision is clinical:</p>
+<ul>
+<li>deconvolution-derived immune proportions as validated prognostic markers,</li>
+<li>tumor microenvironment profiles predicting immunotherapy response,</li>
+<li>tumor-specific expression improving molecular subtyping,</li>
+<li>and stronger validation standards that make results comparable across studies.</li>
+</ul>
+</section>
+<section id="whats-still-broken-and-what-comes-next" class="level2">
+<h2 class="anchored" data-anchor-id="whats-still-broken-and-what-comes-next">What’s still broken (and what comes next)</h2>
+<p>The review is unusually explicit about limitations—because that’s how you prevent misuse.</p>
+<p>Examples of known hard zones include: - rare populations, - highly plastic tumor cells, - and FFPE samples.</p>
+<p>On the “next” front, the team describes follow-up work and community needs:</p>
+<ul>
+<li><strong>Practical tutorials</strong> (how to construct cancer-specific references, interpret results, avoid pitfalls)</li>
+<li><strong>Better benchmarks</strong> via matched bulk + single-cell datasets from the same samples</li>
+<li>Expanding opportunities in <strong>spatial transcriptomic deconvolution</strong> (including a method the team is developing, DeMixNB, available as a preprint)</li>
+<li>Methodological gaps: FFPE optimization, temporal modeling, rare-cell detection, and multi-modal integration (e.g., copy number, methylation)</li>
+</ul>
+</section>
+<section id="a-quick-note-for-the-ai-era-where-biostatistics-matters-most" class="level2">
+<h2 class="anchored" data-anchor-id="a-quick-note-for-the-ai-era-where-biostatistics-matters-most">A quick note for the AI era: where biostatistics matters most</h2>
+<p>Deconvolution is increasingly intertwined with AI pipelines, but the review team emphasizes something worth repeating:</p>
+<p>Biostatistics is what makes AI outputs <em>clinically usable</em>.</p>
+<p>Not by adding more models—but by enforcing: - evaluation that reflects real-world performance, - generalization checks across cancer types, - uncertainty quantification (not just point estimates), - and defenses against batch effects and biased references.</p>
+</section>
+<section id="meet-the-authors" class="level2">
+<h2 class="anchored" data-anchor-id="meet-the-authors">Meet the authors</h2>
+<p>This review reflects a collaboration spanning cancer genomics, tumor evolution, statistical genomics, and method development:</p>
+<ul>
+<li><strong>Wenyi Wang</strong> — Professor at UT MD Anderson (Bioinformatics &amp; Computational Biology; Biostatistics); contributions include MuSE, DeMixT, Famdenovo, and pan-cancer heterogeneity work<br>
+</li>
+<li><strong>Peter Van Loo</strong> — Professor and CPRIT scholar at UT MD Anderson (Genetics; Genomic Medicine), known for work on cancer evolution and tumor heterogeneity<br>
+</li>
+<li><strong>Yaoyi Dai, Shuai Guo, Yidan Pan, Carla Castignani, Matthew D. Montierth</strong> — researchers working across tumor evolution, deconvolution, benchmarking frameworks, and translational oncology</li>
+</ul>
+<hr>
+<div class="callout callout-style-default callout-tip callout-titled" title="Suggested placement on a StatsUpAI site">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Suggested placement on a StatsUpAI site
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This post works well as an “intro + highlights” page that links out to: - the full Q&amp;A transcript, - the review paper (once public), - and future tutorials / benchmarking resources when they release.</p>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<!-- GoatCounter Tracker -->
+<script data-goatcounter="https://statsupai.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
+
+<!-- Per-Page View Counter (Footer Style) -->
+<style>
+/*#goatcounter-footer {*/
+/*  display: flex; */
+/*  justify-content: left;*/
+/*  column-gap: 5px;*/
+/*  color: #8E8E8E; */
+/*  font-size: 13px; */
+/*  font-family: Arial, sans-serif;*/
+/*}*/
+/*#goatcounter-footer .statcounter {*/
+/*  font-family: 'Courier New', monospace; */
+/*  color: #0033cc; */
+/*  font-weight: bold; */
+/*  margin-left: 3px; */
+/*}*/
+
+#goatcounter-footer {
+  display: flex; 
+  align-items: center; 
+  column-gap: 5px;
+  color: #8E8E8E; 
+  font-size: 13px; 
+  font-family: Arial, sans-serif;
+}
+#goatcounter-footer .statcounter {
+  font-family: 'Courier New', monospace; 
+  color: #0033cc; 
+  font-weight: bold; 
+  margin-left: 3px; 
+}
+</style>
+
+<!-- GoatCounter Tracker -->
+<div id="goatcounter-footer"><span style="margin-left: 3px;">Loading views...</span></div>
+<script>
+    const path = window.location.pathname;
+    console.log('window.location.pathname:', path);
+    // If at the root, skip fetching views for now
+    if (path.endsWith('index.html') || path.endsWith('/posts/')) {
+      
+      const display = document.getElementById("goatcounter-footer");
+      if (display) {
+        display.innerHTML = "";
+        console.log("Skipping views for root path:", path);
+      }
+      
+    } else {
+      
+      // Trim path to remove everything before /quarto_web/site/ for easier local testing
+      var trimmedPath = path.replace(/^.*\/posts\//, '\/quarto_web\/site\/posts\/');
+      // If the path is exactly /posts/, set trimmedPath to the index.html file
+      if (path === '\/posts\/') {
+          console.log('Path is exactly /posts/, setting trimmedPath to index.html');
+          trimmedPath = '/quarto_web/site/posts/index.html';
+      }
+      console.log('trimmedPath:', trimmedPath);
+      
+      // setInterval to check every 100ms because GoatCounter may not be available immediately
+      var t = setInterval(function() {
+          console.log('Checking for GoatCounter availability...window.goatcounter:', window.goatcounter);
+          // Check if GoatCounter is available
+          if (window.goatcounter && window.goatcounter.visit_count) {
+
+              // GoatCounter is available, clear the timer
+              clearInterval(t)
+              // Update the display with the current visit count
+              const display = document.getElementById("goatcounter-footer");
+              if (display) {
+                display.innerHTML = '<span">Page Views: </span>';
+                console.log('display.innerHTML:', display.innerHTML);
+              }
+              
+              
+              goatcounter.visit_count({
+                no_branding: true,
+                path: trimmedPath,
+                append: '#goatcounter-footer', 
+                style: `
+                  div { 
+                    border-width: 0px;
+                    display: flex;
+                  }
+                  #gcvc-for {
+                    font-size: 0px;
+                  }
+                  #gcvc-views { 
+                      font-family: 'Courier New', monospace; 
+                      font-size: 13px;
+                      color: #0033cc; 
+                      font-weight: bold; 
+                      margin-top: 29px;
+                  }`
+              })
+
+          }
+      }, 100)
+      
+    }
+</script>
+
+
+
+
+
+
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

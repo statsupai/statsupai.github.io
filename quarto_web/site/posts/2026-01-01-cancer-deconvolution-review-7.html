@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.30">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Yulin Li">
+<meta name="dcterms.date" content="2026-01-01">
+<meta name="description" content="Wang et al.&nbsp;map transcriptomic deconvolution in cancer, explain what each class of methods can (and cannot) do, and offer a decision-tree workflow for choosing among 43 tools.">
+
+<title>A guide to transcriptomic deconvolution in cancer</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-c1fac2584b48ed01fb6e278e36375074.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<style>
+
+      .quarto-title-block .quarto-title-banner {
+        background: #afe1e32e;
+      }
+</style>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="quarto-light">
+
+<div id="quarto-search-results"></div>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">A guide to transcriptomic deconvolution in cancer</h1>
+            <p class="subtitle lead">A Nature Reviews Cancer synthesis turns 43 methods into a practical workflow</p>
+                  <div>
+        <div class="description">
+          Wang et al.&nbsp;map transcriptomic deconvolution in cancer, explain what each class of methods can (and cannot) do, and offer a decision-tree workflow for choosing among 43 tools.
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">Community News</div>
+                <div class="quarto-category">Cancer Genomics</div>
+                <div class="quarto-category">Transcriptomics</div>
+                <div class="quarto-category">Bioinformatics</div>
+                <div class="quarto-category">Review</div>
+              </div>
+                  </div>
+  </div>
+    
+  <div class="quarto-title-meta-author">
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-heading">Affiliation</div>
+    
+      <div class="quarto-title-meta-contents">
+      <p class="author">Yulin Li </p>
+    </div>
+    <div class="quarto-title-meta-contents">
+          <p class="affiliation">
+              Rutgers University
+            </p>
+        </div>
+    </div>
+
+  <div class="quarto-title-meta">
+
+        
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">January 1, 2026</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#why-this-review-and-why-now" id="toc-why-this-review-and-why-now" class="nav-link active" data-scroll-target="#why-this-review-and-why-now">Why this review, and why now</a></li>
+  <li><a href="#how-to-use-the-guide-a-quick-workflow" id="toc-how-to-use-the-guide-a-quick-workflow" class="nav-link" data-scroll-target="#how-to-use-the-guide-a-quick-workflow">How to use the guide: a quick workflow</a>
+  <ul class="collapse">
+  <li><a href="#what-are-you-trying-to-learn-from-bulk" id="toc-what-are-you-trying-to-learn-from-bulk" class="nav-link" data-scroll-target="#what-are-you-trying-to-learn-from-bulk">1) What are you trying to learn from bulk?</a></li>
+  <li><a href="#what-reference-information-do-you-have-and-what-can-you-validate" id="toc-what-reference-information-do-you-have-and-what-can-you-validate" class="nav-link" data-scroll-target="#what-reference-information-do-you-have-and-what-can-you-validate">2) What reference information do you have (and what can you validate)?</a></li>
+  <li><a href="#what-failure-modes-are-most-likely-in-your-setting" id="toc-what-failure-modes-are-most-likely-in-your-setting" class="nav-link" data-scroll-target="#what-failure-modes-are-most-likely-in-your-setting">3) What failure modes are most likely in your setting?</a></li>
+  </ul></li>
+  <li><a href="#clinical-translation-where-the-field-really-is" id="toc-clinical-translation-where-the-field-really-is" class="nav-link" data-scroll-target="#clinical-translation-where-the-field-really-is">Clinical translation: where the field really is</a></li>
+  <li><a href="#whats-next-directions-worth-watching" id="toc-whats-next-directions-worth-watching" class="nav-link" data-scroll-target="#whats-next-directions-worth-watching">What’s next: directions worth watching</a>
+  <ul class="collapse">
+  <li><a href="#ffpe-clinical-archives" id="toc-ffpe-clinical-archives" class="nav-link" data-scroll-target="#ffpe-clinical-archives">FFPE (clinical archives)</a></li>
+  <li><a href="#temporal-modeling-under-treatment" id="toc-temporal-modeling-under-treatment" class="nav-link" data-scroll-target="#temporal-modeling-under-treatment">Temporal modeling under treatment</a></li>
+  <li><a href="#multimodal-integration" id="toc-multimodal-integration" class="nav-link" data-scroll-target="#multimodal-integration">Multimodal integration</a></li>
+  <li><a href="#spatial-transcriptomics" id="toc-spatial-transcriptomics" class="nav-link" data-scroll-target="#spatial-transcriptomics">Spatial transcriptomics</a></li>
+  </ul></li>
+  <li><a href="#how-the-review-was-built-scope-and-transparency" id="toc-how-the-review-was-built-scope-and-transparency" class="nav-link" data-scroll-target="#how-the-review-was-built-scope-and-transparency">How the review was built: scope and transparency</a></li>
+  <li><a href="#what-reviewers-highlighted" id="toc-what-reviewers-highlighted" class="nav-link" data-scroll-target="#what-reviewers-highlighted">What reviewers highlighted</a></li>
+  <li><a href="#a-stats-ai-lens-what-makes-deconvolution-trustworthy" id="toc-a-stats-ai-lens-what-makes-deconvolution-trustworthy" class="nav-link" data-scroll-target="#a-stats-ai-lens-what-makes-deconvolution-trustworthy">A stats + AI lens: what makes deconvolution trustworthy</a></li>
+  <li><a href="#suggested-citation-and-resources" id="toc-suggested-citation-and-resources" class="nav-link" data-scroll-target="#suggested-citation-and-resources">Suggested citation and resources</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<p>Bulk RNA-seq is still the backbone of many cancer studies—especially large cohorts with clinical outcomes—but tumors are mixtures. Cancer cells, immune cells, and stroma all contribute to one averaged signal. Transcriptomic <strong>deconvolution</strong> aims to disentangle that mixture: estimate cell-type composition, recover compartment-specific expression, and make bulk datasets more interpretable.</p>
+<p>A new <em>Nature Reviews Cancer</em> synthesis by Wenyi Wang and colleagues tackles a practical pain point many researchers share: there are now <em>dozens</em> of deconvolution methods, and method choice is often confusing in real tumor settings. Their core message is refreshingly grounded: there isn’t a universal “best” method. Instead, the most useful contribution is a <strong>navigation guide</strong> that helps you choose a tool based on your biological question, what reference information you have, and how you plan to validate results.</p>
+<p>Paper link:</p>
+<pre class="text"><code>https://rdcu.be/eSL4d</code></pre>
+<section id="why-this-review-and-why-now" class="level2">
+<h2 class="anchored" data-anchor-id="why-this-review-and-why-now">Why this review, and why now</h2>
+<p>Deconvolution matured quickly: method families expanded, benchmarks multiplied, and “best method” narratives became tempting. But cancer adds complications that make one-size-fits-all recommendations risky:</p>
+<ul>
+<li>tumor expression programs shift with context (plasticity, evolution, treatment pressure)</li>
+<li>reference profiles are often incomplete or mismatched to the tumor setting (“missing reference” in practice)</li>
+<li>validation can be hard, because gold standards are limited and often indirect</li>
+</ul>
+<p>The review is written with this reality in mind: it treats method selection as part of an <em>inference workflow</em>, not a menu choice.</p>
+</section>
+<section id="how-to-use-the-guide-a-quick-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-use-the-guide-a-quick-workflow">How to use the guide: a quick workflow</h2>
+<p>The review’s signature choice is to avoid simple rankings and instead provide a <strong>decision-tree style workflow</strong>. A compact way to apply that logic is to answer three questions:</p>
+<section id="what-are-you-trying-to-learn-from-bulk" class="level3">
+<h3 class="anchored" data-anchor-id="what-are-you-trying-to-learn-from-bulk">1) What are you trying to learn from bulk?</h3>
+<p>Common aims include:</p>
+<ul>
+<li>estimating immune / TME composition at broad cell-class resolution</li>
+<li>characterizing tumor–stroma–immune ecosystem patterns</li>
+<li>extracting tumor-specific signals for subtyping, prognosis, or treatment response modeling</li>
+</ul>
+</section>
+<section id="what-reference-information-do-you-have-and-what-can-you-validate" class="level3">
+<h3 class="anchored" data-anchor-id="what-reference-information-do-you-have-and-what-can-you-validate">2) What reference information do you have (and what can you validate)?</h3>
+<p>Method families differ mainly in <em>how much prior reference structure they assume</em>:</p>
+<ul>
+<li><strong>reference-based</strong>: rely on known expression signatures or reference profiles</li>
+<li><strong>single-cell reference-based</strong>: build signatures from scRNA-seq (powerful, but sensitive to reference quality and mismatch)</li>
+<li><strong>semi-reference</strong>: combine known components with flexibility for unknown tumor programs</li>
+<li><strong>reference-free</strong>: attempt to infer components without explicit references (promising, but often harder to interpret and validate)</li>
+</ul>
+<p>The guide’s intent is to route you to a family that fits your constraints, not to prescribe a single tool.</p>
+</section>
+<section id="what-failure-modes-are-most-likely-in-your-setting" class="level3">
+<h3 class="anchored" data-anchor-id="what-failure-modes-are-most-likely-in-your-setting">3) What failure modes are most likely in your setting?</h3>
+<p>Two common “silent failure” risks to plan around:</p>
+<ul>
+<li><strong>collinearity</strong>: closely related immune states share markers; fine-resolution targets can become unstable</li>
+<li><strong>rare populations</strong>: very small fractions are hard to quantify reliably and easy to over-interpret</li>
+</ul>
+<p>If you publish deconvolution results, it’s worth stating (briefly) what you did to sanity-check them and what you consider out-of-scope for your chosen method.</p>
+</section>
+</section>
+<section id="clinical-translation-where-the-field-really-is" class="level2">
+<h2 class="anchored" data-anchor-id="clinical-translation-where-the-field-really-is">Clinical translation: where the field really is</h2>
+<p>One of the most candid parts of the interview context is that deconvolution is still underused in clinical trials beyond exploratory analyses. That gap is not just about algorithms—it’s about standardization and interpretation:</p>
+<ul>
+<li>inconsistent sample preparation and profiling protocols (especially across preservation types)</li>
+<li>uncertainty about method selection for specific clinical questions</li>
+<li>missing thresholds for what constitutes a clinically meaningful change in a deconvolved metric</li>
+</ul>
+<p>This is where a decision-tree style review can have outsized impact: it reduces friction for researchers who want to use deconvolution responsibly, without implying false certainty.</p>
+</section>
+<section id="whats-next-directions-worth-watching" class="level2">
+<h2 class="anchored" data-anchor-id="whats-next-directions-worth-watching">What’s next: directions worth watching</h2>
+<p>The interview highlights several frontiers that are especially relevant to method developers and translational teams:</p>
+<section id="ffpe-clinical-archives" class="level3">
+<h3 class="anchored" data-anchor-id="ffpe-clinical-archives">FFPE (clinical archives)</h3>
+<p>If deconvolution can be made robust for FFPE-derived expression profiles, it opens vast retrospective clinical resources. But it also raises new benchmarking and cross-platform comparability demands.</p>
+</section>
+<section id="temporal-modeling-under-treatment" class="level3">
+<h3 class="anchored" data-anchor-id="temporal-modeling-under-treatment">Temporal modeling under treatment</h3>
+<p>Tumor ecosystems evolve. Longitudinal sampling invites methods that can model trajectories (not just static mixtures) while handling noise, missingness, and treatment-driven shifts.</p>
+</section>
+<section id="multimodal-integration" class="level3">
+<h3 class="anchored" data-anchor-id="multimodal-integration">Multimodal integration</h3>
+<p>Pairing bulk transcriptomics with copy-number, methylation, imaging, or other signals may improve identifiability and interpretation—especially when transcript-only references are weak.</p>
+</section>
+<section id="spatial-transcriptomics" class="level3">
+<h3 class="anchored" data-anchor-id="spatial-transcriptomics">Spatial transcriptomics</h3>
+<p>Spatial data adds the “where,” not just “what.” Spatially aware deconvolution is an opportunity area for both methodological innovation and better biological validation.</p>
+</section>
+</section>
+<section id="how-the-review-was-built-scope-and-transparency" class="level2">
+<h2 class="anchored" data-anchor-id="how-the-review-was-built-scope-and-transparency">How the review was built: scope and transparency</h2>
+<p>This review is unusually intentional about usability and trust:</p>
+<ul>
+<li>It curates a large method landscape (43 methods) and aims to be explicit about scope.</li>
+<li>It documents inclusion/exclusion decisions rather than quietly omitting tools.</li>
+<li>It iterates on figures and framing to be useful to cancer researchers who may not be computational specialists.</li>
+</ul>
+<p>That design philosophy is part of the message: method guidance needs to be easy to apply <em>and</em> hard to misuse.</p>
+</section>
+<section id="what-reviewers-highlighted" class="level2">
+<h2 class="anchored" data-anchor-id="what-reviewers-highlighted">What reviewers highlighted</h2>
+<p>From the interview context, a few themes stood out in how experts responded to the manuscript:</p>
+<ul>
+<li>the value of a comprehensive, structured catalog (not just a partial tour)</li>
+<li>the practical usefulness of the decision-tree framing</li>
+<li>a clear separation between methods with strong cancer-relevant validation and those with weaker or less targeted evidence</li>
+<li>credibility strengthened by the authors’ long-standing involvement in deconvolution method development</li>
+</ul>
+<p>For readers, this helps answer the question “why read this review instead of just skimming a benchmark figure?”</p>
+</section>
+<section id="a-stats-ai-lens-what-makes-deconvolution-trustworthy" class="level2">
+<h2 class="anchored" data-anchor-id="a-stats-ai-lens-what-makes-deconvolution-trustworthy">A stats + AI lens: what makes deconvolution trustworthy</h2>
+<p>The interview also underscores what biostatistics and careful evaluation add beyond “run the algorithm and report the output”:</p>
+<ul>
+<li>benchmarks that reflect real tumor complexity (not only clean simulations)</li>
+<li>checks for generalization across cancer types and cohorts</li>
+<li>attention to batch effects, reference-target mismatch, and biased training data</li>
+<li>uncertainty quantification where conclusions could influence biomedical interpretation</li>
+</ul>
+<p>If you take one principle from the review, it’s this: <strong>deconvolution outputs are estimates, not ground truth</strong>—and the responsible workflow is the one that makes assumptions and validation steps visible.</p>
+</section>
+<section id="suggested-citation-and-resources" class="level2">
+<h2 class="anchored" data-anchor-id="suggested-citation-and-resources">Suggested citation and resources</h2>
+<p>Paper short link:</p>
+<pre class="text"><code>https://rdcu.be/eSL4d</code></pre>
+<p>If you’re new to the area, start by reading the decision-tree workflow and the sections on benchmarking/validation before diving into method-specific details.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<!-- GoatCounter Tracker -->
+<script data-goatcounter="https://statsupai.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
+
+<!-- Per-Page View Counter (Footer Style) -->
+<style>
+/*#goatcounter-footer {*/
+/*  display: flex; */
+/*  justify-content: left;*/
+/*  column-gap: 5px;*/
+/*  color: #8E8E8E; */
+/*  font-size: 13px; */
+/*  font-family: Arial, sans-serif;*/
+/*}*/
+/*#goatcounter-footer .statcounter {*/
+/*  font-family: 'Courier New', monospace; */
+/*  color: #0033cc; */
+/*  font-weight: bold; */
+/*  margin-left: 3px; */
+/*}*/
+
+#goatcounter-footer {
+  display: flex; 
+  align-items: center; 
+  column-gap: 5px;
+  color: #8E8E8E; 
+  font-size: 13px; 
+  font-family: Arial, sans-serif;
+}
+#goatcounter-footer .statcounter {
+  font-family: 'Courier New', monospace; 
+  color: #0033cc; 
+  font-weight: bold; 
+  margin-left: 3px; 
+}
+</style>
+
+<!-- GoatCounter Tracker -->
+<div id="goatcounter-footer"><span style="margin-left: 3px;">Loading views...</span></div>
+<script>
+    const path = window.location.pathname;
+    console.log('window.location.pathname:', path);
+    // If at the root, skip fetching views for now
+    if (path.endsWith('index.html') || path.endsWith('/posts/')) {
+      
+      const display = document.getElementById("goatcounter-footer");
+      if (display) {
+        display.innerHTML = "";
+        console.log("Skipping views for root path:", path);
+      }
+      
+    } else {
+      
+      // Trim path to remove everything before /quarto_web/site/ for easier local testing
+      var trimmedPath = path.replace(/^.*\/posts\//, '\/quarto_web\/site\/posts\/');
+      // If the path is exactly /posts/, set trimmedPath to the index.html file
+      if (path === '\/posts\/') {
+          console.log('Path is exactly /posts/, setting trimmedPath to index.html');
+          trimmedPath = '/quarto_web/site/posts/index.html';
+      }
+      console.log('trimmedPath:', trimmedPath);
+      
+      // setInterval to check every 100ms because GoatCounter may not be available immediately
+      var t = setInterval(function() {
+          console.log('Checking for GoatCounter availability...window.goatcounter:', window.goatcounter);
+          // Check if GoatCounter is available
+          if (window.goatcounter && window.goatcounter.visit_count) {
+
+              // GoatCounter is available, clear the timer
+              clearInterval(t)
+              // Update the display with the current visit count
+              const display = document.getElementById("goatcounter-footer");
+              if (display) {
+                display.innerHTML = '<span">Page Views: </span>';
+                console.log('display.innerHTML:', display.innerHTML);
+              }
+              
+              
+              goatcounter.visit_count({
+                no_branding: true,
+                path: trimmedPath,
+                append: '#goatcounter-footer', 
+                style: `
+                  div { 
+                    border-width: 0px;
+                    display: flex;
+                  }
+                  #gcvc-for {
+                    font-size: 0px;
+                  }
+                  #gcvc-views { 
+                      font-family: 'Courier New', monospace; 
+                      font-size: 13px;
+                      color: #0033cc; 
+                      font-weight: bold; 
+                      margin-top: 29px;
+                  }`
+              })
+
+          }
+      }, 100)
+      
+    }
+</script>
+
+
+
+
+
+
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

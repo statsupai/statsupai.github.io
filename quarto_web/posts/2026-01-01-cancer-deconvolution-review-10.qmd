@@ -1,0 +1,164 @@
+---
+title: "A guide to transcriptomic deconvolution in cancer"
+subtitle: "An interview on turning 43 methods into a workflow cancer researchers can actually use"
+date: 2026-01-01
+categories:
+  - Interviews
+author:
+  - name: "Yulin Li"
+    affiliation: "Rutgers University"
+toc: true
+toc-depth: 4
+format:
+  html:
+    anchor-sections: true
+    fig-cap-location: bottom
+    smooth-scroll: true
+    code-fold: true
+title-block-banner: "#3a988a0e"
+image: "images/cover-landscape.jpg"
+description: "The authors of a Nature Reviews Cancer guide explain why tumor deconvolution is hard, why leaderboards fail, and how a decision-tree workflow helps researchers choose and validate methods responsibly."
+---
+
+<!--
+Cover image instructions:
+Place a landscape photo with a deep background color at `images/cover-landscape.jpg`.
+
+Suggested caption (place near the image if you include it in the body):
+*Dr. Wenyi Wang (left) and Yaoyi Dai (right)
+-->
+
+Bulk RNA-seq is still the workhorse of cancer transcriptomics—especially for large cohorts with clinical outcomes. But tumors are mixtures: malignant cells, immune cells, and stroma all speak at once, and bulk data records their *chorus*, not each *voice*.
+
+**Transcriptomic deconvolution** is the set of methods that tries to separate that chorus into interpretable parts: *who is present* (cell-type proportions) and, increasingly, *what each component is expressing* (cell-type–specific profiles).
+
+This post is based on an interview with the authors of a Nature Reviews Cancer review that cataloged **43 deconvolution methods**—and then did something more useful than a leaderboard: it built a **workflow** for choosing methods responsibly in cancer.
+
+## The uncomfortable truth: “best method” is usually the wrong question
+
+If you’ve ever searched “best deconvolution method,” you’ve already felt the problem: answers rarely match your data, your references, your cancer type, or your downstream claim.
+
+The authors described a key turning point while writing the review: they *tried* to rank methods, then kept finding exceptions—until the ranking tables became meaningless. The honest conclusion was simple:
+
+**Performance depends on context.**  
+What references you have, what cell types you care about, and what you want to infer all change what “good” looks like.
+
+So they replaced rankings with a **decision-tree framework**: a way to pick a method class that fits *your* situation.
+
+## Why cancer is not “just another tissue”
+
+Many deconvolution methods were developed (and validated) in settings where “cell types” are relatively stable and references transfer cleanly. Cancer breaks those assumptions in at least three ways:
+
+- **Tumor cell plasticity:** malignant programs shift with microenvironment and therapy.
+- **Extreme heterogeneity:** mixtures can be more complex than typical benchmarks.
+- **The “missing reference” problem:** we often lack reference profiles that capture dynamic malignant states.
+
+This is why a cancer-specific guide matters: it isn’t only about computing proportions—it’s about avoiding confident claims that the data cannot support.
+
+## Before you pick a method, answer these two questions
+
+Most practical choices reduce to two decisions:
+
+### 1) What is your target output?
+
+- **Cell composition**: proportions of immune/stromal/tumor-related populations  
+- **Cell-type–specific expression**: deconvolved profiles for tumor and/or microenvironment  
+- **Both** (harder than it sounds; requires stronger assumptions and validation)
+
+Be explicit. Many misinterpretations start when a tool output is treated as something it was never designed to estimate.
+
+### 2) What reference information do you actually have?
+
+- **Single-cell reference available** (ideally tumor-matched; sometimes tumor-adjacent)
+- **Partial reference / semi-reference** (some anchors, but not a full atlas)
+- **No reliable reference** (reference-free / unsupervised approaches)
+
+This is where the review’s decision tree earns its keep: it guides you to a method *family* that matches your reference reality, instead of forcing a one-size-fits-all choice.
+
+## A practical workflow you can run with
+
+A useful deconvolution analysis is not “run tool → get numbers.” It’s closer to:
+
+1. **Define your claim up front**  
+   What would you conclude if the result looks strong? What would change your mind?
+
+2. **Choose the method class using your constraints**  
+   Start from reference availability and target output—then narrow within that class.
+
+3. **Stress-test assumptions, not just accuracy**  
+   Ask what happens when:
+   - key cell populations are rare,
+   - malignant states are plastic,
+   - batch effects differ between reference and target data.
+
+4. **Validate with orthogonal signals**  
+   If a result matters, it deserves at least one independent sanity check:
+   pathology estimates, marker genes, known biology, paired modalities, or other corroborating evidence.
+
+5. **Report uncertainty and limitations like first-class results**  
+   A point estimate without uncertainty invites overclaiming.
+   A limitations paragraph written early prevents you from “discovering” certainty later.
+
+::: {.callout-tip title="A good deconvolution result should survive one hostile question"}
+If a skeptical colleague asked *“How do you know this isn’t reference mismatch or batch effect?”*  
+your analysis should already contain the answer—or admit that it doesn’t.
+:::
+
+## What the review enables immediately
+
+The authors emphasized a near-term payoff: **re-analyzing existing bulk datasets** (e.g., TCGA-scale cohorts) to extract tumor microenvironment composition and tumor-specific signals—sometimes discovering biomarkers without generating new data.
+
+They also pointed to an important sign of maturity: clinical trials are starting to incorporate deconvolution-derived metrics as **secondary outcomes**. That’s not “routine clinical use” yet—but it’s a real bridge from method papers to practice.
+
+## Where the field is going next
+
+The review highlights several directions that would materially expand what deconvolution can do in cancer:
+
+- **FFPE-compatible deconvolution** to unlock massive clinical archives
+- **Temporal models** to track composition and programs during treatment
+- **Multi-modal integration** (e.g., copy number, methylation) to reduce ambiguity
+- **Spatial transcriptomics extensions** to connect “who is present” with “where they are” and “who interacts with whom”
+
+The authors also mentioned active follow-ups: practical tutorials (how to build cancer-specific references, interpret outputs, and avoid pitfalls) and collaborations to generate **matched bulk + single-cell** datasets for better benchmarking—still rare, but crucial.
+
+## Behind the scenes: what made this review “actionable” instead of “exhaustive”
+
+Two choices shaped the review’s tone and usefulness:
+
+- **Problem-first organization:** the guide is structured around the biological questions cancer researchers face, not around method taxonomy.
+- **Transparency over marketing:** documenting limitations (and even excluded methods) was extra work, but it prevents the review from becoming a hype vehicle.
+
+One surprise that influenced their emphasis: despite years of algorithm development, relatively few clinical trials use deconvolution beyond exploratory analyses—so the true bottleneck is often **translation**, not sophistication.
+
+## Biostatistics × AI: the missing layer in many method discussions
+
+“AI performance” can look impressive on paper, especially on simulated mixtures. The authors framed biostatistics as the discipline that forces reality checks:
+
+- Do metrics reflect *tumor* complexity, not convenient benchmarks?
+- Do results generalize across cancer types and cohorts?
+- Where is the uncertainty quantification—especially if outputs might influence decisions?
+- Are we detecting batch effects, reference mismatch, and systematic bias before a model “learns” them?
+
+In other words: biostatistics is how deconvolution becomes trustworthy, not just clever.
+
+## Meet the authors
+
+**Yaoyi Dai** — Graduate research assistant (MD Anderson) and PhD candidate (Baylor). Develops and applies deconvolution methods in cancer genomics, including multi-omics integration for biomarker discovery and tumor microenvironment characterization.
+
+**Shuai Guo** — Postdoctoral fellow (Emory). Works on single-cell reference-based deconvolution and benchmarking frameworks, with attention to platform-specific bias when integrating single-cell and bulk RNA-seq.
+
+**Yidan Pan** — Data Scientist (MD Anderson, Van Loo lab). Focuses on cancer genomics and clinical translation, studying tumor evolution through spatiotemporal single-cell genomic and transcriptomic analyses (including MPNST).
+
+**Carla Castignani** — Graduate research assistant and PhD student (Francis Crick Institute, Van Loo group). Works on tumor evolution and heterogeneity, with expertise in reference-free deconvolution and applications to complex cancer genomics datasets.
+
+**Matthew D. Montierth** — Data Scientist (MD Anderson, Wang lab). Works on semi-reference deconvolution, subclonal reconstruction, and statistical modeling of tumor heterogeneity.
+
+**Peter Van Loo** — Professor and CPRIT scholar (MD Anderson; Genetics + Genomic Medicine). Studies cancer evolutionary history and subclonal architecture using massively parallel sequencing.
+
+**Wenyi Wang** — Professor of Bioinformatics/Computational Biology and Biostatistics (MD Anderson). Develops statistical methods in cancer genomics, including DeMixT and other tools linking computational insights to translational impact.
+
+## Paper link
+
+Include your preferred canonical link here (publisher page, PubMed, or the share link you used in outreach).
+For example:
+- https://rdcu.be/eSL4d

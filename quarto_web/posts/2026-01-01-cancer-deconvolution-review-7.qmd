@@ -1,0 +1,150 @@
+---
+title: "A guide to transcriptomic deconvolution in cancer"
+subtitle: "A Nature Reviews Cancer synthesis turns 43 methods into a practical workflow"
+date: 2026-01-01
+categories:
+  - Community News
+  - Cancer Genomics
+  - Transcriptomics
+  - Bioinformatics
+  - Review
+author:
+  - name: "Yulin Li"
+    affiliation: "Rutgers University"
+toc: true
+toc-depth: 3
+format:
+  html:
+    anchor-sections: true
+    fig-cap-location: bottom
+    smooth-scroll: true
+    code-fold: true
+title-block-banner: "#afe1e32e"
+image: "images/cover-landscape.jpg"
+description: "Wang et al. map transcriptomic deconvolution in cancer, explain what each class of methods can (and cannot) do, and offer a decision-tree workflow for choosing among 43 tools."
+---
+
+Bulk RNA-seq is still the backbone of many cancer studies—especially large cohorts with clinical outcomes—but tumors are mixtures. Cancer cells, immune cells, and stroma all contribute to one averaged signal. Transcriptomic **deconvolution** aims to disentangle that mixture: estimate cell-type composition, recover compartment-specific expression, and make bulk datasets more interpretable.
+
+A new *Nature Reviews Cancer* synthesis by Wenyi Wang and colleagues tackles a practical pain point many researchers share: there are now *dozens* of deconvolution methods, and method choice is often confusing in real tumor settings. Their core message is refreshingly grounded: there isn’t a universal “best” method. Instead, the most useful contribution is a **navigation guide** that helps you choose a tool based on your biological question, what reference information you have, and how you plan to validate results.
+
+Paper link:
+```text
+https://rdcu.be/eSL4d
+```
+
+## Why this review, and why now
+
+Deconvolution matured quickly: method families expanded, benchmarks multiplied, and “best method” narratives became tempting. But cancer adds complications that make one-size-fits-all recommendations risky:
+
+* tumor expression programs shift with context (plasticity, evolution, treatment pressure)
+* reference profiles are often incomplete or mismatched to the tumor setting (“missing reference” in practice)
+* validation can be hard, because gold standards are limited and often indirect
+
+The review is written with this reality in mind: it treats method selection as part of an *inference workflow*, not a menu choice.
+
+## How to use the guide: a quick workflow
+
+The review’s signature choice is to avoid simple rankings and instead provide a **decision-tree style workflow**. A compact way to apply that logic is to answer three questions:
+
+### 1) What are you trying to learn from bulk?
+
+Common aims include:
+
+* estimating immune / TME composition at broad cell-class resolution
+* characterizing tumor–stroma–immune ecosystem patterns
+* extracting tumor-specific signals for subtyping, prognosis, or treatment response modeling
+
+### 2) What reference information do you have (and what can you validate)?
+
+Method families differ mainly in *how much prior reference structure they assume*:
+
+* **reference-based**: rely on known expression signatures or reference profiles
+* **single-cell reference-based**: build signatures from scRNA-seq (powerful, but sensitive to reference quality and mismatch)
+* **semi-reference**: combine known components with flexibility for unknown tumor programs
+* **reference-free**: attempt to infer components without explicit references (promising, but often harder to interpret and validate)
+
+The guide’s intent is to route you to a family that fits your constraints, not to prescribe a single tool.
+
+### 3) What failure modes are most likely in your setting?
+
+Two common “silent failure” risks to plan around:
+
+* **collinearity**: closely related immune states share markers; fine-resolution targets can become unstable
+* **rare populations**: very small fractions are hard to quantify reliably and easy to over-interpret
+
+If you publish deconvolution results, it’s worth stating (briefly) what you did to sanity-check them and what you consider out-of-scope for your chosen method.
+
+## Clinical translation: where the field really is
+
+One of the most candid parts of the interview context is that deconvolution is still underused in clinical trials beyond exploratory analyses. That gap is not just about algorithms—it’s about standardization and interpretation:
+
+* inconsistent sample preparation and profiling protocols (especially across preservation types)
+* uncertainty about method selection for specific clinical questions
+* missing thresholds for what constitutes a clinically meaningful change in a deconvolved metric
+
+This is where a decision-tree style review can have outsized impact: it reduces friction for researchers who want to use deconvolution responsibly, without implying false certainty.
+
+## What’s next: directions worth watching
+
+The interview highlights several frontiers that are especially relevant to method developers and translational teams:
+
+### FFPE (clinical archives)
+
+If deconvolution can be made robust for FFPE-derived expression profiles, it opens vast retrospective clinical resources. But it also raises new benchmarking and cross-platform comparability demands.
+
+### Temporal modeling under treatment
+
+Tumor ecosystems evolve. Longitudinal sampling invites methods that can model trajectories (not just static mixtures) while handling noise, missingness, and treatment-driven shifts.
+
+### Multimodal integration
+
+Pairing bulk transcriptomics with copy-number, methylation, imaging, or other signals may improve identifiability and interpretation—especially when transcript-only references are weak.
+
+### Spatial transcriptomics
+
+Spatial data adds the “where,” not just “what.” Spatially aware deconvolution is an opportunity area for both methodological innovation and better biological validation.
+
+## How the review was built: scope and transparency
+
+This review is unusually intentional about usability and trust:
+
+* It curates a large method landscape (43 methods) and aims to be explicit about scope.
+* It documents inclusion/exclusion decisions rather than quietly omitting tools.
+* It iterates on figures and framing to be useful to cancer researchers who may not be computational specialists.
+
+That design philosophy is part of the message: method guidance needs to be easy to apply *and* hard to misuse.
+
+## What reviewers highlighted
+
+From the interview context, a few themes stood out in how experts responded to the manuscript:
+
+* the value of a comprehensive, structured catalog (not just a partial tour)
+* the practical usefulness of the decision-tree framing
+* a clear separation between methods with strong cancer-relevant validation and those with weaker or less targeted evidence
+* credibility strengthened by the authors’ long-standing involvement in deconvolution method development
+
+For readers, this helps answer the question “why read this review instead of just skimming a benchmark figure?”
+
+## A stats + AI lens: what makes deconvolution trustworthy
+
+The interview also underscores what biostatistics and careful evaluation add beyond “run the algorithm and report the output”:
+
+* benchmarks that reflect real tumor complexity (not only clean simulations)
+* checks for generalization across cancer types and cohorts
+* attention to batch effects, reference-target mismatch, and biased training data
+* uncertainty quantification where conclusions could influence biomedical interpretation
+
+If you take one principle from the review, it’s this: **deconvolution outputs are estimates, not ground truth**—and the responsible workflow is the one that makes assumptions and validation steps visible.
+
+## Suggested citation and resources
+
+Paper short link:
+
+```text
+https://rdcu.be/eSL4d
+```
+
+If you’re new to the area, start by reading the decision-tree workflow and the sections on benchmarking/validation before diving into method-specific details.
+
+

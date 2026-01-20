@@ -1,0 +1,135 @@
+---
+title: "A guide to transcriptomic deconvolution in cancer"
+subtitle: "A Nature Reviews Cancer synthesis turns 43 methods into a practical workflow"
+date: 2026-01-01
+categories:
+  - Interviews
+author:
+  - name: "Yulin Li"
+    affiliation: "Rutgers University"
+toc: true
+toc-depth: 4
+format:
+  html:
+    anchor-sections: true
+    fig-cap-location: bottom
+    smooth-scroll: true
+    code-fold: true
+title-block-banner: "#3a988a0e"
+image: "images/cover-landscape.jpg"
+description: "Dai et al. (Nature Reviews Cancer) map transcriptomic deconvolution in cancer, explain what each class of methods can (and cannot) do, and offer a decision-tree workflow for choosing among 43 tools."
+---
+
+<!-- Cover image placeholder:
+Add a landscape photo with a deep background color and save as `images/cover-landscape.jpg`.
+Suggested caption: “Dr. Wenyi Wang (left) and Yaoyi Dai (right).” -->
+
+Bulk RNA-seq is still the backbone of many cancer studies—especially large cohorts with clinical outcomes—but tumors are mixtures. Cancer cells, immune cells, and stromal cells all contribute to one averaged signal. 
+
+Transcriptomic **deconvolution** is the family of computational ideas that tries to separate that mixture into meaningful parts: *who is there* (cell-type proportions) and, increasingly, *what each component is expressing* (cell-type-specific profiles).
+
+A newly published **Nature Reviews Cancer** review, *A guide to transcriptomic deconvolution in cancer*, is built to answer a practical question many labs quietly struggle with:
+
+> “Which deconvolution approach should I use for my tumor data—and what should I *not* claim from it?”
+
+The authors (Yaoyi Dai, Shuai Guo, Yidan Pan, Carla Castignani, Matthew D. Montierth, Peter Van Loo, and Wenyi Wang) catalog **43 methods**, explain cancer-specific failure modes, and—most importantly—replace “method leaderboards” with a **decision-tree workflow** for method selection.  
+(Review Article, 02 Dec 2025; DOI: 10.1038/s41568-025-00886-9)  
+https://pubmed.ncbi.nlm.nih.gov/41331516/
+
+## Why cancer deconvolution is different
+
+In many healthy-tissue settings, a “cell type” can be treated as a reasonably stable reference. Cancer breaks that assumption.
+
+The review highlights two reasons this field needs cancer-specific guidance:
+
+- **Tumor cell plasticity:** malignant programs shift with microenvironment and treatment, so “the tumor reference” is often a moving target.
+- **Extreme heterogeneity:** tumors violate the simplifying assumptions that many deconvolution tools inherited from blood or normal tissue benchmarks.
+
+This matters because the consequences of “getting it wrong” aren’t just academic. In cancer, deconvolution is increasingly used for **tumor subtyping**, **treatment response prediction**, and **biomarker discovery**—where overconfident outputs can mislead downstream decisions.
+
+## From 43 methods to a workflow you can actually use
+
+Instead of ranking tools from “best to worst,” the authors argue that performance is **scenario-dependent**: what data you have, what biological question you’re asking, and how realistic your reference profiles are.
+
+Their solution is a **decision-tree framework** (the centerpiece of the review) that helps you pick a method class based on your constraints—whether you have:
+
+- a good **single-cell reference** (from matched tumors or close surrogates),
+- partial references (semi-reference settings),
+- or no reliable reference at all (reference-free approaches).
+
+The review also flags a recurring pain point in the literature: many tools are validated on **peripheral blood** or **cell-line mixtures**, then advertised as “cancer-ready,” even though real tumors are harder. The guide is explicit about which methods have **rigorous cancer-relevant validation** and which ones still rely on optimistic benchmarks.
+
+::: {.callout-tip title="Before you run a deconvolution tool on tumor bulk RNA-seq"}
+A quick checklist the review implicitly encourages:
+
+- **Name your output:** do you need *cell proportions*, *tumor-specific expression*, or *both*?
+- **Interrogate the reference:** is it tumor-matched, tumor-adjacent, or a convenient substitute?
+- **Expect plasticity:** tumor states may not map cleanly to fixed labels.
+- **Validate with orthogonal signals:** marker genes, pathology estimates, IHC, CNV signals, or known biology—anything beyond a single number.
+- **Treat uncertainty as a feature:** a point estimate without uncertainty is not “ground truth.”
+- **Write the limitations section early:** if you can’t describe where it fails, you’re not ready to interpret where it “works.”
+:::
+
+## The unresolved problem hiding behind many “good-looking” results
+
+A core unresolved question the authors emphasize is what they call the **“missing reference” problem**: even with single-cell atlases, we often lack comprehensive profiles that capture **dynamic malignant states** (especially across treatment and progression).
+
+That missing reference problem shows up as:
+- unstable estimates across datasets,
+- inconsistent tumor signatures,
+- and difficulty separating “new tumor states” from technical mismatch.
+
+The review argues that progress here will require better **benchmarking culture**, including more studies with **matched bulk and single-cell data from the same samples**—still rare due to cost and logistics.
+
+## Where the field is going next
+
+The review’s future-facing sections read like a roadmap:
+
+- **FFPE-compatible deconvolution** to unlock massive clinical archives.
+- **Temporal models** that track how composition and programs shift during therapy.
+- **Multi-modal integration** (e.g., expression with copy number and methylation).
+- **Spatial transcriptomics extensions** that move from “what’s present” to “where it sits” and “who interacts with whom” in tumor architecture.
+
+If these pieces mature, the authors anticipate deconvolution-derived metrics—like immune proportions or tumor-specific mRNA abundance—could become **validated prognostic markers**, and eventually routine in clinical research workflows.
+
+## Behind the review: the turning point that made it useful
+
+One memorable pivot during writing: the team initially tried to produce ranking tables (“top methods”), but kept running into exceptions. In the end, they concluded that a universal leaderboard would be misleading—so they leaned into complexity and built a **decision-tree** instead.
+
+The process also included real collaboration friction: coordinating across time zones, debating where certain methods belong, and choosing transparency (for example, documenting excluded methods) even when it added work.
+
+A surprise that shaped the narrative: despite years of algorithm development, relatively few **clinical trials** use deconvolution beyond exploratory analysis—highlighting that translation barriers are as important as technical novelty.
+
+## Biostatistics × AI: why this matters right now
+
+The authors also connect this area to a broader 2023+ theme: AI in biomedicine.
+
+Their biostatistics lens is straightforward: **high accuracy on paper is not the same as clinical reliability**. Biostatistics contributes by:
+
+- designing evaluations that reflect real tumor data (not only simulations),
+- testing generalization across cohorts and cancer types,
+- quantifying uncertainty (not just point estimates),
+- and identifying hidden biases (batch effects, reference mismatch) that AI models may silently learn.
+
+In short: biostatistics helps ensure “impressive models” become **trustworthy tools**.
+
+## Meet the authors
+
+**Yaoyi Dai** — Graduate research assistant (MD Anderson) and PhD candidate (Baylor). Works on transcriptomic deconvolution in cancer genomics, including multi-omics integration for biomarker discovery and tumor microenvironment profiling.
+
+**Shuai Guo** — Postdoctoral fellow (Emory). Developed single-cell reference-based deconvolution methods and benchmarking frameworks, with a focus on platform-specific bias when integrating single-cell and bulk RNA-seq.
+
+**Yidan Pan** — Data Scientist (MD Anderson, Van Loo lab). Interested in tumor evolution and clinical translation of computational methods, using spatiotemporal single-cell genomics/transcriptomics (including MPNST).
+
+**Carla Castignani** — PhD student (Francis Crick Institute, Van Loo group). Focuses on reference-free deconvolution methods and applications to complex cancer genomics datasets.
+
+**Matthew D. Montierth** — Data Scientist (MD Anderson, Wang lab). Works on semi-reference deconvolution, subclonal reconstruction, and statistical modeling of tumor heterogeneity.
+
+**Peter Van Loo** — Professor and CPRIT scholar (MD Anderson; also Genomic Medicine). Studies the evolutionary history of cancers and subclonal architectures; major roles in PCAWG and the 100,000 Genomes Project sarcoma arm.
+
+**Wenyi Wang** — Professor of Bioinformatics/Computational Biology and Biostatistics (MD Anderson). Developed methods including MuSE, DeMixT, Famdenovo, and pan-cancer analyses of intra-tumor heterogeneity; focuses on computational methods that translate biological findings into clinical impact.
+
+## Further reading
+
+- PubMed entry (with DOI): https://pubmed.ncbi.nlm.nih.gov/41331516/
+- Journal listing page: https://www.nature.com/nrc/reviews-and-analysis

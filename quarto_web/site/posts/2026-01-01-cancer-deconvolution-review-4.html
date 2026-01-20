@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.30">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="StatsUpAI Community News">
+<meta name="dcterms.date" content="2026-01-01">
+
+<title>A Practical Guide to Transcriptomic Deconvolution in Cancer</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-c1fac2584b48ed01fb6e278e36375074.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="quarto-light">
+
+<div id="quarto-search-results"></div>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#why-this-review-matters-now" id="toc-why-this-review-matters-now" class="nav-link active" data-scroll-target="#why-this-review-matters-now">Why this review matters now</a></li>
+  <li><a href="#whats-different-about-a-review-contribution" id="toc-whats-different-about-a-review-contribution" class="nav-link" data-scroll-target="#whats-different-about-a-review-contribution">What’s different about a <em>review</em> contribution?</a></li>
+  <li><a href="#the-practical-problem-the-authors-started-from" id="toc-the-practical-problem-the-authors-started-from" class="nav-link" data-scroll-target="#the-practical-problem-the-authors-started-from">The practical problem the authors started from</a></li>
+  <li><a href="#the-key-design-choice-decision-trees-over-best-method-rankings" id="toc-the-key-design-choice-decision-trees-over-best-method-rankings" class="nav-link" data-scroll-target="#the-key-design-choice-decision-trees-over-best-method-rankings">The key design choice: decision trees over “best-method” rankings</a>
+  <ul>
+  <li><a href="#a-decision-tree-framework-for-method-selection" id="toc-a-decision-tree-framework-for-method-selection" class="nav-link" data-scroll-target="#a-decision-tree-framework-for-method-selection">A decision-tree framework for method selection</a></li>
+  </ul></li>
+  <li><a href="#a-gentle-primer-what-is-transcriptomic-deconvolution" id="toc-a-gentle-primer-what-is-transcriptomic-deconvolution" class="nav-link" data-scroll-target="#a-gentle-primer-what-is-transcriptomic-deconvolution">A gentle primer: what is transcriptomic deconvolution?</a></li>
+  <li><a href="#what-the-review-synthesizes-three-big-themes" id="toc-what-the-review-synthesizes-three-big-themes" class="nav-link" data-scroll-target="#what-the-review-synthesizes-three-big-themes">What the review synthesizes: three big themes</a>
+  <ul>
+  <li><a href="#bridging-bulk-and-single-cellwithout-pretending-one-replaces-the-other" id="toc-bridging-bulk-and-single-cellwithout-pretending-one-replaces-the-other" class="nav-link" data-scroll-target="#bridging-bulk-and-single-cellwithout-pretending-one-replaces-the-other">1) Bridging bulk and single-cell—without pretending one replaces the other</a></li>
+  <li><a href="#cancer-is-not-just-another-tissue" id="toc-cancer-is-not-just-another-tissue" class="nav-link" data-scroll-target="#cancer-is-not-just-another-tissue">2) Cancer is not “just another tissue”</a></li>
+  <li><a href="#deconvolution-is-moving-from-method-papers-to-clinical-impactslowly" id="toc-deconvolution-is-moving-from-method-papers-to-clinical-impactslowly" class="nav-link" data-scroll-target="#deconvolution-is-moving-from-method-papers-to-clinical-impactslowly">3) Deconvolution is moving from method papers to clinical impact—slowly</a></li>
+  </ul></li>
+  <li><a href="#what-you-can-do-with-this-review-tomorrow" id="toc-what-you-can-do-with-this-review-tomorrow" class="nav-link" data-scroll-target="#what-you-can-do-with-this-review-tomorrow">What you can do with this review tomorrow</a></li>
+  <li><a href="#a-method-selection-checklist-you-can-paste-into-your-lab-notebook" id="toc-a-method-selection-checklist-you-can-paste-into-your-lab-notebook" class="nav-link" data-scroll-target="#a-method-selection-checklist-you-can-paste-into-your-lab-notebook">A “method selection” checklist you can paste into your lab notebook</a></li>
+  <li><a href="#the-unresolved-core-challenge-the-missing-reference-problem" id="toc-the-unresolved-core-challenge-the-missing-reference-problem" class="nav-link" data-scroll-target="#the-unresolved-core-challenge-the-missing-reference-problem">The unresolved core challenge: the “missing reference” problem</a>
+  <ul>
+  <li><a href="#tumor-references-are-incomplete-because-malignant-states-are-dynamic" id="toc-tumor-references-are-incomplete-because-malignant-states-are-dynamic" class="nav-link" data-scroll-target="#tumor-references-are-incomplete-because-malignant-states-are-dynamic">Tumor references are <em>incomplete</em> because malignant states are dynamic</a></li>
+  </ul></li>
+  <li><a href="#what-reviewers-and-peers-valued-and-why-that-matters" id="toc-what-reviewers-and-peers-valued-and-why-that-matters" class="nav-link" data-scroll-target="#what-reviewers-and-peers-valued-and-why-that-matters">What reviewers and peers valued (and why that matters)</a></li>
+  <li><a href="#near-term-and-medium-term-impact-what-could-change-in-the-next-35-years" id="toc-near-term-and-medium-term-impact-what-could-change-in-the-next-35-years" class="nav-link" data-scroll-target="#near-term-and-medium-term-impact-what-could-change-in-the-next-35-years">Near-term and medium-term impact: what could change in the next 3–5 years?</a>
+  <ul>
+  <li><a href="#re-analyzing-what-already-exists" id="toc-re-analyzing-what-already-exists" class="nav-link" data-scroll-target="#re-analyzing-what-already-exists">1) Re-analyzing what already exists</a></li>
+  <li><a href="#moving-deconvolution-outputs-closer-to-trial-ready-metrics" id="toc-moving-deconvolution-outputs-closer-to-trial-ready-metrics" class="nav-link" data-scroll-target="#moving-deconvolution-outputs-closer-to-trial-ready-metrics">2) Moving deconvolution outputs closer to “trial-ready” metrics</a></li>
+  <li><a href="#accelerating-method-development-where-it-matters" id="toc-accelerating-method-development-where-it-matters" class="nav-link" data-scroll-target="#accelerating-method-development-where-it-matters">3) Accelerating method development where it matters</a></li>
+  </ul></li>
+  <li><a href="#follow-up-plans-tutorials-benchmarks-and-spatial-opportunities" id="toc-follow-up-plans-tutorials-benchmarks-and-spatial-opportunities" class="nav-link" data-scroll-target="#follow-up-plans-tutorials-benchmarks-and-spatial-opportunities">Follow-up plans: tutorials, benchmarks, and spatial opportunities</a></li>
+  <li><a href="#statsupai-perspective-where-biostatistics-strengthens-the-deconvolution-ai-ecosystem" id="toc-statsupai-perspective-where-biostatistics-strengthens-the-deconvolution-ai-ecosystem" class="nav-link" data-scroll-target="#statsupai-perspective-where-biostatistics-strengthens-the-deconvolution-ai-ecosystem">StatsUpAI perspective: where biostatistics strengthens the deconvolution + AI ecosystem</a></li>
+  <li><a href="#who-should-read-this-and-how-to-use-it" id="toc-who-should-read-this-and-how-to-use-it" class="nav-link" data-scroll-target="#who-should-read-this-and-how-to-use-it">Who should read this (and how to use it)</a></li>
+  <li><a href="#reference" id="toc-reference" class="nav-link" data-scroll-target="#reference">Reference</a></li>
+  <li><a href="#author-biographies-from-the-statsupai-qa" id="toc-author-biographies-from-the-statsupai-qa" class="nav-link" data-scroll-target="#author-biographies-from-the-statsupai-qa">Author biographies (from the StatsUpAI Q&amp;A)</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">A Practical Guide to Transcriptomic Deconvolution in Cancer</h1>
+<p class="subtitle lead">A new Nature Reviews Cancer review maps 43 methods—and, more importantly, shows how to choose among them.</p>
+  <div class="quarto-categories">
+    <div class="quarto-category">Community News</div>
+    <div class="quarto-category">Reviews</div>
+    <div class="quarto-category">Cancer Genomics</div>
+    <div class="quarto-category">Transcriptomics</div>
+    <div class="quarto-category">Methods</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>StatsUpAI Community News </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">January 1, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-simple callout-tip no-icon callout-titled" title="TL;DR">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+TL;DR
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Bulk RNA-seq is still the workhorse of cancer genomics—but tumors are <em>mixtures</em>. This newly published review offers a <strong>cancer-specific framework</strong> for transcriptomic deconvolution: a curated catalog of <strong>43 methods</strong>, a <strong>decision-tree workflow</strong> (instead of “best method” rankings), and a candid discussion of <strong>what breaks in cancer</strong>, <strong>why benchmarks are still shaky</strong>, and <strong>what needs to happen for clinical translation</strong>.</p>
+</div>
+</div>
+<section id="why-this-review-matters-now" class="level2">
+<h2 class="anchored" data-anchor-id="why-this-review-matters-now">Why this review matters now</h2>
+<p>If you’ve ever stared at a bulk tumor RNA-seq matrix and thought, <em>“Is this expression change real biology—or just more immune infiltration?”</em> you’ve met the core challenge: <strong>tumor tissues are heterogeneous mixtures</strong> of malignant, stromal, and immune cells, often with multiple states within each compartment.</p>
+<p>Single-cell RNA-seq can resolve heterogeneity directly, but in many clinical and population settings we still rely on bulk RNA-seq—because it is cheaper, more scalable, and often paired with long-term outcomes. The result is a recurring practical question across cancer biology and translational teams:</p>
+<blockquote class="blockquote">
+<p><em>Which deconvolution approach should I use—and what can I responsibly conclude from it?</em></p>
+</blockquote>
+<p>In <strong>“A guide to transcriptomic deconvolution in cancer”</strong> <span class="citation" data-cites="dai2025guide">[@dai2025guide]</span>, the authors tackle this head-on with a guide written <em>for cancer researchers</em>, not just method developers. They position deconvolution as a tool for both <strong>cellular composition</strong> (who’s in the sample) and <strong>cell-type-specific expression</strong> (what each compartment is expressing), then show how these outputs connect to real cancer research questions—from tumor–immune surveillance to molecular subtyping and biomarker discovery.</p>
+</section>
+<section id="whats-different-about-a-review-contribution" class="level2">
+<h2 class="anchored" data-anchor-id="whats-different-about-a-review-contribution">What’s different about a <em>review</em> contribution?</h2>
+<p>A strong research paper contributes <em>one</em> new method, dataset, or discovery.</p>
+<p>A strong review paper contributes something different—and often more reusable:</p>
+<ul>
+<li><strong>A shared mental model</strong> for a field that has become fragmented.</li>
+<li><strong>A practical decision workflow</strong> that reduces wasted effort and misapplication.</li>
+<li><strong>A curated map of the landscape</strong> (what exists, what works where, what assumptions each tool makes).</li>
+<li><strong>A transparent account of limitations</strong> (what you <em>cannot</em> claim, and what validation is missing).</li>
+<li><strong>A forward-looking research agenda</strong> (what problems matter next, and why).</li>
+</ul>
+<p>This review explicitly aims to be that kind of field infrastructure: it organizes around <strong>biological questions cancer researchers actually face</strong>, rather than treating methods as the primary narrative unit.</p>
+</section>
+<section id="the-practical-problem-the-authors-started-from" class="level2">
+<h2 class="anchored" data-anchor-id="the-practical-problem-the-authors-started-from">The practical problem the authors started from</h2>
+<p>The authors describe the review as emerging from a recurring real-world pain point: despite ~15 years of method development in their ecosystem, cancer researchers repeatedly struggled to choose methods, and tools built/validated on normal tissues often failed when applied to tumors.</p>
+<p>That mismatch—between “method exists” and “method works here”—is what motivated a <strong>cancer-specific</strong> guide rather than a general deconvolution survey.</p>
+</section>
+<section id="the-key-design-choice-decision-trees-over-best-method-rankings" class="level2">
+<h2 class="anchored" data-anchor-id="the-key-design-choice-decision-trees-over-best-method-rankings">The key design choice: decision trees over “best-method” rankings</h2>
+<p>Many reviews try to end with a leaderboard: <em>Method A &gt; Method B &gt; Method C.</em></p>
+<p>This team tried that—and then rejected it.</p>
+<p>Performance depends heavily on context: available reference data, target cell types, platform and batch effects, tumor purity, and the research question. After repeatedly finding exceptions that made ranking tables misleading, they pivoted to the more honest (and more useful) alternative:</p>
+<section id="a-decision-tree-framework-for-method-selection" class="level3">
+<h3 class="anchored" data-anchor-id="a-decision-tree-framework-for-method-selection">A decision-tree framework for method selection</h3>
+<p>Instead of “What is best?”, the guide asks:</p>
+<ul>
+<li><strong>What data do you have?</strong> (bulk only vs matched scRNA-seq vs external references)</li>
+<li><strong>What do you want to estimate?</strong> (cell fractions vs compartment-specific expression)</li>
+<li><strong>What assumptions are you willing to make?</strong> (stable references, known cell types, etc.)</li>
+<li><strong>What makes your tumor setting difficult?</strong> (plastic malignant states, rare populations, FFPE, spatial structure)</li>
+</ul>
+<p>The result is a workflow that starts with <em>your constraints</em> and routes you toward method families that are plausible under those constraints.</p>
+<hr>
+</section>
+</section>
+<section id="a-gentle-primer-what-is-transcriptomic-deconvolution" class="level2">
+<h2 class="anchored" data-anchor-id="a-gentle-primer-what-is-transcriptomic-deconvolution">A gentle primer: what is transcriptomic deconvolution?</h2>
+<p>Here’s the simplest picture:</p>
+<ul>
+<li>Your <strong>bulk RNA-seq</strong> profile is a weighted mix of expression signals from multiple cell types/states.</li>
+<li>Deconvolution aims to infer either:
+<ol type="1">
+<li><strong>Cellular composition</strong> (proportions of immune/stromal/malignant compartments and subtypes), and/or</li>
+<li><strong>Cell-type-specific expression</strong> (expression profile of tumor cells <em>as if purified</em>), depending on the model and inputs.</li>
+</ol></li>
+</ul>
+<p>If you’re new to this, don’t worry: the “hard part” is rarely running the code. It’s selecting a method whose assumptions match your data and interpreting output responsibly.</p>
+<hr>
+</section>
+<section id="what-the-review-synthesizes-three-big-themes" class="level2">
+<h2 class="anchored" data-anchor-id="what-the-review-synthesizes-three-big-themes">What the review synthesizes: three big themes</h2>
+<section id="bridging-bulk-and-single-cellwithout-pretending-one-replaces-the-other" class="level3">
+<h3 class="anchored" data-anchor-id="bridging-bulk-and-single-cellwithout-pretending-one-replaces-the-other">1) Bridging bulk and single-cell—without pretending one replaces the other</h3>
+<p>Single-cell technologies offer resolution; bulk offers scale and clinical linkage. The review’s framing treats deconvolution as a bridge between the two ecosystems—extracting interpretable cell-type information from the many bulk datasets already sitting in repositories.</p>
+</section>
+<section id="cancer-is-not-just-another-tissue" class="level3">
+<h3 class="anchored" data-anchor-id="cancer-is-not-just-another-tissue">2) Cancer is not “just another tissue”</h3>
+<p>Cancer breaks assumptions that are often tolerable in normal tissue deconvolution:</p>
+<ul>
+<li><strong>Tumor cell plasticity</strong> (malignant expression states are dynamic, not stable “cell types”)</li>
+<li><strong>Strong microenvironment complexity</strong> (immune and stromal compartments vary widely)</li>
+<li><strong>Heterogeneity at multiple scales</strong> (within tumor, between regions, over time/treatment)</li>
+</ul>
+</section>
+<section id="deconvolution-is-moving-from-method-papers-to-clinical-impactslowly" class="level3">
+<h3 class="anchored" data-anchor-id="deconvolution-is-moving-from-method-papers-to-clinical-impactslowly">3) Deconvolution is moving from method papers to clinical impact—slowly</h3>
+<p>The review ties the method landscape to clinical questions: subtyping, prognosis, treatment response prediction, biomarker discovery, and (increasingly) spatial architecture. At the same time, the authors emphasize that <em>translation</em>—not algorithmic cleverness—may be the biggest bottleneck.</p>
+<hr>
+</section>
+</section>
+<section id="what-you-can-do-with-this-review-tomorrow" class="level2">
+<h2 class="anchored" data-anchor-id="what-you-can-do-with-this-review-tomorrow">What you can do with this review tomorrow</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">If you’re an experimental cancer biologist</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">If you’re a computational researcher / method developer</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">If you’re a statistician / AI researcher</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>Use the decision framework to choose a method that matches your constraints, then use the “limitations” discussion to plan validation:</p>
+<ul>
+<li>What ground truth do you have (or can you create)?</li>
+<li>Can you check stability across platforms/batches?</li>
+<li>Are your conclusions robust to reference choices?</li>
+</ul>
+<p><strong>Practical win:</strong> you’ll avoid “reasonable-looking” plots from a method that is structurally mis-specified for your tumor setting.</p>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>Treat the paper as a field map:</p>
+<ul>
+<li>Where are benchmarks least credible?</li>
+<li>Which tumor conditions are systematically under-served (rare populations, FFPE, dynamic states)?</li>
+<li>What kinds of evaluation are missing (uncertainty, cross-cohort generalization)?</li>
+</ul>
+<p><strong>Practical win:</strong> you can align new methods with gaps that matter for cancer translation.</p>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p>Read for the evaluation mindset:</p>
+<ul>
+<li>When do point estimates mislead without uncertainty quantification?</li>
+<li>How do batch effects and reference mismatch create “silent failure modes”?</li>
+<li>What does “generalization across cancer types” <em>mean</em> in practice?</li>
+</ul>
+<p><strong>Practical win:</strong> this is a rich example of why rigorous validation and uncertainty are not optional when outputs influence biological or clinical decisions.</p>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="a-method-selection-checklist-you-can-paste-into-your-lab-notebook" class="level2">
+<h2 class="anchored" data-anchor-id="a-method-selection-checklist-you-can-paste-into-your-lab-notebook">A “method selection” checklist you can paste into your lab notebook</h2>
+<div class="callout callout-style-default callout-note callout-titled" title="Method selection checklist (copy/paste)">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Method selection checklist (copy/paste)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><strong>Define the target</strong>: cell fractions? cell-type-specific expression? both?</li>
+<li><strong>Inventory your references</strong>:
+<ul>
+<li>matched scRNA-seq from the <em>same tissue context</em>?</li>
+<li>public atlases that match your cancer type, platform, and processing?</li>
+<li>no references (reference-free needed)?</li>
+</ul></li>
+<li><strong>Flag tumor-specific hazards</strong>:
+<ul>
+<li>high tumor plasticity / evolving malignant states?</li>
+<li>rare populations you care about?</li>
+<li>FFPE?</li>
+<li>strong batch/platform shifts?</li>
+</ul></li>
+<li><strong>Choose a method family aligned with your constraints</strong> (not the fanciest algorithm).</li>
+<li><strong>Plan validation</strong>:
+<ul>
+<li>sensitivity to reference choice</li>
+<li>cross-cohort robustness</li>
+<li>sanity checks with orthogonal measurements (IHC, flow, known markers)</li>
+</ul></li>
+<li><strong>Report uncertainty and limitations</strong> in the same figure caption—not as an afterthought.</li>
+</ol>
+</div>
+</div>
+<hr>
+</section>
+<section id="the-unresolved-core-challenge-the-missing-reference-problem" class="level2">
+<h2 class="anchored" data-anchor-id="the-unresolved-core-challenge-the-missing-reference-problem">The unresolved core challenge: the “missing reference” problem</h2>
+<p>One of the review’s most helpful contributions is naming a problem many practitioners feel but struggle to articulate:</p>
+<section id="tumor-references-are-incomplete-because-malignant-states-are-dynamic" class="level3">
+<h3 class="anchored" data-anchor-id="tumor-references-are-incomplete-because-malignant-states-are-dynamic">Tumor references are <em>incomplete</em> because malignant states are dynamic</h3>
+<p>Many methods implicitly assume stable reference profiles. But tumors evolve: malignant states shift with microenvironment, therapy, and clonal evolution. So even if you have a “reference,” it may not include the state your sample is expressing right now.</p>
+<p>This connects directly to why many “works on PBMC mixtures” benchmarks don’t transfer to tumors—and why generating matched bulk + single-cell data from identical samples (the gold standard for benchmarking) remains rare and technically challenging.</p>
+<hr>
+</section>
+</section>
+<section id="what-reviewers-and-peers-valued-and-why-that-matters" class="level2">
+<h2 class="anchored" data-anchor-id="what-reviewers-and-peers-valued-and-why-that-matters">What reviewers and peers valued (and why that matters)</h2>
+<p>The authors report that peer feedback repeatedly emphasized:</p>
+<ul>
+<li>the breadth and clarity of their <strong>catalog of 43 methods</strong>,</li>
+<li>the <strong>decision-tree framework</strong> as actionable guidance,</li>
+<li>the insistence on <strong>cancer-specific validation</strong> (rather than relying on blood/cell lines),</li>
+<li>and the <strong>transparent documentation</strong> of what was included/excluded and what has rigorous cancer benchmarking.</li>
+</ul>
+<p>That’s an important meta-signal: the field is hungry not just for new methods, but for <strong>standards and navigational tools</strong>.</p>
+<hr>
+</section>
+<section id="near-term-and-medium-term-impact-what-could-change-in-the-next-35-years" class="level2">
+<h2 class="anchored" data-anchor-id="near-term-and-medium-term-impact-what-could-change-in-the-next-35-years">Near-term and medium-term impact: what could change in the next 3–5 years?</h2>
+<p>The review makes a pragmatic case for impact that doesn’t require any new sequencing:</p>
+<section id="re-analyzing-what-already-exists" class="level3">
+<h3 class="anchored" data-anchor-id="re-analyzing-what-already-exists">1) Re-analyzing what already exists</h3>
+<p>Many existing bulk RNA-seq datasets (e.g., TCGA and beyond) could yield new insights when revisited with modern cancer-aware deconvolution—especially for tumor microenvironment composition and tumor-compartment expression signals.</p>
+</section>
+<section id="moving-deconvolution-outputs-closer-to-trial-ready-metrics" class="level3">
+<h3 class="anchored" data-anchor-id="moving-deconvolution-outputs-closer-to-trial-ready-metrics">2) Moving deconvolution outputs closer to “trial-ready” metrics</h3>
+<p>The authors point toward deconvolution-derived metrics (tumor-specific mRNA abundance, immune proportions) becoming better validated prognostic markers—and potentially supporting treatment response prediction as immunotherapy expands.</p>
+</section>
+<section id="accelerating-method-development-where-it-matters" class="level3">
+<h3 class="anchored" data-anchor-id="accelerating-method-development-where-it-matters">3) Accelerating method development where it matters</h3>
+<p>They also highlight concrete gaps: FFPE optimization, temporal modeling, and rare cell detection.</p>
+<hr>
+</section>
+</section>
+<section id="follow-up-plans-tutorials-benchmarks-and-spatial-opportunities" class="level2">
+<h2 class="anchored" data-anchor-id="follow-up-plans-tutorials-benchmarks-and-spatial-opportunities">Follow-up plans: tutorials, benchmarks, and spatial opportunities</h2>
+<p>Rather than ending the story at publication, the authors are already planning follow-up outputs that many readers will appreciate more than another methods paper:</p>
+<ul>
+<li>practical tutorials on building cancer-specific references,</li>
+<li>guidance on interpreting outputs and avoiding common pitfalls,</li>
+<li>collaborations to generate matched bulk + single-cell datasets for stronger benchmarking,</li>
+<li>and continued development for spatial transcriptomic deconvolution—citing their own work (DeMixNB) as one step in that direction.</li>
+</ul>
+<hr>
+</section>
+<section id="statsupai-perspective-where-biostatistics-strengthens-the-deconvolution-ai-ecosystem" class="level2">
+<h2 class="anchored" data-anchor-id="statsupai-perspective-where-biostatistics-strengthens-the-deconvolution-ai-ecosystem">StatsUpAI perspective: where biostatistics strengthens the deconvolution + AI ecosystem</h2>
+<p>The authors’ comments align strongly with a recurring StatsUpAI theme: <strong>performance without rigor is not translation</strong>.</p>
+<p>They emphasize biostatistics contributions that are often underweighted in fast-moving AI workflows:</p>
+<ul>
+<li>evaluation on realistic data (not only simulations),</li>
+<li>generalization checks across cancer types and cohorts,</li>
+<li>uncertainty quantification (confidence intervals, not just point estimates),</li>
+<li>careful handling of batch effects and reference mismatch,</li>
+<li>dataset curation to reduce systematic bias.</li>
+</ul>
+<p>This is a useful reminder: in biomedical AI, the path to impact often runs through <em>validation logic</em> as much as algorithm design.</p>
+<hr>
+</section>
+<section id="who-should-read-this-and-how-to-use-it" class="level2">
+<h2 class="anchored" data-anchor-id="who-should-read-this-and-how-to-use-it">Who should read this (and how to use it)</h2>
+<div class="callout callout-style-default callout-tip callout-titled" title="Recommended reading paths">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Recommended reading paths
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>New to deconvolution?</strong> Read the primer + decision workflow first; treat method details as reference material.</li>
+<li><strong>Already using deconvolution?</strong> Jump to limitations, validation standards, and cancer-specific pitfalls.</li>
+<li><strong>Building methods?</strong> Read the benchmarking critique and future directions as a project list.</li>
+<li><strong>Clinical/translational teams?</strong> Focus on what outputs can be defended, and what evidence is needed for trial endpoints.</li>
+</ul>
+</div>
+</div>
+<hr>
+</section>
+<section id="reference" class="level2">
+<h2 class="anchored" data-anchor-id="reference">Reference</h2>
+<ul>
+<li>Dai Y, Guo S, Pan Y, Castignani C, Montierth MD, Van Loo P, Wang W. <em>A guide to transcriptomic deconvolution in cancer</em>. <strong>Nature Reviews Cancer</strong> (2025). DOI: 10.1038/s41568-025-00886-9. <span class="citation" data-cites="dai2025guide">[@dai2025guide]</span></li>
+</ul>
+<hr>
+</section>
+<section id="author-biographies-from-the-statsupai-qa" class="level2">
+<h2 class="anchored" data-anchor-id="author-biographies-from-the-statsupai-qa">Author biographies (from the StatsUpAI Q&amp;A)</h2>
+<ul>
+<li><p><strong>Yaoyi Dai</strong> — Graduate research assistant (Bioinformatics &amp; Computational Biology, MD Anderson) and PhD candidate (Baylor College of Medicine). Works on transcriptomic deconvolution for cancer genomics, multi-omics integration, biomarker discovery, and tumor microenvironment characterization.</p></li>
+<li><p><strong>Shuai Guo</strong> — Postdoctoral fellow (Emory University). Trained with Dr.&nbsp;Wenyi Wang at MD Anderson, focusing on single-cell reference-based deconvolution and benchmarking frameworks addressing platform-specific biases.</p></li>
+<li><p><strong>Yidan Pan</strong> — Data Scientist (Genetics, MD Anderson; Van Loo lab). Interests include cancer genomics and clinical translation, with spatiotemporal single-cell studies in MPNST.</p></li>
+<li><p><strong>Carla Castignani</strong> — Graduate Research Assistant (Francis Crick Institute), PhD student with Dr.&nbsp;Peter Van Loo. Works on tumor evolution/heterogeneity and reference-free deconvolution methods.</p></li>
+<li><p><strong>Matthew D. Montierth</strong> — Data Scientist (Bioinformatics &amp; Computational Biology, MD Anderson; Wang lab). PhD with Dr.&nbsp;Wenyi Wang; focuses on semi-reference-based deconvolution, subclonal reconstruction, and statistical modeling of tumor heterogeneity.</p></li>
+<li><p><strong>Peter Van Loo</strong> — Professor and CPRIT scholar (MD Anderson). Develops computational approaches for cancer evolution, copy-number alteration analysis, and tumor subclonal architecture; genomics lead in large consortia.</p></li>
+<li><p><strong>Wenyi Wang</strong> — Professor (Bioinformatics &amp; Computational Biology and Biostatistics, MD Anderson). Contributions across statistical bioinformatics in cancer (e.g., MuSE, DeMixT, Famdenovo), focused on method development and translation to clinical practice.</p></li>
+</ul>
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{community_news2026,
+  author = {Community News, StatsUpAI},
+  title = {A {Practical} {Guide} to {Transcriptomic} {Deconvolution} in
+    {Cancer}},
+  date = {2026-01-01},
+  langid = {en}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-community_news2026" class="csl-entry quarto-appendix-citeas" role="listitem">
+Community News, StatsUpAI. 2026. <span>“A Practical Guide to
+Transcriptomic Deconvolution in Cancer.”</span> January 1, 2026.
+</div></div></section></div></main> <!-- /main -->
+<!-- GoatCounter Tracker -->
+<script data-goatcounter="https://statsupai.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
+
+<!-- Per-Page View Counter (Footer Style) -->
+<style>
+/*#goatcounter-footer {*/
+/*  display: flex; */
+/*  justify-content: left;*/
+/*  column-gap: 5px;*/
+/*  color: #8E8E8E; */
+/*  font-size: 13px; */
+/*  font-family: Arial, sans-serif;*/
+/*}*/
+/*#goatcounter-footer .statcounter {*/
+/*  font-family: 'Courier New', monospace; */
+/*  color: #0033cc; */
+/*  font-weight: bold; */
+/*  margin-left: 3px; */
+/*}*/
+
+#goatcounter-footer {
+  display: flex; 
+  align-items: center; 
+  column-gap: 5px;
+  color: #8E8E8E; 
+  font-size: 13px; 
+  font-family: Arial, sans-serif;
+}
+#goatcounter-footer .statcounter {
+  font-family: 'Courier New', monospace; 
+  color: #0033cc; 
+  font-weight: bold; 
+  margin-left: 3px; 
+}
+</style>
+
+<!-- GoatCounter Tracker -->
+<div id="goatcounter-footer"><span style="margin-left: 3px;">Loading views...</span></div>
+<script>
+    const path = window.location.pathname;
+    console.log('window.location.pathname:', path);
+    // If at the root, skip fetching views for now
+    if (path.endsWith('index.html') || path.endsWith('/posts/')) {
+      
+      const display = document.getElementById("goatcounter-footer");
+      if (display) {
+        display.innerHTML = "";
+        console.log("Skipping views for root path:", path);
+      }
+      
+    } else {
+      
+      // Trim path to remove everything before /quarto_web/site/ for easier local testing
+      var trimmedPath = path.replace(/^.*\/posts\//, '\/quarto_web\/site\/posts\/');
+      // If the path is exactly /posts/, set trimmedPath to the index.html file
+      if (path === '\/posts\/') {
+          console.log('Path is exactly /posts/, setting trimmedPath to index.html');
+          trimmedPath = '/quarto_web/site/posts/index.html';
+      }
+      console.log('trimmedPath:', trimmedPath);
+      
+      // setInterval to check every 100ms because GoatCounter may not be available immediately
+      var t = setInterval(function() {
+          console.log('Checking for GoatCounter availability...window.goatcounter:', window.goatcounter);
+          // Check if GoatCounter is available
+          if (window.goatcounter && window.goatcounter.visit_count) {
+
+              // GoatCounter is available, clear the timer
+              clearInterval(t)
+              // Update the display with the current visit count
+              const display = document.getElementById("goatcounter-footer");
+              if (display) {
+                display.innerHTML = '<span">Page Views: </span>';
+                console.log('display.innerHTML:', display.innerHTML);
+              }
+              
+              
+              goatcounter.visit_count({
+                no_branding: true,
+                path: trimmedPath,
+                append: '#goatcounter-footer', 
+                style: `
+                  div { 
+                    border-width: 0px;
+                    display: flex;
+                  }
+                  #gcvc-for {
+                    font-size: 0px;
+                  }
+                  #gcvc-views { 
+                      font-family: 'Courier New', monospace; 
+                      font-size: 13px;
+                      color: #0033cc; 
+                      font-weight: bold; 
+                      margin-top: 29px;
+                  }`
+              })
+
+          }
+      }, 100)
+      
+    }
+</script>
+
+
+
+
+
+
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
