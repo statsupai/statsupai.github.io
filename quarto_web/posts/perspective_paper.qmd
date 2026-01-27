@@ -489,9 +489,16 @@ format:
                 <p>
                     At <span class="highlight-event">JSM 2024</span>, a town hall brought together leaders across statistics,
                     biostatistics, and machine learning—including
-                    <span class="highlight-name">David Donoho</span>,
+                    <span class="highlight-name">David L. Donoho</span>,
+                    <span class="highlight-name">Jian Kang</span>,
+                    <span class="highlight-name">Xihong Lin</span>,
+                    <span class="highlight-name">Bhramar Mukherjee</span>,
+                    <span class="highlight-name">Dan Nettleton</span>,
+                    <span class="highlight-name">Rebecca Nugent</span>,
+                    <span class="highlight-name">Abel Rodriguez</span>,
                     <span class="highlight-name">Eric P. Xing</span>,
-                    and <span class="highlight-name">Xihong Lin</span>—for a rare, candid discussion.
+                    <span class="highlight-name">Tian Zheng</span>,
+                    and <span class="highlight-name">Hongtu Zhu</span>—for a rare, candid discussion.
                 </p>
 
                 <p>
@@ -588,7 +595,7 @@ format:
                 </a>
                 <div class="footer-content">
                     <p>
-                        This paper offers a candid look at the challenges and opportunities facing our field. We invite you to read the full transcript and the perspective article to join the conversation.
+                        This paper offers a candid look at the challenges and opportunities facing our field. We invite you to read the full transcript and the perspective article to join the conversation (A perspective paper based on this arxiv is under submission).
                     </p>
                     <a href="https://arxiv.org/abs/2601.17510" class="link-button" target="_blank" rel="noopener">Link to the paper</a>
                 </div>
