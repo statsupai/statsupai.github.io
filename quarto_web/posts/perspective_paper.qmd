@@ -1,0 +1,601 @@
+---
+title: "Rebuilding Statistics in the Age of AI"
+image: figures/ageofai_1.jpg
+author:
+  - name: "Shan Gao"
+categories:
+  - Interviews
+date: "2026-01-27"
+title-block:
+  author: false
+format:
+  html:
+    page-layout: full
+    toc: false
+---
+
+```{=html}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rebuilding Statistics for the Age of AI</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Times New Roman', serif;
+            line-height: 1.8;
+            color: #333;
+            background: #fafafa;
+            min-height: 100vh;
+            padding: 0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: none;
+            margin: 0;
+            background: #ffffff;
+            box-shadow: none;
+            overflow: hidden;
+        }
+
+        .header {
+            background: #1a1a1a;
+            color: white;
+            padding: 20px 50px;
+            border-bottom: 2px solid #333;
+            text-align: center;
+        }
+
+        .header .event-tag {
+            font-size: 0.9em;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #e0e0e0;
+            opacity: 0.9;
+        }
+
+        .article-info {
+            padding: 60px 60px 50px;
+            text-align: center;
+            border-bottom: 2px solid #ddd;
+            background: white;
+        }
+
+        .article-title {
+            margin-bottom: 35px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .article-title-link {
+            font-family: 'Times New Roman', serif;
+            font-size: 2.3em;
+            font-weight: 700;
+            color: #1a1a1a;
+            line-height: 1.4;
+            text-decoration: none;
+            border-bottom: 1px dotted rgba(0, 0, 0, 0.25);
+            cursor: pointer;
+            transition: color 0.2s ease, border-color 0.2s ease;
+            display: inline-block;
+        }
+
+        .article-title-link:hover {
+            color: #333;
+            border-bottom-color: #8B0000;
+            border-bottom-style: solid;
+        }
+
+        .article-title .quote {
+            color: #b8860b;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+            padding: 0 4px;
+        }
+
+        .article-title .quote::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #d4af37, transparent);
+            opacity: 0.4;
+            z-index: -1;
+        }
+
+        .article-authors {
+            font-family: 'Times New Roman', serif;
+            font-size: 1.1em;
+            color: #444;
+            line-height: 2;
+            margin-bottom: 25px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .article-authors .author {
+            display: inline;
+        }
+
+        .article-authors .author sup {
+            font-size: 0.7em;
+            vertical-align: super;
+            color: #666;
+        }
+
+        .article-authors .author.corresponding {
+            font-weight: 600;
+        }
+
+        .article-date {
+            font-family: 'Times New Roman', serif;
+            font-size: 1em;
+            color: #666;
+            margin-top: 20px;
+            font-style: italic;
+        }
+
+        .content {
+            padding: 40px 50px;
+        }
+
+        .intro {
+            font-size: 1.1em;
+            color: #444;
+            margin-bottom: 40px;
+            line-height: 1.9;
+            padding: 0;
+        }
+
+        .intro p {
+            margin-bottom: 20px;
+        }
+
+        .highlight-name {
+            color: #1a1a1a;
+            font-weight: 700;
+            font-style: italic;
+        }
+
+        .highlight-keyword {
+            color: #555;
+            font-weight: 600;
+            border-bottom: 2px solid #333;
+        }
+
+        .highlight-important {
+            color: #1a1a1a;
+            font-weight: 700;
+            font-size: 1.05em;
+        }
+
+        .highlight-event {
+            color: #666;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .images-row {
+            display: flex;
+            gap: 15px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .images-row .article-image {
+            flex: 1;
+            min-width: 200px;
+            margin: 0;
+        }
+
+        .images-row .article-image img {
+            width: 100%;
+            height: auto;
+        }
+
+        .article-image {
+            width: 100%;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .article-image img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .article-image .caption {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 10px;
+            font-style: italic;
+            padding: 0 20px;
+        }
+
+        .strategy-visual {
+            margin: 50px 0;
+            width: 100%;
+            text-align: center;
+            padding: 30px;
+            background: #fafafa;
+            border: 2px solid #ddd;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            position: relative;
+        }
+
+        .strategy-visual img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border: 1px solid #e0e0e0;
+        }
+
+        .shifts-section {
+            margin-top: 50px;
+        }
+
+        .shifts-title {
+            font-size: 1.6em;
+            color: #1a1a1a;
+            margin-bottom: 30px;
+            font-weight: 700;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #333;
+            font-family: 'Times New Roman', serif;
+        }
+
+        .shift-item {
+            background: white;
+            border-left: 3px solid #333;
+            padding: 25px 30px;
+            margin-bottom: 25px;
+            transition: all 0.2s ease;
+        }
+
+        .shift-item:hover {
+            background: #fafafa;
+            border-left-color: #000;
+        }
+
+        .shift-number {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            background: #333;
+            color: white;
+            border-radius: 0;
+            text-align: center;
+            line-height: 32px;
+            font-weight: bold;
+            font-size: 1em;
+            margin-right: 15px;
+            vertical-align: middle;
+        }
+
+        .shift-title {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 12px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .shift-description {
+            color: #555;
+            font-size: 1em;
+            line-height: 1.8;
+            margin-top: 12px;
+            padding-left: 47px;
+        }
+
+        .footer {
+            background: #ffffff;
+            padding: 0;
+            border-top: 1px solid #ddd;
+        }
+
+        .footer-inner {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin: 0;
+            padding: 40px 50px;
+        }
+
+        .footer-preview {
+            flex-shrink: 0;
+            width: 420px;
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            background: #fff;
+            text-decoration: none;
+            transition: box-shadow 0.25s ease, transform 0.25s ease;
+        }
+
+        .footer-preview:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            transform: translateY(-2px);
+        }
+
+        .footer-preview img {
+            width: 100%;
+            height: auto;
+            display: block;
+            vertical-align: top;
+        }
+
+        .footer-content {
+            flex: 1;
+        }
+
+        .footer p {
+            color: #555;
+            font-size: 1em;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .footer .link-button {
+            margin-top: 4px;
+        }
+
+        .link-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #8B0000;
+            color: white;
+            text-decoration: none;
+            border: 2px solid #8B0000;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .link-button:hover {
+            background: white;
+            color: #8B0000;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 0;
+            }
+
+            .header {
+                padding: 15px 25px;
+            }
+
+            .header .event-tag {
+                font-size: 0.8em;
+            }
+
+            .article-info {
+                padding: 40px 25px 30px;
+            }
+
+            .article-title {
+                font-size: 1.6em;
+                margin-bottom: 25px;
+            }
+
+            .article-authors {
+                font-size: 0.95em;
+                line-height: 1.8;
+            }
+
+            .article-date {
+                font-size: 0.9em;
+            }
+
+            .content {
+                padding: 30px 25px;
+            }
+
+            .shift-item {
+                padding: 20px 20px 20px 15px;
+            }
+
+            .shift-description {
+                padding-left: 0;
+                margin-top: 15px;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                padding: 30px 25px;
+                gap: 28px;
+            }
+
+            .footer-preview {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .article-image .caption {
+                padding: 0 10px;
+            }
+
+            .images-row {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .images-row .article-image {
+                min-width: 100%;
+            }
+
+            .strategy-visual {
+                padding: 20px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="event-tag">JSM 2024 Town Hall</div>
+        </div>
+
+        <div class="article-info">
+            <div class="article-title">
+                <a href="https://arxiv.org/abs/2601.17510" target="_blank" rel="noopener" class="article-title-link">
+                    <span class="quote">"Rebuilding"</span> Statistics in the Age of AI: A Town Hall Discussion on Culture, Infrastructure, and Training
+                </a>
+            </div>
+            <div class="article-authors">
+                <span class="author">David L. Donoho<sup>¹</sup></span>, 
+                <span class="author">Jian Kang<sup>²</sup></span>, 
+                <span class="author">Xihong Lin<sup>³</sup></span>, 
+                <span class="author">Bhramar Mukherjee<sup>⁴</sup></span>, 
+                <span class="author">Dan Nettleton<sup>⁵</sup></span>, 
+                <span class="author">Rebecca Nugent<sup>⁶</sup></span>, 
+                <span class="author">Abel Rodriguez<sup>⁷</sup></span>, 
+                <span class="author">Eric P. Xing<sup>⁸</sup></span>, 
+                <span class="author">Tian Zheng<sup>⁹</sup></span>, 
+                and <span class="author corresponding">Hongtu Zhu<sup>¹⁰</sup>*</span>
+            </div>
+            <div class="article-date">January 5, 2026</div>
+        </div>
+
+        <div class="content">
+            <div class="intro">
+                <p>
+                    Artificial intelligence is no longer a future possibility—it is reshaping how knowledge is produced, validated, and deployed.
+                    This raises a difficult question for our field:
+                </p>
+
+                <p class="highlight-important">
+                    What is the role of statistics when models scale to trillions of parameters,
+                    data pipelines become engineering systems,
+                    and empirical performance often outpaces theoretical understanding?
+                </p>
+
+                <p>
+                    At <span class="highlight-event">JSM 2024</span>, a town hall brought together leaders across statistics,
+                    biostatistics, and machine learning—including
+                    <span class="highlight-name">David Donoho</span>,
+                    <span class="highlight-name">Eric P. Xing</span>,
+                    and <span class="highlight-name">Xihong Lin</span>—for a rare, candid discussion.
+                </p>
+
+                <p>
+                    Rather than formal talks or polished conclusions, the session surfaced tensions:
+                    rigor versus utility, theory versus systems, methods versus data work,
+                    and disciplinary identity versus real-world impact.
+                </p>
+
+                <p class="highlight-keyword">
+                    This article preserves the full, unfiltered record of that conversation.
+                    It is not a manifesto—but a snapshot of a field at a crossroads.
+                </p>
+            </div>
+
+            <div class="images-row">
+                <div class="article-image">
+                    <img src="figures/age3.jpg" alt="JSM 2024 Discussion">
+                </div>
+                <div class="article-image">
+                    <img src="figures/age_4.jpg" alt="JSM 2024 Presentation">
+                </div>
+                <div class="article-image">
+                    <img src="figures/age_5.jpg" alt="JSM 2024 Town Hall">
+                </div>
+            </div>
+
+            <div class="article-image">
+                <img src="figures/age_main.jpg" alt="JSM 2024 Town Hall Panel">
+            </div>
+
+            <div class="shifts-section">
+                <h2 class="shifts-title">Five Strategic Shifts Statistics Can No Longer Avoid</h2>
+
+                <div class="shift-item">
+                    <span class="shift-number">1</span>
+                    <div class="shift-title">Shift to <span class="highlight-keyword">End-to-End Problem Solving</span></div>
+                    <div class="shift-description">
+                        Statistical impact can no longer stop at method development.
+                        To remain relevant, statisticians must take responsibility for entire systems—from
+                        data generation and modeling to deployment, monitoring, and failure modes.
+                    </div>
+                </div>
+
+                <div class="shift-item">
+                    <span class="shift-number">2</span>
+                    <div class="shift-title">Elevate the Value of <span class="highlight-important">"Data Work"</span></div>
+                    <div class="shift-description">
+                        In modern AI systems, data work determines bias, robustness, and credibility.
+                        Curation, annotation, and infrastructure are not auxiliary tasks—they are
+                        first-class scientific contributions that shape what models can learn.
+                    </div>
+                </div>
+
+                <div class="shift-item">
+                    <span class="shift-number">3</span>
+                    <div class="shift-title">Engage with <span class="highlight-important">Empirical Modeling</span></div>
+                    <div class="shift-description">
+                        Rather than treating large-scale models as external engineering artifacts,
+                        statisticians must engage directly with empirical systems such as Transformers—
+                        to analyze their behavior, expose failure modes, and improve evaluation and reliability.
+                    </div>
+                </div>
+
+                <div class="shift-item">
+                    <span class="shift-number">4</span>
+                    <div class="shift-title">Modernize Training with the <span class="highlight-important">"Three C's"</span></div>
+                    <div class="shift-description">
+                        Training models designed for small data and isolated analysis is no longer sufficient.
+                        Future statisticians must be fluent in communication, collaboration, and computation,
+                        working in teams and operating within large, evolving technical ecosystems.
+                    </div>
+                </div>
+
+                <div class="shift-item">
+                    <span class="shift-number">5</span>
+                    <div class="shift-title">Articulate <span class="highlight-important">Unique Value</span> to Stakeholders</div>
+                    <div class="shift-description">
+                        Statistics must actively articulate its value to AI stakeholders.
+                        Uncertainty quantification, causal reasoning, and bias analysis are not abstract ideals—
+                        they are essential tools for building trustworthy, high-stakes AI systems.
+                    </div>
+                </div>
+            </div>
+
+            <div class="strategy-visual">
+                <img src="figures/ageofai_1.jpg" alt="Rebuilding Statistics for the Age of AI - Five Strategic Shifts">
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="footer-inner">
+                <a href="https://arxiv.org/abs/2601.17510" class="footer-preview" target="_blank" rel="noopener">
+                    <img src="figures/linkpaper.jpg" alt="arXiv paper preview">
+                </a>
+                <div class="footer-content">
+                    <p>
+                        This paper offers a candid look at the challenges and opportunities facing our field. We invite you to read the full transcript and the perspective article to join the conversation.
+                    </p>
+                    <a href="https://arxiv.org/abs/2601.17510" class="link-button" target="_blank" rel="noopener">Link to the paper</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+```
+
