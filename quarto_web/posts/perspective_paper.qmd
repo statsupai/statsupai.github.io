@@ -316,11 +316,15 @@ format:
             gap: 40px;
             margin: 0;
             padding: 40px 50px;
+            flex-wrap: wrap;
         }
 
+
         .footer-preview {
-            flex-shrink: 0;
-            width: 420px;
+            flex: 0 1 420px;              /* 允许变小，但上限仍然是 420 */
+            width: min(420px, 100%); 
+            flex-shrink: 1;
+            max-width: 100%;
             border: 1px solid #ddd;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
             overflow: hidden;
