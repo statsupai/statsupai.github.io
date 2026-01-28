@@ -1,0 +1,684 @@
+---
+title: "In Conversation:</span> Cancer Transcriptomic Deconvolution"
+image: figures/limit.jpg
+author:
+  - name: "Shan Gao"
+categories:
+  - Interviews
+date: "2026-01-28"
+title-block: false
+format:
+  html:
+    page-layout: full
+    toc: false
+    theme: none
+    title-block: false
+---
+
+```{=html}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interview with: A guide to transcriptomic deconvolution in cancer — StatsUpAI</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        /* Hide Quarto title/metadata blocks */
+        .quarto-title-block,
+        #title-block-header,
+        .quarto-title,
+        .quarto-title-meta,
+        .quarto-title-banner,
+        header#quarto-header,
+        nav#quarto-header {
+            display: none !important;
+        }
+
+        body {
+            font-family: 'Manrope', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: radial-gradient(circle at 10% -10%, rgba(184,134,11,0.08), transparent 45%),
+                        radial-gradient(circle at 90% 10%, rgba(26,26,26,0.08), transparent 40%),
+                        #f5f3ef;
+            min-height: 100vh;
+        }
+
+        .container { width: 100%; max-width: 1120px; margin: 0 auto; background: white; overflow: hidden; box-shadow: 0 0 24px rgba(0,0,0,0.08); }
+
+        .header {
+            background: #1a1a1a;
+            color: white;
+            padding: 20px 50px;
+            border-bottom: 2px solid #333;
+            text-align: center;
+        }
+
+        .header .event-tag {
+            font-size: 0.9em;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #e0e0e0;
+            opacity: 0.9;
+        }
+
+        .article-info {
+            padding: 60px 60px 50px;
+            text-align: center;
+            border-bottom: 2px solid #ddd;
+            background: white;
+        }
+
+        .article-title {
+            font-family: 'Fraunces', 'Times New Roman', serif;
+            font-size: 2.3em;
+            font-weight: 700;
+            color: #1a1a1a;
+            line-height: 1.4;
+            margin-bottom: 15px;
+            padding-bottom: 14px;
+            border-bottom: 2px solid #b8860b;
+        }
+
+        .article-title .title-gold {
+            color: #b8860b;
+        }
+
+        .article-subtitle {
+            font-family: 'Fraunces', 'Times New Roman', serif;
+            font-size: 1.1em;
+            color: #555;
+            margin-top: 14px;
+        }
+
+        .paper-block {
+            background: linear-gradient(120deg, rgba(184,134,11,0.08), rgba(26,26,26,0.04));
+            border-bottom: 1px solid #e7e2d9;
+        }
+
+        .paper-block-inner {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            padding: 40px 50px;
+            position: relative;
+        }
+
+        .paper-block-inner::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(0deg, rgba(255,255,255,0.55) 0, rgba(255,255,255,0.55) 1px, transparent 1px, transparent 6px);
+            opacity: 0.25;
+            pointer-events: none;
+        }
+
+        .paper-preview {
+            flex-shrink: 0;
+            width: 440px;
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            overflow: hidden;
+            background: #fff;
+            text-decoration: none;
+            transition: box-shadow 0.25s ease, transform 0.25s ease;
+        }
+
+        .paper-preview:hover {
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+            transform: translateY(-2px);
+        }
+
+        .paper-preview img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .paper-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .paper-content p {
+            align-self: stretch;
+            text-align: left;
+            color: #555;
+            font-size: 1em;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .content { padding: 40px 50px; }
+
+        .intro {
+            font-size: 1.1em;
+            color: #444;
+            margin-bottom: 40px;
+            line-height: 1.9;
+        }
+
+        .qa-section {
+            margin-top: 50px;
+            padding: 36px 32px;
+            background: linear-gradient(135deg, rgba(184,134,11,0.08), rgba(26,26,26,0.03));
+            border-radius: 18px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .qa-section::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(0deg, rgba(255,255,255,0.6) 0, rgba(255,255,255,0.6) 1px, transparent 1px, transparent 6px);
+            opacity: 0.35;
+            pointer-events: none;
+        }
+
+        .section-title {
+            font-size: 1.6em;
+            color: #1a1a1a;
+            margin-bottom: 32px;
+            font-weight: 700;
+            padding-bottom: 14px;
+            border-bottom: 2px solid #b8860b;
+            font-family: 'Fraunces', 'Times New Roman', serif;
+            letter-spacing: 0.5px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .qa-item {
+            position: relative;
+            z-index: 1;
+            background: #fff;
+            border: 1px solid rgba(26,26,26,0.08);
+            border-radius: 16px;
+            padding: 26px 28px 28px;
+            margin-bottom: 26px;
+            box-shadow: 0 10px 24px rgba(15,15,15,0.08);
+            display: grid;
+            grid-template-columns: 64px 1fr;
+            gap: 18px;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+
+        .qa-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 32px rgba(15,15,15,0.12);
+            border-color: rgba(184,134,11,0.5);
+        }
+
+        .qa-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            background: linear-gradient(145deg, #1a1a1a, #3a3a3a);
+            color: #f5d27a;
+            font-weight: 700;
+            font-size: 1.05em;
+            border: 2px solid rgba(184,134,11,0.6);
+            flex-shrink: 0;
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08);
+        }
+
+        .qa-question {
+            font-size: 1.1em;
+            font-weight: 700;
+            color: #1a1a1a;
+            line-height: 1.5;
+            padding-bottom: 12px;
+            margin-bottom: 6px;
+            border-bottom: 1px dashed rgba(26,26,26,0.12);
+            position: relative;
+            grid-column: 2 / -1;
+        }
+
+        .qa-question::before {
+            content: "Question";
+            position: absolute;
+            top: -18px;
+            left: 0;
+            font-size: 0.72em;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: rgba(26,26,26,0.55);
+            font-weight: 600;
+        }
+
+        .qa-answer {
+            color: #4b4b4b;
+            font-size: 0.98em;
+            line-height: 1.85;
+            margin-top: 16px;
+            padding-left: 0;
+            grid-column: 2 / -1;
+        }
+
+        .qa-answer p { margin-bottom: 14px; }
+        .qa-answer p:last-child { margin-bottom: 0; }
+
+        .article-image {
+            width: 100%;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .article-image img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border: 1px solid #e0e0e0;
+        }
+
+        .article-image .caption {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 10px;
+            font-style: italic;
+            padding: 0 20px;
+        }
+
+        .author-photo-block {
+            margin: 48px 0 56px;
+            text-align: center;
+        }
+
+        .author-photo-inner {
+            max-width: 620px;
+            margin: 0 auto;
+        }
+
+        .author-photo-inner img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1), 0 0 0 1px rgba(0,0,0,0.04);
+        }
+
+        .author-photo-caption {
+            margin-top: 18px;
+            padding-top: 14px;
+            border-top: 1px solid rgba(184,134,11,0.4);
+            font-family: 'Fraunces', 'Times New Roman', serif;
+            font-size: 0.95em;
+            color: #555;
+            font-style: italic;
+            letter-spacing: 0.5px;
+        }
+
+        .authors-section { margin-top: 50px; }
+
+        .authors-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            margin-top: 8px;
+        }
+
+        .bio-card {
+            display: flex;
+            flex-direction: column;
+            padding: 28px 0;
+            border-bottom: 1px solid #eee;
+            transition: background 0.2s ease;
+        }
+
+        .bio-card:last-child {
+            border-bottom: none;
+        }
+
+        .bio-card:hover {
+            background: rgba(0,0,0,0.02);
+        }
+
+        .bio-card.bio-pi {
+            padding: 32px 0 32px 24px;
+            border-left: 3px solid #b8860b;
+            background: rgba(184,134,11,0.04);
+        }
+
+        .bio-card.bio-pi:hover {
+            background: rgba(184,134,11,0.06);
+        }
+
+        .bio-card-header {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 12px;
+        }
+
+        .bio-avatar {
+            flex-shrink: 0;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: #1a1a1a;
+            color: #fff;
+            font-size: 0.9em;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Fraunces', 'Times New Roman', serif;
+        }
+
+        .bio-card.bio-pi .bio-avatar {
+            background: #b8860b;
+            color: #1a1a1a;
+        }
+
+        .bio-meta {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .bio-name-row {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .bio-name {
+            font-size: 1.12em;
+            font-weight: 700;
+            color: #1a1a1a;
+            line-height: 1.3;
+        }
+
+        .bio-card.bio-pi .bio-name {
+            color: #1a1a1a;
+        }
+
+        .bio-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            font-size: 0.7em;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: #b8860b;
+            background: rgba(184,134,11,0.15);
+            border: 1px solid rgba(184,134,11,0.35);
+        }
+
+        .bio-affiliation {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 2px;
+            line-height: 1.4;
+        }
+
+        .bio-text {
+            color: #4b4b4b;
+            font-size: 0.95em;
+            line-height: 1.8;
+            padding-left: 66px;
+        }
+
+        .footer {
+            background: #f5f5f5;
+            padding: 24px 50px;
+            border-top: 1px solid #ddd;
+        }
+
+        .footer p { color: #666; font-size: 0.95em; line-height: 1.8; margin: 0; }
+
+        .link-button {
+            display: inline-block;
+            margin-top: 4px;
+            padding: 12px 30px;
+            background: #1a1a1a;
+            color: #b8860b;
+            text-decoration: none;
+            border: 2px solid #b8860b;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            align-self: flex-start;
+        }
+
+        .link-button:hover {
+            background: #b8860b;
+            color: #1a1a1a;
+        }
+
+        @media (max-width: 768px) {
+            .header { padding: 15px 25px; }
+            .article-info { padding: 40px 25px 30px; }
+            .article-title { font-size: 1.6em; }
+            .content { padding: 30px 25px; }
+            .qa-section { padding: 26px 18px; }
+            .qa-item { padding: 20px 18px; grid-template-columns: 1fr; }
+            .qa-number { width: 44px; height: 44px; border-radius: 12px; }
+            .qa-question { max-width: 100%; padding-bottom: 12px; }
+            .qa-question, .qa-answer { grid-column: 1 / -1; }
+            .qa-answer { padding-left: 0; margin-top: 14px; }
+            .footer { padding: 24px 25px; }
+            .article-image .caption { padding: 0 10px; }
+            .author-photo-block { margin: 36px 0 44px; }
+            .author-photo-inner { padding: 0 10px; }
+            .bio-card { padding: 24px 0; }
+            .bio-card.bio-pi { padding: 28px 0 28px 20px; border-left: 3px solid #b8860b; }
+            .bio-text { padding-left: 0; }
+            .paper-block-inner { flex-direction: column; padding: 30px 25px; gap: 28px; }
+            .paper-preview { width: 100%; max-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="event-tag">StatsUpAI · Review Paper</div>
+        </div>
+
+        <div class="paper-block">
+            <div class="paper-block-inner">
+                <a href="https://www.nature.com/articles/s41568-025-00886-9" class="paper-preview" target="_blank" rel="noopener">
+                    <img src="figures/paper.jpg" alt="A guide to transcriptomic deconvolution in cancer">
+                </a>
+                <div class="paper-content">
+                    <p><strong>A guide to transcriptomic deconvolution in cancer</strong> presents a systematic framework for selecting and applying deconvolution methods in cancer research, detailing 43 methods and their applications in tumor subtyping, biomarker discovery, and spatial transcriptomics. <em>Nature Reviews Cancer</em> 26, 84–103 (2026).</p>
+                    <a href="https://www.nature.com/articles/s41568-025-00886-9" class="link-button" target="_blank" rel="noopener">Link to the paper</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="article-info">
+            <h1 class="article-title"><span class="title-gold">In Conversation:</span> Cancer Transcriptomic Deconvolution</h1>
+            <div class="article-subtitle">A feature interview on methods, challenges, and clinical translation</div>
+        </div>
+
+        <div class="content">
+            <div class="qa-section">
+                <h2 class="section-title">Q&A</h2>
+
+                <div class="qa-item">
+                    <span class="qa-number">1</span>
+                    <div class="qa-question">Regarding the background and significance of this review, what major themes, unresolved questions, or emerging directions in the field does this review summarize or synthesize? Please elaborate in detail.</div>
+                    <div class="qa-answer">
+                        <p>This review synthesizes three interconnected themes that reshape cancer transcriptomics. First, we address the critical need to bridge single-cell and bulk RNA-seq data, recognizing that while single-cell approaches excel at resolving cellular heterogeneity, bulk RNA-seq remains indispensable for large-scale clinical studies with long-term outcome data. Second, we systematically document why cancer presents unique computational challenges compared to normal tissues, particularly tumor cell plasticity and the profound heterogeneity that violates core assumptions of methods developed for healthy tissues. Third, we demonstrate how deconvolution translates from methodology to clinical impact through applications in tumor subtyping, treatment response prediction, and biomarker discovery.</p>
+                        <p>The major unresolved questions center on what we call the "missing reference" problem: how to create comprehensive profiles that capture dynamic tumor cell states rather than assuming stable expression patterns. We also identify critical benchmarking gaps, as most validation studies use peripheral blood or cell lines rather than actual tumor tissues, and the ideal approach of generating matched bulk and single-cell data from identical samples remains technically challenging and rarely performed.</p>
+                        <p>Looking forward, emerging directions include adapting deconvolution for FFPE samples to unlock vast clinical archives, developing temporal models that capture how cellular compositions evolve during treatment, integrating multi-modal data including copy number and methylation patterns, and extending these approaches to spatial transcriptomics to understand not just what cell types are present but where they reside and how they interact within the tumor architecture.</p>
+                    </div>
+                </div>
+
+                <div class="article-image">
+                    <img src="figures/limit.jpg" alt="Benefits and limitations of bulk RNA-seq and scRNA-seq data generation">
+                    <div class="caption">Benefits and limitations of bulk RNA-seq and scRNA-seq data generation.</div>
+                </div>
+
+                <div class="qa-item">
+                    <span class="qa-number">2</span>
+                    <div class="qa-question">How did peers or experts evaluate (or praise) the value of this review? For example, did they highlight the clarity of synthesis, the timeliness of the topic, or the importance of the perspectives offered?</div>
+                    <div class="qa-answer">
+                        <p>Reviewers particularly valued our comprehensive cataloging of 43 deconvolution methods with clear applicability classifications and the decision-tree framework in Figure 4, which transforms what could have been a technical comparison into actionable guidance for method selection. They emphasized our cancer-specific focus, noting that while many existing reviews use peripheral blood or cell-line mixtures for validation, we systematically address the unique challenges of tumor tissues including cellular plasticity and microenvironment complexity. Our balanced and transparent approach was repeatedly commended, especially our honest assessment of method limitations and clear documentation of which methods have rigorous cancer-specific validation versus those claiming applicability without proper benchmarking. The collaborative expertise spanning our fifteen-year method development history with DeMix, DeMixT, and DeMixSC to broader cancer genomics perspectives was recognized as strengthening both technical depth and practical relevance, creating a resource that bridges computational biologists with experimental researchers and clinicians.</p>
+                    </div>
+                </div>
+
+                <div class="qa-item">
+                    <span class="qa-number">3</span>
+                    <div class="qa-question">If the perspectives or frameworks proposed in this review have potential applications, what are specific ways they may shape research or clinical practice in the next few years?</div>
+                    <div class="qa-answer">
+                        <p>In the near term, this review enables researchers to re-analyze thousands of existing bulk RNA-seq datasets from TCGA and other sources to extract tumor microenvironment composition and tumor-specific signals, potentially discovering new biomarkers without generating new data. Our framework provides a roadmap for clinical trials already incorporating deconvolution as secondary outcomes and identifies specific gaps in FFPE optimization, temporal modeling, and rare cell detection that method developers need to address.</p>
+                        <p>Looking three to five years ahead, the clinical impact could be substantial as deconvolution-derived metrics like tumor-specific mRNA abundance and immune cell proportions become validated prognostic markers. As immunotherapy expands, tumor microenvironment profiling through deconvolution could predict treatment response, while extracting tumor-specific expression profiles may enable more accurate molecular subtyping. We hope this review establishes validation standards, serves as an educational resource, and facilitates collaboration between experimentalists and computational researchers by providing a common framework for understanding what these methods can accomplish in cancer research.</p>
+                    </div>
+                </div>
+
+                <div class="qa-item">
+                    <span class="qa-number">4</span>
+                    <div class="qa-question">Can you describe the steps or stages involved in developing this review article—such as identifying the scope, curating the literature, synthesizing findings, and shaping the conceptual framework?</div>
+                    <div class="qa-answer">
+                        <p>The review emerged from a practical challenge we observed through years of collaborating with experimental biologists: despite our lab's fifteen-year history developing deconvolution methods, cancer researchers consistently struggled with knowing which method to choose, and many tools developed for normal tissues failed when applied to tumors. This motivated us to create a cancer-specific guide rather than a general methods review. The literature curation was our most intensive phase, systematically identifying 43 relevant methods while establishing clear criteria for what to exclude, ultimately documenting all decisions transparently in supplementary materials.</p>
+                        <p>Developing the conceptual framework requires multiple iterations, constantly asking ourselves whether a cancer researcher without computational training could understand and apply our guidance. We organized the work by expertise areas, with different team members leading sections on single-cell methods, semi-reference approaches, reference-free methods, and clinical applications, while ensuring integration across the entire manuscript. The figures, especially the decision tree guiding method selection, went through numerous revisions to achieve clarity. After submission, reviewer feedback helped us strengthen the cancer-specific emphasis and expand clinical examples, while the final editing involved careful attention to scientific nomenclature and journal style requirements.</p>
+                    </div>
+                </div>
+
+                <div class="qa-item">
+                    <span class="qa-number">5</span>
+                    <div class="qa-question">Were there any memorable events during the writing of this review? This may include stories related to the research process, collaborations, unexpected insights, or key turning points.</div>
+                    <div class="qa-answer">
+                        <p>The most significant turning point came when we realized we couldn't simply rank methods as "best" because performance depends so heavily on individual contexts—available reference data, target cell types, research questions. We initially drafted ranking tables but kept finding exceptions that made them meaningless. Accepting this complexity and shifting to decision trees was frustrating at first since everyone wants simple recommendations, but it made the review genuinely useful.</p>
+                        <p>Coordinating across time zones meant real logistical challenges, and we had substantive disagreements about classifying certain methods that required iterative discussion rather than quick resolution. The debate about documenting excluded methods in Supplementary Table 2 was practical, we'd identified many methods that didn't fit our criteria, and while documenting exclusions took extra work, we chose transparency. What genuinely surprised me was discovering how few clinical trials use deconvolution beyond exploratory analyses despite years of methods development. This gap between computational capabilities and clinical application became a theme shaping our emphasis on translational barriers.</p>
+                    </div>
+                </div>
+
+                <div class="qa-item">
+                    <span class="qa-number">6</span>
+                    <div class="qa-question">Are there follow-up plans based on this review? For example, do you plan to extend this review into a perspective article, a methodological tutorial, or a series of related reviews?</div>
+                    <div class="qa-answer">
+                        <p>We're immediately developing practical tutorials on constructing cancer-specific references, interpreting deconvolution results, and avoiding common pitfalls to make these methods more accessible. We're collaborating with scientists generating matched bulk and single-cell datasets to address the benchmarking gaps we identified. Additionally, we're actively developing approaches following suggestions in the future work section of the review. For example, there are missing opportunities in spatial transcriptomic deconvolution, for which we developed DeMixNB, manuscript available as a preprint.</p>
+                    </div>
+                </div>
+
+                <div class="qa-item">
+                    <span class="qa-number">7</span>
+                    <div class="qa-question">AI is one of the major topics of 2023 and beyond, relying heavily on large-scale data and computational integration. From the perspective of biostatistics, how can biostatistics contribute to the development and evaluation of AI in this area?</div>
+                    <div class="qa-answer">
+                        <p>Biostatistics brings essential rigor to AI development that machine learning alone cannot provide. While AI methods show impressive performance metrics, biostatisticians ensure those metrics reflect real-world performance rather than artifacts of simulated data, assess whether models generalize across cancer types, and provide the uncertainty quantification critical for clinical decisions since most AI approaches give only point estimates without confidence intervals. We also address data quality issues like batch effects that AI might inadvertently learn, curate training datasets that avoid systematic biases, and detect when reference profiles don't match target tissues.</p>
+                    </div>
+                </div>
+
+                <div class="qa-item">
+                    <span class="qa-number">8</span>
+                    <div class="qa-question">Is there anything else about this review article that you would like to add—such as unique insights, broader impact, or future outlook?</div>
+                    <div class="qa-answer">
+                        <p>What makes this review distinctive is its problem-oriented organization around biological questions cancer researchers actually face rather than computational methods themselves, making it actionable for experimentalists starting with cancer biology problems. We deliberately discussed limitations openly, including when deconvolution struggles with rare populations, highly plastic tumor cells, or FFPE samples, because this honesty helps researchers avoid misapplication and builds realistic expectations.</p>
+                        <p>The key insight from developing this review is that our field's biggest barrier isn't computational sophistication but effective translation. We have powerful methods, yet researchers struggle with selection, validation standards remain inconsistent, and pathways to clinical application are unclear. Short-term, we anticipate better cancer-specific benchmarks and FFPE-optimized methods emerging. Longer-term, deconvolution could become routine clinical practice, enabling real-time treatment monitoring. Progress requires not just better algorithms but improved communication between computational and experimental researchers. This review represents our contribution toward building those bridges, helping more researchers extract meaningful insights from bulk transcriptomic data to advance cancer biology and improve patient outcomes.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="author-photo-block">
+                <div class="author-photo-inner">
+                    <img src="figures/review_cover.jpg" alt="Dr. Wenyi Wang and Yaoyi Dai">
+                    <div class="author-photo-caption">Dr. Wenyi Wang (left) and Yaoyi Dai (right)</div>
+                </div>
+            </div>
+
+            <div class="authors-section">
+                <h2 class="section-title">Author Biographies</h2>
+                <div class="authors-grid">
+
+                <div class="bio-card">
+                    <div class="bio-card-header">
+                        <div class="bio-avatar">YD</div>
+                        <div class="bio-meta">
+                            <div class="bio-name-row"><span class="bio-name">Yaoyi Dai</span></div>
+                            <div class="bio-affiliation">MD Anderson Cancer Center · Baylor College of Medicine</div>
+                        </div>
+                    </div>
+                    <div class="bio-text">Graduate research assistant in the Department of Bioinformatics and Computational Biology at MD Anderson Cancer Center and PhD candidate at Baylor College of Medicine. Her research focuses on developing and applying transcriptomic deconvolution methods for cancer genomics, with expertise in integrating multi-omics data for biomarker discovery and tumor microenvironment characterization in translational oncology applications.</div>
+                </div>
+
+                <div class="bio-card">
+                    <div class="bio-card-header">
+                        <div class="bio-avatar">SG</div>
+                        <div class="bio-meta">
+                            <div class="bio-name-row"><span class="bio-name">Shuai Guo</span></div>
+                            <div class="bio-affiliation">Emory University</div>
+                        </div>
+                    </div>
+                    <div class="bio-text">Postdoctoral fellow at Emory University. He completed his graduate training with Dr. Wenyi Wang in the Department of Bioinformatics and Computational Biology at MD Anderson Cancer Center, where he specialized in single-cell reference-based deconvolution methods and their application to cancer transcriptomics. His research focuses on developing benchmarking frameworks and computational approaches that address platform-specific biases in integrating single-cell and bulk RNA-seq data.</div>
+                </div>
+
+                <div class="bio-card">
+                    <div class="bio-card-header">
+                        <div class="bio-avatar">YP</div>
+                        <div class="bio-meta">
+                            <div class="bio-name-row"><span class="bio-name">Yidan Pan</span></div>
+                            <div class="bio-affiliation">MD Anderson Cancer Center · Van Loo Lab</div>
+                        </div>
+                    </div>
+                    <div class="bio-text">Data Scientist in the Department of Genetics at MD Anderson Cancer Center under Dr. Van Loo's lab. Her research interests include cancer genomics and the clinical translation of computational methods, with a focus on tumor evolution investigated through spatiotemporal single-cell genomic and transcriptomic analyses in malignant peripheral nerve sheath tumors (MPNST).</div>
+                </div>
+
+                <div class="bio-card">
+                    <div class="bio-card-header">
+                        <div class="bio-avatar">CC</div>
+                        <div class="bio-meta">
+                            <div class="bio-name-row"><span class="bio-name">Carla Castignani</span></div>
+                            <div class="bio-affiliation">Francis Crick Institute, London</div>
+                        </div>
+                    </div>
+                    <div class="bio-text">Graduate Research Assistant at the Francis Crick Institute in London, United Kingdom, PhD student of Dr. Peter Van Loo. Her research focuses on computational approaches to understanding tumor evolution and heterogeneity, with expertise in reference-free deconvolution methods and their applications to complex cancer genomics datasets.</div>
+                </div>
+
+                <div class="bio-card">
+                    <div class="bio-card-header">
+                        <div class="bio-avatar">MM</div>
+                        <div class="bio-meta">
+                            <div class="bio-name-row"><span class="bio-name">Matthew D. Montierth</span></div>
+                            <div class="bio-affiliation">MD Anderson Cancer Center · Wang Lab</div>
+                        </div>
+                    </div>
+                    <div class="bio-text">Data Scientist in the Department of Bioinformatics and Computational Biology at MD Anderson Cancer Center under Dr. Wang's lab. He completed his PhD training with Dr. Wenyi Wang at Baylor College of Medicine, with research focusing on semi-reference-based deconvolution methods, subclonal reconstruction, and statistical approaches to modeling tumor heterogeneity in cancer transcriptomics.</div>
+                </div>
+
+                <div class="bio-card bio-pi">
+                    <div class="bio-card-header">
+                        <div class="bio-avatar">PV</div>
+                        <div class="bio-meta">
+                            <div class="bio-name-row"><span class="bio-name">Peter Van Loo</span><span class="bio-badge">PI</span></div>
+                            <div class="bio-affiliation">MD Anderson Cancer Center · Professor, CPRIT Scholar</div>
+                        </div>
+                    </div>
+                    <div class="bio-text">Dr. Van Loo is a Professor and CPRIT scholar at the University of Texas MD Anderson Cancer Center, Department of Genetics, with a joint appointment at the Department of Genomic Medicine. His research focuses on leveraging massively parallel sequencing efforts to study the evolutionary history of cancers. During his postdoctoral training, Dr. Van Loo developed computational techniques to study copy-number alterations in cancer genomes, and approaches to study the evolutionary history and subclonal architecture of tumors from whole-genome sequencing data, a field coined molecular archeology of cancer. As an independent researcher, first as a Group Leader at the Francis Crick Institute in London, UK, and later as a Professor at the University of Texas MD Anderson Cancer Center, Dr. Van Loo has sketched the typical evolutionary trajectories of many cancer types, allowing insight into the timelines of cancer development, as well as insight into how tumors metastasize. He was the main lead of Evolution and Heterogeneity working group of the Pan-Cancer Analysis of Whole Genomics (PCAWG) Consortium and is the genomics lead of the Sarcoma arm of the 100,000 Genomes Project.</div>
+                </div>
+
+                <div class="bio-card bio-pi">
+                    <div class="bio-card-header">
+                        <div class="bio-avatar">WW</div>
+                        <div class="bio-meta">
+                            <div class="bio-name-row"><span class="bio-name">Wenyi Wang</span><span class="bio-badge">PI</span></div>
+                            <div class="bio-affiliation">MD Anderson Cancer Center · Professor</div>
+                        </div>
+                    </div>
+                    <div class="bio-text">Dr. Wang is a Professor of Bioinformatics and Computational Biology and Biostatistics at the University of Texas MD Anderson Cancer Center. She received her PhD from Johns Hopkins University and performed postdoctoral training in statistical genomics and genome technology at UC Berkeley with Terry Speed and at Stanford with Ron Davis. Wenyi's research includes significant contributions to statistical bioinformatics in cancer, including MuSE for subclonal mutation calling, DeMixT for transcriptome deconvolution, Famdenovo for de novo mutation identification, and more recently, a pan-cancer characterization of genetic intra-tumor heterogeneity in subclonal selection. Her group is focused on the development and application of computational methods to study the evolution of the human genome as well as the cancer genome, and further develop risk prediction models to accelerate the translation of biological findings to clinical practice.</div>
+                </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
+
+
+```
