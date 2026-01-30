@@ -409,7 +409,7 @@ Shan Gao
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="7" data-categories="RXZlbnRz" data-listing-date-sort="1755057600000" data-listing-file-modified-sort="1755670306116" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="290">
+<div class="quarto-post image-right" data-index="7" data-categories="RXZlbnRz" data-listing-date-sort="1755057600000" data-listing-file-modified-sort="1769733387928" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="290">
 <div class="thumbnail"><a href="../posts/2025-isu-niss-conference.html" class="no-external">
 
 <img loading="lazy" src="../posts/figures/isu-niss-banner.png" class="thumbnail-image">
@@ -439,7 +439,7 @@ Yulin Li
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="8" data-categories="UmVzb3VyY2Vz" data-listing-date-sort="1751256000000" data-listing-file-modified-sort="1755670358820" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="432">
+<div class="quarto-post image-right" data-index="8" data-categories="UmVzb3VyY2Vz" data-listing-date-sort="1751256000000" data-listing-file-modified-sort="1769732312821" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="432">
 <div class="thumbnail"><a href="../posts/Introduction to NIH Strategic Plan for Data Science.html" class="no-external">
 
 <img loading="lazy" src="../posts/figures/nih_logo.jpg" class="thumbnail-image">
@@ -2231,32 +2231,18 @@ Shan Gao
 
 <!-- Per-Page View Counter (Footer Style) -->
 <style>
-/*#goatcounter-footer {*/
-/*  display: flex; */
-/*  justify-content: left;*/
-/*  column-gap: 5px;*/
-/*  color: #8E8E8E; */
-/*  font-size: 13px; */
-/*  font-family: Arial, sans-serif;*/
-/*}*/
-/*#goatcounter-footer .statcounter {*/
-/*  font-family: 'Courier New', monospace; */
-/*  color: #0033cc; */
-/*  font-weight: bold; */
-/*  margin-left: 3px; */
-/*}*/
-
 #goatcounter-footer {
+  --gc-counter-color: #2b786bef;
   display: flex; 
   align-items: center; 
   column-gap: 5px;
-  color: #8E8E8E; 
+  color: #8e8e8e; 
   font-size: 13px; 
   font-family: Arial, sans-serif;
 }
 #goatcounter-footer .statcounter {
   font-family: 'Courier New', monospace; 
-  color: #0033cc; 
+  color: var(--gc-counter-color);
   font-weight: bold; 
   margin-left: 3px; 
 }
@@ -2295,6 +2281,10 @@ Shan Gao
 
               // GoatCounter is available, clear the timer
               clearInterval(t)
+              // Resolve the counter color to a concrete value
+              var footer = document.getElementById('goatcounter-footer');
+              var resolvedColor = footer ? getComputedStyle(footer).getPropertyValue('--gc-counter-color').trim() : '';
+              console.log('Resolved counter color:', resolvedColor);
               // Update the display with the current visit count
               const display = document.getElementById("goatcounter-footer");
               if (display) {
@@ -2318,7 +2308,7 @@ Shan Gao
                   #gcvc-views { 
                       font-family: 'Courier New', monospace; 
                       font-size: 13px;
-                      color: #0033cc; 
+                      color: ${resolvedColor}; 
                       font-weight: bold; 
                       margin-top: 29px;
                   }`

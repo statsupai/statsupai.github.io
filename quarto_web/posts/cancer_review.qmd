@@ -1,5 +1,5 @@
 ---
-title: "In Conversation:</span> Cancer Transcriptomic Deconvolution"
+title: "In Conversation: Cancer Transcriptomic Deconvolution"
 description: "A feature interview on methods, challenges, and clinical translation"
 image: figures/limit.jpg
 author:
@@ -13,7 +13,6 @@ format:
     page-layout: full
     toc: false
     theme: none
-    title-block: false
 ---
 
 ```{=html}
@@ -554,8 +553,8 @@ format:
                     <span class="qa-number">5</span>
                     <div class="qa-question">Were there any memorable events during the writing of this review? This may include stories related to the research process, collaborations, unexpected insights, or key turning points.</div>
                     <div class="qa-answer">
-                        <p>The most significant turning point came when we realized we couldn't simply rank methods as "best" because performance depends so heavily on individual contexts—available reference data, target cell types, research questions. We initially drafted ranking tables but kept finding exceptions that made them meaningless. Accepting this complexity and shifting to decision trees was frustrating at first since everyone wants simple recommendations, but it made the review genuinely useful.</p>
-                        <p>Coordinating across time zones meant real logistical challenges, and we had substantive disagreements about classifying certain methods that required iterative discussion rather than quick resolution. The debate about documenting excluded methods in Supplementary Table 2 was practical, we'd identified many methods that didn't fit our criteria, and while documenting exclusions took extra work, we chose transparency. What genuinely surprised me was discovering how few clinical trials use deconvolution beyond exploratory analyses despite years of methods development. This gap between computational capabilities and clinical application became a theme shaping our emphasis on translational barriers.</p>
+                        <p>The most significant turning point came when we realized we couldn't simply rank methods as "best" because performance depends so heavily on individual contexts—available reference data, target cell types, research questions. We initially drafted ranking tables but kept finding exceptions that made them meaningless. Accepting this complexity and shifting to decision trees was frustrating at first, since everyone wants simple recommendations, but it made the review genuinely useful.</p>
+                        <p>Coordinating across time zones meant real logistical challenges, and we had substantive disagreements about classifying certain methods that required iterative discussion rather than quick resolution. The debate about documenting excluded methods in Supplementary Table 2 was practical because we'd identified many methods that didn't fit our criteria, and while documenting exclusions took extra work, we chose transparency. What genuinely surprised me was discovering how few clinical trials use deconvolution beyond exploratory analyses despite years of methods development. This gap between computational capabilities and clinical application became a theme shaping our emphasis on translational barriers.</p>
                     </div>
                 </div>
 
@@ -563,7 +562,7 @@ format:
                     <span class="qa-number">6</span>
                     <div class="qa-question">Are there follow-up plans based on this review? For example, do you plan to extend this review into a perspective article, a methodological tutorial, or a series of related reviews?</div>
                     <div class="qa-answer">
-                        <p>We're immediately developing practical tutorials on constructing cancer-specific references, interpreting deconvolution results, and avoiding common pitfalls to make these methods more accessible. We're collaborating with scientists generating matched bulk and single-cell datasets to address the benchmarking gaps we identified. Additionally, we're actively developing approaches following suggestions in the future work section of the review. For example, there are missing opportunities in spatial transcriptomic deconvolution, for which we developed DeMixNB, manuscript available as a preprint.</p>
+                        <p>We're immediately developing practical tutorials on constructing cancer-specific references, interpreting deconvolution results, and avoiding common pitfalls to make these methods more accessible. We're collaborating with scientists generating matched bulk and single-cell datasets to address the benchmarking gaps we identified. Additionally, we're actively developing approaches following suggestions in the future work section of the review. For example, there are missing opportunities in spatial transcriptomic deconvolution, for which we developed DeMixNB; the manuscript is available as a preprint.</p>
                     </div>
                 </div>
 
@@ -571,7 +570,7 @@ format:
                     <span class="qa-number">7</span>
                     <div class="qa-question">AI is one of the major topics of 2023 and beyond, relying heavily on large-scale data and computational integration. From the perspective of biostatistics, how can biostatistics contribute to the development and evaluation of AI in this area?</div>
                     <div class="qa-answer">
-                        <p>Biostatistics brings essential rigor to AI development that machine learning alone cannot provide. While AI methods show impressive performance metrics, biostatisticians ensure those metrics reflect real-world performance rather than artifacts of simulated data, assess whether models generalize across cancer types, and provide the uncertainty quantification critical for clinical decisions since most AI approaches give only point estimates without confidence intervals. We also address data quality issues like batch effects that AI might inadvertently learn, curate training datasets that avoid systematic biases, and detect when reference profiles don't match target tissues.</p>
+                        <p>Biostatistics brings essential rigor to AI development that machine learning alone cannot provide. While AI methods show impressive performance metrics, biostatisticians ensure those metrics reflect real-world performance rather than artifacts of simulated data, assess whether models generalize across cancer types, and provide the uncertainty quantification critical for clinical decisions, since most AI approaches give only point estimates without confidence intervals. We also address data quality issues like batch effects that AI might inadvertently learn, curate training datasets that avoid systematic biases, and detect when reference profiles don't match target tissues.</p>
                     </div>
                 </div>
 
@@ -594,92 +593,88 @@ format:
 
             <div class="authors-section">
                 <h2 class="section-title">Author Biographies</h2>
+
                 <div class="authors-grid">
 
-                <div class="bio-card">
-                    <div class="bio-card-header">
-                        <div class="bio-avatar">YD</div>
-                        <div class="bio-meta">
-                            <div class="bio-name-row"><span class="bio-name">Yaoyi Dai</span></div>
-                            <div class="bio-affiliation">MD Anderson Cancer Center · Baylor College of Medicine</div>
+                    <div class="bio-card">
+                        <div class="bio-card-header">
+                            <div class="bio-avatar">YD</div>
+                            <div class="bio-meta">
+                                <div class="bio-name-row"><span class="bio-name">Yaoyi Dai</span></div>
+                                <div class="bio-affiliation">MD Anderson Cancer Center · Baylor College of Medicine</div>
+                            </div>
                         </div>
+                        <div class="bio-text">Graduate research assistant in the Department of Bioinformatics and Computational Biology at MD Anderson Cancer Center and PhD candidate at Baylor College of Medicine. Her research focuses on developing and applying transcriptomic deconvolution methods for cancer genomics, with expertise in integrating multi-omics data for biomarker discovery and tumor microenvironment characterization in translational oncology applications.</div>
                     </div>
-                    <div class="bio-text">Graduate research assistant in the Department of Bioinformatics and Computational Biology at MD Anderson Cancer Center and PhD candidate at Baylor College of Medicine. Her research focuses on developing and applying transcriptomic deconvolution methods for cancer genomics, with expertise in integrating multi-omics data for biomarker discovery and tumor microenvironment characterization in translational oncology applications.</div>
-                </div>
 
-                <div class="bio-card">
-                    <div class="bio-card-header">
-                        <div class="bio-avatar">SG</div>
-                        <div class="bio-meta">
-                            <div class="bio-name-row"><span class="bio-name">Shuai Guo</span></div>
-                            <div class="bio-affiliation">Emory University</div>
+                    <div class="bio-card">
+                        <div class="bio-card-header">
+                            <div class="bio-avatar">SG</div>
+                            <div class="bio-meta">
+                                <div class="bio-name-row"><span class="bio-name">Shuai Guo</span></div>
+                                <div class="bio-affiliation">Emory University</div>
+                            </div>
                         </div>
+                        <div class="bio-text">Postdoctoral fellow at Emory University. He completed his graduate training with Dr. Wenyi Wang in the Department of Bioinformatics and Computational Biology at MD Anderson Cancer Center, where he specialized in single-cell reference-based deconvolution methods and their application to cancer transcriptomics. His research focuses on developing benchmarking frameworks and computational approaches that address platform-specific biases in integrating single-cell and bulk RNA-seq data.</div>
                     </div>
-                    <div class="bio-text">Postdoctoral fellow at Emory University. He completed his graduate training with Dr. Wenyi Wang in the Department of Bioinformatics and Computational Biology at MD Anderson Cancer Center, where he specialized in single-cell reference-based deconvolution methods and their application to cancer transcriptomics. His research focuses on developing benchmarking frameworks and computational approaches that address platform-specific biases in integrating single-cell and bulk RNA-seq data.</div>
-                </div>
 
-                <div class="bio-card">
-                    <div class="bio-card-header">
-                        <div class="bio-avatar">YP</div>
-                        <div class="bio-meta">
-                            <div class="bio-name-row"><span class="bio-name">Yidan Pan</span></div>
-                            <div class="bio-affiliation">MD Anderson Cancer Center · Van Loo Lab</div>
+                    <div class="bio-card">
+                        <div class="bio-card-header">
+                            <div class="bio-avatar">YP</div>
+                            <div class="bio-meta">
+                                <div class="bio-name-row"><span class="bio-name">Yidan Pan</span></div>
+                                <div class="bio-affiliation">MD Anderson Cancer Center · Van Loo Lab</div>
+                            </div>
                         </div>
+                        <div class="bio-text">Data Scientist in the Department of Genetics at MD Anderson Cancer Center under Dr. Van Loo's lab. Her research interests include cancer genomics and the clinical translation of computational methods, with a focus on tumor evolution investigated through spatiotemporal single-cell genomic and transcriptomic analyses in malignant peripheral nerve sheath tumors (MPNST).</div>
                     </div>
-                    <div class="bio-text">Data Scientist in the Department of Genetics at MD Anderson Cancer Center under Dr. Van Loo's lab. Her research interests include cancer genomics and the clinical translation of computational methods, with a focus on tumor evolution investigated through spatiotemporal single-cell genomic and transcriptomic analyses in malignant peripheral nerve sheath tumors (MPNST).</div>
-                </div>
 
-                <div class="bio-card">
-                    <div class="bio-card-header">
-                        <div class="bio-avatar">CC</div>
-                        <div class="bio-meta">
-                            <div class="bio-name-row"><span class="bio-name">Carla Castignani</span></div>
-                            <div class="bio-affiliation">Francis Crick Institute, London</div>
+                    <div class="bio-card">
+                        <div class="bio-card-header">
+                            <div class="bio-avatar">CC</div>
+                            <div class="bio-meta">
+                                <div class="bio-name-row"><span class="bio-name">Carla Castignani</span></div>
+                                <div class="bio-affiliation">Francis Crick Institute, London</div>
+                            </div>
                         </div>
+                        <div class="bio-text">Graduate Research Assistant at the Francis Crick Institute in London, United Kingdom, and a PhD student with Dr. Peter Van Loo. Her research focuses on computational approaches to understanding tumor evolution and heterogeneity, with expertise in reference-free deconvolution methods and their applications to complex cancer genomics datasets.</div>
                     </div>
-                    <div class="bio-text">Graduate Research Assistant at the Francis Crick Institute in London, United Kingdom, PhD student of Dr. Peter Van Loo. Her research focuses on computational approaches to understanding tumor evolution and heterogeneity, with expertise in reference-free deconvolution methods and their applications to complex cancer genomics datasets.</div>
-                </div>
 
-                <div class="bio-card">
-                    <div class="bio-card-header">
-                        <div class="bio-avatar">MM</div>
-                        <div class="bio-meta">
-                            <div class="bio-name-row"><span class="bio-name">Matthew D. Montierth</span></div>
-                            <div class="bio-affiliation">MD Anderson Cancer Center · Wang Lab</div>
+                    <div class="bio-card">
+                        <div class="bio-card-header">
+                            <div class="bio-avatar">MM</div>
+                            <div class="bio-meta">
+                                <div class="bio-name-row"><span class="bio-name">Matthew D. Montierth</span></div>
+                                <div class="bio-affiliation">MD Anderson Cancer Center · Wang Lab</div>
+                            </div>
                         </div>
+                        <div class="bio-text">Data Scientist in the Department of Bioinformatics and Computational Biology at MD Anderson Cancer Center under Dr. Wang's lab. He completed his PhD training with Dr. Wenyi Wang at Baylor College of Medicine, with research focusing on semi-reference-based deconvolution methods, subclonal reconstruction, and statistical approaches to modeling tumor heterogeneity in cancer transcriptomics.</div>
                     </div>
-                    <div class="bio-text">Data Scientist in the Department of Bioinformatics and Computational Biology at MD Anderson Cancer Center under Dr. Wang's lab. He completed his PhD training with Dr. Wenyi Wang at Baylor College of Medicine, with research focusing on semi-reference-based deconvolution methods, subclonal reconstruction, and statistical approaches to modeling tumor heterogeneity in cancer transcriptomics.</div>
-                </div>
 
-                <div class="bio-card bio-pi">
-                    <div class="bio-card-header">
-                        <div class="bio-avatar">PV</div>
-                        <div class="bio-meta">
-                            <div class="bio-name-row"><span class="bio-name">Peter Van Loo</span><span class="bio-badge">PI</span></div>
-                            <div class="bio-affiliation">MD Anderson Cancer Center · Professor, CPRIT Scholar</div>
+                    <div class="bio-card bio-pi">
+                        <div class="bio-card-header">
+                            <div class="bio-avatar">PV</div>
+                            <div class="bio-meta">
+                                <div class="bio-name-row"><span class="bio-name">Peter Van Loo</span><span class="bio-badge">PI</span></div>
+                                <div class="bio-affiliation">MD Anderson Cancer Center · Professor, CPRIT Scholar</div>
+                            </div>
                         </div>
+                        <div class="bio-text">Dr. Van Loo is a Professor and CPRIT scholar at the University of Texas MD Anderson Cancer Center, Department of Genetics, with a joint appointment at the Department of Genomic Medicine. His research focuses on leveraging massively parallel sequencing efforts to study the evolutionary history of cancers. During his postdoctoral training, Dr. Van Loo developed computational techniques to study copy-number alterations in cancer genomes, and approaches to study the evolutionary history and subclonal architecture of tumors from whole-genome sequencing data, a field coined molecular archaeology of cancer. As an independent researcher, first as a Group Leader at the Francis Crick Institute in London, UK, and later as a Professor at the University of Texas MD Anderson Cancer Center, Dr. Van Loo has sketched the typical evolutionary trajectories of many cancer types, allowing insight into the timelines of cancer development, as well as insight into how tumors metastasize. He was the main lead of Evolution and Heterogeneity working group of the Pan-Cancer Analysis of Whole Genomics (PCAWG) Consortium and is the genomics lead of the Sarcoma arm of the 100,000 Genomes Project.</div>
                     </div>
-                    <div class="bio-text">Dr. Van Loo is a Professor and CPRIT scholar at the University of Texas MD Anderson Cancer Center, Department of Genetics, with a joint appointment at the Department of Genomic Medicine. His research focuses on leveraging massively parallel sequencing efforts to study the evolutionary history of cancers. During his postdoctoral training, Dr. Van Loo developed computational techniques to study copy-number alterations in cancer genomes, and approaches to study the evolutionary history and subclonal architecture of tumors from whole-genome sequencing data, a field coined molecular archeology of cancer. As an independent researcher, first as a Group Leader at the Francis Crick Institute in London, UK, and later as a Professor at the University of Texas MD Anderson Cancer Center, Dr. Van Loo has sketched the typical evolutionary trajectories of many cancer types, allowing insight into the timelines of cancer development, as well as insight into how tumors metastasize. He was the main lead of Evolution and Heterogeneity working group of the Pan-Cancer Analysis of Whole Genomics (PCAWG) Consortium and is the genomics lead of the Sarcoma arm of the 100,000 Genomes Project.</div>
-                </div>
 
-                <div class="bio-card bio-pi">
-                    <div class="bio-card-header">
-                        <div class="bio-avatar">WW</div>
-                        <div class="bio-meta">
-                            <div class="bio-name-row"><span class="bio-name">Wenyi Wang</span><span class="bio-badge">PI</span></div>
-                            <div class="bio-affiliation">MD Anderson Cancer Center · Professor</div>
+                    <div class="bio-card bio-pi">
+                        <div class="bio-card-header">
+                            <div class="bio-avatar">WW</div>
+                            <div class="bio-meta">
+                                <div class="bio-name-row"><span class="bio-name">Wenyi Wang</span><span class="bio-badge">PI</span></div>
+                                <div class="bio-affiliation">MD Anderson Cancer Center · Professor</div>
+                            </div>
                         </div>
+                        <div class="bio-text">Dr. Wang is a Professor of Bioinformatics and Computational Biology and Biostatistics at the University of Texas MD Anderson Cancer Center. She received her PhD from Johns Hopkins University and performed postdoctoral training in statistical genomics and genome technology at UC Berkeley with Terry Speed and at Stanford with Ron Davis. Wenyi's research includes significant contributions to statistical bioinformatics in cancer, including MuSE for subclonal mutation calling, DeMixT for transcriptome deconvolution, Famdenovo for de novo mutation identification, and more recently, a pan-cancer characterization of genetic intra-tumor heterogeneity in subclonal selection. Her group is focused on the development and application of computational methods to study the evolution of the human genome as well as the cancer genome, and further develop risk prediction models to accelerate the translation of biological findings to clinical practice.</div>
                     </div>
-                    <div class="bio-text">Dr. Wang is a Professor of Bioinformatics and Computational Biology and Biostatistics at the University of Texas MD Anderson Cancer Center. She received her PhD from Johns Hopkins University and performed postdoctoral training in statistical genomics and genome technology at UC Berkeley with Terry Speed and at Stanford with Ron Davis. Wenyi's research includes significant contributions to statistical bioinformatics in cancer, including MuSE for subclonal mutation calling, DeMixT for transcriptome deconvolution, Famdenovo for de novo mutation identification, and more recently, a pan-cancer characterization of genetic intra-tumor heterogeneity in subclonal selection. Her group is focused on the development and application of computational methods to study the evolution of the human genome as well as the cancer genome, and further develop risk prediction models to accelerate the translation of biological findings to clinical practice.</div>
-                </div>
 
                 </div>
             </div>
-        </div>
-
-    </div>
 </body>
 </html>
-
-
 ```
