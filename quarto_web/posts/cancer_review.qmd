@@ -1,5 +1,6 @@
 ---
 title: "In Conversation:</span> Cancer Transcriptomic Deconvolution"
+description: "A feature interview on methods, challenges, and clinical translation"
 image: figures/limit.jpg
 author:
   - name: "Shan Gao"
