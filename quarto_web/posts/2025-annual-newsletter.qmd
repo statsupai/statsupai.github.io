@@ -1,0 +1,22 @@
+---
+title: "StatsUpAI · 2025 Annual Newsletter"
+description: "**2025** has been a year filled with *milestones, innovation, and community growth for **StatsUpAI***, as you will learn from reading this newsletter. Each of our accomplishments reflects not just what we've built, but people who have built it — a dedicated, generous, and vibrant network of researchers, students, educators, and practitioners."
+image: figures/2025-annual-newsletter.jpeg
+author:
+  - name: "Shan Gao"
+categories:
+  - Announcements
+date: "2025-12-31"
+title-block:
+  author: false
+format:
+  html:
+    page-layout: full
+    toc: false
+    include-in-header:
+      text: |
+        <meta http-equiv="refresh" content="0; url=https://statsupai.org/pages/annual_newsletter7">
+        <link rel="canonical" href="https://statsupai.org/pages/annual_newsletter7">
+---
+
+Redirecting to [2025 Annual Newsletter](https://statsupai.org/pages/annual_newsletter7)...
