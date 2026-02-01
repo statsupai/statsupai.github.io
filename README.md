@@ -15,7 +15,7 @@ If you’re new to web maintenance (or you just want a low-stress workflow), the
 
 ## Big picture: what lives where?
 
-Here are revised versions of the three directory trees that reflect how the repository is actually organized:
+Here are latest versions of the three directory trees that reflect how the repository is actually organized:
 
 ### 1) Raw HTML (hand‑written pages)
 
@@ -237,15 +237,9 @@ make rebuild
 
 ---
 
-## Contributing workflow (low-stress)
-
-You can revise the **Contributing workflow** section to remove the branching/PR instructions and instead encourage contributors to commit directly to `main`. Here’s a concise replacement that includes commit tips drawn from widely accepted git conventions:
-
----
-
 ## Contributing workflow (easiest way)
 
-If you prefer to avoid the command line entirely, you can handle commits through [**GitHub Desktop**](https://desktop.github.com/), which provides a friendly graphical interface that you can just point-and-click.
+If you prefer to avoid the `git` command line entirely, you can handle commits through [**GitHub Desktop**](https://desktop.github.com/), which provides a friendly graphical interface that you can just point-and-click.
 
 After installing GitHub Desktop and cloning the repository, follow these simple steps to commit and push your updates:
 
@@ -256,7 +250,7 @@ After installing GitHub Desktop and cloning the repository, follow these simple 
 
 This workflow keeps things simple—edit, commit, push—and GitHub Desktop takes care of the underlying Git commands for you.
 
-### Commit tips
+### Tips for Healthy Commits
 
 Small commits + focused themes = easy rollback + less panic.
 
