@@ -31,6 +31,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../img/logo.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -401,32 +402,18 @@ Visit the <strong>Stats Up AI</strong> Channel for More
 
 <!-- Per-Page View Counter (Footer Style) -->
 <style>
-/*#goatcounter-footer {*/
-/*  display: flex; */
-/*  justify-content: left;*/
-/*  column-gap: 5px;*/
-/*  color: #8E8E8E; */
-/*  font-size: 13px; */
-/*  font-family: Arial, sans-serif;*/
-/*}*/
-/*#goatcounter-footer .statcounter {*/
-/*  font-family: 'Courier New', monospace; */
-/*  color: #0033cc; */
-/*  font-weight: bold; */
-/*  margin-left: 3px; */
-/*}*/
-
 #goatcounter-footer {
+  --gc-counter-color: #2b786bef;
   display: flex; 
   align-items: center; 
   column-gap: 5px;
-  color: #8E8E8E; 
+  color: #8e8e8e; 
   font-size: 13px; 
   font-family: Arial, sans-serif;
 }
 #goatcounter-footer .statcounter {
   font-family: 'Courier New', monospace; 
-  color: #0033cc; 
+  color: var(--gc-counter-color);
   font-weight: bold; 
   margin-left: 3px; 
 }
@@ -465,6 +452,10 @@ Visit the <strong>Stats Up AI</strong> Channel for More
 
               // GoatCounter is available, clear the timer
               clearInterval(t)
+              // Resolve the counter color to a concrete value
+              var footer = document.getElementById('goatcounter-footer');
+              var resolvedColor = footer ? getComputedStyle(footer).getPropertyValue('--gc-counter-color').trim() : '';
+              console.log('Resolved counter color:', resolvedColor);
               // Update the display with the current visit count
               const display = document.getElementById("goatcounter-footer");
               if (display) {
@@ -478,8 +469,13 @@ Visit the <strong>Stats Up AI</strong> Channel for More
                 path: trimmedPath,
                 append: '#goatcounter-footer', 
                 style: `
+                  body {
+                    background: transparent !important;
+                  }
                   div { 
+                    background: transparent !important;
                     border-width: 0px;
+                    border: 0 !important;
                     display: flex;
                   }
                   #gcvc-for {
@@ -488,7 +484,7 @@ Visit the <strong>Stats Up AI</strong> Channel for More
                   #gcvc-views { 
                       font-family: 'Courier New', monospace; 
                       font-size: 13px;
-                      color: #0033cc; 
+                      color: ${resolvedColor}; 
                       font-weight: bold; 
                       margin-top: 29px;
                   }`

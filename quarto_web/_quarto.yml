@@ -2,6 +2,9 @@ project:
   type: website
   output-dir: site
 
+website:
+  favicon: img/logo.png
+
 # website:
   # title: "quarto_web"
   # navbar:
