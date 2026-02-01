@@ -250,30 +250,36 @@ After installing GitHub Desktop and cloning the repository, follow these simple 
 
 This workflow keeps things simple—edit, commit, push—and GitHub Desktop takes care of the underlying Git commands for you.
 
-### Tips for Healthy Commits
+### Tips (healthy commits)
 
-Small commits + focused themes = easy rollback + less panic.
+> Small commits + focused themes = easy rollback + less panic! 🎉
 
 ---
 
 ## FAQ
 
 **Q: Is this a Jekyll site or not?**
+
 A: It’s a **hybrid**. Many pages are raw HTML, Events are Jekyll-generated, and Community News is mostly Quarto-generated.
 
 **Q: Why suggest installing Jekyll if lots of pages aren’t Jekyll?**
+
 A: Because Jekyll gives you the easiest **one-command local preview** (`make preview`) that serves the whole site together.
 
 **Q: Where do I edit a classic page like “Team” or “Pipeline”?**
+
 A: Edit the raw HTML file directly (e.g., `team.html`, `pipeline.html`, or files under `pages/`).
 
 **Q: Where do I edit Events / Webinars?**
+
 A: Under `events/` (typically one Markdown file per event) + templates in `_layouts/` and `_includes/`.
 
 **Q: Where do I edit Community News posts?**
+
 A: Usually edit the Quarto source `.qmd` files (often under `quarto_web/posts/`), then render to update `quarto_web/site/posts/*.html`.
 
 **Q: What should I NOT edit?**
+
 A: Don’t edit `_site/` (generated output). If something keeps regenerating after preview/rebuild, treat it as output.
 
 ---
