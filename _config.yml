@@ -1,6 +1,7 @@
 # Site settings
 title: Stats Up AI
 description: Statistics shaping the future of Artificial Intelligence
+favicon: /img/logo.png
 baseurl: ""
 url: "https://statsupai.github.io"
 github_username: statsupai

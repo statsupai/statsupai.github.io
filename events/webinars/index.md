@@ -2,6 +2,7 @@
 layout: events
 title: Webinars · 2026
 permalink: /events/webinars/
+favicon: /img/logo.png
 ---
 {% assign today = site.time | date: "%Y-%m-%d" %}
 
