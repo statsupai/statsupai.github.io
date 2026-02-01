@@ -1,6 +1,6 @@
 ---
 layout: events
-title: Webinars · 2026
+title: Webinars 2026
 permalink: /events/webinars/
 favicon: /img/logo.png
 ---
