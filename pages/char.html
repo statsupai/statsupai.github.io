@@ -14,12 +14,157 @@ layout: null
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
   <style>
+    /* Base typography + page background */
     body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #F8FAFC; color: #0f2a29; }
     h1, h2, h3 { font-family: 'Merriweather', serif; }
+
+    /* Tailwind default palettes (baseline reference, OKLCH) */
+    /*
+    :root {
+      --color-blue-50:  oklch(0.97 0.014 254.604);
+      --color-blue-100: oklch(0.932 0.032 255.585);
+      --color-blue-200: oklch(0.882 0.059 254.128);
+      --color-blue-300: oklch(0.809 0.105 251.813);
+      --color-blue-400: oklch(0.707 0.165 254.624);
+      --color-blue-500: oklch(0.623 0.214 259.815);
+      --color-blue-600: oklch(0.546 0.245 262.881);
+      --color-blue-700: oklch(0.488 0.243 264.376);
+      --color-blue-800: oklch(0.424 0.199 265.638);
+      --color-blue-900: oklch(0.379 0.146 265.522);
+      --color-blue-950: oklch(0.282 0.091 267.935);
+
+      --color-indigo-50:  oklch(0.962 0.018 272.314);
+      --color-indigo-100: oklch(0.93 0.034 272.788);
+      --color-indigo-200: oklch(0.87 0.065 274.039);
+      --color-indigo-300: oklch(0.785 0.115 274.713);
+      --color-indigo-400: oklch(0.673 0.182 276.935);
+      --color-indigo-500: oklch(0.585 0.233 277.117);
+      --color-indigo-600: oklch(0.511 0.262 276.966);
+      --color-indigo-700: oklch(0.457 0.24 277.023);
+      --color-indigo-800: oklch(0.398 0.195 277.366);
+      --color-indigo-900: oklch(0.359 0.144 278.697);
+      --color-indigo-950: oklch(0.257 0.09 281.288);
+
+      --color-slate-50:  oklch(0.984 0.003 247.858);
+      --color-slate-100: oklch(0.968 0.007 247.896);
+      --color-slate-200: oklch(0.929 0.013 255.508);
+      --color-slate-300: oklch(0.869 0.022 252.894);
+      --color-slate-400: oklch(0.704 0.04 256.788);
+      --color-slate-500: oklch(0.554 0.046 257.417);
+      --color-slate-600: oklch(0.446 0.043 257.281);
+      --color-slate-700: oklch(0.372 0.044 257.287);
+      --color-slate-800: oklch(0.279 0.041 260.031);
+      --color-slate-900: oklch(0.208 0.042 265.755);
+      --color-slate-950: oklch(0.129 0.042 264.695);
+    }
+    */
+
+    /* Custom muted palette (blue/indigo/slate) */
+    :root {
+      --blue-50:  #e6f3f0;
+      --blue-100: #c2ece5;
+      --blue-200: #8ed0c2;
+      --blue-300: #65acaf;
+      --blue-400: #4a969a;
+      --blue-500: #359194;
+      --blue-600: #23888c;
+      --blue-700: #0f637c;
+
+      --indigo-50:  #f5f3f4;
+      --indigo-100: #e8e3e5;
+      --indigo-200: #d4ccd0;
+      --indigo-300: #b8adb4;
+      --indigo-400: #9c8d97;
+      --indigo-500: #82717a;
+      --indigo-600: #6d5f67;
+      --indigo-700: #5a4e56;
+
+      --slate-50:  #f8fafc;
+      --slate-100: #f1f5f9;
+      --slate-200: #e2eef0;
+      --slate-300: #cbdee1;
+      --slate-400: #94b5b8;
+      --slate-500: #647e8b;
+      --slate-600: #476569;
+      --slate-700: #335455;
+    }
+
+    /* Blue utility overrides */
+    .text-blue-300 { color: var(--blue-300) !important; }
+    .text-blue-400 { color: var(--blue-400) !important; }
+    .text-blue-500 { color: var(--blue-500) !important; }
+    .text-blue-600 { color: var(--blue-600) !important; }
+    .text-blue-700 { color: var(--blue-700) !important; }
+    .bg-blue-50 { background-color: var(--blue-50) !important; }
+    .bg-blue-400 { background-color: var(--blue-400) !important; }
+    .bg-blue-400\/80 { background-color: color-mix(in srgb, var(--blue-400) 80%, transparent) !important; }
+    .border-blue-100 { border-color: var(--blue-100) !important; }
+    .border-blue-200 { border-color: var(--blue-200) !important; }
+    .border-blue-200\/50 { border-color: color-mix(in srgb, var(--blue-200) 50%, transparent) !important; }
+    .border-blue-500 { border-color: var(--blue-500) !important; }
+    .hover\:text-blue-700:hover { color: var(--blue-700) !important; }
+    .hover\:border-blue-200:hover { border-color: var(--blue-200) !important; }
+    .from-blue-50 { --tw-gradient-from: var(--blue-50) !important; --tw-gradient-to: color-mix(in srgb, var(--blue-50) 0%, transparent) !important; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); }
+    .from-blue-400 { --tw-gradient-from: var(--blue-400) !important; --tw-gradient-to: color-mix(in srgb, var(--blue-400) 0%, transparent) !important; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); }
+    .from-blue-400\/60 { --tw-gradient-from: color-mix(in srgb, var(--blue-400) 60%, transparent) !important; --tw-gradient-to: color-mix(in srgb, var(--blue-400) 0%, transparent) !important; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); }
+    .from-blue-600 { --tw-gradient-from: var(--blue-600) !important; --tw-gradient-to: color-mix(in srgb, var(--blue-600) 0%, transparent) !important; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); }
+    .via-blue-50 { --tw-gradient-to: color-mix(in srgb, var(--blue-50) 0%, transparent) !important; --tw-gradient-stops: var(--tw-gradient-from), color-mix(in srgb, var(--blue-50) 100%, transparent), var(--tw-gradient-to); }
+    .via-blue-400 { --tw-gradient-to: color-mix(in srgb, var(--blue-400) 0%, transparent) !important; --tw-gradient-stops: var(--tw-gradient-from), color-mix(in srgb, var(--blue-400) 100%, transparent), var(--tw-gradient-to); }
+    .via-blue-400\/70 { --tw-gradient-to: color-mix(in srgb, var(--blue-400) 0%, transparent) !important; --tw-gradient-stops: var(--tw-gradient-from), color-mix(in srgb, var(--blue-400) 70%, transparent), var(--tw-gradient-to); }
+    .to-blue-50 { --tw-gradient-to: var(--blue-50) !important; }
+
+    /* Indigo utility overrides */
+    .text-indigo-600 { color: var(--indigo-600) !important; }
+    .text-indigo-700 { color: var(--indigo-700) !important; }
+    .bg-indigo-50 { background-color: var(--indigo-50) !important; }
+    .bg-indigo-400 { background-color: var(--indigo-400) !important; }
+    .bg-indigo-400\/80 { background-color: color-mix(in srgb, var(--indigo-400) 80%, transparent) !important; }
+    .bg-indigo-400\/60 { background-color: color-mix(in srgb, var(--indigo-400) 60%, transparent) !important; }
+    .border-indigo-200 { border-color: var(--indigo-200) !important; }
+    .hover\:text-indigo-600:hover { color: var(--indigo-600) !important; }
+    .from-indigo-50 { --tw-gradient-from: var(--indigo-50) !important; --tw-gradient-to: color-mix(in srgb, var(--indigo-50) 0%, transparent) !important; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); }
+    .to-indigo-50 { --tw-gradient-to: var(--indigo-50) !important; }
+    .to-indigo-400\/60 { --tw-gradient-to: color-mix(in srgb, var(--indigo-400) 60%, transparent) !important; }
+    .to-indigo-700 { --tw-gradient-to: var(--indigo-700) !important; }
+
+    /* Slate utility overrides */
+    .text-slate-300 { color: var(--slate-300) !important; }
+    .text-slate-400 { color: var(--slate-400) !important; }
+    .text-slate-500 { color: var(--slate-500) !important; }
+    .text-slate-600 { color: var(--slate-600) !important; }
+    .text-slate-700 { color: var(--slate-700) !important; }
+    .text-slate-800 { color: color-mix(in srgb, var(--slate-700) 90%, #000 10%) !important; }
+    .text-slate-900 { color: color-mix(in srgb, var(--slate-700) 85%, #000 15%) !important; }
+    .bg-slate-50 { background-color: var(--slate-50) !important; }
+    .bg-slate-50\/60 { background-color: color-mix(in srgb, var(--slate-50) 60%, transparent) !important; }
+    .bg-slate-400 { background-color: var(--slate-400) !important; }
+    .bg-slate-400\/80 { background-color: color-mix(in srgb, var(--slate-400) 80%, transparent) !important; }
+    .ring-slate-100 { --tw-ring-color: var(--slate-100) !important; }
+    .ring-slate-100\/80 { --tw-ring-color: color-mix(in srgb, var(--slate-100) 80%, transparent) !important; }
+    .border-slate-200 { border-color: var(--slate-200) !important; }
+    .border-slate-300 { border-color: var(--slate-300) !important; }
+    .marker\:text-slate-300::marker { color: var(--slate-300) !important; }
+    .from-slate-50 { --tw-gradient-from: var(--slate-50) !important; --tw-gradient-to: color-mix(in srgb, var(--slate-50) 0%, transparent) !important; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); }
+    .from-slate-200 { --tw-gradient-from: var(--slate-200) !important; --tw-gradient-to: color-mix(in srgb, var(--slate-200) 0%, transparent) !important; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); }
+    .to-slate-200 { --tw-gradient-to: var(--slate-200) !important; }
+
+    /* Neutral surfaces */
+    .bg-white { background-color: #ffffff !important; }
+    .bg-white\/60 { background-color: color-mix(in srgb, #ffffff 60%, transparent) !important; }
+    .bg-white\/80 { background-color: color-mix(in srgb, #ffffff 80%, transparent) !important; }
+
+    /* Restore original hero gradient */
+    #hero {
+      background: linear-gradient(to bottom right, #f8fafc, #eff6ff, #eef2ff) !important;
+    }
+    #toc-card {
+        background: linear-gradient(to bottom right, #5b808b, #64939c) !important;
+        border: var(--slate-600) !important;
+    }
   </style>
 </head>
 
-<body class="antialiased">
+<body id="top" class="antialiased">
 
   <!-- Navigation -->
   <nav class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200">
@@ -33,9 +178,28 @@ layout: null
       <span class="text-lg font-bold text-slate-900 tracking-tight">
         <span class="text-slate-400 font-normal">|</span>
       </span>
-      <span class="text-lg font-bold text-slate-900 tracking-tight">
+      <a href="#top" class="text-lg font-bold text-slate-900 tracking-tight">
         <span class="text-slate-400 font-normal">Charter</span>
-      </span>
+      </a>
+      <div class="ml-auto relative" data-dropdown>
+        <button type="button" class="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white/80 px-3 py-1.5 text-sm font-semibold text-slate-700 shadow-sm hover:text-blue-700 hover:border-blue-200" aria-haspopup="true" aria-expanded="false" data-dropdown-button>
+          Menu
+          <i class="ph ph-caret-down text-base text-blue-300"></i>
+        </button>
+          <div class="absolute right-0 top-full mt-1 w-56 rounded-xl border border-slate-200 bg-white shadow-lg py-2 opacity-0 pointer-events-none transition-opacity duration-150 before:content-[''] before:absolute before:-top-2 before:left-0 before:right-0 before:h-2 before:bg-transparent after:content-[''] after:absolute after:inset-y-0 after:-left-4 after:w-4 after:bg-transparent" data-dropdown-menu>
+          <a class="block px-4 py-2 text-sm font-semibold text-slate-800 hover:bg-slate-50 hover:text-blue-700" href="#charter-pdf">Official PDF</a>
+          <a class="block px-4 py-2 text-sm font-semibold text-slate-800 hover:bg-slate-50 hover:text-blue-700" href="#toc">Table of Contents</a>
+          <a class="flex items-center gap-2 px-4 py-2 text-sm text-slate-600 ml-2 pl-4 border-l border-slate-200 hover:bg-slate-50 hover:text-blue-700" href="#name-scope"><span class="text-[0.65rem] font-semibold text-slate-400">1</span>Name & Scope</a>
+          <a class="flex items-center gap-2 px-4 py-2 text-sm text-slate-600 ml-2 pl-4 border-l border-slate-200 hover:bg-slate-50 hover:text-blue-700" href="#objectives"><span class="text-[0.65rem] font-semibold text-slate-400">2</span>Objectives</a>
+          <a class="flex items-center gap-2 px-4 py-2 text-sm text-slate-600 ml-2 pl-4 border-l border-slate-200 hover:bg-slate-50 hover:text-blue-700" href="#membership"><span class="text-[0.65rem] font-semibold text-slate-400">3</span>Membership</a>
+          <a class="flex items-center gap-2 px-4 py-2 text-sm text-slate-600 ml-2 pl-4 border-l border-slate-200 hover:bg-slate-50 hover:text-blue-700" href="#meetings"><span class="text-[0.65rem] font-semibold text-slate-400">4</span>Meetings</a>
+          <a class="flex items-center gap-2 px-4 py-2 text-sm text-slate-600 ml-2 pl-4 border-l border-slate-200 hover:bg-slate-50 hover:text-blue-700" href="#working-groups"><span class="text-[0.65rem] font-semibold text-slate-400">5</span>Working Groups</a>
+          <a class="flex items-center gap-2 px-4 py-2 text-sm text-slate-600 ml-2 pl-4 border-l border-slate-200 hover:bg-slate-50 hover:text-blue-700" href="#advisory-board"><span class="text-[0.65rem] font-semibold text-slate-400">6</span>Advisory Board</a>
+          <a class="flex items-center gap-2 px-4 py-2 text-sm text-slate-600 ml-2 pl-4 border-l border-slate-200 hover:bg-slate-50 hover:text-blue-700" href="#governance"><span class="text-[0.65rem] font-semibold text-slate-400">7</span>Officers</a>
+          <a class="flex items-center gap-2 px-4 py-2 text-sm text-slate-600 ml-2 pl-4 border-l border-slate-200 hover:bg-slate-50 hover:text-blue-700" href="#elections"><span class="text-[0.65rem] font-semibold text-slate-400">8</span>Nomination & Election</a>
+          <a class="flex items-center gap-2 px-4 py-2 text-sm text-slate-600 ml-2 pl-4 border-l border-slate-200 hover:bg-slate-50 hover:text-blue-700" href="#amendments"><span class="text-[0.65rem] font-semibold text-slate-400">9</span>Amendments</a>
+        </div>
+      </div>
     </div>
   </nav>
 
@@ -46,13 +210,13 @@ layout: null
         <span class="text-sm font-semibold text-slate-700">American Statistical Association</span>
       </div>
 
-      <h3 class="text-2xl md:text-3xl font-bold text-slate-900 tracking-tight mb-4">
+      <h2 class="text-xl md:text-2xl font-semibold text-slate-900 tracking-tight mb-4">
         “Stats Up Artificial Intelligence” Interest Group
-      </h3>
+      </h2>
       
-      <p class="text-4xl md:text-5xl font-bold text-slate-900 tracking-tight mb-4">
+      <h1 class="text-4xl md:text-5xl font-bold text-slate-900 tracking-tight mb-4">
         Charter
-      </p>
+      </h1>
 
     </div>
   </header>
@@ -61,59 +225,62 @@ layout: null
   <!-- Main Content -->
   <main class="max-w-5xl mx-auto px-4 py-16">
     <!-- PDF (official charter) -->
-<section id="charter-pdf" class="mb-14">
-  <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
-    <div class="flex items-start justify-between gap-4 flex-wrap">
-      <div>
-        <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2">
-          <i class="ph ph-file-pdf text-blue-600"></i>
-          Official Charter PDF
-        </h2>
-        <p class="text-slate-700 mt-1">
-          If the PDF preview does not load, use the download link above.
+    <section id="charter-pdf" class="mb-14">
+      <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+        <div class="flex items-start justify-between gap-4 flex-wrap">
+          <div>
+            <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+              <i class="ph ph-file-pdf text-blue-300"></i>
+              Official Charter PDF
+            </h2>
+            <p class="text-slate-700 mt-1">
+              If the PDF preview does not load, use the download link above.
+            </p>
+          </div>
+
+          <!-- Optional: download link -->
+          <a href="../img/Meeting/ASA_Interest_Group_Charter.pdf"
+            class="inline-flex items-center gap-2 rounded-xl border bg-slate-50/80 px-4 py-2 text-slate-700 hover:text-blue-700 hover:border-blue-200">
+            <i class="ph ph-download-simple text-blue-300"></i>
+            Download PDF
+          </a>
+        </div>
+
+        <div class="mt-5 rounded-xl overflow-hidden border border-slate-200">
+          <iframe
+            src="../img/Meeting/ASA_Interest_Group_Charter.pdf#view=FitH"
+            class="w-full h-[75vh]"
+            loading="lazy"
+            title="ASA Interest Group Charter PDF">
+          </iframe>
+        </div>
+
+        <p class="text-sm text-slate-600 mt-3">
+          <i class="ph ph-info text-blue-300"></i>
+          This PDF is the official, authoritative version of ASA. See summary below for quick reference.
         </p>
       </div>
-
-      <!-- Optional: download link -->
-      <a href="../img/Meeting/ASA_Interest_Group_Charter.pdf"
-         class="inline-flex items-center gap-2 rounded-xl border border-slate-200 px-4 py-2 text-slate-700 hover:text-blue-700 hover:border-blue-200">
-        <i class="ph ph-download-simple"></i>
-        Download PDF
-      </a>
-    </div>
-
-    <div class="mt-5 rounded-xl overflow-hidden border border-slate-200">
-      <iframe
-        src="../img/Meeting/ASA_Interest_Group_Charter.pdf#view=FitH"
-        class="w-full h-[75vh]"
-        loading="lazy"
-        title="ASA Interest Group Charter PDF">
-      </iframe>
-    </div>
-
-    <p class="text-slate-600 text-sm mt-3">
-      This PDF is the official, authoritative version of ASA. See summary below for quick reference.
-    </p>
-  </div>
-</section>
-
+    </section>
+    
     <!-- TOC -->
     <section id="toc" class="mb-14">
-      <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl border border-slate-200 p-6 shadow-sm">
-        <h2 class="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
-          <i class="ph ph-map-trifold text-blue-600"></i>
+      <div id="toc-card" class="rounded-xl border border-blue-500 p-6 shadow-sm text-white">
+        <h2 class="text-xl font-bold mb-4 flex items-center gap-2 uppercase">
+          <i class="ph ph-map-trifold text-white/90"></i>
           Table of Contents
         </h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-slate-700">
-          <a class="hover:text-blue-700" href="#name-scope">Name & Scope</a>
-          <a class="hover:text-blue-700" href="#objectives">Objectives</a>
-          <a class="hover:text-blue-700" href="#membership">Membership</a>
-          <a class="hover:text-blue-700" href="#meetings">Meetings</a>
-          <a class="hover:text-blue-700" href="#working-groups">Working Groups</a>
-          <a class="hover:text-blue-700" href="#advisory-board">Advisory Board</a>
-          <a class="hover:text-blue-700" href="#governance">Officers & Governance</a>
-          <a class="hover:text-blue-700" href="#elections">Nomination & Election</a>
-          <a class="hover:text-blue-700" href="#amendments">Amendments</a>
+        <div class="bg-white/15 backdrop-blur-sm rounded-xl p-6 border border-white/20"> 
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-white/85 font-medium">
+            <a class="hover:text-white flex items-center gap-2" href="#name-scope"><span class="text-[0.65rem] font-semibold text-white/60">1</span><i class="ph ph-identification-card text-white/90"></i>Name & Scope</a>
+            <a class="hover:text-white flex items-center gap-2" href="#objectives"><span class="text-[0.65rem] font-semibold text-white/60">2</span><i class="ph ph-list-checks text-white/90"></i>Objectives</a>
+            <a class="hover:text-white flex items-center gap-2" href="#membership"><span class="text-[0.65rem] font-semibold text-white/60">3</span><i class="ph ph-identification-badge text-white/90"></i>Membership</a>
+            <a class="hover:text-white flex items-center gap-2" href="#meetings"><span class="text-[0.65rem] font-semibold text-white/60">4</span><i class="ph ph-handshake text-white/90"></i>Meetings</a>
+            <a class="hover:text-white flex items-center gap-2" href="#working-groups"><span class="text-[0.65rem] font-semibold text-white/60">5</span><i class="ph ph-gear-six text-white/90"></i>Working Groups</a>
+            <a class="hover:text-white flex items-center gap-2" href="#advisory-board"><span class="text-[0.65rem] font-semibold text-white/60">6</span><i class="ph ph-lightbulb-filament text-white/90"></i>Advisory Board</a>
+            <a class="hover:text-white flex items-center gap-2" href="#governance"><span class="text-[0.65rem] font-semibold text-white/60">7</span><i class="ph ph-users-three text-white/90"></i>Officers & Governance</a>
+            <a class="hover:text-white flex items-center gap-2" href="#elections"><span class="text-[0.65rem] font-semibold text-white/60">8</span><i class="ph ph-check-square-offset text-white/90"></i>Nomination & Election</a>
+            <a class="hover:text-white flex items-center gap-2" href="#amendments"><span class="text-[0.65rem] font-semibold text-white/60">9</span><i class="ph ph-pencil-line text-white/90"></i>Amendments</a>
+          </div>
         </div>
       </div>
     </section>
@@ -121,7 +288,7 @@ layout: null
     <!-- Name & Scope -->
     <section id="name-scope" class="mb-14">
       <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-2">
-        <i class="ph ph-identification-card text-blue-600"></i>
+        <i class="ph ph-identification-card text-blue-300"></i>
         NAME & SCOPE
       </h2>
 
@@ -144,24 +311,24 @@ layout: null
     <!-- Objectives -->
     <section id="objectives" class="mb-14">
       <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-2">
-        <i class="ph ph-list-checks text-blue-600"></i>
-        Objectives
+        <i class="ph ph-list-checks text-blue-300"></i>
+        OBJECTIVES
       </h2>
       <ul class="space-y-3 text-slate-700">
         <li class="flex items-start gap-2">
-          <i class="ph ph-check-circle text-blue-600 mt-1"></i>
+          <i class="ph ph-check-circle text-blue-300 mt-1"></i>
           Foster collaboration among statisticians to contribute significantly to AI research and applications
         </li>
         <li class="flex items-start gap-2">
-          <i class="ph ph-check-circle text-blue-600 mt-1"></i>
+          <i class="ph ph-check-circle text-blue-300 mt-1"></i>
           Modernize statistical education and curricula to equip future statisticians with skills and knowledge for the AI age
         </li>
         <li class="flex items-start gap-2">
-          <i class="ph ph-check-circle text-blue-600 mt-1"></i>
+          <i class="ph ph-check-circle text-blue-300 mt-1"></i>
           Pursue resources and develop shared infrastructures to support AI research within the statistical community
         </li>
         <li class="flex items-start gap-2">
-          <i class="ph ph-check-circle text-blue-600 mt-1"></i>
+          <i class="ph ph-check-circle text-blue-300 mt-1"></i>
           Create a robust network for mentoring and nurturing statisticians to lead and excel in AI initiatives
         </li>
       </ul>
@@ -169,14 +336,14 @@ layout: null
 
     <!-- Membership -->
 <section class="mb-14" id="membership"><h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-2">
-<i class="ph ph-identification-badge text-blue-600"></i>
+<i class="ph ph-identification-badge text-blue-300"></i>
         MEMBERSHIP
       </h2><div class="bg-white rounded-xl border border-slate-200 p-6 shadow-sm"><p class="text-slate-700 leading-relaxed">Membership in the Interest Group is open to anyone interested in expanding the presence of statistics and statisticians in AI. Members of the Interest Group do not have to be ASA members, except for the Chair and Chair-Elect. There are no dues.</p></div></section>
 
     <!-- Meetings -->
 <section id="meetings" class="mb-14">
   <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-2">
-    <i class="ph ph-handshake text-blue-600"></i>
+    <i class="ph ph-handshake text-blue-300"></i>
     MEETINGS
   </h2>
 
@@ -190,7 +357,7 @@ layout: null
     <!-- Annual Business Meeting -->
     <div class="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
       <h3 class="text-lg font-semibold text-slate-900 mb-2 flex items-center gap-2">
-        <i class="ph ph-calendar-check text-blue-600"></i>
+        <i class="ph ph-calendar-check text-blue-300"></i>
         Annual Business Meeting
       </h3>
       <p class="text-slate-700 leading-relaxed">
@@ -204,7 +371,7 @@ layout: null
     <!-- Quarterly Virtual Meetings -->
     <div class="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
       <h3 class="text-lg font-semibold text-slate-900 mb-2 flex items-center gap-2">
-        <i class="ph ph-video-camera text-blue-600"></i>
+        <i class="ph ph-video-camera text-blue-300"></i>
         Quarterly Virtual Meetings
       </h3>
       <p class="text-slate-700 leading-relaxed">
@@ -216,7 +383,7 @@ layout: null
     <!-- Special Interest Meetings -->
     <div class="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
       <h3 class="text-lg font-semibold text-slate-900 mb-2 flex items-center gap-2">
-        <i class="ph ph-users text-blue-600"></i>
+        <i class="ph ph-users text-blue-300"></i>
         Special Interest Meetings
       </h3>
       <p class="text-slate-700 leading-relaxed">
@@ -227,7 +394,7 @@ layout: null
     <!-- Workshops / Short Courses / Webinars -->
     <div class="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
       <h3 class="text-lg font-semibold text-slate-900 mb-2 flex items-center gap-2">
-        <i class="ph ph-graduation-cap text-blue-600"></i>
+        <i class="ph ph-graduation-cap text-blue-300"></i>
         Workshops, Short Courses, and Webinars
       </h3>
       <p class="text-slate-700 leading-relaxed">
@@ -247,7 +414,7 @@ layout: null
     <!-- Working Groups -->
     <section id="working-groups" class="mb-14">
       <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-2">
-        <i class="ph ph-gear-six text-blue-600"></i>
+        <i class="ph ph-gear-six text-blue-300"></i>
        WORKING GROUPS
       </h2>
 
@@ -257,14 +424,33 @@ layout: null
           These are specialized teams focused on specific topics or projects relevant to the Interest Group's goals. The structure and process for working groups are as follows:
         </p>
 
-        <ol class="space-y-3 text-slate-700 list-decimal pl-6">
-          <li><span class="font-semibold">Proposal and discussion:</span> Working groups can be proposed by any member before or during the Annual Business Meeting.</li>
-          <li><span class="font-semibold">Selection:</span> After the Annual Business Meeting, the Interest Group officers, in consultation with the Interest Group’s advisory board (see ARTICLE VI), will review all suggestions and identify up to two working groups to be established each year.</li>
-          <li><span class="font-semibold">Appointment of Chairs:</span> Working group chairs will be appointed by the Interest Group officers.</li>
-          <li><span class="font-semibold">Responsibilities of Working Group Chairs:</span> These chairs will lead the group’s efforts and organize regular working group activities to drive progress. The working groups
-should be open to Interest Group members and create an inclusive environment for all
-who participate.</li>
-          <li><span class="font-semibold">Meetings and Reporting:</span> Working group chairs will report on their progress at the quarterly virtual meetings of the Interest Group.</li>
+        <ol class="relative space-y-5 text-slate-700 pl-7">
+          <span class="pointer-events-none absolute left-2 top-1 bottom-1 w-0.5 rounded-full bg-gradient-to-b from-slate-200 via-blue-400/70 to-slate-200 shadow-[0_0_10px_rgba(148,163,184,0.35)]" aria-hidden="true"></span>
+          <li class="relative pl-5">
+            <span class="absolute -left-[3px] top-2.5 h-2 w-2 rounded-full bg-indigo-400/80 ring-4 ring-slate-100/80"></span>
+            <span class="text-sm font-semibold uppercase tracking-wide text-slate-900">Proposal and discussion</span>
+            <p class="text-sm text-slate-600 mt-1">Working groups can be proposed by any member before or during the Annual Business Meeting.</p>
+          </li>
+          <li class="relative pl-5">
+            <span class="absolute -left-[3px] top-2.5 h-2 w-2 rounded-full bg-indigo-400/80 ring-4 ring-slate-100/80"></span>
+            <span class="text-sm font-semibold uppercase tracking-wide text-slate-900">Selection</span>
+            <p class="text-sm text-slate-600 mt-1">After the Annual Business Meeting (see <a class="text-blue-600 hover:text-blue-700 underline underline-offset-2 font-semibold" href="#meetings">ARTICLE IV. Meetings</a>), the Interest Group officers, in consultation with the Interest Group’s advisory board (see <a class="text-blue-600 hover:text-blue-700 underline underline-offset-2 font-semibold" href="#advisory-board">ARTICLE VI. Advisory Board</a>), will review all suggestions and identify up to two working groups to be established each year.</p>
+          </li>
+          <li class="relative pl-5">
+            <span class="absolute -left-[3px] top-2.5 h-2 w-2 rounded-full bg-indigo-400/80 ring-4 ring-slate-100/80"></span>
+            <span class="text-sm font-semibold uppercase tracking-wide text-slate-900">Appointment of Chairs</span>
+            <p class="text-sm text-slate-600 mt-1">Working group chairs will be appointed by the Interest Group officers.</p>
+          </li>
+          <li class="relative pl-5">
+            <span class="absolute -left-[3px] top-2.5 h-2 w-2 rounded-full bg-indigo-400/80 ring-4 ring-slate-100/80"></span>
+            <span class="text-sm font-semibold uppercase tracking-wide text-slate-900">Responsibilities of Working Group Chairs</span>
+            <p class="text-sm text-slate-600 mt-1">These chairs will lead the group’s efforts and organize regular working group activities to drive progress. The working groups should be open to Interest Group members and create an inclusive environment for all who participate.</p>
+          </li>
+          <li class="relative pl-5">
+            <span class="absolute -left-[3px] top-2.5 h-2 w-2 rounded-full bg-indigo-400/80 ring-4 ring-slate-100/80"></span>
+            <span class="text-sm font-semibold uppercase tracking-wide text-slate-900">Meetings and Reporting</span>
+            <p class="text-sm text-slate-600 mt-1">Working group chairs will report on their progress at the quarterly virtual meetings of the Interest Group.</p>
+          </li>
         </ol>
       </div>
     </section>
@@ -272,7 +458,7 @@ who participate.</li>
     <!-- Advisory Board -->
 <section id="advisory-board" class="mb-14">
   <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-2">
-    <i class="ph ph-lightbulb-filament text-blue-600"></i>
+    <i class="ph ph-lightbulb-filament text-blue-300"></i>
     ADVISORY BOARD
   </h2>
 
@@ -281,31 +467,45 @@ who participate.</li>
       An advisory board will be established to provide strategic guidance and expert advice to the Interest Group. The advisory board will consist of prominent leaders and scholars in the fields of statistics and AI. The responsibilities and structure are as follows:
     </p>
 
-    <ol class="list-decimal list-inside space-y-4 text-slate-700">
-      <li>
-        <span class="font-semibold">Composition:</span>
-        The advisory board will include up to five members selected by the Interest Group officers. Members will be selected, by the Interest Group officers, based on their expertise and contributions to the fields of statistics and AI. At least one member should be from the private sector.
+    <ol class="space-y-4 text-slate-700">
+      <li class="rounded-xl border border-slate-200 bg-slate-50/60 p-4">
+        <div>
+          <span class="inline-flex items-center rounded-md bg-blue-50 px-2.5 py-1 text-sm font-semibold uppercase tracking-wide text-blue-700">Composition</span>
+          <span class="text-sm text-slate-600 ml-2">
+            The advisory board will include up to five members selected by the Interest Group officers. Members will be selected, by the Interest Group officers, based on their expertise and contributions to the fields of statistics and AI. At least one member should be from the private sector.
+          </span>
+        </div>
       </li>
 
-      <li>
-        <span class="font-semibold">Term:</span>
-        Advisory board members will serve a term of three years, with the possibility of reappointment.
+      <li class="rounded-xl border border-slate-200 bg-slate-50/60 p-4">
+        <div>
+          <span class="inline-flex items-center rounded-md bg-blue-50 px-2.5 py-1 text-sm font-semibold uppercase tracking-wide text-blue-700">Term</span>
+          <span class="text-sm text-slate-600 ml-2">
+            Advisory board members will serve a term of three years, with the possibility of reappointment.
+          </span>
+        </div>
       </li>
 
-      <li>
-        <span class="font-semibold">Meetings:</span>
-        The advisory board will be invited to attend the quarterly virtual meetings and the annual business meeting to review the Interest Group’s progress, to provide feedback on initiatives, and to offer strategic recommendations.
+      <li class="rounded-xl border border-slate-200 bg-slate-50/60 p-4">
+        <div>
+          <span class="inline-flex items-center rounded-md bg-blue-50 px-2.5 py-1 text-sm font-semibold uppercase tracking-wide text-blue-700">Meetings</span>
+          <span class="text-sm text-slate-600 ml-2">
+            The advisory board will be invited to attend the quarterly virtual meetings and the annual business meeting to review the Interest Group’s progress, to provide feedback on initiatives, and to offer strategic recommendations.
+          </span>
+        </div>
       </li>
 
-      <li>
-        <span class="font-semibold">Roles and Responsibilities:</span>
-        Advisory board members will:
-        <ol class="list-[lower-alpha] list-inside mt-2 space-y-1">
-          <li>Provide expert advice on the direction and activities of the Interest Group.</li>
-          <li>Assist in identifying resources, funding opportunities and partnerships.</li>
-          <li>Support the development of educational and professional development programs.</li>
-          <li>Act as ambassadors for the Interest Group within the broader scientific and professional community.</li>
-        </ol>
+      <li class="rounded-xl border border-slate-200 bg-slate-50/60 p-4">
+        <div>
+          <span class="inline-flex items-center rounded-md bg-blue-50 px-2.5 py-1 text-sm font-semibold uppercase tracking-wide text-blue-700">Roles and Responsibilities</span>
+          <span class="text-sm text-slate-600 ml-2">Advisory board members will:</span>
+          <ol class="list-disc pl-5 mt-2 space-y-1 text-sm text-slate-600">
+            <li>Provide expert advice on the direction and activities of the Interest Group.</li>
+            <li>Assist in identifying resources, funding opportunities and partnerships.</li>
+            <li>Support the development of educational and professional development programs.</li>
+            <li>Act as ambassadors for the Interest Group within the broader scientific and professional community.</li>
+          </ol>
+        </div>
       </li>
     </ol>
   </div>
@@ -314,14 +514,14 @@ who participate.</li>
     <!-- Governance: Officers -->
 <section id="governance" class="mb-14">
   <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-2">
-    <i class="ph ph-users-three text-blue-600"></i>
+    <i class="ph ph-users-three text-blue-300"></i>
     OFFICERS
   </h2>
 
   <!-- Officer Positions (structure preserved) -->
   <div class="bg-white rounded-xl border border-slate-200 p-6 shadow-sm mb-6">
     <h3 class="text-lg font-semibold text-slate-900 mb-3">Officer Positions</h3>
-    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-slate-700">
+    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-slate-700 list-disc list-inside marker:text-slate-300">
       <li>Chair</li>
       <li>Chair-elect</li>
       <li>Program Chair</li>
@@ -348,38 +548,38 @@ who participate.</li>
 
   <!-- Role Summary (structure preserved) -->
   <div class="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
-    <h3 class="text-lg font-semibold text-slate-900 mb-3">Role Summary</h3>
+    <h3 class="text-lg font-semibold text-slate-900 mb-3">Summary of Roles</h3>
     <ul class="space-y-3 text-slate-700">
       <li class="flex items-start gap-2">
-        <i class="ph ph-crown-simple text-blue-600 mt-1"></i>
+        <i class="ph ph-crown-simple text-blue-300 mt-1"></i>
         <span>
           <span class="font-semibold">Chair:</span>
           responsible for the overall leadership and direction of the Interest Group, organizing the Annual Business Meeting and the Quarterly Virtual Meetings and representing the Interest Group.
         </span>
       </li>
       <li class="flex items-start gap-2">
-        <i class="ph ph-user-focus text-blue-600 mt-1"></i>
+        <i class="ph ph-user-focus text-blue-300 mt-1"></i>
         <span>
           <span class="font-semibold">Chair-elect:</span>
           assists the Chair, plans specific initiatives and working groups, and steps in during the Chair's absence.
         </span>
       </li>
       <li class="flex items-start gap-2">
-        <i class="ph ph-presentation-chart text-blue-600 mt-1"></i>
+        <i class="ph ph-presentation-chart text-blue-300 mt-1"></i>
         <span>
           <span class="font-semibold">Program Chair / Program Chair-elect:</span>
           work closely with the Chair and Chair-elect and lead the organization of the Interest Group’s program at conferences, the Interest Group’s own workshops, webinars, and other educational and networking events.
         </span>
       </li>
       <li class="flex items-start gap-2">
-        <i class="ph ph-megaphone text-blue-600 mt-1"></i>
+        <i class="ph ph-megaphone text-blue-300 mt-1"></i>
         <span>
           <span class="font-semibold">Outreach Chair:</span>
           manages external communications, partnerships, and efforts to collaborate with other organizations and societies in Artificial Intelligence.
         </span>
       </li>
       <li class="flex items-start gap-2">
-        <i class="ph ph-notebook text-blue-600 mt-1"></i>
+        <i class="ph ph-notebook text-blue-300 mt-1"></i>
         <span>
           <span class="font-semibold">Secretary/Treasurer:</span>
           manages the financial matters for the Interest Group, meeting minutes, and membership communications.
@@ -391,10 +591,9 @@ who participate.</li>
 
 <!-- Governance: Vacancies -->
 <section id="vacancies" class="mb-14">
-  <h2 class="text-2xl font-bold text-slate-900 mb-4">
-    VACANCIES IN OFFICE
-  </h2>
-
+  <h3 class="text-xl font-bold text-slate-900 mb-4">
+    Vacancies in Office
+  </h3>
   <div class="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
     <p class="text-slate-700 leading-relaxed">
       If the office of Chair or Program Chair becomes vacant, the Chair-elect and Program Chair-elect shall become the Chair and Program Chair, respectively, the terms extending through the following year.
@@ -405,7 +604,7 @@ who participate.</li>
     <!-- Elections -->
 <section id="elections" class="mb-14">
   <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-2">
-    <i class="ph ph-check-square-offset text-blue-600"></i>
+    <i class="ph ph-check-square-offset text-blue-300"></i>
     NOMINATION AND ELECTION
   </h2>
 
@@ -437,7 +636,7 @@ who participate.</li>
     <!-- Amendments -->
 <section id="amendments" class="mb-14">
   <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-2">
-    <i class="ph ph-pencil-line text-blue-600"></i>
+    <i class="ph ph-pencil-line text-blue-300"></i>
     AMENDMENTS
   </h2>
 
@@ -472,6 +671,43 @@ who participate.</li>
 
   <!-- Footer -->
   {% include asa_banner.html %}
+
+  <script>
+    (() => {
+      const dropdown = document.querySelector('[data-dropdown]');
+      if (!dropdown) return;
+
+      const button = dropdown.querySelector('[data-dropdown-button]');
+      const menu = dropdown.querySelector('[data-dropdown-menu]');
+      if (!button || !menu) return;
+
+      let closeTimer = null;
+
+      const openMenu = () => {
+        if (closeTimer) {
+          clearTimeout(closeTimer);
+          closeTimer = null;
+        }
+        menu.classList.add('opacity-100', 'pointer-events-auto');
+        menu.classList.remove('opacity-0', 'pointer-events-none');
+        button.setAttribute('aria-expanded', 'true');
+      };
+
+      const scheduleClose = () => {
+        if (closeTimer) clearTimeout(closeTimer);
+        closeTimer = setTimeout(() => {
+          menu.classList.add('opacity-0', 'pointer-events-none');
+          menu.classList.remove('opacity-100', 'pointer-events-auto');
+          button.setAttribute('aria-expanded', 'false');
+        }, 250);
+      };
+
+      dropdown.addEventListener('mouseenter', openMenu);
+      dropdown.addEventListener('mouseleave', scheduleClose);
+      dropdown.addEventListener('focusin', openMenu);
+      dropdown.addEventListener('focusout', scheduleClose);
+    })();
+  </script>
 
 </body>
 </html>
