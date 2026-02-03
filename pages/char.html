@@ -62,12 +62,12 @@ layout: null
     /* Custom muted palette (blue/indigo/slate) */
     :root {
       --blue-50:  #e6f3f0;
-      --blue-100: #c2ece5;
-      --blue-200: #8ed0c2;
-      --blue-300: #65acaf;
-      --blue-400: #4a969a;
-      --blue-500: #359194;
-      --blue-600: #23888c;
+      --blue-100: #d0e1de;
+      --blue-200: #aac5bf;
+      --blue-300: #88aeaf;
+      --blue-400: #699fa2;
+      --blue-500: #4a999c;
+      --blue-600: #2f888b;
       --blue-700: #0f637c;
 
       --indigo-50:  #f5f3f4;
@@ -139,6 +139,7 @@ layout: null
     .bg-slate-50\/60 { background-color: color-mix(in srgb, var(--slate-50) 60%, transparent) !important; }
     .bg-slate-400 { background-color: var(--slate-400) !important; }
     .bg-slate-400\/80 { background-color: color-mix(in srgb, var(--slate-400) 80%, transparent) !important; }
+    .bg-slate-200\/30 { background-color: color-mix(in srgb, var(--slate-200) 30%, transparent) !important; }
     .ring-slate-100 { --tw-ring-color: var(--slate-100) !important; }
     .ring-slate-100\/80 { --tw-ring-color: color-mix(in srgb, var(--slate-100) 80%, transparent) !important; }
     .border-slate-200 { border-color: var(--slate-200) !important; }
@@ -168,15 +169,17 @@ layout: null
 
   <!-- Navigation -->
   <nav class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center gap-3">
-      <a href="/index.html" class="flex items-center gap-3">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center gap-1">
+      <a href="/index.html" class="flex items-center gap-1">
         <img src="img/logo.svg" alt="StatsUpAI Logo" class="h-9 w-auto">
         <span class="text-lg font-bold text-slate-900 tracking-tight">
           StatsUpAI
         </span>
       </a>
       <span class="text-lg font-bold text-slate-900 tracking-tight">
-        <span class="text-slate-400 font-normal">|</span>
+        <span class="text-slate-400 font-normal">
+          |
+        </span>
       </span>
       <a href="#top" class="text-lg font-bold text-slate-900 tracking-tight">
         <span class="text-slate-400 font-normal">Charter</span>
@@ -243,7 +246,7 @@ layout: null
 
           <!-- Optional: download link -->
           <a href="../img/Meeting/ASA_Interest_Group_Charter.pdf"
-            class="inline-flex items-center gap-2 rounded-xl border bg-slate-50/80 px-4 py-2 text-slate-700 hover:text-blue-700 hover:border-blue-200">
+            class="inline-flex items-center gap-2 rounded-xl border bg-slate-200/30 px-4 py-2 text-slate-700 hover:text-blue-700 hover:border-blue-200">
             <i class="ph ph-download-simple text-blue-300"></i>
             Download PDF
           </a>
