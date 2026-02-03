@@ -311,7 +311,7 @@ format:
         </div>
         <div class="card-mini">
           <img class="avatar" src="figures/Qiang Sun.jpg" alt="Qiang Sun" />
-          <div><strong>Qiang Sun</strong><br />toronto University</div>
+          <div><strong>Qiang Sun</strong><br />Toronto University</div>
         </div>
       </div>
     </section>
