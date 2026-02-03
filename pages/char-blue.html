@@ -1,0 +1,568 @@
+---
+layout: null
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ASA Interest Group Charter | StatsUpAI</title>
+
+  <!-- Tailwind (same stack as Annual Newsletter) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #F8FAFC; color: #0f2a29; }
+    h1, h2, h3 { font-family: 'Merriweather', serif; }
+  </style>
+</head>
+
+<body class="antialiased">
+
+  <!-- Navigation -->
+  <nav class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center gap-3">
+      <a href="/index.html" class="flex items-center gap-3">
+        <img src="img/logo.svg" alt="StatsUpAI Logo" class="h-9 w-auto">
+        <span class="text-lg font-bold text-slate-900 tracking-tight">
+          StatsUpAI
+        </span>
+      </a>
+      <span class="text-lg font-bold text-slate-900 tracking-tight">
+        <span class="text-slate-400 font-normal">|</span>
+      </span>
+      <span class="text-lg font-bold text-slate-900 tracking-tight">
+        <span class="text-slate-400 font-normal">Charter</span>
+      </span>
+      <div class="ml-auto relative" data-dropdown>
+        <button type="button" class="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white/80 px-3 py-1.5 text-sm font-semibold text-slate-700 shadow-sm hover:text-blue-700 hover:border-blue-200" aria-haspopup="true" aria-expanded="false" data-dropdown-button>
+          Menu
+          <i class="ph ph-caret-down text-base"></i>
+        </button>
+          <div class="absolute right-0 top-full mt-1 w-56 rounded-xl border border-slate-200 bg-white shadow-lg py-2 opacity-0 pointer-events-none transition-opacity duration-150 before:content-[''] before:absolute before:-top-2 before:left-0 before:right-0 before:h-2 before:bg-transparent after:content-[''] after:absolute after:inset-y-0 after:-left-4 after:w-4 after:bg-transparent" data-dropdown-menu>
+          <a class="block px-4 py-2 text-sm font-semibold text-slate-800 hover:bg-slate-50 hover:text-blue-700" href="#charter-pdf">Official PDF</a>
+          <a class="block px-4 py-2 text-sm font-semibold text-slate-800 hover:bg-slate-50 hover:text-blue-700" href="#toc">Table of Contents</a>
+          <a class="flex items-center gap-2 px-4 py-2 text-sm text-slate-600 ml-2 pl-4 border-l border-slate-200 hover:bg-slate-50 hover:text-blue-700" href="#name-scope"><span class="text-[0.65rem] font-semibold text-slate-400">1</span>Name & Scope</a>
+          <a class="flex items-center gap-2 px-4 py-2 text-sm text-slate-600 ml-2 pl-4 border-l border-slate-200 hover:bg-slate-50 hover:text-blue-700" href="#objectives"><span class="text-[0.65rem] font-semibold text-slate-400">2</span>Objectives</a>
+          <a class="flex items-center gap-2 px-4 py-2 text-sm text-slate-600 ml-2 pl-4 border-l border-slate-200 hover:bg-slate-50 hover:text-blue-700" href="#membership"><span class="text-[0.65rem] font-semibold text-slate-400">3</span>Membership</a>
+          <a class="flex items-center gap-2 px-4 py-2 text-sm text-slate-600 ml-2 pl-4 border-l border-slate-200 hover:bg-slate-50 hover:text-blue-700" href="#meetings"><span class="text-[0.65rem] font-semibold text-slate-400">4</span>Meetings</a>
+          <a class="flex items-center gap-2 px-4 py-2 text-sm text-slate-600 ml-2 pl-4 border-l border-slate-200 hover:bg-slate-50 hover:text-blue-700" href="#working-groups"><span class="text-[0.65rem] font-semibold text-slate-400">5</span>Working Groups</a>
+          <a class="flex items-center gap-2 px-4 py-2 text-sm text-slate-600 ml-2 pl-4 border-l border-slate-200 hover:bg-slate-50 hover:text-blue-700" href="#advisory-board"><span class="text-[0.65rem] font-semibold text-slate-400">6</span>Advisory Board</a>
+          <a class="flex items-center gap-2 px-4 py-2 text-sm text-slate-600 ml-2 pl-4 border-l border-slate-200 hover:bg-slate-50 hover:text-blue-700" href="#governance"><span class="text-[0.65rem] font-semibold text-slate-400">7</span>Officers</a>
+          <a class="flex items-center gap-2 px-4 py-2 text-sm text-slate-600 ml-2 pl-4 border-l border-slate-200 hover:bg-slate-50 hover:text-blue-700" href="#elections"><span class="text-[0.65rem] font-semibold text-slate-400">8</span>Nomination & Election</a>
+          <a class="flex items-center gap-2 px-4 py-2 text-sm text-slate-600 ml-2 pl-4 border-l border-slate-200 hover:bg-slate-50 hover:text-blue-700" href="#amendments"><span class="text-[0.65rem] font-semibold text-slate-400">9</span>Amendments</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="relative overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 py-20 border-b border-slate-200">
+    <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-white/60 backdrop-blur-sm rounded-full border border-blue-200/50 mb-6">
+        <span class="text-sm font-semibold text-slate-700">American Statistical Association</span>
+      </div>
+
+      <h2 class="text-xl md:text-2xl font-semibold text-slate-900 tracking-tight mb-4">
+        “Stats Up Artificial Intelligence” Interest Group
+      </h2>
+      
+      <h1 class="text-4xl md:text-5xl font-bold text-slate-900 tracking-tight mb-4">
+        Charter
+      </h1>
+
+    </div>
+  </header>
+
+
+  <!-- Main Content -->
+  <main class="max-w-5xl mx-auto px-4 py-16">
+    <!-- PDF (official charter) -->
+<section id="charter-pdf" class="mb-14">
+  <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+    <div class="flex items-start justify-between gap-4 flex-wrap">
+      <div>
+        <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+          <i class="ph ph-file-pdf text-blue-600"></i>
+          Official Charter PDF
+        </h2>
+        <p class="text-slate-700 mt-1">
+          If the PDF preview does not load, use the download link above.
+        </p>
+      </div>
+
+      <!-- Optional: download link -->
+      <a href="../img/Meeting/ASA_Interest_Group_Charter.pdf"
+         class="inline-flex items-center gap-2 rounded-xl border border-slate-200 px-4 py-2 text-slate-700 hover:text-blue-700 hover:border-blue-200">
+        <i class="ph ph-download-simple"></i>
+        Download PDF
+      </a>
+    </div>
+
+    <div class="mt-5 rounded-xl overflow-hidden border border-slate-200">
+      <iframe
+        src="../img/Meeting/ASA_Interest_Group_Charter.pdf#view=FitH"
+        class="w-full h-[75vh]"
+        loading="lazy"
+        title="ASA Interest Group Charter PDF">
+      </iframe>
+    </div>
+
+    <p class="text-sm text-slate-600 mt-3">
+      <i class="ph ph-info text-blue-600"></i>
+      This PDF is the official, authoritative version of ASA. See summary below for quick reference.
+    </p>
+  </div>
+</section>
+
+    <!-- TOC -->
+    <section id="toc" class="mb-14">
+      <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl border border-slate-200 p-6 shadow-sm">
+        <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+          <i class="ph ph-map-trifold text-blue-600"></i>
+          <span class="inline-flex items-center rounded-full border border-blue-100 bg-white/80 px-3 py-1 text-sm font-semibold uppercase tracking-wide text-blue-700 shadow-sm">
+            Table of Contents
+          </span>
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-slate-700">
+          <a class="hover:text-blue-700 flex items-center gap-2" href="#name-scope"><span class="text-[0.65rem] font-semibold text-slate-400">1</span><i class="ph ph-identification-card text-blue-600"></i>Name & Scope</a>
+          <a class="hover:text-blue-700 flex items-center gap-2" href="#objectives"><span class="text-[0.65rem] font-semibold text-slate-400">2</span><i class="ph ph-list-checks text-blue-600"></i>Objectives</a>
+          <a class="hover:text-blue-700 flex items-center gap-2" href="#membership"><span class="text-[0.65rem] font-semibold text-slate-400">3</span><i class="ph ph-identification-badge text-blue-600"></i>Membership</a>
+          <a class="hover:text-blue-700 flex items-center gap-2" href="#meetings"><span class="text-[0.65rem] font-semibold text-slate-400">4</span><i class="ph ph-handshake text-blue-600"></i>Meetings</a>
+          <a class="hover:text-blue-700 flex items-center gap-2" href="#working-groups"><span class="text-[0.65rem] font-semibold text-slate-400">5</span><i class="ph ph-gear-six text-blue-600"></i>Working Groups</a>
+          <a class="hover:text-blue-700 flex items-center gap-2" href="#advisory-board"><span class="text-[0.65rem] font-semibold text-slate-400">6</span><i class="ph ph-lightbulb-filament text-blue-600"></i>Advisory Board</a>
+          <a class="hover:text-blue-700 flex items-center gap-2" href="#governance"><span class="text-[0.65rem] font-semibold text-slate-400">7</span><i class="ph ph-users-three text-blue-600"></i>Officers & Governance</a>
+          <a class="hover:text-blue-700 flex items-center gap-2" href="#elections"><span class="text-[0.65rem] font-semibold text-slate-400">8</span><i class="ph ph-check-square-offset text-blue-600"></i>Nomination & Election</a>
+          <a class="hover:text-blue-700 flex items-center gap-2" href="#amendments"><span class="text-[0.65rem] font-semibold text-slate-400">9</span><i class="ph ph-pencil-line text-blue-600"></i>Amendments</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Name & Scope -->
+    <section id="name-scope" class="mb-14">
+      <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+        <i class="ph ph-identification-card text-blue-600"></i>
+        NAME & SCOPE
+      </h2>
+
+      <div class="bg-white rounded-xl border border-slate-200 p-6 shadow-sm mb-6">
+        <h3 class="text-lg font-semibold text-slate-900 mb-2">Official Name</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The name of this organization is the <span class="font-semibold">“Stats Up Artificial Intelligence”</span>
+          Interest Group of the American Statistical Association (ASA), herein after referred to as <span class="font-semibold">the Interest Group</span>.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
+        <h3 class="text-lg font-semibold text-slate-900 mb-2">Scope</h3>
+        <p class="text-slate-700 leading-relaxed mb-4">
+          The Interest Group is charged to promote the integration of statistical methodologies and innovations in the field of Artificial Intelligence (AI) and to expand the role of statisticians in AI research, application, and leadership. The Interest Group's main focus will be empowering statisticians to better embrace emerging challenges and opportunities in the broad ecosystem of artificial intelligence research and applications. The Interest Group will organize working groups, conferences, workshops, panels, short courses, and webinars on timely topics, highlighting research frontiers, data and workflows, and computational and curricular resources.
+        </p>
+      </div>
+    </section>
+
+    <!-- Objectives -->
+    <section id="objectives" class="mb-14">
+      <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+        <i class="ph ph-list-checks text-blue-600"></i>
+        OBJECTIVES
+      </h2>
+      <ul class="space-y-3 text-slate-700">
+        <li class="flex items-start gap-2">
+          <i class="ph ph-check-circle text-blue-600 mt-1"></i>
+          Foster collaboration among statisticians to contribute significantly to AI research and applications
+        </li>
+        <li class="flex items-start gap-2">
+          <i class="ph ph-check-circle text-blue-600 mt-1"></i>
+          Modernize statistical education and curricula to equip future statisticians with skills and knowledge for the AI age
+        </li>
+        <li class="flex items-start gap-2">
+          <i class="ph ph-check-circle text-blue-600 mt-1"></i>
+          Pursue resources and develop shared infrastructures to support AI research within the statistical community
+        </li>
+        <li class="flex items-start gap-2">
+          <i class="ph ph-check-circle text-blue-600 mt-1"></i>
+          Create a robust network for mentoring and nurturing statisticians to lead and excel in AI initiatives
+        </li>
+      </ul>
+    </section>
+
+    <!-- Membership -->
+<section class="mb-14" id="membership"><h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+<i class="ph ph-identification-badge text-blue-600"></i>
+        MEMBERSHIP
+      </h2><div class="bg-white rounded-xl border border-slate-200 p-6 shadow-sm"><p class="text-slate-700 leading-relaxed">Membership in the Interest Group is open to anyone interested in expanding the presence of statistics and statisticians in AI. Members of the Interest Group do not have to be ASA members, except for the Chair and Chair-Elect. There are no dues.</p></div></section>
+
+    <!-- Meetings -->
+<section id="meetings" class="mb-14">
+  <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+    <i class="ph ph-handshake text-blue-600"></i>
+    MEETINGS
+  </h2>
+
+  <!-- Intro paragraph (from Article IV) -->
+  <p class="text-slate-700 leading-relaxed mb-6">
+    The Interest Group will hold regular meetings and workshops to facilitate collaboration,
+    share knowledge, and plan activities. The meeting structure includes:
+  </p>
+
+  <div class="space-y-4">
+    <!-- Annual Business Meeting -->
+    <div class="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
+      <h3 class="text-lg font-semibold text-slate-900 mb-2 flex items-center gap-2">
+        <i class="ph ph-calendar-check text-blue-600"></i>
+        Annual Business Meeting
+      </h3>
+      <p class="text-slate-700 leading-relaxed">
+        The annual business meeting of the Interest Group shall be held in connection with
+        the annual Joint Statistical Meetings and shall be announced in advance,
+        preferably in the program for that meeting. The Interest Group officers will
+        present activities and progress of the Interest Group.
+      </p>
+    </div>
+
+    <!-- Quarterly Virtual Meetings -->
+    <div class="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
+      <h3 class="text-lg font-semibold text-slate-900 mb-2 flex items-center gap-2">
+        <i class="ph ph-video-camera text-blue-600"></i>
+        Quarterly Virtual Meetings
+      </h3>
+      <p class="text-slate-700 leading-relaxed">
+        Held four times a year to share ongoing projects by working groups,
+        new opportunities, and member research highlights.
+      </p>
+    </div>
+
+    <!-- Special Interest Meetings -->
+    <div class="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
+      <h3 class="text-lg font-semibold text-slate-900 mb-2 flex items-center gap-2">
+        <i class="ph ph-users text-blue-600"></i>
+        Special Interest Meetings
+      </h3>
+      <p class="text-slate-700 leading-relaxed">
+        Organized as needed to address specific topics or initiatives within the Interest Group.
+      </p>
+    </div>
+
+    <!-- Workshops / Short Courses / Webinars -->
+    <div class="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
+      <h3 class="text-lg font-semibold text-slate-900 mb-2 flex items-center gap-2">
+        <i class="ph ph-graduation-cap text-blue-600"></i>
+        Workshops, Short Courses, and Webinars
+      </h3>
+      <p class="text-slate-700 leading-relaxed">
+        Organized as needed to provide educational opportunities and foster skill development
+        in AI-related topics.
+      </p>
+    </div>
+  </div>
+
+  <!-- Footer note -->
+  <p class="text-slate-600 text-sm mt-6">
+    Business may also be conducted with the Interest Group members by email,
+    website, and social media posts.
+  </p>
+</section>
+
+    <!-- Working Groups -->
+    <section id="working-groups" class="mb-14">
+      <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+        <i class="ph ph-gear-six text-blue-600"></i>
+       WORKING GROUPS
+      </h2>
+
+      <div class="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
+        <p class="text-slate-700 leading-relaxed mb-4">
+          The Interest Group forms up to <span class="font-semibold">two working groups each year</span>.
+          These are specialized teams focused on specific topics or projects relevant to the Interest Group's goals. The structure and process for working groups are as follows:
+        </p>
+
+        <ol class="relative space-y-5 text-slate-700 pl-7">
+          <span class="pointer-events-none absolute left-2 top-1 bottom-1 w-0.5 rounded-full bg-gradient-to-b from-slate-200 via-blue-400/70 to-slate-200 shadow-[0_0_10px_rgba(148,163,184,0.35)]" aria-hidden="true"></span>
+          <li class="relative pl-5">
+            <span class="absolute -left-[3px] top-2.5 h-2 w-2 rounded-full bg-indigo-400/80 ring-4 ring-slate-100/80"></span>
+            <span class="text-sm font-semibold uppercase tracking-wide text-slate-900">Proposal and discussion</span>
+            <p class="text-sm text-slate-600 mt-1">Working groups can be proposed by any member before or during the Annual Business Meeting.</p>
+          </li>
+          <li class="relative pl-5">
+            <span class="absolute -left-[3px] top-2.5 h-2 w-2 rounded-full bg-indigo-400/80 ring-4 ring-slate-100/80"></span>
+            <span class="text-sm font-semibold uppercase tracking-wide text-slate-900">Selection</span>
+            <p class="text-sm text-slate-600 mt-1">After the Annual Business Meeting, the Interest Group officers, in consultation with the Interest Group’s advisory board (see ARTICLE VI), will review all suggestions and identify up to two working groups to be established each year.</p>
+          </li>
+          <li class="relative pl-5">
+            <span class="absolute -left-[3px] top-2.5 h-2 w-2 rounded-full bg-indigo-400/80 ring-4 ring-slate-100/80"></span>
+            <span class="text-sm font-semibold uppercase tracking-wide text-slate-900">Appointment of Chairs</span>
+            <p class="text-sm text-slate-600 mt-1">Working group chairs will be appointed by the Interest Group officers.</p>
+          </li>
+          <li class="relative pl-5">
+            <span class="absolute -left-[3px] top-2.5 h-2 w-2 rounded-full bg-indigo-400/80 ring-4 ring-slate-100/80"></span>
+            <span class="text-sm font-semibold uppercase tracking-wide text-slate-900">Responsibilities of Working Group Chairs</span>
+            <p class="text-sm text-slate-600 mt-1">These chairs will lead the group’s efforts and organize regular working group activities to drive progress. The working groups should be open to Interest Group members and create an inclusive environment for all who participate.</p>
+          </li>
+          <li class="relative pl-5">
+            <span class="absolute -left-[3px] top-2.5 h-2 w-2 rounded-full bg-indigo-400/80 ring-4 ring-slate-100/80"></span>
+            <span class="text-sm font-semibold uppercase tracking-wide text-slate-900">Meetings and Reporting</span>
+            <p class="text-sm text-slate-600 mt-1">Working group chairs will report on their progress at the quarterly virtual meetings of the Interest Group.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Advisory Board -->
+<section id="advisory-board" class="mb-14">
+  <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+    <i class="ph ph-lightbulb-filament text-blue-600"></i>
+    ADVISORY BOARD
+  </h2>
+
+  <div class="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
+    <p class="text-slate-700 leading-relaxed mb-6">
+      An advisory board will be established to provide strategic guidance and expert advice to the Interest Group. The advisory board will consist of prominent leaders and scholars in the fields of statistics and AI. The responsibilities and structure are as follows:
+    </p>
+
+    <ol class="space-y-4 text-slate-700">
+      <li class="rounded-xl border border-slate-200 bg-slate-50/60 p-4">
+        <div>
+          <span class="inline-flex items-center rounded-md bg-blue-50 px-2.5 py-1 text-sm font-semibold uppercase tracking-wide text-blue-700">Composition</span>
+          <span class="text-sm text-slate-600 ml-2">
+            The advisory board will include up to five members selected by the Interest Group officers. Members will be selected, by the Interest Group officers, based on their expertise and contributions to the fields of statistics and AI. At least one member should be from the private sector.
+          </span>
+        </div>
+      </li>
+
+      <li class="rounded-xl border border-slate-200 bg-slate-50/60 p-4">
+        <div>
+          <span class="inline-flex items-center rounded-md bg-blue-50 px-2.5 py-1 text-sm font-semibold uppercase tracking-wide text-blue-700">Term</span>
+          <span class="text-sm text-slate-600 ml-2">
+            Advisory board members will serve a term of three years, with the possibility of reappointment.
+          </span>
+        </div>
+      </li>
+
+      <li class="rounded-xl border border-slate-200 bg-slate-50/60 p-4">
+        <div>
+          <span class="inline-flex items-center rounded-md bg-blue-50 px-2.5 py-1 text-sm font-semibold uppercase tracking-wide text-blue-700">Meetings</span>
+          <span class="text-sm text-slate-600 ml-2">
+            The advisory board will be invited to attend the quarterly virtual meetings and the annual business meeting to review the Interest Group’s progress, to provide feedback on initiatives, and to offer strategic recommendations.
+          </span>
+        </div>
+      </li>
+
+      <li class="rounded-xl border border-slate-200 bg-slate-50/60 p-4">
+        <div>
+          <span class="inline-flex items-center rounded-md bg-blue-50 px-2.5 py-1 text-sm font-semibold uppercase tracking-wide text-blue-700">Roles and Responsibilities</span>
+          <span class="text-sm text-slate-600 ml-2">Advisory board members will:</span>
+          <ol class="list-disc pl-5 mt-2 space-y-1 text-sm text-slate-600">
+            <li>Provide expert advice on the direction and activities of the Interest Group.</li>
+            <li>Assist in identifying resources, funding opportunities and partnerships.</li>
+            <li>Support the development of educational and professional development programs.</li>
+            <li>Act as ambassadors for the Interest Group within the broader scientific and professional community.</li>
+          </ol>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+    <!-- Governance: Officers -->
+<section id="governance" class="mb-14">
+  <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+    <i class="ph ph-users-three text-blue-600"></i>
+    OFFICERS
+  </h2>
+
+  <!-- Officer Positions (structure preserved) -->
+  <div class="bg-white rounded-xl border border-slate-200 p-6 shadow-sm mb-6">
+    <h3 class="text-lg font-semibold text-slate-900 mb-3">Officer Positions</h3>
+    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-slate-700 list-disc list-inside marker:text-slate-300">
+      <li>Chair</li>
+      <li>Chair-elect</li>
+      <li>Program Chair</li>
+      <li>Program Chair-elect</li>
+      <li>Outreach Chair</li>
+      <li>Secretary</li>
+    </ul>
+
+    <div class="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <div class="rounded-xl border border-slate-200 p-4 bg-slate-50">
+        <div class="text-sm font-semibold text-slate-900 mb-1">Terms</div>
+        <div class="text-sm text-slate-700">
+          Terms of all the officers shall be one year except for the Outreach Chair and the Secretary/Treasurer which shall be two years.
+        </div>
+      </div>
+      <div class="rounded-xl border border-slate-200 p-4 bg-slate-50">
+        <div class="text-sm font-semibold text-slate-900 mb-1">Annual transition</div>
+        <div class="text-sm text-slate-700">
+          The Chair-elect and the Program Chair-elect shall automatically succeed the Chair and Program Chair, respectively, at the annual change of officers, which shall occur on January 1.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Role Summary (structure preserved) -->
+  <div class="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
+    <h3 class="text-lg font-semibold text-slate-900 mb-3">Summary of Roles</h3>
+    <ul class="space-y-3 text-slate-700">
+      <li class="flex items-start gap-2">
+        <i class="ph ph-crown-simple text-blue-600 mt-1"></i>
+        <span>
+          <span class="font-semibold">Chair:</span>
+          responsible for the overall leadership and direction of the Interest Group, organizing the Annual Business Meeting and the Quarterly Virtual Meetings and representing the Interest Group.
+        </span>
+      </li>
+      <li class="flex items-start gap-2">
+        <i class="ph ph-user-focus text-blue-600 mt-1"></i>
+        <span>
+          <span class="font-semibold">Chair-elect:</span>
+          assists the Chair, plans specific initiatives and working groups, and steps in during the Chair's absence.
+        </span>
+      </li>
+      <li class="flex items-start gap-2">
+        <i class="ph ph-presentation-chart text-blue-600 mt-1"></i>
+        <span>
+          <span class="font-semibold">Program Chair / Program Chair-elect:</span>
+          work closely with the Chair and Chair-elect and lead the organization of the Interest Group’s program at conferences, the Interest Group’s own workshops, webinars, and other educational and networking events.
+        </span>
+      </li>
+      <li class="flex items-start gap-2">
+        <i class="ph ph-megaphone text-blue-600 mt-1"></i>
+        <span>
+          <span class="font-semibold">Outreach Chair:</span>
+          manages external communications, partnerships, and efforts to collaborate with other organizations and societies in Artificial Intelligence.
+        </span>
+      </li>
+      <li class="flex items-start gap-2">
+        <i class="ph ph-notebook text-blue-600 mt-1"></i>
+        <span>
+          <span class="font-semibold">Secretary/Treasurer:</span>
+          manages the financial matters for the Interest Group, meeting minutes, and membership communications.
+        </span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- Governance: Vacancies -->
+<section id="vacancies" class="mb-14">
+  <h3 class="text-xl font-bold text-slate-900 mb-4">
+    Vacancies in Office
+  </h3>
+  <div class="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
+    <p class="text-slate-700 leading-relaxed">
+      If the office of Chair or Program Chair becomes vacant, the Chair-elect and Program Chair-elect shall become the Chair and Program Chair, respectively, the terms extending through the following year.
+    </p>
+  </div>
+</section>
+    
+    <!-- Elections -->
+<section id="elections" class="mb-14">
+  <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+    <i class="ph ph-check-square-offset text-blue-600"></i>
+    NOMINATION AND ELECTION
+  </h2>
+
+  <div class="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
+    <p class="text-slate-700 leading-relaxed mb-4">
+      The Interest Group’s immediate past Chair shall serve as Chair of the Nominating Committee.
+      The Interest Group’s immediate past Program Chair will also serve on this committee.
+      The Chair will also nominate one person to serve on the Nominating Committee.
+    </p>
+
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Each year the Nominating Committee shall submit no later than
+      <span class="font-semibold">September 1st</span> to the Secretary and the Chair of Interest Group
+      nominations for each position to be filled. In addition, any Interest Group member nominated
+      by petition of <span class="font-semibold">5</span> or more members of the Interest Group shall also
+      appear on the annual ballot, provided that the petition is presented to the Secretary and Chair
+      of the Interest Group by <span class="font-semibold">September 1st</span> announcing the names of the
+      candidates submitted by the Nominating Committee.
+    </p>
+
+    <p class="text-slate-700 leading-relaxed">
+      Balloting shall be carried out by the Past Chair for electing Interest Group officers and
+      completed by <span class="font-semibold">November 1st</span>. Ballots shall be sent to all those who
+      express an interest in the Interest Group through the Interest Group intake Google form.
+    </p>
+  </div>
+</section>
+
+    <!-- Amendments -->
+<section id="amendments" class="mb-14">
+  <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+    <i class="ph ph-pencil-line text-blue-600"></i>
+    AMENDMENTS
+  </h2>
+
+  <div class="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Amendments to this charter may be proposed by the officers of the Interest Group or by petition
+      signed by at least <span class="font-semibold">15</span> members of the Interest Group and submitted
+      to the Interest Group officers.
+    </p>
+
+    <p class="text-slate-700 leading-relaxed mb-4">
+      The proposed amendment shall be submitted to the Interest Group members for vote at the time
+      of the annual election of officers. If approved by a majority of the Interest Group members
+      voting, the amendment is approved.
+    </p>
+
+    <p class="text-slate-700 leading-relaxed">
+      An approved amendment shall be effective immediately unless otherwise specified in the
+      amendment itself.
+    </p>
+  </div>
+</section>
+    
+    
+
+    <!-- Footer note -->
+    <div class="border-t border-slate-200 pt-6 text-sm text-slate-500">
+      Last updated: January 2026
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  {% include asa_banner.html %}
+
+  <script>
+    (() => {
+      const dropdown = document.querySelector('[data-dropdown]');
+      if (!dropdown) return;
+
+      const button = dropdown.querySelector('[data-dropdown-button]');
+      const menu = dropdown.querySelector('[data-dropdown-menu]');
+      if (!button || !menu) return;
+
+      let closeTimer = null;
+
+      const openMenu = () => {
+        if (closeTimer) {
+          clearTimeout(closeTimer);
+          closeTimer = null;
+        }
+        menu.classList.add('opacity-100', 'pointer-events-auto');
+        menu.classList.remove('opacity-0', 'pointer-events-none');
+        button.setAttribute('aria-expanded', 'true');
+      };
+
+      const scheduleClose = () => {
+        if (closeTimer) clearTimeout(closeTimer);
+        closeTimer = setTimeout(() => {
+          menu.classList.add('opacity-0', 'pointer-events-none');
+          menu.classList.remove('opacity-100', 'pointer-events-auto');
+          button.setAttribute('aria-expanded', 'false');
+        }, 250);
+      };
+
+      dropdown.addEventListener('mouseenter', openMenu);
+      dropdown.addEventListener('mouseleave', scheduleClose);
+      dropdown.addEventListener('focusin', openMenu);
+      dropdown.addEventListener('focusout', scheduleClose);
+    })();
+  </script>
+
+</body>
+</html>
