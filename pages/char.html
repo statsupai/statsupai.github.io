@@ -205,6 +205,9 @@ layout: null
 
   <!-- Hero -->
   <header class="relative overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 py-20 border-b border-slate-200">
+    <div class="pointer-events-none absolute inset-0 flex items-center justify-center" aria-hidden="true">
+      <img src="img/logo.svg" alt="" class="h-3/4 w-auto opacity-10">
+    </div>
     <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
       <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-white/60 backdrop-blur-sm rounded-full border border-blue-200/50 mb-6">
         <span class="text-sm font-semibold text-slate-700">American Statistical Association</span>
@@ -223,7 +226,7 @@ layout: null
 
 
   <!-- Main Content -->
-  <main class="max-w-5xl mx-auto px-4 py-16">
+  <main class="max-w-5xl mx-auto px-4 py-2">
     <!-- PDF (official charter) -->
     <section id="charter-pdf" class="mb-14">
       <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
@@ -255,7 +258,7 @@ layout: null
           </iframe>
         </div>
 
-        <p class="text-sm text-slate-600 mt-3">
+        <p class="text-sm text-slate-600 mt-6 flex items-center gap-2">
           <i class="ph ph-info text-blue-300"></i>
           This PDF is the official, authoritative version of ASA. See summary below for quick reference.
         </p>
