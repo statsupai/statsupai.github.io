@@ -1,7 +1,7 @@
 ---
 title: "SMI 2026 Announcement"
 description: "Statistical Methods in Imaging (SMI) 2026 will be held June 1–3, 2026, in Ann Arbor, Michigan. Learn about keynotes, submissions, and the SDSI special issue."
-image: figures/2026-smi-announcement.jpeg
+image: figures/2026-smi-announcement.png
 categories:
   - Announcements
   - Events
