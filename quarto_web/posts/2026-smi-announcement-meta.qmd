@@ -1,0 +1,692 @@
+---
+title: "SMI 2026 Announcement"
+description: "Statistical Methods in Imaging (SMI) 2026 will be held June 1–3, 2026, in Ann Arbor, Michigan. Learn about keynotes, submissions, and the SDSI special issue."
+image: figures/2026-smi-announcement.jpeg
+categories:
+  - Announcements
+  - Events
+author:
+  - name: "Yulin Li"
+  - affiliation: "Rutgers University"
+date: "2026-02-03"
+format:
+  html:
+    page-layout: full
+    toc: false
+    title-block: false
+    include-in-header:
+      text: |
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+        <script src="https://unpkg.com/@phosphor-icons/web"></script>
+        <style>
+          html { scroll-behavior: smooth; }
+          body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #F8FAFC; color: #0f2a29; margin: 0; }
+          h1, h2, h3 { font-family: 'Merriweather', serif; }
+
+          :root {
+            --blue-50:  #eef3ff;
+            --blue-100: #d8e2ff;
+            --blue-200: #b8c8ff;
+            --blue-300: #8fa5f0;
+            --blue-400: #647fdd;
+            --blue-500: #3f5fbe;
+            --blue-600: #2b4a9f;
+            --blue-700: #1b2f66;
+
+            --indigo-50:  #fff7df;
+            --indigo-100: #ffe9b0;
+            --indigo-200: #ffd87a;
+            --indigo-300: #ffc44a;
+            --indigo-400: #f2b21a;
+            --indigo-500: #e0a208;
+            --indigo-600: #c88d00;
+            --indigo-700: #9f6e00;
+
+            --slate-50:  #f8fafc;
+            --slate-100: #f1f5f9;
+            --slate-200: #e2e8f0;
+            --slate-300: #cbd5e1;
+            --slate-400: #94a3b8;
+            --slate-500: #64748b;
+            --slate-600: #475569;
+            --slate-700: #334155;
+          }
+
+          .text-blue-300 { color: var(--blue-300) !important; }
+          .text-blue-600 { color: var(--blue-600) !important; }
+          .text-blue-700 { color: var(--blue-700) !important; }
+          .bg-blue-50 { background-color: var(--blue-50) !important; }
+          .bg-blue-600 { background-color: var(--blue-600) !important; }
+          .bg-blue-700 { background-color: var(--blue-700) !important; }
+          .border-blue-100 { border-color: var(--blue-100) !important; }
+          .border-blue-200 { border-color: var(--blue-200) !important; }
+          .border-blue-500 { border-color: var(--blue-500) !important; }
+          .hover\:text-blue-700:hover { color: var(--blue-700) !important; }
+          .hover\:border-blue-200:hover { border-color: var(--blue-200) !important; }
+          .from-blue-50 { --tw-gradient-from: var(--blue-50) !important; --tw-gradient-to: color-mix(in srgb, var(--blue-50) 0%, transparent) !important; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); }
+          .to-indigo-50 { --tw-gradient-to: var(--indigo-50) !important; }
+
+          .text-indigo-600 { color: var(--indigo-600) !important; }
+          .border-indigo-200 { border-color: var(--indigo-200) !important; }
+          .bg-indigo-50 { background-color: var(--indigo-50) !important; }
+          .bg-indigo-100 { background-color: var(--indigo-300) !important; }
+
+          .text-slate-700 { color: var(--slate-700) !important; }
+          .text-slate-800 { color: color-mix(in srgb, var(--slate-700) 90%, #000 10%) !important; }
+          .text-slate-900 { color: color-mix(in srgb, var(--slate-700) 85%, #000 15%) !important; }
+          .bg-slate-50 { background-color: var(--slate-50) !important; }
+          .bg-slate-50\/60 { background-color: color-mix(in srgb, var(--slate-50) 60%, transparent) !important; }
+          .border-slate-200 { border-color: var(--slate-200) !important; }
+
+          .bg-white { background-color: #ffffff !important; }
+          .bg-white\/60 { background-color: color-mix(in srgb, #ffffff 60%, transparent) !important; }
+          .bg-white\/80 { background-color: color-mix(in srgb, #ffffff 80%, transparent) !important; }
+
+          #hero {
+            background: linear-gradient(to bottom right, var(--blue-50), #f5f7ff, var(--indigo-50)) !important;
+          }
+
+          .quarto-title-block:not(.bottom-meta) {
+            display: none !important;
+          }
+
+          .bottom-meta {
+            display: block !important;
+            margin-top: 0.35rem;
+            padding-top: 0.35rem;
+            border-top: 1px solid var(--slate-200);
+          }
+
+          .bottom-meta .quarto-categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.25rem;
+            margin: 0 0 0.55rem 0;
+          }
+
+          .bottom-meta .quarto-category {
+            display: inline-block;
+            padding: 0.15rem 0.45rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.3rem;
+            background: #f8fafc;
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+            color: #64748b;
+          }
+
+
+
+          .bottom-meta .quarto-title-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 0.75rem 1.5rem;
+          }
+
+          .bottom-meta .quarto-title-meta-heading {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: #64748b;
+            margin-bottom: 0.2rem;
+          }
+
+          .bottom-meta .quarto-title-meta-content p {
+            margin: 0;
+            font-size: 0.82rem;
+            color: #334155;
+          }
+
+          /* Override Quarto container constraints */
+          #quarto-content,
+          #quarto-content > *,
+          .quarto-container,
+          main.content,
+          .page-columns,
+          .column-page,
+          .column-body,
+          .column-screen {
+            max-width: 100% !important;
+            width: 100% !important;
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+            padding-bottom: 0 !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+            margin-bottom: 0 !important;
+          }
+
+          #goatcounter-footer {
+            margin-top: 0.35rem !important;
+          }
+
+          body > nav,
+          body > header {
+            max-width: 100% !important;
+          }
+
+          .full-bleed {
+            width: 100vw;
+            margin-left: calc(50% - 50vw);
+            margin-right: calc(50% - 50vw);
+          }
+
+          .back-to-top {
+            position: fixed;
+            right: 5px;
+            bottom: 20px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 6px;
+            padding: 10px 8px;
+            border-radius: 1em;
+            background: rgba(248, 250, 252, 0.35);
+            border: none;
+            box-shadow: none;
+            color: rgba(71, 85, 105, 0.75);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            z-index: 60;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.01em;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(6px);
+            transition: opacity 0.2s ease, transform 0.2s ease, background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+          }
+
+          .back-to-top span {
+            font-size: 11px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+          }
+
+          .back-to-top:hover {
+            transform: translateY(-2px);
+            background: rgba(248, 250, 252, 0.55);
+            color: rgba(51, 65, 85, 0.9);
+            box-shadow: 10px 10px 24px rgba(15, 23, 42, 0.12);
+          }
+
+          .back-to-top:active {
+            transform: translateY(0);
+            box-shadow: 0 6px 14px rgba(15, 23, 42, 0.12);
+          }
+
+          .back-to-top:focus-visible {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25), 0 14px 30px rgba(15, 23, 42, 0.14);
+          }
+
+          .back-to-top.is-visible {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+          }
+        </style>
+---
+
+```{=html}
+<div id="top" class="antialiased">
+  <div class="full-bleed">
+  <nav class="bg-white/80 backdrop-blur-md fixed top-0 left-0 right-0 z-50 border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center gap-1">
+      <a href="https://statsupai.org" class="flex items-center gap-1">
+        <img src="/img/logo.svg" alt="StatsUpAI Logo" class="h-9 w-auto">
+        <span class="text-lg font-bold text-slate-900 tracking-tight">StatsUpAI</span>
+      </a>
+      <span class="text-lg font-bold text-slate-900 tracking-tight">
+        <span class="text-slate-400 font-normal">|</span>
+      </span>
+      <a href="https://statsupai.org/community-news" class="text-lg font-bold text-slate-900 tracking-tight">
+        <span class="text-slate-400 font-normal">Community News</span>
+      </a>
+      <span class="text-lg font-bold text-slate-900 tracking-tight">
+        <span class="text-slate-400 font-normal">·</span>
+      </span>
+      <a href="#top" class="text-lg font-bold text-slate-900 tracking-tight">
+        <span class="text-slate-400 font-normal">SMI 2026</span>
+      </a>
+      <div class="ml-auto relative" data-dropdown>
+        <button type="button" class="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white/80 px-3 py-1.5 text-sm font-semibold text-slate-700 shadow-sm hover:text-blue-700 hover:border-blue-200" aria-haspopup="true" aria-expanded="false" data-dropdown-button>
+          Menu
+          <i class="ph ph-caret-down text-base text-blue-300"></i>
+        </button>
+        <div class="absolute right-0 top-full mt-1 w-56 rounded-xl border border-slate-200 bg-white shadow-lg py-2 opacity-0 pointer-events-none transition-opacity duration-150 before:content-[''] before:absolute before:-top-2 before:left-0 before:right-0 before:h-2 before:bg-transparent after:content-[''] after:absolute after:inset-y-0 after:-left-4 after:w-4 after:bg-transparent" data-dropdown-menu>
+          <a class="flex items-center gap-2 px-4 py-2 text-sm font-semibold text-slate-800 hover:bg-slate-50 hover:text-blue-700" href="#overview"><i class="ph ph-megaphone-simple"></i>Overview</a>
+          <a class="flex items-center gap-2 px-4 py-2 text-sm font-semibold text-slate-800 hover:bg-slate-50 hover:text-blue-700" href="#keynotes"><i class="ph ph-microphone-stage"></i>Keynote Speakers</a>
+          <a class="flex items-center gap-2 px-4 py-2 text-sm font-semibold text-slate-800 hover:bg-slate-50 hover:text-blue-700" href="#submissions"><i class="ph ph-paper-plane-tilt"></i>Call for Submissions</a>
+          <a class="flex items-center gap-2 px-4 py-2 text-sm font-semibold text-slate-800 hover:bg-slate-50 hover:text-blue-700" href="#special-issue"><i class="ph ph-seal-check"></i>SDSI Special Issue</a>
+          <a class="flex items-center gap-2 px-4 py-2 text-sm font-semibold text-slate-800 hover:bg-slate-50 hover:text-blue-700" href="#contact"><i class="ph ph-envelope"></i>Contact</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <header id="hero" class="relative overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 pt-28 pb-20 border-b border-slate-200">
+    <div class="pointer-events-none absolute inset-0" aria-hidden="true" style="background-image: linear-gradient(rgba(27, 47, 102, 0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(27, 47, 102, 0.06) 1px, transparent 1px), radial-gradient(circle at 1px 1px, rgba(255, 170, 0, 0.07) 1px, transparent 0); background-size: 32px 32px, 32px 32px, 18px 18px; background-position: 0 0, 0 0, 9px 9px;">
+    </div>
+    <div class="max-w-5xl mx-auto px-4 text-center relative z-10">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-white/60 backdrop-blur-sm rounded-full border border-blue-200/50 mb-6">
+        <span class="text-sm font-semibold text-slate-700">ASA Statistics in Imaging Section (SII)</span>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-bold text-slate-900 tracking-tight mb-4">
+        Statistical Methods in Imaging (SMI) 2026
+      </h1>
+      <div class="mx-auto mb-4 h-1 w-20 rounded-full bg-indigo-400/70"></div>
+      <div class="flex flex-wrap items-center justify-center gap-3 text-lg md:text-xl text-slate-700 mb-6">
+        <span class="inline-flex items-center gap-2">
+          <i class="ph ph-calendar-dots"></i>
+          June 1–3, 2026
+        </span>
+        <span class="text-slate-400">•</span>
+        <span class="inline-flex items-center gap-2">
+          <i class="ph ph-map-pin"></i>
+          Ann Arbor, Michigan
+        </span>
+      </div>
+      <div class="flex flex-col items-center gap-2 mb-6">
+        <div class="flex flex-wrap justify-center gap-2">
+          <a href="#overview" class="inline-flex items-center gap-2 rounded-full bg-blue-600 px-4 py-1.5 text-xs font-semibold text-white shadow-sm hover:bg-blue-700">
+            <i class="ph ph-megaphone-simple"></i>
+            Overview
+          </a>
+          <a href="#contact" class="inline-flex items-center gap-2 rounded-full bg-blue-600 px-4 py-1.5 text-xs font-semibold text-white shadow-sm hover:bg-blue-700">
+            <i class="ph ph-envelope"></i>
+            Contact
+          </a>
+        </div>
+        <div class="flex flex-wrap justify-center gap-2">
+          <a href="#keynotes" class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/80 px-3 py-1 text-xs font-semibold text-slate-700 hover:text-blue-700 hover:border-blue-200">
+            <i class="ph ph-microphone-stage"></i>
+            Keynotes
+          </a>
+          <a href="#submissions" class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/80 px-3 py-1 text-xs font-semibold text-slate-700 hover:text-blue-700 hover:border-blue-200">
+            <i class="ph ph-paper-plane-tilt"></i>
+            Submissions
+          </a>
+          <a href="#special-issue" class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/80 px-3 py-1 text-xs font-semibold text-slate-700 hover:text-blue-700 hover:border-blue-200">
+            <i class="ph ph-seal-check"></i>
+            Special Issue
+          </a>
+        </div>
+      </div>
+      <div class="max-w-2xl mx-auto mb-8">
+        <div class="rounded-2xl border border-slate-200 bg-white/80 px-6 py-4 text-slate-800 shadow-sm">
+          Statistical Methods in Imaging (SMI) 2026 will be held June 1–3, 2026, in Ann Arbor, Michigan. Learn about keynotes, submissions, and the SDSI special issue.
+        </div>
+      </div>
+      <div class="flex flex-wrap justify-center gap-3">
+        <a href="https://www.statsinimaging.org/SMI-2026/" target="_blank" class="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-5 py-2.5 text-white font-semibold hover:bg-blue-700">
+          <i class="ph ph-arrow-square-out"></i>
+          Official Website
+        </a>
+        <a href="#submissions" class="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white/80 px-5 py-2.5 text-slate-700 font-semibold hover:text-blue-700 hover:border-blue-200">
+          <i class="ph ph-paper-plane-tilt"></i>
+          Call for Submissions
+        </a>
+      </div>
+    </div>
+  </header>
+  </div>
+
+  <main class="max-w-5xl mx-auto px-4 pt-8 pb-0">
+    <section id="overview" class="mb-14">
+      <div class="bg-white rounded-2xl border border-slate-200 pt-6 px-6 pb-4 shadow-sm">
+        <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+          <i class="ph ph-megaphone-simple text-blue-300"></i>
+          Announcement Overview
+        </h2>
+        <p class="text-slate-700 leading-relaxed mb-6">
+          We are excited to announce the Statistical Methods in Imaging (SMI) Conference 2026, hosted by the ASA Statistics in Imaging Section (SII) and held in Ann Arbor, Michigan. SMI 2026 is a premier gathering for researchers and practitioners developing statistical methodology, computational tools, and applications in imaging science.
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="rounded-xl border border-slate-200 bg-slate-50/60 p-4">
+            <div class="text-sm font-semibold text-slate-900 mb-1 flex items-center gap-2">
+              <i class="ph ph-calendar-dots text-blue-300"></i>
+              Dates
+            </div>
+            <div class="text-sm text-slate-700">June 1–3, 2026</div>
+          </div>
+          <div class="rounded-xl border border-slate-200 bg-slate-50/60 p-4">
+            <div class="text-sm font-semibold text-slate-900 mb-1 flex items-center gap-2">
+              <i class="ph ph-map-pin text-blue-300"></i>
+              Location
+            </div>
+            <div class="text-sm text-slate-700">Ann Arbor, Michigan</div>
+          </div>
+          <div class="rounded-xl border border-slate-200 bg-slate-50/60 p-4">
+            <div class="text-sm font-semibold text-slate-900 mb-1 flex items-center gap-2">
+              <i class="ph ph-handshake text-blue-300"></i>
+              Host
+            </div>
+            <div class="text-sm text-slate-700">ASA Statistics in Imaging Section (SII)</div>
+          </div>
+          <div class="rounded-xl border border-slate-200 bg-slate-50/60 p-4">
+            <div class="text-sm font-semibold text-slate-900 mb-1 flex items-center gap-2">
+              <i class="ph ph-link-simple text-blue-300"></i>
+              Conference Site
+            </div>
+            <a href="https://www.statsinimaging.org/SMI-2026/" target="_blank" class="text-sm font-semibold text-blue-600 hover:text-blue-700">https://www.statsinimaging.org/SMI-2026/</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="keynotes" class="mb-14">
+      <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+        <i class="ph ph-microphone-stage text-blue-300"></i>
+        Keynote Speakers
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <a href="https://cemse.kaust.edu.sa/profiles/hernando-ombao" target="_blank" class="group bg-white rounded-xl border border-slate-200 p-5 shadow-sm hover:border-blue-200 hover:shadow-md transition">
+          <img src="https://lh3.googleusercontent.com/d/1t7UF6kdatAosdKe94qLEFs7QI48PUCtg=s400" alt="Hernando Ombao" class="w-24 h-24 rounded-full mx-auto mb-3 object-cover border-2 border-white shadow">
+          <div class="text-sm uppercase tracking-wide text-slate-500 mb-1 text-center">KAUST</div>
+          <div class="text-lg font-semibold text-slate-900 group-hover:text-blue-700 text-center">Prof. Hernando Ombao</div>
+        </a>
+        <a href="https://science.psu.edu/stat/people/nfl5182" target="_blank" class="group bg-white rounded-xl border border-slate-200 p-5 shadow-sm hover:border-blue-200 hover:shadow-md transition">
+          <img src="https://ecos-appdev-production.s3.amazonaws.com/science_site/s3fs-public/styles/f_story_image/public/2020-10/20200922-lazar-nicole-01-sq_copy.jpg?h=bfced127&itok=ST5Zl7wL" alt="Nicole Lazar" class="w-24 h-24 rounded-full mx-auto mb-3 object-cover border-2 border-white shadow">
+          <div class="text-sm uppercase tracking-wide text-slate-500 mb-1 text-center">Penn State University</div>
+          <div class="text-lg font-semibold text-slate-900 group-hover:text-blue-700 text-center">Prof. Nicole Lazar</div>
+        </a>
+        <a href="https://nollresearch.engin.umich.edu/" target="_blank" class="group bg-white rounded-xl border border-slate-200 p-5 shadow-sm hover:border-blue-200 hover:shadow-md transition">
+          <img src="https://nollresearch.engin.umich.edu/wp-content/uploads/sites/177/2014/10/dnoll-contact.jpg" alt="Douglas Noll" class="w-24 h-24 rounded-full mx-auto mb-3 object-cover border-2 border-white shadow">
+          <div class="text-sm uppercase tracking-wide text-slate-500 mb-1 text-center">University of Michigan</div>
+          <div class="text-lg font-semibold text-slate-900 group-hover:text-blue-700 text-center">Prof. Douglas Noll</div>
+        </a>
+      </div>
+    </section>
+
+    <section id="submissions" class="mb-14">
+      <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+        <i class="ph ph-paper-plane-tilt text-blue-300"></i>
+        Call for Submissions
+      </h2>
+      <div class="space-y-4">
+        <div class="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
+          <div class="flex items-start justify-between gap-4 flex-wrap">
+            <div>
+              <h3 class="text-lg font-semibold text-slate-900">Invited Session Proposals</h3>
+              <p class="text-slate-700 mt-1">Proposals showcasing cutting-edge imaging statistics research and interdisciplinary collaborations. Sessions can include a mix of senior and junior presenters.</p>
+            </div>
+            <div class="text-sm font-semibold text-slate-700 inline-flex items-center gap-2">
+              <i class="ph ph-calendar-dots"></i>
+              Due February 10, 2026
+            </div>
+          </div>
+          <a href="https://forms.gle/6itWJnjpD3D6J66D7" target="_blank" class="inline-flex items-center gap-2 mt-4 text-blue-600 font-semibold hover:text-blue-700">
+            <i class="ph ph-link"></i>
+            Submission Form
+          </a>
+        </div>
+
+        <div class="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
+          <div class="flex items-start justify-between gap-4 flex-wrap">
+            <div>
+              <h3 class="text-lg font-semibold text-slate-900">Poster Abstract Submissions</h3>
+              <p class="text-slate-700 mt-1">Poster sessions spotlight emerging results, ongoing studies, and innovative methods. Students and early-career researchers are strongly encouraged.</p>
+            </div>
+            <div class="text-sm font-semibold text-slate-700 inline-flex items-center gap-2">
+              <i class="ph ph-calendar-dots"></i>
+              Due March 10, 2026
+            </div>
+          </div>
+          <a href="https://forms.gle/Z2TJhyAN7vKeKA5W9" target="_blank" class="inline-flex items-center gap-2 mt-4 text-blue-600 font-semibold hover:text-blue-700">
+            <i class="ph ph-link"></i>
+            Submission Form
+          </a>
+        </div>
+
+        <div class="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
+          <div class="flex items-start justify-between gap-4 flex-wrap">
+            <div>
+              <h3 class="text-lg font-semibold text-slate-900">Short Course Proposals</h3>
+              <p class="text-slate-700 mt-1">Half-day or full-day courses on statistical methodology, software tools, or computational techniques for imaging data analysis.</p>
+            </div>
+            <div class="text-sm font-semibold text-slate-700 inline-flex items-center gap-2">
+              <i class="ph ph-calendar-dots"></i>
+              Due March 20, 2026
+            </div>
+          </div>
+          <a href="https://forms.gle/rgHrQrWUWppmjBVW7" target="_blank" class="inline-flex items-center gap-2 mt-4 text-blue-600 font-semibold hover:text-blue-700">
+            <i class="ph ph-link"></i>
+            Submission Form
+          </a>
+        </div>
+
+        <div class="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
+          <div class="flex items-start justify-between gap-4 flex-wrap">
+            <div>
+              <h3 class="text-lg font-semibold text-slate-900">Best Student Paper Award</h3>
+              <p class="text-slate-700 mt-1">Student paper submissions for SMI 2026 awards. Detailed instructions are available on the SMI 2026 website.</p>
+            </div>
+            <div class="text-sm font-semibold text-slate-700 inline-flex items-center gap-2">
+              <i class="ph ph-calendar-dots"></i>
+              Due March 1, 2026
+            </div>
+          </div>
+          <a href="https://forms.gle/PWUKiWvCBHE6wMF67" target="_blank" class="inline-flex items-center gap-2 mt-4 text-blue-600 font-semibold hover:text-blue-700">
+            <i class="ph ph-link"></i>
+            Submission Form
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="special-issue" class="mb-14">
+      <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+        <div class="text-xs font-semibold uppercase tracking-wider text-slate-500 flex items-center gap-2 mb-2">
+          <i class="ph ph-seal-check text-blue-300"></i>
+          Special Issue
+        </div>
+        <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+          <i class="ph ph-journal-text text-blue-300"></i>
+          SDSI Special Issue: SMI Conference Series Highlights
+        </h2>
+        <p class="text-slate-700 leading-relaxed mb-4">
+          The ASA journal Statistics and Data Science in Imaging (SDSI) has launched a special issue entitled “SMI Conference Series Highlights.” All keynote, invited session, student paper, and poster contributions presented at SMI 2026 are eligible for submission.
+        </p>
+        <a href="https://think.taylorandfrancis.com/special_issues/smi-conference-highlights/" target="_blank" class="inline-flex items-center gap-2 text-blue-600 font-semibold hover:text-blue-700">
+          <i class="ph ph-link"></i>
+          View Call for Papers
+        </a>
+        <p class="text-sm text-slate-600 mt-4">
+          For questions regarding the SDSI special issue, please contact the Editor-in-Chief, Prof. Marina Vannucci.
+        </p>
+      </div>
+    </section>
+
+    <section id="contact" class="mb-0">
+      <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+        <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+          <i class="ph ph-envelope text-blue-300"></i>
+          Organizing Co-Chairs
+        </h2>
+        <p class="text-slate-700 leading-relaxed mb-6">
+          Please feel free to share this announcement with colleagues and students. We look forward to your contributions and to seeing you in Ann Arbor for an inspiring and impactful meeting.
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-slate-700">
+          <a href="https://public.websites.umich.edu/~jiankang/" target="_blank" class="group rounded-xl border border-slate-200 bg-slate-50/60 p-4 text-center hover:border-blue-200 hover:shadow-md transition">
+            <img src="https://sph.umich.edu/faculty-profiles/images/jiankang.jpg" alt="Jian Kang" class="w-24 h-24 rounded-full mx-auto mb-3 object-cover border-2 border-white shadow">
+            <div class="font-semibold text-slate-900 group-hover:text-blue-700">Jian Kang</div>
+            <div class="text-xs text-slate-500">University of Michigan</div>
+          </a>
+          <a href="https://socr.umich.edu/people/dinov/" target="_blank" class="group rounded-xl border border-slate-200 bg-slate-50/60 p-4 text-center hover:border-blue-200 hover:shadow-md transition">
+            <img src="https://www.socr.umich.edu/people/dinov/ID_Cartoon_Animation.gif" alt="Ivo D. Dinov" class="w-24 h-24 rounded-full mx-auto mb-3 object-cover border-2 border-white shadow">
+            <div class="font-semibold text-slate-900 group-hover:text-blue-700">Ivo D. Dinov</div>
+            <div class="text-xs text-slate-500">University of Michigan</div>
+          </a>
+          <a href="https://sph.umich.edu/faculty-profiles/johnson-timothy.html" target="_blank" class="group rounded-xl border border-slate-200 bg-slate-50/60 p-4 text-center hover:border-blue-200 hover:shadow-md transition">
+            <img src="https://sph.umich.edu/faculty-profiles/images/tdjtdj.jpg" alt="Timothy Johnson" class="w-24 h-24 rounded-full mx-auto mb-3 object-cover border-2 border-white shadow">
+            <div class="font-semibold text-slate-900 group-hover:text-blue-700">Timothy Johnson</div>
+            <div class="text-xs text-slate-500">University of Michigan</div>
+          </a>
+        </div>
+        <div class="mt-3">
+          <a href="https://www.statsinimaging.org/SMI-2026/" target="_blank" class="inline-flex items-center gap-2 text-blue-600 font-semibold hover:text-blue-700">
+            <i class="ph ph-arrow-square-out"></i>
+            Visit SMI 2026 Website
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <div class="quarto-title-block bottom-meta">
+      <!-- <div class="quarto-categories" id="bottom-categories" data-categories="Announcements, Events"></div> -->
+      <div class="quarto-title-meta">
+        <div>
+          <div class="quarto-title-meta-heading">Author</div>
+          <div class="quarto-title-meta-contents">
+            <div class="quarto-title-meta-content">
+              <p>Yulin Li</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="quarto-title-meta-heading">Affiliation</div>
+          <div class="quarto-title-meta-contents">
+            <div class="quarto-title-meta-content">
+              <p>Rutgers University</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="quarto-title-meta-heading">Published</div>
+          <div class="quarto-title-meta-contents">
+            <div class="quarto-title-meta-content">
+              <p>February 3, 2026</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="quarto-title-meta-heading">Last updated</div>
+          <div class="quarto-title-meta-contents">
+            <div class="quarto-title-meta-content">
+              <p><span id="last-updated"></span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <a href="#top" class="back-to-top" aria-label="Back to top">
+    <i class="ph ph-arrow-line-up"></i>
+    <span>Top</span>
+  </a>
+
+  <script>
+    (() => {
+      const dropdown = document.querySelector('[data-dropdown]');
+      if (!dropdown) return;
+
+      const button = dropdown.querySelector('[data-dropdown-button]');
+      const menu = dropdown.querySelector('[data-dropdown-menu]');
+      if (!button || !menu) return;
+
+      let closeTimer = null;
+
+      const openMenu = () => {
+        if (closeTimer) {
+          clearTimeout(closeTimer);
+          closeTimer = null;
+        }
+        menu.classList.add('opacity-100', 'pointer-events-auto');
+        menu.classList.remove('opacity-0', 'pointer-events-none');
+        button.setAttribute('aria-expanded', 'true');
+      };
+
+      const scheduleClose = () => {
+        if (closeTimer) clearTimeout(closeTimer);
+        closeTimer = setTimeout(() => {
+          menu.classList.add('opacity-0', 'pointer-events-none');
+          menu.classList.remove('opacity-100', 'pointer-events-auto');
+          button.setAttribute('aria-expanded', 'false');
+        }, 250);
+      };
+
+      dropdown.addEventListener('mouseenter', openMenu);
+      dropdown.addEventListener('mouseleave', scheduleClose);
+      dropdown.addEventListener('focusin', openMenu);
+      dropdown.addEventListener('focusout', scheduleClose);
+    })();
+
+    (() => {
+      const button = document.querySelector('.back-to-top');
+      if (!button) return;
+
+      const toggleVisibility = () => {
+        if (window.scrollY > 240) {
+          button.classList.add('is-visible');
+        } else {
+          button.classList.remove('is-visible');
+        }
+      };
+
+      toggleVisibility();
+      window.addEventListener('scroll', toggleVisibility, { passive: true });
+    })();
+
+    (() => {
+      const target = document.querySelector('#last-updated');
+      if (!target) return;
+      const formatDate = (value) => {
+        const date = new Date(value);
+        if (Number.isNaN(date.getTime())) return null;
+        return date.toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        });
+      };
+
+      const fallback = () => {
+        const formatted = formatDate(document.lastModified);
+        if (formatted) target.textContent = formatted;
+      };
+
+      fetch(window.location.href, { method: 'HEAD', cache: 'no-store' })
+        .then((response) => response.headers.get('Last-Modified'))
+        .then((header) => {
+          const formatted = header ? formatDate(header) : null;
+          if (formatted) {
+            target.textContent = formatted;
+          } else {
+            fallback();
+          }
+        })
+        .catch(() => fallback());
+    })();
+
+    (() => {
+      const container = document.querySelector('#bottom-categories');
+      if (!container) return;
+      const rawAttr = container.dataset.categories || '';
+      const metaKeywords = document.querySelector('meta[name="keywords"]')?.content || '';
+      const metaCategories = document.querySelector('meta[name="categories"]')?.content || '';
+      const raw = rawAttr || metaCategories || metaKeywords;
+      const categories = raw
+        .split(',')
+        .map((item) => item.trim())
+        .filter(Boolean);
+      if (!categories.length) return;
+      container.innerHTML = '';
+      categories.forEach((category) => {
+        const tag = document.createElement('div');
+        tag.className = 'quarto-category';
+        tag.textContent = category;
+        container.appendChild(tag);
+      });
+    })();
+  </script>
+
+</div>
+```
