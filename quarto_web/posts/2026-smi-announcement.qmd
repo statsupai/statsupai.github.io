@@ -83,12 +83,79 @@ format:
           .bg-white\/60 { background-color: color-mix(in srgb, #ffffff 60%, transparent) !important; }
           .bg-white\/80 { background-color: color-mix(in srgb, #ffffff 80%, transparent) !important; }
 
+          .brand-text {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            line-height: 1.1;
+          }
+
+          .brand-title {
+            font-weight: 700;
+          }
+
+          .brand-subline {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-weight: 600;
+          }
+
+          .brand-sep-desktop {
+            color: var(--slate-400);
+            font-weight: 400;
+          }
+
           #hero {
             background: linear-gradient(to bottom right, var(--blue-50), #f5f7ff, var(--indigo-50)) !important;
           }
 
           .quarto-title-block {
             display: none !important;
+          }
+
+          @media (max-width: 640px) {
+            main .max-w-5xl {
+              padding-left: 0 !important;
+              padding-right: 0 !important;
+            }
+            main .max-w-5xl .max-w-2xl {
+              padding-left: 0.5rem !important;
+              padding-right: 0.5rem !important;
+            }
+            nav .max-w-7xl {
+              padding-left: 0.2rem !important;
+              padding-right: 0.4rem !important;
+            }
+            .brand-text {
+              flex-direction: column;
+              align-items: flex-start;
+              gap: 0.15rem;
+            }
+
+            .brand-title {
+              font-size: 0.95rem;
+              letter-spacing: -0.01em;
+            }
+
+            .brand-subline {
+              font-size: 0.72rem;
+              line-height: 1.1;
+              letter-spacing: 0.01em;
+              gap: 0.25rem;
+            }
+
+            .brand-sep-desktop {
+              display: none;
+            }
+              [data-dropdown-menu] {
+                width: 12rem !important;
+              }
+
+              [data-dropdown-menu] a {
+                padding-left: 0.5rem !important;
+                padding-right: 0.5rem !important;
+              }
           }
 
 
@@ -186,22 +253,20 @@ format:
   <div class="full-bleed">
   <nav class="bg-white/80 backdrop-blur-md fixed top-0 left-0 right-0 z-50 border-b border-slate-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center gap-1">
-      <a href="https://statsupai.org" class="flex items-center gap-1">
-        <img src="/img/logo.svg" alt="StatsUpAI Logo" class="h-9 w-auto">
-        <span class="text-lg font-bold text-slate-900 tracking-tight">StatsUpAI</span>
-      </a>
-      <span class="text-lg font-bold text-slate-900 tracking-tight">
-        <span class="text-slate-400 font-normal">|</span>
-      </span>
-      <a href="https://statsupai.org/community-news" class="text-lg font-bold text-slate-900 tracking-tight">
-        <span class="text-slate-400 font-normal">Community News</span>
-      </a>
-      <span class="text-lg font-bold text-slate-900 tracking-tight">
-        <span class="text-slate-400 font-normal">·</span>
-      </span>
-      <a href="#top" class="text-lg font-bold text-slate-900 tracking-tight">
-        <span class="text-slate-400 font-normal">SMI 2026</span>
-      </a>
+      <div class="flex items-center gap-2">
+        <a href="https://statsupai.org" class="flex items-center gap-1">
+          <img src="/img/logo.svg" alt="StatsUpAI Logo" class="h-9 w-auto">
+        </a>
+        <div class="brand-text text-lg text-slate-900 tracking-tight">
+          <a href="https://statsupai.org" class="brand-title">StatsUpAI</a>
+          <span class="brand-sep-desktop">|</span>
+          <div class="brand-subline text-slate-400">
+            <a href="https://statsupai.org/community-news" class="font-normal">Community News</a>
+            <span class="font-normal">·</span>
+            <a href="#top" class="font-normal">SMI 2026</a>
+          </div>
+        </div>
+      </div>
       <div class="ml-auto relative" data-dropdown>
         <button type="button" class="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white/80 px-3 py-1.5 text-sm font-semibold text-slate-700 shadow-sm hover:text-blue-700 hover:border-blue-200" aria-haspopup="true" aria-expanded="false" data-dropdown-button>
           Menu
@@ -515,19 +580,60 @@ format:
         button.setAttribute('aria-expanded', 'true');
       };
 
+      const closeMenu = () => {
+        if (closeTimer) clearTimeout(closeTimer);
+        menu.classList.add('opacity-0', 'pointer-events-none');
+        menu.classList.remove('opacity-100', 'pointer-events-auto');
+        button.setAttribute('aria-expanded', 'false');
+      };
+
       const scheduleClose = () => {
         if (closeTimer) clearTimeout(closeTimer);
         closeTimer = setTimeout(() => {
-          menu.classList.add('opacity-0', 'pointer-events-none');
-          menu.classList.remove('opacity-100', 'pointer-events-auto');
-          button.setAttribute('aria-expanded', 'false');
+          closeMenu();
         }, 250);
       };
 
-      dropdown.addEventListener('mouseenter', openMenu);
-      dropdown.addEventListener('mouseleave', scheduleClose);
-      dropdown.addEventListener('focusin', openMenu);
-      dropdown.addEventListener('focusout', scheduleClose);
+      const isMobileMenu = () => window.matchMedia('(max-width: 640px), (hover: none), (pointer: coarse)').matches;
+
+      const handleToggle = (event) => {
+        if (!isMobileMenu()) return;
+        event.preventDefault();
+        event.stopPropagation();
+        const expanded = button.getAttribute('aria-expanded') === 'true';
+        if (expanded) {
+          closeMenu();
+        } else {
+          openMenu();
+        }
+      };
+
+      const handleOutside = (event) => {
+        if (!isMobileMenu()) return;
+        if (!dropdown.contains(event.target)) {
+          closeMenu();
+        }
+      };
+
+      dropdown.addEventListener('mouseenter', () => {
+        if (!isMobileMenu()) openMenu();
+      });
+      dropdown.addEventListener('mouseleave', () => {
+        if (!isMobileMenu()) scheduleClose();
+      });
+      dropdown.addEventListener('focusin', () => {
+        if (!isMobileMenu()) openMenu();
+      });
+      dropdown.addEventListener('focusout', () => {
+        if (!isMobileMenu()) scheduleClose();
+      });
+      button.addEventListener('click', handleToggle);
+      document.addEventListener('click', handleOutside);
+      window.addEventListener('resize', () => {
+        if (!isMobileMenu()) {
+          closeMenu();
+        }
+      });
     })();
 
     (() => {
