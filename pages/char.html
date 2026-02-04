@@ -14,8 +14,9 @@ layout: null
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
   <style>
+    html { scroll-behavior: smooth; }
     /* Base typography + page background */
-    body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #F8FAFC; color: #0f2a29; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #F8FAFC; color: #0f2a29; padding-bottom: var(--asa-banner-height, 0px); }
     h1, h2, h3 { font-family: 'Merriweather', serif; }
 
     /* Tailwind default palettes (baseline reference, OKLCH) */
@@ -98,10 +99,13 @@ layout: null
     .bg-blue-50 { background-color: var(--blue-50) !important; }
     .bg-blue-400 { background-color: var(--blue-400) !important; }
     .bg-blue-400\/80 { background-color: color-mix(in srgb, var(--blue-400) 80%, transparent) !important; }
+    .bg-blue-400\/70 { background-color: color-mix(in srgb, var(--blue-400) 70%, transparent) !important; }
     .border-blue-100 { border-color: var(--blue-100) !important; }
     .border-blue-200 { border-color: var(--blue-200) !important; }
     .border-blue-200\/50 { border-color: color-mix(in srgb, var(--blue-200) 50%, transparent) !important; }
+    .border-blue-200\/70 { border-color: color-mix(in srgb, var(--blue-200) 70%, transparent) !important; }
     .border-blue-500 { border-color: var(--blue-500) !important; }
+    .hover\:bg-blue-400:hover { background-color: var(--blue-400) !important; }
     .hover\:text-blue-700:hover { color: var(--blue-700) !important; }
     .hover\:border-blue-200:hover { border-color: var(--blue-200) !important; }
     .from-blue-50 { --tw-gradient-from: var(--blue-50) !important; --tw-gradient-to: color-mix(in srgb, var(--blue-50) 0%, transparent) !important; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); }
@@ -143,6 +147,7 @@ layout: null
     .ring-slate-100 { --tw-ring-color: var(--slate-100) !important; }
     .ring-slate-100\/80 { --tw-ring-color: color-mix(in srgb, var(--slate-100) 80%, transparent) !important; }
     .border-slate-200 { border-color: var(--slate-200) !important; }
+    .border-slate-200\/70 { border-color: color-mix(in srgb, var(--slate-200) 70%, transparent) !important; }
     .border-slate-300 { border-color: var(--slate-300) !important; }
     .marker\:text-slate-300::marker { color: var(--slate-300) !important; }
     .from-slate-50 { --tw-gradient-from: var(--slate-50) !important; --tw-gradient-to: color-mix(in srgb, var(--slate-50) 0%, transparent) !important; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); }
@@ -152,6 +157,7 @@ layout: null
     /* Neutral surfaces */
     .bg-white { background-color: #ffffff !important; }
     .bg-white\/60 { background-color: color-mix(in srgb, #ffffff 60%, transparent) !important; }
+    .bg-white\/70 { background-color: color-mix(in srgb, #ffffff 70%, transparent) !important; }
     .bg-white\/80 { background-color: color-mix(in srgb, #ffffff 80%, transparent) !important; }
 
     /* Restore original hero gradient */
@@ -161,6 +167,79 @@ layout: null
     #toc-card {
         background: linear-gradient(to bottom right, #5b808b, #64939c) !important;
         border: var(--slate-600) !important;
+    }
+
+    .full-bleed {
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
+    }
+
+    .pdf-immersive {
+      background: linear-gradient(180deg, 
+        rgba(246, 248, 255, 0.868) 0%, 
+        rgba(210, 210, 217, 0.74) 18%, 
+        rgba(176, 183, 183, 0.474) 27%, 
+        rgba(134, 143, 144, 0.364) 45%, 
+        rgba(183, 180, 189, 0.233) 65%, 
+        rgba(255, 255, 255, 0.163) 100%);
+      transition: background 0.3s ease;
+    }
+
+    .back-to-top {
+      position: fixed;
+      right: 5px;
+      bottom: calc(var(--asa-banner-height, 0px) + var(--footer-meta-height, 0px) + 10px);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 6px;
+      padding: 10px 8px;
+      border-radius: 1em;
+      background: rgba(248, 250, 252, 0.35);
+      border: none;
+      box-shadow: none;
+      color: rgba(71, 85, 105, 0.75);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      z-index: 60;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(6px);
+      transition: opacity 0.2s ease, transform 0.2s ease, background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .back-to-top span {
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .back-to-top:hover {
+      transform: translateY(-2px);
+      background: rgba(248, 250, 252, 0.55);
+      color: rgba(51, 65, 85, 0.9);
+      box-shadow: 10px 10px 24px rgba(15, 23, 42, 0.12);
+    }
+
+    .back-to-top:active {
+      transform: translateY(0);
+      box-shadow: 0 6px 14px rgba(15, 23, 42, 0.12);
+    }
+
+    .back-to-top:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25), 0 14px 30px rgba(15, 23, 42, 0.14);
+    }
+
+    .back-to-top.is-visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
     }
   </style>
 </head>
@@ -207,7 +286,7 @@ layout: null
   </nav>
 
   <!-- Hero -->
-  <header class="relative overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 py-20 border-b border-slate-200">
+  <header class="relative overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 py-8">
     <div class="pointer-events-none absolute inset-0 flex items-center justify-center" aria-hidden="true">
       <img src="img/logo.svg" alt="" class="h-3/4 w-auto opacity-10">
     </div>
@@ -229,10 +308,12 @@ layout: null
 
 
   <!-- Main Content -->
-  <main class="max-w-5xl mx-auto px-4 py-2">
-    <!-- PDF (official charter) -->
-    <section id="charter-pdf" class="mb-14">
-      <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+  <main class="max-w-5xl mx-auto px-0 pt-0 pb-2">
+    <div class="full-bleed pdf-immersive">
+      <div class="max-w-5xl mx-auto px-4 pt-4 pb-6">
+        <!-- PDF (official charter) -->
+        <section id="charter-pdf" class="mb-20">
+          <div class="bg-white/90 backdrop-blur-sm rounded-2xl border border-slate-200/70 p-6 shadow-md">
         <div class="flex items-start justify-between gap-4 flex-wrap">
           <div>
             <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2">
@@ -246,8 +327,8 @@ layout: null
 
           <!-- Optional: download link -->
           <a href="../img/Meeting/ASA_Interest_Group_Charter.pdf"
-            class="inline-flex items-center gap-2 rounded-xl border bg-slate-200/30 px-4 py-2 text-slate-700 hover:text-blue-700 hover:border-blue-200">
-            <i class="ph ph-download-simple text-blue-300"></i>
+            class="inline-flex items-center gap-2 rounded-xl border border-blue-200/70 bg-blue-400/70 px-4 py-2 text-white font-semibold shadow-sm transition hover:bg-blue-400 hover:border-blue-500">
+            <i class="ph ph-download-simple text-white"></i>
             Download PDF
           </a>
         </div>
@@ -265,17 +346,23 @@ layout: null
           <i class="ph ph-info text-blue-300"></i>
           This PDF is the official, authoritative version of ASA. See summary below for quick reference.
         </p>
-      </div>
-    </section>
-    
-    <!-- TOC -->
-    <section id="toc" class="mb-14">
-      <div id="toc-card" class="rounded-xl border border-blue-500 p-6 shadow-sm text-white">
+          </div>
+        </section>
+        
+        <div class="flex items-center justify-center mb-14">
+          <span class="h-px w-16 bg-slate-700/40"></span>
+          <span class="mx-3 text-slate-600/70 text-xs uppercase tracking-[0.3em]">Summary</span>
+          <span class="h-px w-16 bg-slate-700/40"></span>
+        </div>
+
+        <!-- TOC -->
+        <section id="toc" class="mb-10">
+          <div id="toc-card" class="rounded-xl border border-blue-500 p-6 shadow-sm text-white">
         <h2 class="text-xl font-bold mb-4 flex items-center gap-2 uppercase">
           <i class="ph ph-map-trifold text-white/90"></i>
           Table of Contents
         </h2>
-        <div class="bg-white/15 backdrop-blur-sm rounded-xl p-6 border border-white/20"> 
+        <div class="bg-white/15 backdrop-blur-sm rounded-2xl p-6 border border-white/20"> 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-white/85 font-medium">
             <a class="hover:text-white flex items-center gap-2" href="#name-scope"><span class="text-[0.65rem] font-semibold text-white/60">1</span><i class="ph ph-identification-card text-white/90"></i>Name & Scope</a>
             <a class="hover:text-white flex items-center gap-2" href="#objectives"><span class="text-[0.65rem] font-semibold text-white/60">2</span><i class="ph ph-list-checks text-white/90"></i>Objectives</a>
@@ -288,8 +375,14 @@ layout: null
             <a class="hover:text-white flex items-center gap-2" href="#amendments"><span class="text-[0.65rem] font-semibold text-white/60">9</span><i class="ph ph-pencil-line text-white/90"></i>Amendments</a>
           </div>
         </div>
+          </div>
+        </section>
       </div>
-    </section>
+    </div>
+
+    
+
+    <div class="px-4">
 
     <!-- Name & Scope -->
     <section id="name-scope" class="mb-14">
@@ -640,7 +733,7 @@ layout: null
 </section>
 
     <!-- Amendments -->
-<section id="amendments" class="mb-14">
+<section id="amendments" class="mb-6">
   <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-2">
     <i class="ph ph-pencil-line text-blue-300"></i>
     AMENDMENTS
@@ -669,11 +762,21 @@ layout: null
     
 
     <!-- Footer note -->
-    <div class="border-t border-slate-200 pt-6 text-sm text-slate-500">
-      Last updated: January 2026
+    <div id="footer-meta" class="flex justify-between items-center text-sm text-slate-500 flex-nowrap">
+      <div class="inline-flex items-center whitespace-nowrap">
+        {% include pageview-counter.html %}
+      </div>
+      <div class="inline-flex items-center italic whitespace-nowrap -ml-12">
+        Last updated: January 2026
+      </div>
     </div>
-
+    </div>
   </main>
+
+  <a href="#top" class="back-to-top" aria-label="Back to top">
+    <i class="ph ph-arrow-line-up"></i>
+    <span>Top</span>
+  </a>
 
   <!-- Footer -->
   {% include asa_banner.html %}
@@ -699,19 +802,112 @@ layout: null
         button.setAttribute('aria-expanded', 'true');
       };
 
+      const closeMenu = () => {
+        if (closeTimer) clearTimeout(closeTimer);
+        menu.classList.add('opacity-0', 'pointer-events-none');
+        menu.classList.remove('opacity-100', 'pointer-events-auto');
+        button.setAttribute('aria-expanded', 'false');
+      };
+
       const scheduleClose = () => {
         if (closeTimer) clearTimeout(closeTimer);
         closeTimer = setTimeout(() => {
-          menu.classList.add('opacity-0', 'pointer-events-none');
-          menu.classList.remove('opacity-100', 'pointer-events-auto');
-          button.setAttribute('aria-expanded', 'false');
+          closeMenu();
         }, 250);
       };
 
-      dropdown.addEventListener('mouseenter', openMenu);
-      dropdown.addEventListener('mouseleave', scheduleClose);
-      dropdown.addEventListener('focusin', openMenu);
-      dropdown.addEventListener('focusout', scheduleClose);
+      const isMobileMenu = () => window.matchMedia('(max-width: 640px), (hover: none), (pointer: coarse)').matches;
+
+      const handleToggle = (event) => {
+        if (!isMobileMenu()) return;
+        event.preventDefault();
+        event.stopPropagation();
+        const expanded = button.getAttribute('aria-expanded') === 'true';
+        if (expanded) {
+          closeMenu();
+        } else {
+          openMenu();
+        }
+      };
+
+      const handleOutside = (event) => {
+        if (!isMobileMenu()) return;
+        if (!dropdown.contains(event.target)) {
+          closeMenu();
+        }
+      };
+
+      dropdown.addEventListener('mouseenter', () => {
+        if (!isMobileMenu()) openMenu();
+      });
+      dropdown.addEventListener('mouseleave', () => {
+        if (!isMobileMenu()) scheduleClose();
+      });
+      dropdown.addEventListener('focusin', () => {
+        if (!isMobileMenu()) openMenu();
+      });
+      dropdown.addEventListener('focusout', () => {
+        if (!isMobileMenu()) scheduleClose();
+      });
+      button.addEventListener('click', handleToggle);
+      document.addEventListener('click', handleOutside);
+      window.addEventListener('resize', () => {
+        if (!isMobileMenu()) {
+          closeMenu();
+        }
+      });
+    })();
+
+    (() => {
+      const banner = document.querySelector('.asa-banner');
+      if (!banner) return;
+
+      const setBannerHeight = () => {
+        const height = banner.offsetHeight || 0;
+        document.documentElement.style.setProperty('--asa-banner-height', `${height}px`);
+      };
+
+      setBannerHeight();
+      window.addEventListener('resize', setBannerHeight);
+
+      if (window.ResizeObserver) {
+        const observer = new ResizeObserver(setBannerHeight);
+        observer.observe(banner);
+      }
+    })();
+
+    (() => {
+      const footerMeta = document.querySelector('#footer-meta');
+      if (!footerMeta) return;
+
+      const setFooterMetaHeight = () => {
+        const height = footerMeta.offsetHeight || 0;
+        document.documentElement.style.setProperty('--footer-meta-height', `${height}px`);
+      };
+
+      setFooterMetaHeight();
+      window.addEventListener('resize', setFooterMetaHeight);
+
+      if (window.ResizeObserver) {
+        const observer = new ResizeObserver(setFooterMetaHeight);
+        observer.observe(footerMeta);
+      }
+    })();
+
+    (() => {
+      const button = document.querySelector('.back-to-top');
+      if (!button) return;
+
+      const toggleVisibility = () => {
+        if (window.scrollY > 240) {
+          button.classList.add('is-visible');
+        } else {
+          button.classList.remove('is-visible');
+        }
+      };
+
+      toggleVisibility();
+      window.addEventListener('scroll', toggleVisibility, { passive: true });
     })();
   </script>
 
