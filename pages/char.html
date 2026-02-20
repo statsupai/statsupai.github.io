@@ -177,13 +177,13 @@ layout: null
 
     .pdf-immersive {
       background: linear-gradient(180deg, 
-        rgba(246, 248, 255, 0.868) 0%, 
-        rgba(210, 210, 217, 0.74) 18%, 
-        rgba(176, 183, 183, 0.474) 27%, 
-        rgba(134, 143, 144, 0.364) 45%, 
-        rgba(183, 180, 189, 0.233) 65%, 
-        rgba(255, 255, 255, 0.163) 100%);
-      transition: background 0.3s ease;
+        rgba(246, 248, 255, 0.8) 0%, 
+        rgba(210, 210, 217, 0.3) 18%, 
+        rgba(176, 183, 183, 0.2) 27%, 
+        rgba(134, 143, 144, 0.1) 45%, 
+        rgba(183, 180, 189, 0.1) 65%, 
+        rgba(255, 255, 255, 0.1) 100%);
+      transition: background 0.5s ease;
     }
 
     .back-to-top {
@@ -314,23 +314,25 @@ layout: null
         <!-- PDF (official charter) -->
         <section id="charter-pdf" class="mb-20">
           <div class="bg-white/90 backdrop-blur-sm rounded-2xl border border-slate-200/70 p-6 shadow-md">
-        <div class="flex items-start justify-between gap-4 flex-wrap">
+        <div class="grid grid-cols-1 sm:grid-cols-[1fr_auto] items-start gap-4">
           <div>
             <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2">
               <i class="ph ph-file-pdf text-blue-300"></i>
               Official Charter PDF
             </h2>
-            <p class="text-slate-700 mt-1">
-              If the PDF preview does not load, use the download link above.
-            </p>
           </div>
 
           <!-- Optional: download link -->
           <a href="../img/Meeting/ASA_Interest_Group_Charter.pdf"
-            class="inline-flex items-center gap-2 rounded-xl border border-blue-200/70 bg-blue-400/70 px-4 py-2 text-white font-semibold shadow-sm transition hover:bg-blue-400 hover:border-blue-500">
+            class="inline-flex items-center gap-2 rounded-xl border border-blue-200/70 bg-blue-400/70 px-4 py-2 text-white font-semibold shadow-sm transition hover:bg-blue-400 hover:border-blue-500 w-fit justify-self-start sm:justify-self-end">
             <i class="ph ph-download-simple text-white"></i>
             Download PDF
           </a>
+
+          <p class="text-slate-700 mt-1 sm:col-start-1">
+            If the PDF preview does not load, use the download link above.
+          </p>
+          
         </div>
 
         <div class="mt-5 rounded-xl overflow-hidden border border-slate-200">
