@@ -1,0 +1,167 @@
+---
+title: "StatsUpAI Interest Group Announces 2026 Election Results and Executive Committee"
+image: figures/American-Statistical-Association.jpg
+author:
+  - name: "Zhiqiu Xia"
+  - affiliation: "Rutgers University"
+categories:
+  - Announcements
+date: "2026-02-21"
+---
+
+```{=html}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StatsUpAI Interest Group Announces 2026 Election Results and Executive Committee</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .committee-member {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+        .member-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+        .member-row {
+            display: flex;
+            align-items: center;
+        }
+        .member-row img {
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            margin-right: 15px;
+            border: 2px solid #2c3e50;
+            flex-shrink: 0;
+        }
+        .contact-info {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-left: 4px solid #2c3e50;
+            margin-top: 20px;
+        }
+        a {
+            color: #2980b9;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        /* Responsive Layout */
+        @media (max-width: 600px) {
+            .member-row {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .member-row img {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <p>We are pleased to announce the results of the <strong>2026 officer election and appointment</strong>, which saw strong participation across the community.</p>
+
+    <h2>Newly Elected and Appointed Members</h2>
+
+    <p>Newly elected and appointed members of the Executive Committee of StatsUpAI Interest Group are:</p>
+
+    <ul>
+        <li class="committee-member">
+            <div class="member-title">Chair (2026)</div>
+            <div class="member-row">
+                <img src="figures/PeterSong.png" alt="Peter Song">
+                <div><strong>Peter X. Song</strong>, Professor, Department of Biostatistics, University of Michigan</div>
+            </div>
+        </li>
+        <li class="committee-member">
+            <div class="member-title">Chair-Elect (2026)</div>
+            <div class="member-row">
+                <img src="figures/ASAIGBlog/images/zhu-hongtu-2023.jpg" alt="Hongtu Zhu">
+                <div><strong>Hongtu Zhu</strong>, Kenan Distinguished Professor, Department of Biostatistics, The University of North Carolina at Chapel Hill</div>
+            </div>
+        </li>
+        <li class="committee-member">
+            <div class="member-title">Program Chair (2026)</div>
+            <div class="member-row">
+                <img src="figures/ASAIGBlog/images/Wang_W.jpg" alt="Wenyi Wang">
+                <div><strong>Wenyi Wang</strong>, Professor, Department of Bioinformatics and Computational Biology and Department of Biostatistics, The University of Texas M. D. Anderson Cancer Center</div>
+            </div>
+        </li>
+        <li class="committee-member">
+            <div class="member-title">Program Chair-Elect (2026)</div>
+            <div class="member-row">
+                <img src="figures/Linjun_Zhang.jpg" alt="Linjun Zhang">
+                <div><strong>Linjun Zhang</strong>, Associate Professor, Department of Statistics, Rutgers University</div>
+            </div>
+        </li>
+        <li class="committee-member">
+            <div class="member-title">Outreach Chair (2026)</div>
+            <div class="member-row">
+                <img src="figures/JacksonLautier.jpg" alt="Jackson Lautier">
+                <div><strong>Jackson Lautier</strong>, Assistant Professor, Department of Mathematical Sciences, Bentley University</div>
+            </div>
+        </li>
+    </ul>
+
+    <h2>Continuing Members</h2>
+
+    <p>We also thank the following officers who continue to serve on the Executive Committee:</p>
+
+    <ul>
+        <li class="committee-member">
+            <div class="member-title">Past Chair (2026)</div>
+            <div class="member-row">
+                <img src="figures/ASAIGBlog/images/Zheng.Tian2019.jpg" alt="Tian Zheng">
+                <div><strong>Tian Zheng</strong>, Professor, Department of Statistics, Columbia University</div>
+            </div>
+        </li>
+        <li class="committee-member">
+            <div class="member-title">Past Program Chair (2026)</div>
+            <div class="member-row">
+                <img src="figures/ASAIGBlog/images/EdgarDobriban.jpeg" alt="Edgar Dobriban">
+                <div><strong>Edgar Dobriban</strong>, Associate Professor, Department of Statistics & Data Science, University of Pennsylvania</div>
+            </div>
+        </li>
+        <li class="committee-member">
+            <div class="member-title">Secretary (2026)</div>
+            <div class="member-row">
+                <img src="figures/ASAIGBlog/images/jiankang.jpg" alt="Jian Kang">
+                <div><strong>Jian Kang</strong>, Professor, Department of Biostatistics, University of Michigan</div>
+            </div>
+        </li>
+    </ul>
+
+    <h2>Looking Ahead</h2>
+
+    <p>The 2026 StatsUpAI EC will work closely with the broader StatsUpAI community to continue expanding programming, collaborations, and outreach in the coming year.</p>
+
+    <p>We thank all members who participated in the election and contributed feedback. The strong engagement reflects the continued growth and momentum of the StatsUpAI community, and we look forward to an exciting and productive 2026.</p>
+
+</body>
+</html>
+
+
+```
