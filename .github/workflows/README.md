@@ -24,7 +24,7 @@ Auto-assigns the maintainer to new pull requests so PRs reliably land in the mai
 
 ## Configuration
 
-1. Set the maintainer username in the workflow (replace `YOUR_GH_USERNAME`).
+1. In `.github/workflows/auto-assign-maintainer.yml`, set the maintainer’s GitHub username in the assignee/assignees configuration so new PRs are assigned to the correct maintainer.
 2. Ensure workflow permissions allow the action to write assignees:
    - Workflow uses minimal scope: `permissions: issues: write`
    - (PRs are treated as issues for assignment purposes.)
