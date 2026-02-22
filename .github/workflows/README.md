@@ -11,7 +11,7 @@ Auto-assigns the maintainer to new pull requests so PRs reliably land in the mai
 - `pull_request_target`:
   - `opened`
   - `ready_for_review`
-  - (optional) `reopened` — usually avoided to reduce spam/noise
+  - `reopened` — enabled so reopened PRs are (re)assigned to the maintainer
 
 **What it does**
 - Uses the GitHub API to add the maintainer as an **assignee** on the PR.
