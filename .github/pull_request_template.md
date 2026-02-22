@@ -1,2 +1,2 @@
-<!-- keep this line for maintainer notification -->
-cc @yulinl2
+<!-- DO NOT REMOVE: Maintainer notification -->
+@yulinl2
