@@ -25,9 +25,21 @@ jobs:
             const authorLogin = pr.user && pr.user.login ? pr.user.login.toLowerCase() : null;
             const meLogin = me.toLowerCase();
             if (authorLogin && authorLogin === meLogin) return;
-            await github.rest.pulls.requestReviewers({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              pull_number: pr.number,
-              reviewers: [me],
-            });
+            try {
+              await github.rest.pulls.requestReviewers({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                pull_number: pr.number,
+                reviewers: [me],
+              });
+            } catch (error) {
+              // Known 4xx cases (e.g. non-collaborator, already requested) shouldn't fail the workflow
+              if (error && error.status >= 400 && error.status < 500) {
+                core.warning(
+                  `Skipping auto reviewer request for "${me}": ${error.message} (status ${error.status}).`
+                );
+                return;
+              }
+              // Re-throw unexpected errors so the job still fails appropriately
+              throw error;
+            }
