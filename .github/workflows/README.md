@@ -52,8 +52,9 @@ Tradeoff:
 - Any external PR (including from forks) can trigger the assignment action.
   - Worst-case impact (under current design) is mostly notification/workflow spam and metadata churn.
 
+Note: Draft pull requests are already skipped until they are marked `ready_for_review` by the existing workflow triggers.
+
 Optional hardening knobs (if needed later):
-- Skip drafts until `ready_for_review`
 - Skip if already assigned
 - Add `concurrency` + short timeouts
 - Gate to trusted contributors using `author_association` (reduces drive-by spam but may block first-time contributors)
