@@ -24,6 +24,7 @@
 
 .ev-body{
   margin: 0;
+  padding-bottom: 80px;
   background: var(--ev-bg);
   color: var(--ev-text);
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;

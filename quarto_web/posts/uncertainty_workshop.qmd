@@ -1,0 +1,363 @@
+---
+title: "Workshop: Statistical Foundations of AI"
+image: figures/AI_workshop.jpg
+author:
+  - name: "Shan Gao"
+categories:
+  - Events
+date: "2026-02-02"
+title-block:
+  author: false
+format:
+  html:
+    page-layout: full
+    toc: false
+---
+
+```{=html}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>2nd Workshop: Uncertainty in AI | IVADO</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Fraunces:wght@400;600;700&display=swap');
+
+    :root {
+      --bg: #f4f1ec;
+      --ink: #0f1418;
+      --muted: #525a61;
+      --accent: #0b3552;
+      --accent-2: #d65c2d;
+      --card: #ffffff;
+      --line: #e6e0d9;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(900px 400px at 5% 5%, #e8eff6 0%, transparent 60%),
+        radial-gradient(700px 500px at 95% 15%, #f3e6d8 0%, transparent 55%),
+        linear-gradient(180deg, #f4f1ec 0%, #f7f2ec 40%, #f1ece6 100%);
+      font-family: "Space Grotesk", "Trebuchet MS", sans-serif;
+    }
+
+    .wrap {
+      max-width: 1240px;
+      margin: 48px auto 70px;
+      padding: 0 20px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .hero-text {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+    }
+    .hero-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .kicker {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: #e8edf5;
+      color: var(--accent);
+      font-size: 0.78rem;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    h1 {
+      font-family: "Fraunces", "Georgia", serif;
+      font-size: 2.6rem;
+      margin: 16px 0 12px;
+      line-height: 1.1;
+    }
+
+    .lead {
+      font-size: 1.06rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin: 0 0 18px;
+    }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 12px 18px;
+      margin-top: 10px;
+    }
+
+    .meta-item {
+      border-top: 1px dashed var(--line);
+      padding-top: 10px;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .meta-item strong { color: var(--ink); }
+
+    .ai-thumb {
+      position: relative;
+      width: 160px;
+      height: 120px;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: url("figures/ai1.jpg") center/cover no-repeat;
+      box-shadow: 0 14px 28px rgba(0,0,0,0.12);
+      flex: 0 0 auto;
+    }
+    .ai-thumb::after {
+      content: "AI";
+      position: absolute;
+      right: 10px;
+      bottom: 8px;
+      padding: 4px 8px;
+      border-radius: 8px;
+      background: rgba(11, 28, 46, 0.78);
+      color: #fff;
+      font-size: 0.75rem;
+      letter-spacing: 0.5px;
+    }
+
+    .section {
+      margin-top: 34px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 26px;
+      box-shadow: 0 14px 34px rgba(0,0,0,0.05);
+    }
+
+    .section h2 {
+      font-family: "Fraunces", "Georgia", serif;
+      margin: 0 0 12px;
+      font-size: 1.6rem;
+      color: var(--accent);
+    }
+
+    .section p {
+      color: var(--muted);
+      line-height: 1.7;
+      margin: 0 0 12px;
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .pill {
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: #f1f4f8;
+      border: 1px solid #e1e7ef;
+      font-size: 0.92rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 16px;
+    }
+
+    .card-mini {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 14px 16px;
+      background: #faf8f5;
+      display: grid;
+      grid-template-columns: 64px 1fr;
+      gap: 12px;
+      align-items: center;
+    }
+    .card-mini strong { color: var(--ink); }
+    .avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 14px;
+      object-fit: cover;
+      border: 1px solid var(--line);
+    }
+
+    .speakers {
+      columns: 2;
+      column-gap: 30px;
+      margin: 12px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .speakers li {
+      break-inside: avoid;
+      padding: 8px 0;
+      border-bottom: 1px dashed var(--line);
+      font-size: 0.98rem;
+    }
+    .speakers span {
+      color: var(--muted);
+    }
+
+    .cta {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 10px 16px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      border: 1px solid var(--accent);
+      color: #fff;
+      background: var(--accent);
+    }
+    .btn.secondary {
+      background: transparent;
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    footer {
+      margin-top: 26px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 900px) {
+      .grid-2 { grid-template-columns: 1fr; }
+      .speakers { columns: 1; }
+      h1 { font-size: 2.1rem; }
+      .hero-top { flex-direction: column; }
+      .ai-thumb { width: 100%; height: 160px; }
+      .card-mini { grid-template-columns: 56px 1fr; }
+      .avatar { width: 56px; height: 56px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <div class="hero-text">
+        <div class="hero-top">
+          <div>
+            <div class="kicker">IVADO Workshop</div>
+            <h1>2nd Workshop: Uncertainty in AI</h1>
+          </div>
+          <div class="ai-thumb" role="img" aria-label="AI visual"></div>
+        </div>
+        <p class="lead">
+          A four-day gathering focused on the statistical foundations of uncertainty in modern AI,
+          from predictive reliability and generative AI hallucinations to theory-driven advances in
+          deep learning and transfer learning.
+        </p>
+        <div class="meta-grid">
+          <div class="meta-item"><strong>Date</strong><br />June 8–11, 2026</div>
+          <div class="meta-item"><strong>Time</strong><br />9:30 AM–5:00 PM (America/Toronto)</div>
+          <div class="meta-item"><strong>Location</strong><br />IVADO, 950 Av. Beaumont, Suite #201, Montréal</div>
+          <div class="meta-item"><strong>Fee</strong><br />$70–$280 (before tax)</div>
+        </div>
+        <div class="cta">
+          <a class="btn" href="https://ivado.ca/en/events/2nd-workshop-uncertainty-in-ai/" target="_blank" rel="noopener">Official Event Page</a>
+          <a class="btn secondary" href="https://ivado.ca/en/thematic-programs/statistical-foundations-of-ai/" target="_blank" rel="noopener">Thematic Program</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>What to expect</h2>
+      <p>
+        As AI systems move into high-stakes domains, understanding uncertainty is essential for
+        reliability and trust. This workshop highlights principled statistical approaches that
+        clarify how and why AI systems can fail—and how to quantify those risks rigorously.
+      </p>
+      <div class="pill-list">
+        <div class="pill">Predictive uncertainty</div>
+        <div class="pill">Generative AI hallucinations</div>
+        <div class="pill">Bayesian deep learning</div>
+        <div class="pill">Transformers &amp; interacting particle systems</div>
+        <div class="pill">Transfer learning &amp; optimal transport</div>
+        <div class="pill">Theory of chain-of-thought reasoning</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Organizing committee</h2>
+      <div class="grid-2">
+        <div class="card-mini">
+          <img class="avatar" src="figures/Eric Kolaczyk.jpg" alt="Eric Kolaczyk" />
+          <div><strong>Eric Kolaczyk</strong><br />McGill University</div>
+        </div>
+        <div class="card-mini">
+          <img class="avatar" src="figures/Qiang Sun.jpg" alt="Qiang Sun" />
+          <div><strong>Qiang Sun</strong><br />Toronto University</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Confirmed speakers</h2>
+      <ul class="speakers">
+        <li>Ben Adcock <span>(SFU)</span></li>
+        <li>Chris Maddison <span>(University of Toronto)</span></li>
+        <li>Claire Donnat <span>(University of Chicago)</span></li>
+        <li>Eric Moulines <span>(Ecole Polytechnique, MBZUAI)</span></li>
+        <li>Geoff Pleiss <span>(UBC)</span></li>
+        <li>Kostas Spiliopoulios <span>(Boston University)</span></li>
+        <li>Kun Zhang <span>(CMU, MBZUAI)</span></li>
+        <li>Maxim Panov <span>(MBZUAI)</span></li>
+        <li>Mehdi Dagdoug <span>(McGill University)</span></li>
+        <li>Mladen Kolar <span>(USC)</span></li>
+        <li>Murat A. Erdogdu <span>(University of Toronto)</span></li>
+        <li>Phillipe Rigollet <span>(MIT)</span></li>
+        <li>Qiang Liu <span>(UT Austin)</span></li>
+        <li>Rachel Morris <span>(Concordia University)</span></li>
+        <li>Tianxi Cai <span>(Harvard)</span></li>
+        <li>Xin Bing <span>(University of Toronto)</span></li>
+        <li>Xinwei Shen <span>(UW Seattle)</span></li>
+        <li>Zhenyu Liao <span>(HUST)</span></li>
+        <li>Fanny Yang <span>(ETH)</span></li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Registration</h2>
+      <p>
+        Registration opens February 2, 2026. Fees are listed at $70–$280 per participant category.
+        The workshop is part of IVADO’s <em>Statistical Foundations of AI</em> thematic semester.
+      </p>
+      <div class="cta">
+        <a class="btn" href="https://ivado.ca/en/events/2nd-workshop-uncertainty-in-ai/" target="_blank" rel="noopener">Register / Learn More</a>
+      </div>
+    </section>
+
+    <footer>
+      For the latest schedule and updates, please refer to IVADO’s official website.
+    </footer>
+  </div>
+</body>
+</html>
+
+```
+

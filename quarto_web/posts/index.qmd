@@ -1,5 +1,5 @@
 ---
-pagetitle: "StatsUpAI · Community News"
+pagetitle: "Community News | StatsUpAI"
 format: 
   html:
     page-layout: article
