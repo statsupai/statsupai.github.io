@@ -21,6 +21,10 @@ jobs:
             // Skip drafts (they'll get handled on ready_for_review)
             if (pr.draft) return;
 
+            // Skip if the PR author is the same as `me` (GitHub doesn't allow self-review requests)
+            const authorLogin = pr.user && pr.user.login ? pr.user.login.toLowerCase() : null;
+            const meLogin = me.toLowerCase();
+            if (authorLogin && authorLogin === meLogin) return;
             await github.rest.pulls.requestReviewers({
               owner: context.repo.owner,
               repo: context.repo.repo,
